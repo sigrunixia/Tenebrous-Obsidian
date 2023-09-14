@@ -1,5 +1,7 @@
 # vscode
 .vscode
+.idea
+.obsidian
 
 # npm
 node_modules
