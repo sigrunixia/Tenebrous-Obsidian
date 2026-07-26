@@ -2,6 +2,7 @@
 .vscode
 .idea
 .obsidian
+.claude
 
 # npm
 node_modules
