@@ -183,24 +183,26 @@ $error-rgb:   134, 32, 64;
 	--table-row-alt-background:      var(--bg_dark2);
 	--table-row-background-hover:    var(--bg_highlight);
 
+	// See _dark.scss for why this is spread out instead of three roles
+	// apiece landing on green0/green.
 	--code-normal:      var(--fg);
 	--code-background:  var(--bg_dark2);
 	--code-comment:     var(--fg_dark);
 	--code-function:    var(--cyan);
 	--code-important:   var(--red1);
-	--code-keyword:     var(--green0);
-	--code-operator:    var(--cyan0);
+	--code-keyword:     var(--magenta);
+	--code-operator:    var(--comment);
 	--code-property:    var(--fg);
-	--code-punctuation: var(--green0);
+	--code-punctuation: var(--fg_dark);
 	--code-string:      var(--green);
-	--code-tag:         var(--green);
-	--code-value:       var(--green);
+	--code-tag:         var(--red);
+	--code-value:       var(--red1);
 	--code-number:      var(--orange);
 	--code-atom:        var(--red);
 	--code-builtin:     var(--teal);
 	--code-string-2:    var(--green0);
 	--code-def:         var(--cyan);
-	--code-variable-2:  var(--magenta);
+	--code-variable-2:  var(--purple);
 	--code-meta:        var(--comment);
 	--code-url:         var(--cyan0);
 
