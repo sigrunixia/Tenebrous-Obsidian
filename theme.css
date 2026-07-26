@@ -156,8 +156,8 @@ svg * {
   --tag-weight: inherit;
   --link-color: var(--cyan0);
   --link-color-hover: var(--cyan);
-  --link-external-color: var(--comment);
-  --link-external-color-hover: var(--cyan);
+  --link-external-color: var(--fg_dark);
+  --link-external-color-hover: var(--fg);
   --checkbox-radius: 4px;
   --checkbox-color: var(--comment);
   --checkbox-color-hover: var(--comment);
@@ -365,8 +365,8 @@ svg * {
   --tag-weight: inherit;
   --link-color: var(--cyan0);
   --link-color-hover: var(--cyan);
-  --link-external-color: var(--comment);
-  --link-external-color-hover: var(--cyan);
+  --link-external-color: var(--fg_dark);
+  --link-external-color-hover: var(--fg);
   --checkbox-radius: 4px;
   --checkbox-color: var(--comment);
   --checkbox-color-hover: var(--cyan0);
