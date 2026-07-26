@@ -36,3 +36,9 @@ svg * {
 .status-bar {
 	border-radius: 0;
 }
+
+// The thumb fill only contrasts well against the ON/accent track; ring it so
+// the edge stays visible against the OFF track too (background-modifier-border-hover).
+.checkbox-container::after {
+	box-shadow: 0 0 0 1px var(--comment), rgba(0, 0, 0, 0.15) 0 1px 2px;
+}
