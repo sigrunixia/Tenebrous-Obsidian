@@ -1,8 +1,7 @@
 {
-   "name": "My Theme",
-   "version": "3.301",
-   "minAppVersion": "1.1.8",
-   "author": "yourname",
-   "fundingUrl": "https://ko-fi.com/yourname",
-   "authorUrl": "https://yoururl"
+	"name": "Tenebrous",
+	"version": "1.0.0",
+	"minAppVersion": "1.0.0",
+	"author": "Sigrunixia",
+	"authorUrl": "https://github.com/sigrunixia"
 }
