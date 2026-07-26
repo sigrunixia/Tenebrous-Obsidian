@@ -1,0 +1,26 @@
+// Live preview / source editor (CodeMirror tokens)
+.cm-s-obsidian {
+	.cm-number     { color: var(--code-number); }
+	.cm-atom       { color: var(--code-atom); }
+	.cm-builtin    { color: var(--code-builtin); }
+	.cm-string-2   { color: var(--code-string-2); }
+	.cm-def        { color: var(--code-def); }
+	.cm-variable-2 { color: var(--code-variable-2); }
+	.cm-meta       { color: var(--code-meta); }
+	.cm-url        { color: var(--code-url); }
+}
+
+// Reading mode (Prism tokens) -- bring in line with live preview colors
+.token {
+	&.number                  { color: var(--code-number); }
+	&.builtin                 { color: var(--code-builtin); }
+	&.class-name              { color: var(--code-builtin); }
+	&.parameter               { color: var(--code-variable-2); }
+	&.selector                { color: var(--code-tag); }
+	&.hexcode,
+	&.color                   { color: var(--code-value); }
+	&.template-string         { color: var(--code-string-2); }
+	&.interpolation           { color: var(--code-string-2); }
+	&.interpolation-punctuation { color: var(--code-punctuation); }
+	&.control-flow            { color: var(--code-keyword); }
+}

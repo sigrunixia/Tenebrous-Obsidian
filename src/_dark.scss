@@ -1,0 +1,251 @@
+// Dark palette
+$bg-dark2:        #14161a;
+$bg:              #1b1d23;
+$bg-highlight:    #25272e;
+$bg-highlight-dk: #20232a;
+$fg:              #e4e7ea;
+$fg-dark:         #b8bfc9;
+$comment:         #7da0b3;
+$blue0:           #c5d0e6;
+$cyan:            #84bfcf;
+$cyan0:           #6f9fad;
+$magenta:         #d2a5c4;
+$orange:          #f2a070;
+$yellow:          #dcb583;
+$green:           #7bbfb0;
+$green0:          #6a998f;
+$teal:            #5db3be;
+$red:             #d1889a;
+$red1:            #c06075;
+$unknown:         #ffffff;
+
+// Accent
+$accent-h: 210;
+$accent-s: 40%;
+$accent-l: 50%;
+
+// Success/error RGB values (used by Obsidian for background-modifier-*-rgb)
+$success-rgb: 123, 191, 176;
+$error-rgb:   192, 96, 117;
+
+.theme-dark {
+	--accent-h: #{$accent-h};
+	--accent-s: #{$accent-s};
+	--accent-l: #{$accent-l};
+
+	--bg_dark2:          #{$bg-dark2};
+	--bg:                #{$bg};
+	--bg_highlight:      #{$bg-highlight};
+	--bg_highlight_dark: #{$bg-highlight-dk};
+
+	--fg:      #{$fg};
+	--fg_dark: #{$fg-dark};
+
+	--comment: #{$comment};
+	--blue0:   #{$blue0};
+	--cyan:    #{$cyan};
+	--cyan0:   #{$cyan0};
+	--magenta: #{$magenta};
+	--orange:  #{$orange};
+	--yellow:  #{$yellow};
+	--green:   #{$green};
+	--green0:  #{$green0};
+	--teal:    #{$teal};
+	--red:     #{$red};
+	--red1:    #{$red1};
+	--unknown: #{$unknown};
+
+	--color_red_rgb:    var(--red);
+	--color_red:        var(--red);
+	--color_purple_rgb: var(--magenta);
+	--color_purple:     var(--magenta);
+	--color_green_rgb:  var(--green);
+	--color_green:      var(--green);
+	--color_cyan_rgb:   var(--cyan);
+	--color_cyan:       var(--cyan);
+	--color_blue_rgb:   var(--blue0);
+	--color_blue:       var(--blue0);
+	--color_yellow_rgb: var(--yellow);
+	--color_yellow:     var(--yellow);
+	--color_orange_rgb: var(--orange);
+	--color_orange:     var(--orange);
+	--color_pink_rgb:   var(--magenta);
+	--color_pink:       var(--magenta);
+
+	--background-primary:                     var(--bg);
+	--background-primary-alt:                 var(--bg);
+	--background-secondary:                   var(--bg_dark2);
+	--background-secondary-alt:               var(--bg_dark2);
+	--background-modifier-border:             var(--bg_highlight);
+	--background-modifier-border-focus:       var(--bg_highlight);
+	--background-modifier-border-hover:       var(--bg_highlight);
+	--background-modifier-form-field:         var(--bg_dark2);
+	--background-modifier-form-field-highlighted: var(--bg_dark2); /* legacy */
+	--background-modifier-form-field-hover:   var(--bg_dark2);
+	--background-modifier-box-shadow:         rgba(0, 0, 0, 0.3);
+	--background-modifier-success:            var(--green);
+	--background-modifier-success-rgb:        #{$success-rgb};
+	--background-modifier-error:              var(--red1);
+	--background-modifier-error-hover:        var(--red);
+	--background-modifier-error-rgb:          #{$error-rgb};
+	--background-modifier-warning:            var(--orange);
+	--background-modifier-warning-hover:      var(--orange);
+	--background-modifier-cover:              var(--bg_dark2);
+	--background-modifier-hover:              var(--bg_highlight);
+	--background-modifier-message:            var(--bg_highlight_dark);
+	--background-modifier-active-hover:       var(--bg);
+
+	--text-normal:       var(--fg);
+	--text-faint:        var(--comment);
+	--text-muted:        var(--fg_dark);
+	--text-error:        var(--red);
+	--text-error-hover:  var(--fg); /* legacy */
+	--text-accent:       var(--magenta);
+	--text-accent-hover: var(--cyan);
+	--text-selection:    color-mix(in oklch, var(--cyan) 25%, transparent);
+	--text-on-accent:    var(--bg);
+	--text-highlight-bg: color-mix(in oklch, var(--yellow) 25%, transparent);
+	--bold-color:        var(--blue0);
+	--italic-color:      var(--cyan);
+
+	--interactive-normal:        var(--bg_dark2);
+	--interactive-hover:         var(--bg);
+	--interactive-success:       var(--green); /* legacy */
+	--interactive-accent:        hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+	--interactive-accent-hover:  var(--fg);
+
+	--scrollbar-bg:              var(--bg_dark2);
+	--scrollbar-thumb-bg:        var(--bg_highlight);
+	--scrollbar-active-thumb-bg: var(--comment);
+	--scrollbar-width:           8px;
+
+	--h1-color: var(--cyan);
+	--h2-color: var(--blue0);
+	--h3-color: var(--teal);
+	--h4-color: var(--magenta);
+	--h5-color: var(--green);
+	--h6-color: var(--yellow);
+
+	--border-width: 2px;
+
+	--tag-color:              var(--magenta);
+	--tag-background:         color-mix(in oklch, var(--magenta) 20%, transparent);
+	--tag-color-hover:        var(--cyan);
+	--tag-background-hover:   color-mix(in oklch, var(--cyan) 20%, transparent);
+	--tag-border-color:       color-mix(in oklch, var(--magenta) 40%, transparent);
+	--tag-border-color-hover: color-mix(in oklch, var(--cyan) 40%, transparent);
+	--tag-border-width:       1px;
+	--tag-corner-shape:       round;
+	--tag-decoration:         none;
+	--tag-decoration-hover:   none;
+	--tag-padding-x:          0.65em;
+	--tag-padding-y:          0.25em;
+	--tag-radius:             2em;
+	--tag-size:               var(--font-smaller);
+	--tag-weight:             inherit;
+
+	--link-color:               var(--cyan0);
+	--link-color-hover:         var(--cyan);
+	--link-external-color:      var(--comment);
+	--link-external-color-hover: var(--cyan);
+
+	--checkbox-radius:            4px;
+	--checkbox-color:             var(--comment);
+	--checkbox-color-hover:       var(--comment);
+	--checkbox-marker-color:      var(--cyan0);
+	--checkbox-border-color:      var(--comment);
+	--checkbox-border-color-hover: var(--comment);
+	--checklist-done-color:       var(--cyan);
+
+	--table-header-background:       var(--bg);
+	--table-header-background-hover: var(--bg_dark2);
+	--table-row-alt-background:      var(--bg_dark2);
+	--table-row-background-hover:    var(--bg_dark2);
+
+	--code-normal:      var(--fg);
+	--code-background:  var(--bg_highlight_dark);
+	--code-comment:     var(--fg_dark);
+	--code-function:    var(--cyan);
+	--code-important:   var(--red1);
+	--code-keyword:     var(--green0);
+	--code-operator:    var(--cyan0);
+	--code-property:    var(--fg);
+	--code-punctuation: var(--green0);
+	--code-string:      var(--green);
+	--code-tag:         var(--green);
+	--code-value:       var(--green);
+	--code-number:      var(--orange);
+	--code-atom:        var(--red);
+	--code-builtin:     var(--teal);
+	--code-string-2:    var(--green0);
+	--code-def:         var(--cyan);
+	--code-variable-2:  var(--magenta);
+	--code-meta:        var(--comment);
+	--code-url:         var(--cyan0);
+
+	--flashing-background: var(--bg_dark2); /* legacy */
+	--mermaid-note:        var(--blue0);    /* legacy */
+	--mermaid-actor:       var(--fg_dark);  /* legacy */
+	--mermaid-loopline:    var(--blue0);    /* legacy */
+
+	--blockquote-background-color: var(--bg_dark2);
+	--callout-default:   var(--blue0);
+	--callout-info:      var(--blue0);
+	--callout-summary:   var(--cyan);
+	--callout-tip:       var(--cyan);
+	--callout-todo:      var(--cyan);
+	--callout-bug:       var(--red);
+	--callout-error:     var(--red1);
+	--callout-fail:      var(--red1);
+	--callout-example:   var(--magenta);
+	--callout-important: var(--green);
+	--callout-success:   var(--teal);
+	--callout-question:  var(--yellow);
+	--callout-warning:   var(--orange);
+	--callout-quote:     var(--fg_dark);
+
+	--icon-color-hover:   var(--blue0);
+	--icon-color-focused: var(--teal);
+	--icon-color-active:  var(--green);
+
+	--nav-item-color-hover:       var(--unknown);
+	--nav-item-background-hover:  var(--bg_highlight);
+	--nav-item-color-active:      var(--green);
+	--nav-item-background-active: var(--bg_highlight);
+	--nav-file-tag:               var(--yellow); /* legacy */
+	--nav-indentation-guide-color: var(--bg_highlight);
+
+	--indentation-guide-color:        var(--comment);
+	--indentation-guide-color-active: var(--comment);
+
+	--graph-line:            var(--comment);
+	--graph-node:            var(--fg);
+	--graph-node-tag:        var(--orange);
+	--graph-node-attachment: var(--blue0);
+
+	--tab-text-color:                    var(--fg_dark);
+	--tab-text-color-active:             var(--fg);
+	--tab-text-color-focused:            var(--fg);
+	--tab-text-color-focused-active:     var(--green);
+	--tab-text-color-focused-active-current: var(--unknown);
+	--tab-text-color-focused-highlighted: var(--magenta);
+
+	--modal-border-color:    var(--bg_highlight);
+	--prompt-border-color:   var(--bg_highlight);
+	--slider-track-background: var(--bg_highlight);
+
+	--embed-background:    var(--bg_highlight);
+	--embed-padding:       1.5rem 1.5rem 0.5rem;
+	--embed-border-start:  2px solid var(--bg_highlight);
+
+	--canvas-background: var(--bg_dark2);
+	--canvas-color:      var(--bg_highlight_dark);
+	--canvas-color-1:    var(--red);
+	--canvas-color-2:    var(--orange);
+	--canvas-color-3:    var(--yellow);
+	--canvas-color-4:    var(--green);
+	--canvas-color-5:    var(--cyan);
+	--canvas-color-6:    var(--magenta);
+
+	--toggle-thumb-color: var(--bg);
+}
