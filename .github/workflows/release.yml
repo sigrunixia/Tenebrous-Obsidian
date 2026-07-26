@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install dart-sass
+        env:
+          SASS_VERSION: "1.102.0"
+        run: |
+          curl -fsSL "https://github.com/sass/dart-sass/releases/download/${SASS_VERSION}/dart-sass-${SASS_VERSION}-linux-x64.tar.gz" -o dart-sass.tar.gz
+          tar -xzf dart-sass.tar.gz
+          echo "$PWD/dart-sass" >> "$GITHUB_PATH"
+
+      - name: Build theme.css
+        run: ./build.sh
+
+      - name: Verify theme.css is up to date
+        run: |
+          if ! git diff --exit-code theme.css; then
+            echo "::error::theme.css is out of date -- run ./build.sh and commit the result."
+            exit 1
+          fi
+
+      - name: Verify tag matches manifest.json version
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          MANIFEST_VERSION="$(grep -oE '"version": *"[0-9][0-9.]*"' manifest.json | grep -oE '[0-9][0-9.]*')"
+          if [ "$TAG_VERSION" != "$MANIFEST_VERSION" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match manifest.json version ${MANIFEST_VERSION}"
+            exit 1
+          fi
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" theme.css manifest.json \
+            --title "${GITHUB_REF_NAME}" \
+            --generate-notes
