@@ -22,3 +22,11 @@
 @function base-step($bg, $fg, $percent) {
 	@return to-rgb(color.mix($fg, $bg, $percent * 1%));
 }
+
+// A more saturated variant of $color, for the small set of "lit subject"
+// elements (headings, links, interactive-accent) that should pop against the
+// otherwise flat, dark, desaturated rest of the UI -- tenebrism, not a
+// uniform saturation bump across the whole palette.
+@function pop($color, $amount: 25%) {
+	@return to-rgb(color.scale($color, $saturation: $amount));
+}

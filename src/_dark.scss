@@ -2,10 +2,10 @@
 @use "functions" as *;
 
 // Dark palette
-$bg-dark2:        #14161a;
-$bg:              #1b1d23;
-$bg-highlight:    #25272e;
-$bg-highlight-dk: #20232a;
+$bg-dark2:        #0c0d11;
+$bg:              #14161b;
+$bg-highlight:    #1c1e25;
+$bg-highlight-dk: #171920;
 $fg:              #e4e7ea;
 $fg-dark:         #b8bfc9;
 $comment:         #7da0b3;
@@ -23,9 +23,25 @@ $red:             #d1889a;
 $red1:            #c06075;
 $unknown:         #ffffff;
 
+// Vivid variants for the small set of "lit subject" elements that should pop
+// (headings, links, interactive-accent) -- see pop() in _functions.scss.
+// The base palette above stays as-is for tags/code/callouts/canvas/etc.
+//
+// cyan/teal/green start only 6-26deg apart in hue -- a flat saturation bump
+// made them converge further, so h1/h3/h5 also get a hue nudge apart here.
+// blue0 is very light (L 84%) -- saturation alone still reads as pale grey,
+// so h2 gets a lightness pull-down too.
+$cyan-pop:    to-rgb(color.scale(color.adjust($cyan, $hue: 10deg), $saturation: 45%));
+$blue0-pop:   to-rgb(color.scale($blue0, $saturation: 60%, $lightness: -18%));
+$teal-pop:    to-rgb(color.scale(color.adjust($teal, $hue: -6deg), $saturation: 55%, $lightness: -8%));
+$magenta-pop: pop($magenta);
+$green-pop:   to-rgb(color.scale(color.adjust($green, $hue: -12deg), $saturation: 45%));
+$yellow-pop:  pop($yellow);
+$cyan0-pop:   pop($cyan0);
+
 // Accent
 $accent-h: 210;
-$accent-s: 40%;
+$accent-s: 55%;
 $accent-l: 50%;
 
 // Success/error RGB values (used by Obsidian for background-modifier-*-rgb)
@@ -139,12 +155,12 @@ $error-rgb:   192, 96, 117;
 	--scrollbar-active-thumb-bg: var(--comment);
 	--scrollbar-width:           8px;
 
-	--h1-color: var(--cyan);
-	--h2-color: var(--blue0);
-	--h3-color: var(--teal);
-	--h4-color: var(--magenta);
-	--h5-color: var(--green);
-	--h6-color: var(--yellow);
+	--h1-color: #{$cyan-pop};
+	--h2-color: #{$blue0-pop};
+	--h3-color: #{$teal-pop};
+	--h4-color: #{$magenta-pop};
+	--h5-color: #{$green-pop};
+	--h6-color: #{$yellow-pop};
 
 	--border-width: 2px;
 
@@ -164,8 +180,8 @@ $error-rgb:   192, 96, 117;
 	--tag-size:               var(--font-smaller);
 	--tag-weight:             inherit;
 
-	--link-color:               var(--cyan0);
-	--link-color-hover:         var(--cyan);
+	--link-color:               #{$cyan0-pop};
+	--link-color-hover:         #{$cyan-pop};
 	--link-external-color:      var(--fg_dark);
 	--link-external-color-hover: var(--fg);
 
