@@ -1,3 +1,8 @@
 # Tenebrous
 
-An Obsidian theme currently based on the [Poimandres](https://github.com/drcmda/poimandres-theme) color scheme, ported to Obsidian by [yoGhastly](https://github.com/yoGhastly/poimandres-obsidian). Colors are being customized further over time to move toward its own palette.
+A dark and light mode theme that focuses on contrast.
+
+## Special thanks
+
+- https://github.com/drcmda/poimandres-theme
+- https://github.com/yoGhastly/poimandres-obsidian
