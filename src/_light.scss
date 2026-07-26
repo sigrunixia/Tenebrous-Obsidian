@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "functions" as *;
+
 // Light palette -- same hues as dark, shifted darker for light bg
 // Contrast ratios vs #f2f4f8 bg (WCAG AA requires 4.5:1 for normal text)
 $bg-dark2:        #e5e8f0;
@@ -11,6 +14,7 @@ $blue0:           #4a6aaa;  // 4.88:1
 $cyan:            #1a6f85;  // 4.96:1
 $cyan0:           #1e6f82;  // 5.17:1
 $magenta:         #8a3878;  // 6.55:1
+$purple:          color.mix($magenta, $blue0, 50%);  // derived; swatch-only, not used as text
 $orange:          #c05818;  // 4.71:1
 $yellow:          #8a6210;  // 4.98:1
 $green:           #288a78;  // 4.53:1
@@ -47,6 +51,7 @@ $error-rgb:   134, 32, 64;
 	--cyan:    #{$cyan};
 	--cyan0:   #{$cyan0};
 	--magenta: #{$magenta};
+	--purple:  #{to-rgb($purple)};
 	--orange:  #{$orange};
 	--yellow:  #{$yellow};
 	--green:   #{$green};
@@ -56,22 +61,37 @@ $error-rgb:   134, 32, 64;
 	--red1:    #{$red1};
 	--unknown: #{$unknown};
 
-	--color_red_rgb:    var(--red);
-	--color_red:        var(--red);
-	--color_purple_rgb: var(--magenta);
-	--color_purple:     var(--magenta);
-	--color_green_rgb:  var(--green);
-	--color_green:      var(--green);
-	--color_cyan_rgb:   var(--cyan);
-	--color_cyan:       var(--cyan);
-	--color_blue_rgb:   var(--blue0);
-	--color_blue:       var(--blue0);
-	--color_yellow_rgb: var(--yellow);
-	--color_yellow:     var(--yellow);
-	--color_orange_rgb: var(--orange);
-	--color_orange:     var(--orange);
-	--color_pink_rgb:   var(--magenta);
-	--color_pink:       var(--magenta);
+	// Neutral scale used by newer surfaces (Bases tables/cards, some
+	// dialogs/menus) that don't read --background-* / --bg directly.
+	--color-base-00:  #{base-step($bg, $fg, 0)};
+	--color-base-05:  #{base-step($bg, $fg, 5)};
+	--color-base-10:  #{base-step($bg, $fg, 10)};
+	--color-base-20:  #{base-step($bg, $fg, 20)};
+	--color-base-25:  #{base-step($bg, $fg, 25)};
+	--color-base-30:  #{base-step($bg, $fg, 30)};
+	--color-base-35:  #{base-step($bg, $fg, 35)};
+	--color-base-40:  #{base-step($bg, $fg, 40)};
+	--color-base-50:  #{base-step($bg, $fg, 50)};
+	--color-base-60:  #{base-step($bg, $fg, 60)};
+	--color-base-70:  #{base-step($bg, $fg, 70)};
+	--color-base-100: #{base-step($bg, $fg, 100)};
+
+	--color-red:        var(--red);
+	--color-red-rgb:    #{rgb-triplet($red)};
+	--color-purple:     var(--purple);
+	--color-purple-rgb: #{rgb-triplet($purple)};
+	--color-green:      var(--green);
+	--color-green-rgb:  #{rgb-triplet($green)};
+	--color-cyan:       var(--cyan);
+	--color-cyan-rgb:   #{rgb-triplet($cyan)};
+	--color-blue:       var(--blue0);
+	--color-blue-rgb:   #{rgb-triplet($blue0)};
+	--color-yellow:     var(--yellow);
+	--color-yellow-rgb: #{rgb-triplet($yellow)};
+	--color-orange:     var(--orange);
+	--color-orange-rgb: #{rgb-triplet($orange)};
+	--color-pink:       var(--magenta);
+	--color-pink-rgb:   #{rgb-triplet($magenta)};
 
 	--background-primary:                     var(--bg);
 	--background-primary-alt:                 var(--bg);
