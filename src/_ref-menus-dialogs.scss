@@ -1,0 +1,20 @@
+// Menus, dialogs, modals, suggestions -- not yet themed. Values below are Obsidian's own
+// defaults (from src/app-source/app-1.13.2.css), commented out. Uncomment
+// and adjust inside .theme-dark / .theme-light in _dark.scss /
+// _light.scss when we want to take these over.
+//
+// 13 variables.
+
+// --lightbox-background: black;
+// --lightbox-close-top: var(--size-2-3);
+// --lightbox-titlebar-color: white;
+// --lightbox-titlebar-display: flex;
+// --menu-backdrop-filter: none;
+// --menu-corner-shape: var(--corner-shape);
+// --menu-scroll-mask: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 48px);
+// --menu-shadow: var(--shadow-s);
+// --modal-sidebar-inset: var(--size-4-2);
+// --prompt-backdrop-filter: none;
+// --prompt-top: calc(var(--safe-area-inset-top) + var(--header-height) + var(--size-4-4));
+// --setting-group-center-offset: calc((100% - var(--setting-group-max-width)) / 2);
+// --suggestion-backdrop-filter: none;

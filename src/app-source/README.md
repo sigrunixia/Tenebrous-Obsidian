@@ -8,10 +8,12 @@ default styling relies on a variable at all.
 Not `@use`'d anywhere -- it does not affect the compiled `theme.css`, same as
 [`../_upstream-palette.scss`](../_upstream-palette.scss).
 
-- Extracted from: Obsidian 1.13.2 (desktop, macOS)
 - Extracted: one `cssRules` entry per line, via the running app's own DOM (not asar
   extraction -- the shipped `app.asar` is just the Electron shell; the actual UI stylesheet
   isn't a plain file on disk).
+- Filename tracks the Obsidian version it came from: `app-<version>.css` (desktop, macOS).
+  Keep old versions around rather than overwriting -- they're small and let you diff what
+  changed between Obsidian releases.
 
 ## Regenerating
 
@@ -22,12 +24,15 @@ obsidian eval vault="<vault name>" code="
 const fs = require('fs');
 const s = Array.from(document.styleSheets).find(s => s.href && s.href.includes('app.css'));
 const text = Array.from(s.cssRules).map(r => r.cssText).join('\n');
-fs.writeFileSync('/absolute/path/to/src/app-source/app.css', text);
+fs.writeFileSync('/absolute/path/to/src/app-source/app-<version>.css', text);
 'wrote ' + text.length + ' bytes';
 "
 ```
 
-Re-run this after major Obsidian updates if you suspect new variables or selectors have
-been introduced, then re-diff against `_dark.scss` / `_light.scss` to catch newly
-unthemed surfaces (see the `--color-base-*` fix in this repo's history for an example of
-what that audit turns up).
+Get `<version>` from `require('electron').remote.app.getVersion()` in the same `obsidian
+eval` session (`app.appVersion` returns `undefined` in this context).
+
+Re-run this after Obsidian updates if you suspect new variables or selectors have been
+introduced, then re-diff against `_dark.scss` / `_light.scss` to catch newly unthemed
+surfaces -- see the `--color-base-*` fix in this repo's history for an example of what
+that audit turns up, and `_ref-*.scss` for the current scaffold of known-unthemed vars.
