@@ -198,24 +198,29 @@ $error-rgb:   192, 96, 117;
 	--table-row-alt-background:      var(--bg_dark2);
 	--table-row-background-hover:    var(--bg_dark2);
 
+	// Prior mapping put keyword/punctuation/string-2 all on green0, and
+	// string/tag/value all on plain green -- three roles apiece read as one
+	// color. Spread across the palette instead; roles that rarely appear in
+	// the same snippet (atom vs tag, def/url vs function/operator) still
+	// share a hue where the budget runs out.
 	--code-normal:      var(--fg);
 	--code-background:  var(--bg_highlight_dark);
 	--code-comment:     var(--fg_dark);
 	--code-function:    var(--cyan);
 	--code-important:   var(--red1);
-	--code-keyword:     var(--green0);
-	--code-operator:    var(--cyan0);
+	--code-keyword:     var(--magenta);
+	--code-operator:    var(--teal);
 	--code-property:    var(--fg);
-	--code-punctuation: var(--green0);
+	--code-punctuation: var(--fg_dark);
 	--code-string:      var(--green);
-	--code-tag:         var(--green);
-	--code-value:       var(--green);
+	--code-tag:         var(--red);
+	--code-value:       var(--yellow);
 	--code-number:      var(--orange);
 	--code-atom:        var(--red);
-	--code-builtin:     var(--teal);
+	--code-builtin:     #{$blue0-pop};
 	--code-string-2:    var(--green0);
 	--code-def:         var(--cyan);
-	--code-variable-2:  var(--magenta);
+	--code-variable-2:  var(--purple);
 	--code-meta:        var(--comment);
 	--code-url:         var(--cyan0);
 
