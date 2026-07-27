@@ -198,6 +198,11 @@ $error-rgb:   192, 96, 117;
 	--table-row-alt-background:      var(--bg_dark2);
 	--table-row-background-hover:    var(--bg_dark2);
 
+	// Bases tables/cards: keep cell backgrounds on the neutral
+	// --color-base-* ramp (dense data, a tint would compete with content),
+	// but let the header row read as an accent, matching links.
+	--bases-table-header-color: var(--cyan);
+
 	// Prior mapping put keyword/punctuation/string-2 all on green0, and
 	// string/tag/value all on plain green -- three roles apiece read as one
 	// color. Spread across the palette instead; roles that rarely appear in
