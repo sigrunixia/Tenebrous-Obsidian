@@ -132,8 +132,8 @@ svg * {
   --scrollbar-thumb-bg: var(--bg_highlight);
   --scrollbar-active-thumb-bg: var(--comment);
   --scrollbar-width: 8px;
-  --h1-color: rgb(110, 184, 229);
-  --h2-color: rgb(114, 155, 236);
+  --h1-color: rgb(114, 155, 236);
+  --h2-color: rgb(110, 184, 229);
   --h3-color: rgb(38, 220, 223);
   --h4-color: rgb(221, 154, 200);
   --h5-color: rgb(94, 220, 167);
@@ -342,8 +342,8 @@ svg * {
   --scrollbar-thumb-bg: var(--bg_highlight);
   --scrollbar-active-thumb-bg: var(--comment);
   --scrollbar-width: 8px;
-  --h1-color: var(--cyan);
-  --h2-color: var(--blue0);
+  --h1-color: var(--blue0);
+  --h2-color: var(--cyan);
   --h3-color: var(--teal);
   --h4-color: var(--magenta);
   --h5-color: var(--green);
