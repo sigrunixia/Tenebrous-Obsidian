@@ -192,6 +192,11 @@ $error-rgb:   134, 32, 64;
 	--table-row-alt-background:      var(--bg_dark2);
 	--table-row-background-hover:    var(--bg_highlight);
 
+	// Bases tables/cards: keep cell backgrounds on the neutral
+	// --color-base-* ramp (dense data, a tint would compete with content),
+	// but let the header row read as an accent, matching links.
+	--bases-table-header-color: var(--cyan);
+
 	// See _dark.scss for why this is spread out instead of three roles
 	// apiece landing on green0/green.
 	--code-normal:      var(--fg);
