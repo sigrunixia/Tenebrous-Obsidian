@@ -24,6 +24,15 @@ $red:             #a83055;  // 5.20:1
 $red1:            #862040;  // 7.14:1
 $unknown:         #1b1d26;
 
+// Code blocks sit on --code-background (bg_dark2, #e5e8f0), a touch
+// darker than --bg -- the ratios in the comments above were vetted
+// against --bg, so green/orange/teal fall just under AA there. Darkened
+// variants used only by --code-string/--code-number/--code-builtin;
+// the base $green/$orange/$teal stay as-is for tags/callouts/headings.
+$green-code:  color.scale($green, $lightness: -18%, $saturation: 8%);   // ~5.6:1 vs bg_dark2
+$orange-code: color.scale($orange, $lightness: -18%, $saturation: 8%);  // ~5.8:1 vs bg_dark2
+$teal-code:   color.scale($teal, $lightness: -18%, $saturation: 8%);    // ~5.7:1 vs bg_dark2
+
 // Accent
 $accent-h: 210;
 $accent-s: 55%;
@@ -194,12 +203,12 @@ $error-rgb:   134, 32, 64;
 	--code-operator:    var(--comment);
 	--code-property:    var(--fg);
 	--code-punctuation: var(--fg_dark);
-	--code-string:      var(--green);
+	--code-string:      #{to-rgb($green-code)};
 	--code-tag:         var(--red);
 	--code-value:       var(--red1);
-	--code-number:      var(--orange);
+	--code-number:      #{to-rgb($orange-code)};
 	--code-atom:        var(--red);
-	--code-builtin:     var(--teal);
+	--code-builtin:     #{to-rgb($teal-code)};
 	--code-string-2:    var(--green0);
 	--code-def:         var(--cyan);
 	--code-variable-2:  var(--purple);

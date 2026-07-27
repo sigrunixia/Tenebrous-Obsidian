@@ -387,12 +387,12 @@ svg * {
   --code-operator: var(--comment);
   --code-property: var(--fg);
   --code-punctuation: var(--fg_dark);
-  --code-string: var(--green);
+  --code-string: rgb(30, 116, 100);
   --code-tag: var(--red);
   --code-value: var(--red1);
-  --code-number: var(--orange);
+  --code-number: rgb(159, 72, 18);
   --code-atom: var(--red);
-  --code-builtin: var(--teal);
+  --code-builtin: rgb(23, 113, 127);
   --code-string-2: var(--green0);
   --code-def: var(--cyan);
   --code-variable-2: var(--purple);
