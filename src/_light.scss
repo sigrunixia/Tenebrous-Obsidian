@@ -138,6 +138,11 @@ $error-rgb:   134, 32, 64;
 	--bold-color:        var(--blue0);
 	--italic-color:      var(--cyan);
 
+	// PDF-viewer in-document search highlight -- unset by default, so it
+	// fell back to Obsidian's stock magenta/green. Match the ==mark== color.
+	--highlight-bg-color:          var(--text-highlight-bg);
+	--highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
+
 	--interactive-normal:       var(--bg_dark2);
 	--interactive-hover:        var(--bg_highlight);
 	--interactive-success:      var(--green); /* legacy */
