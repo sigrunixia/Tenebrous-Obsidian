@@ -123,6 +123,8 @@ svg * {
   --text-highlight-bg: color-mix(in oklch, var(--yellow) 25%, transparent);
   --bold-color: var(--blue0);
   --italic-color: var(--cyan);
+  --highlight-bg-color: var(--text-highlight-bg);
+  --highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
   --interactive-normal: var(--bg_dark2);
   --interactive-hover: var(--bg);
   --interactive-success: var(--green); /* legacy */
@@ -333,6 +335,8 @@ svg * {
   --text-highlight-bg: color-mix(in oklch, var(--yellow) 35%, transparent);
   --bold-color: var(--blue0);
   --italic-color: var(--cyan);
+  --highlight-bg-color: var(--text-highlight-bg);
+  --highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
   --interactive-normal: var(--bg_dark2);
   --interactive-hover: var(--bg_highlight);
   --interactive-success: var(--green); /* legacy */

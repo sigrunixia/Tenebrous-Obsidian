@@ -3,7 +3,7 @@
 // and adjust inside .theme-dark / .theme-light in _dark.scss /
 // _light.scss when we want to take these over.
 //
-// 86 variables.
+// 84 variables.
 
 // --background-modifier-info: /* no default found */;
 // --blockquote-border-thickness: 2px;
@@ -32,10 +32,10 @@
 // --embed-border-top: none;
 // --heading-spacing: calc(var(--p-spacing) * 2.5);
 // --highlight-backdrop-filter: none;
-// --highlight-bg-color: rgba(180, 0, 170, 0.25);
 // --highlight-mix-blend-mode: darken;
 // --highlight-selected-backdrop-filter: none;
-// --highlight-selected-bg-color: rgba(0, 100, 0, 0.25);
+// (--highlight-bg-color and --highlight-selected-bg-color are now set in
+// _dark.scss/_light.scss -- see #4.)
 // --hover-filter: brightness(0.9);
 // --layer-cover: 5;
 // --layer-dragged-item: 80;
