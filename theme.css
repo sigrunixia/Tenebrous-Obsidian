@@ -107,6 +107,7 @@ svg * {
   --background-modifier-error-rgb: 192, 96, 117;
   --background-modifier-warning: var(--orange);
   --background-modifier-warning-hover: var(--orange);
+  --background-modifier-info: var(--blue0);
   --background-modifier-cover: var(--bg_dark2);
   --background-modifier-hover: var(--bg_highlight);
   --background-modifier-message: var(--bg_highlight_dark);
@@ -186,6 +187,9 @@ svg * {
   --metadata-input-background-hover: var(--bg_highlight);
   --metadata-label-background-hover: var(--bg_highlight);
   --metadata-property-background-hover: var(--bg_highlight);
+  --pill-background-hover: var(--bg_highlight);
+  --slider-thumb-background: var(--interactive-accent);
+  --slider-thumb-background-hover: var(--interactive-accent);
   --code-normal: var(--fg);
   --code-background: var(--bg_highlight_dark);
   --code-comment: var(--fg_dark);
@@ -333,6 +337,7 @@ svg * {
   --background-modifier-error-rgb: 134, 32, 64;
   --background-modifier-warning: var(--orange);
   --background-modifier-warning-hover: var(--orange);
+  --background-modifier-info: var(--blue0);
   --background-modifier-cover: rgba(0, 0, 0, 0.4);
   --background-modifier-hover: var(--bg_highlight);
   --background-modifier-message: var(--bg_dark2);
@@ -412,6 +417,9 @@ svg * {
   --metadata-input-background-hover: var(--bg_highlight);
   --metadata-label-background-hover: var(--bg_highlight);
   --metadata-property-background-hover: var(--bg_highlight);
+  --pill-background-hover: var(--bg_highlight);
+  --slider-thumb-background: var(--interactive-accent);
+  --slider-thumb-background-hover: var(--interactive-accent);
   --code-normal: var(--fg);
   --code-background: var(--bg_dark2);
   --code-comment: var(--fg_dark);

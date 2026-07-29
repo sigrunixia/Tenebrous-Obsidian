@@ -126,6 +126,8 @@ $error-rgb:   192, 96, 117;
 	--background-modifier-error-rgb:          #{$error-rgb};
 	--background-modifier-warning:            var(--orange);
 	--background-modifier-warning-hover:      var(--orange);
+	// Unset by default (.message.mod-info has no color at all); match callout-info.
+	--background-modifier-info:               var(--blue0);
 	--background-modifier-cover:              var(--bg_dark2);
 	--background-modifier-hover:              var(--bg_highlight);
 	--background-modifier-message:            var(--bg_highlight_dark);
@@ -236,6 +238,13 @@ $error-rgb:   192, 96, 117;
 	--metadata-input-background-hover:   var(--bg_highlight);
 	--metadata-label-background-hover:   var(--bg_highlight);
 	--metadata-property-background-hover: var(--bg_highlight);
+	// Tag pills inside a "tags" property field -- same dead-hover pattern.
+	--pill-background-hover: var(--bg_highlight);
+
+	// Native <input type=range> sliders were hardcoded white regardless of
+	// theme -- invisible in light mode against the light track.
+	--slider-thumb-background:       var(--interactive-accent);
+	--slider-thumb-background-hover: var(--interactive-accent);
 
 	// Prior mapping put keyword/punctuation/string-2 all on green0, and
 	// string/tag/value all on plain green -- three roles apiece read as one
