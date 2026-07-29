@@ -1,19 +1,26 @@
-// Window chrome: tabs, titlebar, ribbon, status bar -- not yet themed. Values below are Obsidian's own
-// defaults (from src/app-source/app-1.13.2.css), commented out. Uncomment
-// and adjust inside .theme-dark / .theme-light in _dark.scss /
-// _light.scss when we want to take these over.
+// Window chrome: tabs, titlebar, ribbon, status bar.
 //
-// 12 variables.
-
+// Went through all 12 -- no color gaps here either. Left alone:
+//
+// Layout/display, not color:
 // --status-bar-position: fixed;
-// --sync-avatar-color-current-user: transparent;
 // --tab-curve: 6px;
-// --tab-stacked-shadow: -8px 0 8px 0 rgba(0, 0, 0, 0.05);
 // --tab-stacked-text-align: start;
 // --tab-stacked-text-writing-mode: vertical-lr;
-// --tab-switcher-preview-background-shadow: 0 4px 30px 2px rgba(0, 0, 0, 0.2);
-// --tab-switcher-preview-shadow: 0 0 0 1px color-mix(in oklch, var(--mono-100) 5%, transparent);
 // --vault-profile-actions-display: flex;
 // --vault-profile-display: flex;
 // --vault-profile-order: 2;
+//
+// Shadows, theme-neutral regardless of palette:
+// --tab-stacked-shadow: -8px 0 8px 0 rgba(0, 0, 0, 0.05);
+// --tab-switcher-preview-background-shadow: 0 4px 30px 2px rgba(0, 0, 0, 0.2);
+//
+// Already correctly inverts per dark/light via Obsidian's own --mono-0/
+// --mono-100 (black/white, flipped by Obsidian itself per .theme-dark/
+// .theme-light -- not something we set):
+// --tab-switcher-preview-shadow: 0 0 0 1px color-mix(in oklch, var(--mono-100) 5%, transparent);
 // --workspace-background-translucent: color-mix(in oklch, var(--mono-0) 60%, transparent);
+//
+// Sync feature (paid), niche, "transparent" reads as intentional
+// (own-user indicator styled differently from other-user avatar dots):
+// --sync-avatar-color-current-user: transparent;
