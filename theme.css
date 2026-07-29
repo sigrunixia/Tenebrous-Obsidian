@@ -178,7 +178,9 @@ svg * {
   --table-header-background-hover: var(--bg_dark2);
   --table-row-alt-background: var(--bg_dark2);
   --table-row-background-hover: var(--bg_dark2);
+  --table-row-alt-background-hover: var(--bg_dark2);
   --bases-table-header-color: var(--cyan);
+  --bases-group-heading-value-color: var(--fg);
   --code-normal: var(--fg);
   --code-background: var(--bg_highlight_dark);
   --code-comment: var(--fg_dark);
@@ -397,7 +399,9 @@ svg * {
   --table-header-background-hover: var(--bg_highlight);
   --table-row-alt-background: var(--bg_dark2);
   --table-row-background-hover: var(--bg_highlight);
+  --table-row-alt-background-hover: var(--bg_highlight);
   --bases-table-header-color: var(--cyan);
+  --bases-group-heading-value-color: var(--fg);
   --code-normal: var(--fg);
   --code-background: var(--bg_dark2);
   --code-comment: var(--fg_dark);

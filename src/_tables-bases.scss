@@ -1,23 +1,35 @@
-// Tables and the Bases plugin surface -- not yet themed. Values below are Obsidian's own
-// defaults (from src/app-source/app-1.13.2.css), commented out. Uncomment
-// and adjust inside .theme-dark / .theme-light in _dark.scss /
-// _light.scss when we want to take these over.
+// Tables and the Bases plugin surface.
 //
-// 16 variables.
-
-// --bases-cards-container-background: transparent;
-// --bases-cards-corner-shape: var(--corner-shape);
+// --bases-group-heading-value-color and --table-row-alt-background-hover
+// are now set in _dark.scss/_light.scss (see #2) -- the latter was a real
+// interaction gap: it fell back to --table-background (transparent), so
+// hovering an alt-striped row showed no feedback while regular rows did.
+//
+// Left as-is:
+//
+// Layout/display, not color:
 // --bases-group-heading-property-display: block;
-// --bases-group-heading-value-color: /* no default found */;
-// --bases-table-header-sort-mask: linear-gradient(to left, transparent var(--size-4-6), black var(--size-4-6));
 // --bases-toolbar-badge-display: none;
 // --bases-toolbar-label-display: block;
+// --table-cell-vertical-alignment: top;
+// --table-white-space: break-spaces;
+//
+// Shape token, see _buttons.scss:
+// --bases-cards-corner-shape: var(--corner-shape);
+//
+// Structural mask, theme-neutral:
+// --bases-table-header-sort-mask: linear-gradient(to left, transparent var(--size-4-6), black var(--size-4-6));
+//
+// Blend mode, not color:
+// --table-selection-blend-mode: var(--highlight-mix-blend-mode);
+//
+// Intentional transparent/inherit (no gap):
+// --bases-cards-container-background: transparent;
 // --table-add-button-background: transparent;
 // --table-background: transparent;
-// --table-cell-vertical-alignment: top;
-// --table-column-alt-background: var(--table-background);
-// --table-drag-handle-background: transparent;
-// --table-row-alt-background-hover: var(--table-background);
-// --table-selection-blend-mode: var(--highlight-mix-blend-mode);
 // --table-text-color: inherit;
-// --table-white-space: break-spaces;
+//
+// Column-based zebra striping left off on purpose -- --table-column-alt-
+// background inherits --table-background (transparent) while row striping
+// is on (--table-row-alt-background). Both at once would look busy.
+// --table-column-alt-background: var(--table-background);
