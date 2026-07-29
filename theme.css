@@ -369,7 +369,7 @@ svg * {
   --scrollbar-active-thumb-bg: var(--comment);
   --scrollbar-width: 8px;
   --h1-color: var(--blue0);
-  --h2-color: var(--cyan);
+  --h2-color: rgb(26, 90, 133);
   --h3-color: var(--teal);
   --h4-color: var(--magenta);
   --h5-color: var(--green);

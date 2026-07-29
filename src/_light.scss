@@ -33,6 +33,13 @@ $green-code:  color.scale($green, $lightness: -18%, $saturation: 8%);   // ~5.6:
 $orange-code: color.scale($orange, $lightness: -18%, $saturation: 8%);  // ~5.8:1 vs bg_dark2
 $teal-code:   color.scale($teal, $lightness: -18%, $saturation: 8%);    // ~5.7:1 vs bg_dark2
 
+// h2/h3 (cyan/teal) sit only ~4deg apart in hue -- same clustering dark mode
+// had before its heading pass, just never audited here. Nudging h2 only
+// (not h3 -- shifting teal's hue lowered its contrast unexpectedly) toward
+// blue0 evens out the h1/h2/h3 spacing to ~16deg each. Contrast improves
+// (6.7:1 vs the original 4.96:1) since the shift moves away from bg's hue.
+$cyan-h2: color.adjust($cyan, $hue: 12deg);
+
 // Accent
 $accent-h: 210;
 $accent-s: 55%;
@@ -163,7 +170,7 @@ $error-rgb:   134, 32, 64;
 	--scrollbar-width:           8px;
 
 	--h1-color: var(--blue0);
-	--h2-color: var(--cyan);
+	--h2-color: #{to-rgb($cyan-h2)};
 	--h3-color: var(--teal);
 	--h4-color: var(--magenta);
 	--h5-color: var(--green);
