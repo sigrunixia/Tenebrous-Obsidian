@@ -125,6 +125,9 @@ svg * {
   --italic-color: var(--cyan);
   --highlight-bg-color: var(--text-highlight-bg);
   --highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
+  --button-hover-color: var(--interactive-hover);
+  --toggled-btn-bg-color: var(--interactive-accent);
+  --toggled-btn-color: var(--text-on-accent);
   --interactive-normal: var(--bg_dark2);
   --interactive-hover: var(--bg);
   --interactive-success: var(--green); /* legacy */
@@ -167,6 +170,10 @@ svg * {
   --checkbox-border-color: var(--comment);
   --checkbox-border-color-hover: var(--comment);
   --checklist-done-color: var(--cyan);
+  --input-hover-border-color: var(--comment);
+  --input-focus-outline: 1px solid var(--interactive-accent);
+  --radio-border-color: var(--comment);
+  --textarea-border-color: var(--comment);
   --table-header-background: var(--bg);
   --table-header-background-hover: var(--bg_dark2);
   --table-row-alt-background: var(--bg_dark2);
@@ -337,6 +344,9 @@ svg * {
   --italic-color: var(--cyan);
   --highlight-bg-color: var(--text-highlight-bg);
   --highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
+  --button-hover-color: var(--interactive-hover);
+  --toggled-btn-bg-color: var(--interactive-accent);
+  --toggled-btn-color: var(--text-on-accent);
   --interactive-normal: var(--bg_dark2);
   --interactive-hover: var(--bg_highlight);
   --interactive-success: var(--green); /* legacy */
@@ -379,6 +389,10 @@ svg * {
   --checkbox-border-color: var(--comment);
   --checkbox-border-color-hover: var(--cyan0);
   --checklist-done-color: var(--cyan);
+  --input-hover-border-color: var(--comment);
+  --input-focus-outline: 1px solid var(--interactive-accent);
+  --radio-border-color: var(--comment);
+  --textarea-border-color: var(--comment);
   --table-header-background: var(--bg_dark2);
   --table-header-background-hover: var(--bg_highlight);
   --table-row-alt-background: var(--bg_dark2);
