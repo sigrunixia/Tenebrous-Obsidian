@@ -1,27 +1,30 @@
-// Properties panel and footnotes -- not yet themed. Values below are Obsidian's own
-// defaults (from src/app-source/app-1.13.2.css), commented out. Uncomment
-// and adjust inside .theme-dark / .theme-light in _dark.scss /
-// _light.scss when we want to take these over.
+// Properties panel and footnotes.
 //
-// 20 variables.
-
-// --footnote-divider-color-active: var(--metadata-divider-color-focus);
+// --metadata-divider-color-hover/-focus and --metadata-input/-label/
+// -property-background-hover are now set in _dark.scss/_light.scss (see #2)
+// -- all five were unset (transparent), so hovering or focusing anywhere in
+// the properties panel gave no feedback at all. --footnote-divider-color-
+// active and --footnote-input-background derive from the metadata vars
+// above automatically, no separate action needed.
+//
+// Left as-is:
+//
+// Layout/display/text content, not color:
 // --footnote-id-delimiter: ".";
-// --footnote-input-background: var(--metadata-input-background);
 // --inline-title-style: var(--h1-style);
 // --inline-title-variant: var(--h1-variant);
-// --metadata-background: transparent;
 // --metadata-display-editing: block;
 // --metadata-display-reading: block;
-// --metadata-divider-color-focus: transparent;
-// --metadata-divider-color-hover: transparent;
-// --metadata-input-background: transparent;
-// --metadata-input-background-hover: transparent;
 // --metadata-input-longtext-lines: 3;
-// --metadata-label-background: transparent;
-// --metadata-label-background-hover: transparent;
-// --metadata-property-background: transparent;
-// --metadata-property-background-hover: transparent;
+//
+// Shape tokens, see _buttons.scss:
 // --metadata-property-corner-shape: var(--corner-shape);
 // --metadata-property-corner-shape-focus: var(--corner-shape);
 // --metadata-property-corner-shape-hover: var(--corner-shape);
+//
+// Intentional transparent base state (only the *-hover variants were the
+// gap -- fixed above):
+// --metadata-background: transparent;
+// --metadata-input-background: transparent;
+// --metadata-label-background: transparent;
+// --metadata-property-background: transparent;
