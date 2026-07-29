@@ -143,6 +143,12 @@ $error-rgb:   134, 32, 64;
 	--highlight-bg-color:          var(--text-highlight-bg);
 	--highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
 
+	// PDF-viewer toolbar toggle buttons (e.g. annotate mode) -- unset by
+	// default, so a toggled-on button had no visible active state.
+	--button-hover-color:   var(--interactive-hover);
+	--toggled-btn-bg-color: var(--interactive-accent);
+	--toggled-btn-color:    var(--text-on-accent);
+
 	--interactive-normal:       var(--bg_dark2);
 	--interactive-hover:        var(--bg_highlight);
 	--interactive-success:      var(--green); /* legacy */
@@ -191,6 +197,14 @@ $error-rgb:   134, 32, 64;
 	--checkbox-border-color:       var(--comment);
 	--checkbox-border-color-hover: var(--cyan0);
 	--checklist-done-color:        var(--cyan);
+
+	// Text inputs/textareas/radios -- all three were hardcoded (black,
+	// #8f8f9d, Canvas) regardless of theme, so hover/focus/border states
+	// didn't adapt to dark/light at all.
+	--input-hover-border-color: var(--comment);
+	--input-focus-outline:      1px solid var(--interactive-accent);
+	--radio-border-color:       var(--comment);
+	--textarea-border-color:    var(--comment);
 
 	--table-header-background:       var(--bg_dark2);
 	--table-header-background-hover: var(--bg_highlight);
