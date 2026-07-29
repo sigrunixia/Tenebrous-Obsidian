@@ -216,11 +216,17 @@ $error-rgb:   192, 96, 117;
 	--table-header-background-hover: var(--bg_dark2);
 	--table-row-alt-background:      var(--bg_dark2);
 	--table-row-background-hover:    var(--bg_dark2);
+	// Was unset (fell back to --table-background: transparent), so hovering
+	// an alt row had no feedback at all while regular rows did.
+	--table-row-alt-background-hover: var(--bg_dark2);
 
 	// Bases tables/cards: keep cell backgrounds on the neutral
 	// --color-base-* ramp (dense data, a tint would compete with content),
 	// but let the header row read as an accent, matching links.
 	--bases-table-header-color: var(--cyan);
+	// Group-by heading value (e.g. the folder name) was unset -- give it
+	// full text strength so it stands out from the muted property label.
+	--bases-group-heading-value-color: var(--fg);
 
 	// Prior mapping put keyword/punctuation/string-2 all on green0, and
 	// string/tag/value all on plain green -- three roles apiece read as one
