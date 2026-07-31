@@ -2,42 +2,45 @@
 @use "functions" as *;
 
 // Light palette -- same hues as dark, shifted darker for light bg
-// Contrast ratios vs #f2f4f8 bg (WCAG AA requires 4.5:1 for normal text)
+// Contrast ratios vs #f2f4f8 bg (WCAG AA requires 4.5:1 for normal text).
+// Verified 2026-07-30 with the WCAG 2.1 relative-luminance formula --
+// the previous comments here were wrong for orange/green/teal (claimed
+// 4.5+, actually 3.79-4.10); those three are re-picked below to genuinely
+// clear 4.5:1 rather than just claim to.
 $bg-dark2:        #e5e8f0;
 $bg:              #f2f4f8;
 $bg-highlight:    #d8dce8;
 $bg-highlight-dk: #cdd2e0;
 $fg:              #1b1d26;
 $fg-dark:         #3e4255;
-$comment:         #4e6a78;  // 5.01:1
-$blue0:           #4a6aaa;  // 4.88:1
-$cyan:            #1a6f85;  // 4.96:1
-$cyan0:           #1e6f82;  // 5.17:1
-$magenta:         #8a3878;  // 6.55:1
+$comment:         #4e6a78;  // 5.22:1
+$blue0:           #4a6aaa;  // 4.85:1
+$cyan:            #1a6f85;  // 5.22:1
+$cyan0:           #1e6f82;  // 5.22:1
+$magenta:         #8a3878;  // 6.54:1
 $purple:          color.mix($magenta, $blue0, 50%);  // derived; swatch-only, not used as text
-$orange:          #c05818;  // 4.71:1
-$yellow:          #8a6210;  // 4.98:1
-$green:           #288a78;  // 4.53:1
-$green0:          #1a6858;  // 5.94:1
-$teal:            #1e8898;  // 4.52:1
-$red:             #a83055;  // 5.20:1
-$red1:            #862040;  // 7.14:1
+$orange:          #b45317;  // 4.55:1 (was #c05818, 4.10:1 -- failed AA)
+$yellow:          #8a6210;  // 4.97:1
+$green:           #247c6c;  // 4.57:1 (was #288a78, 3.82:1 -- failed AA)
+$green0:          #1a6858;  // 6.03:1
+$teal:            #1b7a88;  // 4.56:1 (was #1e8898, 3.79:1 -- failed AA)
+$red:             #a83055;  // 5.92:1
+$red1:            #862040;  // 8.31:1
 $unknown:         #1b1d26;
 
 // Code blocks sit on --code-background (bg_dark2, #e5e8f0), a touch
-// darker than --bg -- the ratios in the comments above were vetted
-// against --bg, so green/orange/teal fall just under AA there. Darkened
-// variants used only by --code-string/--code-number/--code-builtin;
-// the base $green/$orange/$teal stay as-is for tags/callouts/headings.
-$green-code:  color.scale($green, $lightness: -18%, $saturation: 8%);   // ~5.6:1 vs bg_dark2
-$orange-code: color.scale($orange, $lightness: -18%, $saturation: 8%);  // ~5.8:1 vs bg_dark2
-$teal-code:   color.scale($teal, $lightness: -18%, $saturation: 8%);    // ~5.7:1 vs bg_dark2
+// darker than --bg. Darkened variants used only by --code-string/
+// --code-number/--code-builtin; the base $green/$orange/$teal stay
+// as-is for tags/callouts/headings.
+$green-code:  color.scale($green, $lightness: -18%, $saturation: 8%);   // 5.40:1 vs bg_dark2
+$orange-code: color.scale($orange, $lightness: -18%, $saturation: 8%);  // 5.50:1 vs bg_dark2
+$teal-code:   color.scale($teal, $lightness: -18%, $saturation: 8%);    // 5.47:1 vs bg_dark2
 
 // h2/h3 (cyan/teal) sit only ~4deg apart in hue -- same clustering dark mode
 // had before its heading pass, just never audited here. Nudging h2 only
 // (not h3 -- shifting teal's hue lowered its contrast unexpectedly) toward
 // blue0 evens out the h1/h2/h3 spacing to ~16deg each. Contrast improves
-// (6.7:1 vs the original 4.96:1) since the shift moves away from bg's hue.
+// (6.7:1 vs the original 5.22:1) since the shift moves away from bg's hue.
 $cyan-h2: color.adjust($cyan, $hue: 12deg);
 
 // Accent
@@ -45,9 +48,10 @@ $accent-h: 210;
 $accent-s: 55%;
 $accent-l: 38%;
 
-// Success/error RGB values
-$success-rgb: 40, 138, 120;
-$error-rgb:   134, 32, 64;
+// Success/error RGB values -- kept in sync with $green/$red1 via
+// rgb-triplet() rather than hardcoded, so a palette edit can't desync them.
+$success-rgb: rgb-triplet($green);
+$error-rgb:   rgb-triplet($red1);
 
 .theme-light {
 	--accent-h: #{$accent-h};

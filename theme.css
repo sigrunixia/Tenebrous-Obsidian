@@ -59,7 +59,7 @@ svg * {
   --green0: #6a998f;
   --teal: #5db3be;
   --red: #d1889a;
-  --red1: #c06075;
+  --red1: #c16277;
   --unknown: #ffffff;
   --color-base-00: rgb(20, 22, 27);
   --color-base-05: rgb(30, 32, 37);
@@ -104,7 +104,7 @@ svg * {
   --background-modifier-success-rgb: 123, 191, 176;
   --background-modifier-error: var(--red1);
   --background-modifier-error-hover: var(--red);
-  --background-modifier-error-rgb: 192, 96, 117;
+  --background-modifier-error-rgb: 193, 98, 119;
   --background-modifier-warning: var(--orange);
   --background-modifier-warning-hover: var(--orange);
   --background-modifier-info: var(--blue0);
@@ -283,11 +283,11 @@ svg * {
   --cyan0: #1e6f82;
   --magenta: #8a3878;
   --purple: rgb(106, 81, 145);
-  --orange: #c05818;
+  --orange: #b45317;
   --yellow: #8a6210;
-  --green: #288a78;
+  --green: #247c6c;
   --green0: #1a6858;
-  --teal: #1e8898;
+  --teal: #1b7a88;
   --red: #a83055;
   --red1: #862040;
   --unknown: #1b1d26;
@@ -308,7 +308,7 @@ svg * {
   --color-purple: var(--purple);
   --color-purple-rgb: 106, 81, 145;
   --color-green: var(--green);
-  --color-green-rgb: 40, 138, 120;
+  --color-green-rgb: 36, 124, 108;
   --color-cyan: var(--cyan);
   --color-cyan-rgb: 26, 111, 133;
   --color-blue: var(--blue0);
@@ -316,7 +316,7 @@ svg * {
   --color-yellow: var(--yellow);
   --color-yellow-rgb: 138, 98, 16;
   --color-orange: var(--orange);
-  --color-orange-rgb: 192, 88, 24;
+  --color-orange-rgb: 180, 83, 23;
   --color-pink: var(--magenta);
   --color-pink-rgb: 138, 56, 120;
   --background-primary: var(--bg);
@@ -331,7 +331,7 @@ svg * {
   --background-modifier-form-field-hover: var(--bg_highlight);
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.12);
   --background-modifier-success: var(--green);
-  --background-modifier-success-rgb: 40, 138, 120;
+  --background-modifier-success-rgb: 36, 124, 108;
   --background-modifier-error: var(--red1);
   --background-modifier-error-hover: var(--red);
   --background-modifier-error-rgb: 134, 32, 64;
@@ -429,12 +429,12 @@ svg * {
   --code-operator: var(--comment);
   --code-property: var(--fg);
   --code-punctuation: var(--fg_dark);
-  --code-string: rgb(30, 116, 100);
+  --code-string: rgb(27, 104, 90);
   --code-tag: var(--red);
   --code-value: var(--red1);
-  --code-number: rgb(159, 72, 18);
+  --code-number: rgb(149, 68, 17);
   --code-atom: var(--red);
-  --code-builtin: rgb(23, 113, 127);
+  --code-builtin: rgb(20, 101, 113);
   --code-string-2: var(--green0);
   --code-def: var(--cyan);
   --code-variable-2: var(--purple);
