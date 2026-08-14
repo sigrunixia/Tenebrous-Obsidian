@@ -38,6 +38,20 @@ jobs:
             exit 0
           fi
 
+          min_app="$(jq -r .minAppVersion manifest.json)"
+          if [ "$(jq -r --arg v "$version" '.[$v] // ""' versions.json)" = "" ]; then
+            echo "versions.json has no entry for $version; adding \"$version\": \"$min_app\"."
+            tmp="$(mktemp)"
+            jq --arg v "$version" --arg m "$min_app" '.[$v] = $m' versions.json > "$tmp"
+            mv "$tmp" versions.json
+
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add versions.json
+            git commit -m "Add versions.json entry for $version"
+            git push origin HEAD:main
+          fi
+
           echo "bumped=true" >> "$GITHUB_OUTPUT"
 
   release:
