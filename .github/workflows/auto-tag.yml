@@ -1,0 +1,34 @@
+name: Auto-tag on version bump
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Tag if manifest version is newer than the latest release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version="$(jq -r .version manifest.json)"
+          latest="$(gh release list --limit 1 --json tagName --jq '.[0].tagName // ""')"
+          latest="${latest#v}"
+
+          if [ -n "$latest" ] && \
+             [ "$(printf '%s\n%s\n' "$version" "$latest" | sort -V | tail -1)" != "$version" ]; then
+            echo "manifest.json ($version) is not newer than the latest release ($latest); nothing to do."
+            exit 0
+          fi
+
+          if [ "$version" = "$latest" ]; then
+            echo "manifest.json ($version) already released; nothing to do."
+            exit 0
+          fi
+
+          git tag "$version"
+          git push origin "$version"
