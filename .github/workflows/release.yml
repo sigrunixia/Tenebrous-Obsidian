@@ -1,25 +1,62 @@
 name: Release Obsidian theme
 
 on:
+  workflow_dispatch:
+    inputs:
+      draft:
+        description: "Create the release as a draft"
+        type: boolean
+        default: false
   push:
     tags:
       - "*"
 
+permissions:
+  contents: write
+
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v7
 
-      - name: Create release
+      - name: Resolve and validate version
+        id: version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          tag="${GITHUB_REF#refs/tags/}"
+          manifest_version="$(jq -r .version manifest.json)"
 
-          gh release create "$tag" \
-            --title="$tag" \
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            tag="$manifest_version"
+          else
+            tag="${GITHUB_REF#refs/tags/}"
+            if [ "$tag" != "$manifest_version" ]; then
+              echo "::error::Tag '$tag' does not match manifest.json version '$manifest_version'. Obsidian requires an exact match, with no 'v' prefix."
+              exit 1
+            fi
+          fi
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "::error::Release '$tag' already exists. Bump the version in manifest.json first."
+            exit 1
+          fi
+
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.version.outputs.tag }}
+          DRAFT: ${{ inputs.draft }}
+        run: |
+          draft_flag=""
+          [ "$DRAFT" = "true" ] && draft_flag="--draft"
+
+          gh release create "$TAG" \
+            --title="$TAG" \
             --generate-notes \
-            --draft \
+            --target "$GITHUB_SHA" \
+            $draft_flag \
             manifest.json theme.css
