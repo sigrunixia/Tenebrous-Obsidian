@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "*"
+  workflow_call:
 
 permissions:
   contents: write
@@ -18,11 +19,23 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          tag="${GITHUB_REF#refs/tags/}"
           manifest_version="$(jq -r .version manifest.json)"
 
-          if [ "$tag" != "$manifest_version" ]; then
-            echo "::error::Tag '$tag' does not match manifest.json version '$manifest_version'."
+          case "$GITHUB_REF" in
+            refs/tags/*)
+              tag="${GITHUB_REF#refs/tags/}"
+              if [ "$tag" != "$manifest_version" ]; then
+                echo "::error::Tag '$tag' does not match manifest.json version '$manifest_version'."
+                exit 1
+              fi
+              ;;
+            *)
+              tag="$manifest_version"
+              ;;
+          esac
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "::error::Release '$tag' already exists."
             exit 1
           fi
 
