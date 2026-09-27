@@ -138,6 +138,12 @@ $error-rgb:   rgb-triplet($red1);
 	--background-modifier-message:            var(--bg_dark2);
 	--background-modifier-active-hover:       var(--bg_dark2);
 
+	// Notice (toast) and hover-tooltip text were hardcoded #FAFAFA regardless
+	// of theme -- unreadable against --background-modifier-message in light
+	// mode, same "hardcoded white" pattern as the slider thumb below.
+	--notice-color:  var(--fg);
+	--tooltip-color: var(--fg);
+
 	--text-normal:       var(--fg);
 	--text-faint:        var(--comment);
 	--text-muted:        var(--fg_dark);

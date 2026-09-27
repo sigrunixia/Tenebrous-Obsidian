@@ -12,6 +12,18 @@
 //                                     verified >=3.98:1 against the track in
 //                                     both themes.
 //
+// Two more found in app.css directly (not exposed as variables, so fixed
+// as selector overrides below rather than in _dark.scss/_light.scss):
+//   .cm-tooltip-docstring / .cm-completionInfo -- editor hint/autocomplete-
+//                                     detail popups. Background already
+//                                     read --background-modifier-message,
+//                                     but text was hardcoded rgb(250,250,250)
+//                                     -- unreadable in light mode.
+//   .canvas-minimap path              -- stroke hardcoded rgb(192,192,192)
+//                                     while the sibling rect already read
+//                                     --background-modifier-border; low
+//                                     contrast against the light canvas bg.
+//
 // Everything else here is layout, blend-mode, shadow, z-index, or an
 // intentional/theme-neutral default -- not a color gap:
 //
@@ -80,3 +92,12 @@
 //
 // Niche/low-priority:
 // --touch-background: /* no default at all, mobile-only touch state */;
+
+.cm-tooltip.cm-tooltip-docstring,
+.cm-tooltip.cm-completionInfo {
+	color: var(--text-normal);
+}
+
+.canvas-minimap path {
+	stroke: var(--background-modifier-border);
+}

@@ -137,6 +137,12 @@ $error-rgb:   rgb-triplet($red1);
 	--background-modifier-message:            var(--bg_highlight_dark);
 	--background-modifier-active-hover:       var(--bg);
 
+	// Notice (toast) and hover-tooltip text were hardcoded #FAFAFA regardless
+	// of theme -- not broken here, but set explicitly to match light mode's
+	// fix (var(--fg) is already near-white in dark, so this is a no-op).
+	--notice-color:  var(--fg);
+	--tooltip-color: var(--fg);
+
 	--text-normal:       var(--fg);
 	--text-faint:        var(--comment);
 	--text-muted:        var(--fg_dark);

@@ -221,6 +221,8 @@ svg * {
   --background-modifier-hover: var(--bg_highlight);
   --background-modifier-message: var(--bg_highlight_dark);
   --background-modifier-active-hover: var(--bg);
+  --notice-color: var(--fg);
+  --tooltip-color: var(--fg);
   --text-normal: var(--fg);
   --text-faint: var(--comment);
   --text-muted: var(--fg_dark);
@@ -451,6 +453,8 @@ svg * {
   --background-modifier-hover: var(--bg_highlight);
   --background-modifier-message: var(--bg_dark2);
   --background-modifier-active-hover: var(--bg_dark2);
+  --notice-color: var(--fg);
+  --tooltip-color: var(--fg);
   --text-normal: var(--fg);
   --text-faint: var(--comment);
   --text-muted: var(--fg_dark);
@@ -660,6 +664,15 @@ svg * {
 }
 .token.control-flow {
   color: var(--code-keyword);
+}
+
+.cm-tooltip.cm-tooltip-docstring,
+.cm-tooltip.cm-completionInfo {
+  color: var(--text-normal);
+}
+
+.canvas-minimap path {
+  stroke: var(--background-modifier-border);
 }
 
 /* Home note. Applies only to notes with `cssclasses: home`.
