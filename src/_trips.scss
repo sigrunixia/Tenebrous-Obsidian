@@ -5,7 +5,7 @@
 //   [!day]     one card per day, dated in the title
 //   [!stay]    where I stayed
 //   [!pack]    what I brought
-//   [!lesson]  one lesson, numbered
+//   [!lessons] the lessons, one callout holding a numbered list
 //   [!plan]-   folded planning notes
 //
 // The callout types are not scoped to .trip. Their names are unique to
@@ -25,7 +25,7 @@ $serif: 'Cardo', Georgia, serif;
 // Shared frame. Every trip callout is a flat card with a coloured left rail
 // and an eyebrow title, so the page has one visual rhythm and the hue does
 // the sorting.
-.callout:is([data-callout="day"], [data-callout="stay"], [data-callout="pack"], [data-callout="lesson"], [data-callout="plan"]) {
+.callout:is([data-callout="day"], [data-callout="stay"], [data-callout="pack"], [data-callout="plan"]) {
 	--trip-hue: var(--callout-color);
 	margin: 1.4rem 0;
 	padding: 0;
@@ -82,36 +82,66 @@ $serif: 'Cardo', Georgia, serif;
 	--callout-icon: lucide-backpack;
 }
 
-// Lesson. Numbered, and quieter than a day: the title is the lesson, the
-// body is the one-line reason. The counter resets once per page.
-.markdown-rendered {
-	counter-reset: trip-lesson;
-}
-
-// The [!trip] masthead carries the reader-facing facts (when, where, who,
-// type), so the native properties panel would only duplicate it with
-// bookkeeping fields (created/modified, coordinates, cover, aliases,
-// categories). Hidden on Publish only -- the app still needs it for editing.
-.trip .metadata-container {
-	display: none;
-}
-
-.callout[data-callout="lesson"] {
+// Lessons. One callout holding a real numbered list, so the numbers come from
+// the list itself and stay right in Live Preview, Reading view and Publish.
+// (One callout per lesson can't be counted in CSS: Live Preview renders each
+// callout as its own widget.) Each item is a bold title, then its reason on
+// the next line. The section already has a "Lessons" heading, so the callout
+// carries no title of its own.
+.callout[data-callout="lessons"] {
 	--callout-color: var(--green);
 	--callout-icon: lucide-lightbulb;
-	counter-increment: trip-lesson;
-	margin: 0.8rem 0;
+	margin: 1rem 0;
+	padding: 0;
+	border: none;
+	background: none;
 
-	> .callout-title::before {
-		content: counter(trip-lesson, decimal-leading-zero);
-		order: -1;
-		font-family: $serif;
-		font-size: 1.5rem;
-		line-height: 1;
-		opacity: 0.55;
+	> .callout-title { display: none; }
+	> .callout-content { padding: 0; }
+
+	ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: trip-lesson;
+
+		> li {
+			position: relative;
+			counter-increment: trip-lesson;
+			margin: 0.8rem 0;
+			padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
+			border: 1px solid color-mix(in oklch, var(--callout-color) 22%, transparent);
+			border-left: 3px solid var(--callout-color);
+			border-radius: base.$radius;
+			background:
+				linear-gradient(115deg, color-mix(in oklch, var(--callout-color) 9%, transparent), transparent 55%),
+				var(--background-secondary);
+
+			&::marker { content: ""; }
+
+			&::before {
+				content: counter(trip-lesson, decimal-leading-zero);
+				display: block;
+				font-family: $serif;
+				font-size: 1.5rem;
+				line-height: 1;
+				color: var(--callout-color);
+				opacity: 0.55;
+			}
+
+			> strong:first-child {
+				display: block;
+				margin: 0.2rem 0 0.35rem;
+				font-family: $serif;
+				font-size: 1.15rem;
+				font-weight: normal;
+				letter-spacing: 0.04em;
+				color: var(--callout-color);
+			}
+
+			> br { display: none; }
+		}
 	}
-
-	> .callout-title .callout-icon { display: none; }
 }
 
 // Plan. Folded by default in the source ([!plan]-), so it reads as an

@@ -732,7 +732,7 @@ svg * {
   border-radius: 10px;
 }
 
-.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=lesson], [data-callout=plan]) {
+.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) {
   --trip-hue: var(--callout-color);
   margin: 1.4rem 0;
   padding: 0;
@@ -742,7 +742,7 @@ svg * {
   border-radius: 4px;
   background: linear-gradient(115deg, color-mix(in oklch, var(--trip-hue) 9%, transparent), transparent 55%), var(--background-secondary);
 }
-.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=lesson], [data-callout=plan]) > .callout-title {
+.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) > .callout-title {
   padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 0;
   gap: 0.6rem;
   color: var(--trip-hue);
@@ -750,19 +750,19 @@ svg * {
   font-size: 1.15rem;
   letter-spacing: 0.04em;
 }
-.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=lesson], [data-callout=plan]) > .callout-title .callout-icon {
+.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) > .callout-title .callout-icon {
   opacity: 0.85;
 }
-.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=lesson], [data-callout=plan]) > .callout-content {
+.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) > .callout-content {
   padding: 0.5rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
 }
-.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=lesson], [data-callout=plan]) > .callout-content > p {
+.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) > .callout-content > p {
   margin: 0.6em 0;
 }
-.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=lesson], [data-callout=plan]) > .callout-content > :first-child {
+.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) > .callout-content > :first-child {
   margin-top: 0.3em;
 }
-.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=lesson], [data-callout=plan]) > .callout-content > :last-child {
+.callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) > .callout-content > :last-child {
   margin-bottom: 0;
 }
 
@@ -789,29 +789,58 @@ svg * {
   --callout-icon: lucide-backpack;
 }
 
-.markdown-rendered {
-  counter-reset: trip-lesson;
-}
-
-.trip .metadata-container {
-  display: none;
-}
-
-.callout[data-callout=lesson] {
+.callout[data-callout=lessons] {
   --callout-color: var(--green);
   --callout-icon: lucide-lightbulb;
+  margin: 1rem 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.callout[data-callout=lessons] > .callout-title {
+  display: none;
+}
+.callout[data-callout=lessons] > .callout-content {
+  padding: 0;
+}
+.callout[data-callout=lessons] ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: trip-lesson;
+}
+.callout[data-callout=lessons] ol > li {
+  position: relative;
   counter-increment: trip-lesson;
   margin: 0.8rem 0;
+  padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
+  border: 1px solid color-mix(in oklch, var(--callout-color) 22%, transparent);
+  border-left: 3px solid var(--callout-color);
+  border-radius: 4px;
+  background: linear-gradient(115deg, color-mix(in oklch, var(--callout-color) 9%, transparent), transparent 55%), var(--background-secondary);
 }
-.callout[data-callout=lesson] > .callout-title::before {
+.callout[data-callout=lessons] ol > li::marker {
+  content: "";
+}
+.callout[data-callout=lessons] ol > li::before {
   content: counter(trip-lesson, decimal-leading-zero);
-  order: -1;
+  display: block;
   font-family: "Cardo", Georgia, serif;
   font-size: 1.5rem;
   line-height: 1;
+  color: var(--callout-color);
   opacity: 0.55;
 }
-.callout[data-callout=lesson] > .callout-title .callout-icon {
+.callout[data-callout=lessons] ol > li > strong:first-child {
+  display: block;
+  margin: 0.2rem 0 0.35rem;
+  font-family: "Cardo", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  color: var(--callout-color);
+}
+.callout[data-callout=lessons] ol > li > br {
   display: none;
 }
 
