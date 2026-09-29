@@ -871,27 +871,27 @@ svg * {
   border-color: color-mix(in oklch, var(--ember) 40%, transparent);
 }
 
-.home a.tag[href="#κίνηση"] {
+.home a.tag[href="#movement"] {
   --ember: var(--orange);
 }
 
-.home a.tag[href="#φύση"] {
+.home a.tag[href="#nature"] {
   --ember: var(--green);
 }
 
-.home a.tag[href="#τέχνη"] {
+.home a.tag[href="#art"] {
   --ember: var(--magenta);
 }
 
-.home a.tag[href="#προσφορά"] {
+.home a.tag[href="#offering"] {
   --ember: var(--yellow);
 }
 
-.home a.tag[href="#ανήκειν"] {
+.home a.tag[href="#belonging"] {
   --ember: var(--teal);
 }
 
-.home a.tag[href="#μάθηση"] {
+.home a.tag[href="#learning"] {
   --ember: var(--purple);
 }
 

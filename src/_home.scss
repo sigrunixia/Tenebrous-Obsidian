@@ -154,12 +154,12 @@
   background: color-mix(in oklch, var(--ember) 14%, transparent);
   border-color: color-mix(in oklch, var(--ember) 40%, transparent);
 }
-.home a.tag[href="#κίνηση"] { --ember: var(--orange); }
-.home a.tag[href="#φύση"] { --ember: var(--green); }
-.home a.tag[href="#τέχνη"] { --ember: var(--magenta); }
-.home a.tag[href="#προσφορά"] { --ember: var(--yellow); }
-.home a.tag[href="#ανήκειν"] { --ember: var(--teal); }
-.home a.tag[href="#μάθηση"] { --ember: var(--purple); }
+.home a.tag[href="#movement"] { --ember: var(--orange); }
+.home a.tag[href="#nature"] { --ember: var(--green); }
+.home a.tag[href="#art"] { --ember: var(--magenta); }
+.home a.tag[href="#offering"] { --ember: var(--yellow); }
+.home a.tag[href="#belonging"] { --ember: var(--teal); }
+.home a.tag[href="#learning"] { --ember: var(--purple); }
 
 /* Icon per note type. Generic types first so a specific type wins on notes with several. */
 :is(.home, .hub, .gallery) .bases-cards-item:has(.internal-link[data-href="Εργασία"]) {
