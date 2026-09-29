@@ -125,3 +125,58 @@
   color: var(--h2-color);
   letter-spacing: 0.06em;
 }
+
+/* Hub backlinks base cards (cssclasses: κόμβος, set by Hub template.md).
+   Left-aligned title is the default, nothing to override. Title-left/
+   date-right in one row isn't worth pursuing: Bases positions card children
+   with inline pixel top/height from its own virtualizer, which beats any
+   grid/flex placement in the stylesheet. */
+
+/* [!grid] callout: a bare photo grid, used in essays for session/progress
+   photo sets. No hub cssclass scoping needed, any published page can use it.
+   Confirmed via the real rendered DOM (obsidian eval on the open note) that
+   consecutive `> ![[img]]` lines land as ONE <p> per run, holding multiple
+   .internal-embed spans separated by <br> -- not one <p> per image, and not
+   all promoted to children of .callout-content either. So the grid goes on
+   the <p> itself (there can be more than one <p> if a blank line splits the
+   callout into groups), fixed-height rows with object-fit: cover so mixed
+   portrait/landscape photos crop to even tiles instead of one tall photo
+   swallowing the whole row width and pushing everything else onto its own
+   line, which is what a height-capped, width:auto flex row did. */
+.callout[data-callout="grid"] {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.callout[data-callout="grid"] > .callout-title { display: none; }
+
+.callout[data-callout="grid"] > .callout-content {
+  padding: 0;
+}
+
+.callout[data-callout="grid"] .callout-content > p {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-auto-rows: 14rem;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.callout[data-callout="grid"] .callout-content > p + p { margin-top: 0.6rem; }
+
+.callout[data-callout="grid"] .callout-content > p br { display: none; }
+
+.callout[data-callout="grid"] .internal-embed.image-embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.callout[data-callout="grid"] .internal-embed.image-embed img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}

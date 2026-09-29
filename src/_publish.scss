@@ -1,0 +1,161 @@
+@use 'base';
+@use 'dark';
+@use 'landing';
+
+// Obsidian Publish's own CSS (site-header, sidebars, graph, search, nav tree)
+// reads color entirely from the same --text-*/--background-*/--h*-color
+// variables _dark.scss and _light.scss already set on .theme-dark/.theme-light,
+// so it re-skins for free. The only things Publish hardcodes instead of
+// exposing as variables are a handful of border-radii -- bring those in line
+// with the theme's flat corners (see _base.scss, $radius).
+.published-container {
+	--logo-radius: #{base.$radius};
+}
+
+.graph-view-container,
+.search-results {
+	border-radius: base.$radius;
+}
+
+// Dark mode only. Publish's own boot script defaults every visitor to
+// body.theme-light and only swaps to theme-dark if localStorage's
+// "site-theme" already says otherwise -- so most first-time visitors land on
+// theme-light. Rather than rely on that, put the dark palette on
+// .theme-light too (main-publish.scss drops the _light partial, so this is
+// the only rule left targeting .theme-light) and hide the toggle that would
+// let someone switch back.
+.theme-light {
+	@extend .theme-dark;
+}
+
+body {
+	color-scheme: dark;
+}
+
+.site-body-left-column-site-theme-toggle {
+	display: none;
+}
+
+// Hub backlink cards. Obsidian Publish doesn't run Bases queries, so
+// publish.js reimplements the one card view the hub pages use and renders it
+// with these classes instead of the native (JS-positioned) .bases-cards-*
+// markup, which Publish's own renderer never runs here. See publish.js.
+.hub-backlink-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: var(--size-4-3);
+	margin: var(--size-4-4) 0;
+}
+
+.hub-backlink-group-heading {
+	font-weight: var(--bold-weight);
+	color: var(--text-muted);
+	margin: var(--size-4-4) 0 var(--size-4-2);
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.hub-backlink-card {
+	border-radius: base.$radius;
+	background-color: var(--background-secondary);
+	overflow: hidden;
+}
+
+// Two layers: a blurred, cover-cropped backdrop fills the box edge to edge,
+// and the sharp image sits on top uncropped via contain. Keeps every card
+// looking equally "full" without cropping any image's actual content --
+// contain alone would letterbox unevenly depending on each cover's aspect
+// ratio, and cover alone (the original bug) crops the image itself.
+.hub-backlink-card-cover {
+	position: relative;
+	height: 100px;
+	overflow: hidden;
+	background-color: var(--background-modifier-border);
+}
+
+.hub-backlink-card-cover-backdrop {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	// Scaled up so the blur's soft edge never reveals the box boundary.
+	transform: scale(1.2);
+	filter: blur(20px) brightness(0.7);
+}
+
+.hub-backlink-card-cover-image {
+	position: absolute;
+	inset: 0;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+// Icon covers (flat SVGs -- Lucide, brand marks, ...) skip the blurred photo
+// backdrop entirely, which would just smear a mostly-transparent line icon
+// into a faint gray smudge. Flat background instead, and the icon itself
+// renders as a CSS mask so it takes --text-muted rather than staying
+// hardcoded to whatever color (usually black) the SVG's unresolved
+// `stroke="currentColor"` falls back to as a plain background image.
+.hub-backlink-card-cover--icon {
+	background-color: var(--background-modifier-border);
+
+	.hub-backlink-card-cover-image {
+		background-color: var(--text-muted);
+		mask-size: 40%;
+		mask-repeat: no-repeat;
+		mask-position: center;
+		-webkit-mask-size: 40%;
+		-webkit-mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+	}
+}
+
+.hub-backlink-card-title {
+	padding: var(--size-4-2) var(--size-4-2) 0;
+	font-weight: var(--bold-weight);
+
+	&:last-child {
+		padding-bottom: var(--size-4-2);
+	}
+}
+
+.hub-backlink-card-line {
+	padding: 0 var(--size-4-2);
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	line-height: 1.4;
+
+	&:last-child {
+		padding-bottom: var(--size-4-2);
+	}
+}
+
+// Breadcrumb navigation. A manual chain of wikilinks (Home / Type / Page)
+// she types as the first paragraph of body content, on hub pages and plain
+// essays alike -- not scoped by cssclasses, so this matches structurally:
+// the first .el-p sibling after the inline-title/frontmatter header, on any
+// published page that has one.
+.mod-header ~ .el-p:first-of-type > p {
+	margin: 0 0 1.6em;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+	letter-spacing: 0.02em;
+}
+
+.mod-header ~ .el-p:first-of-type > p a.internal-link {
+	color: var(--text-muted);
+	text-decoration: none;
+
+	&:hover {
+		color: var(--text-normal);
+		text-decoration: underline;
+	}
+
+	&:last-of-type {
+		color: var(--text-normal);
+		font-weight: var(--bold-weight);
+	}
+}
