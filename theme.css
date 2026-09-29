@@ -832,12 +832,12 @@ svg * {
   --cover-hue: var(--yellow);
 }
 
-:is(.home, .hub, .gallery) .bases-cards-item:has([data-property="note.τύπος"]) {
+:is(.home, .hub, .gallery) .bases-cards-item:has([data-property="note.types"]) {
   --home-cover-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4%22 /%3E %3Cpath d=%22M2 6h4%22 /%3E %3Cpath d=%22M2 10h4%22 /%3E %3Cpath d=%22M2 14h4%22 /%3E %3Cpath d=%22M2 18h4%22 /%3E %3Cpath d=%22M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z%22 /%3E %3C/svg%3E");
   --cover-hue: var(--cyan);
 }
 
-:is(.home, .hub, .gallery) .bases-cards-item:has([data-property="note.θέση"]) {
+:is(.home, .hub, .gallery) .bases-cards-item:has([data-property="note.locations"]) {
   --home-cover-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2%22 /%3E %3Cpath d=%22M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14%22 /%3E %3Cpath d=%22M10 20h4%22 /%3E %3Ccircle cx=%2216%22 cy=%2220%22 r=%222%22 /%3E %3Ccircle cx=%228%22 cy=%2220%22 r=%222%22 /%3E %3C/svg%3E");
   --cover-hue: var(--teal);
 }
@@ -1537,7 +1537,7 @@ body.is-phone .home .callout[data-callout=hero] {
   pointer-events: none;
 }
 
-.idea .metadata-property[data-property-key=πηγές] .multi-select-pill {
+.idea .metadata-property[data-property-key=sources] .multi-select-pill {
   color: var(--purple);
   background: color-mix(in oklch, var(--purple) 14%, transparent);
   border-color: color-mix(in oklch, var(--purple) 40%, transparent);

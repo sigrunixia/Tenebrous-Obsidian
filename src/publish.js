@@ -17,7 +17,7 @@
         return (m ? m[1] : String(raw)).trim();
     }
 
-    // Frontmatter list fields (τύπος, κατηγορίες, ...) come through as either a
+    // Frontmatter list fields (types, categories, ...) come through as either a
     // single string or an array, depending on how the note wrote it. Normalize.
     function arrayify(v) {
         if (v == null) return [];
@@ -116,8 +116,8 @@
         return m ? m[1] : null;
     }
 
-    // Maps a bare property name (e.g. "τροποποίηση", from either "τροποποίηση:"
-    // or "note.τροποποίηση:" in the source) to its displayName, e.g. "Last
+    // Maps a bare property name (e.g. "modified", from either "modified:"
+    // or "note.modified:" in the source) to its displayName, e.g. "Last
     // modified". "file.name" is deliberately excluded — that's the card title,
     // handled separately, never rendered as an extra line.
     function parseProperties(source) {
@@ -159,12 +159,12 @@
         return `${d.getUTCFullYear()}-${mm}-${dd}`;
     }
 
-    // τροποποίηση is special-cased to entry.mtime (already resolved at build
+    // modified is special-cased to entry.mtime (already resolved at build
     // time, with the file-mtime fallback build-index.js applies). Any other
     // property reads straight from entry.fm: date-shaped strings get the same
     // formatting, wikilinks get unwrapped, arrays get joined.
     function propDisplayValue(entry, prop) {
-        if (prop === 'τροποποίηση') return formatDate(entry.mtime);
+        if (prop === 'modified') return formatDate(entry.mtime);
         const raw = entry.fm[prop];
         if (raw == null || raw === '') return null;
         if (!Array.isArray(raw) && /^\d{4}-\d{2}-\d{2}/.test(String(raw))) {
@@ -180,7 +180,7 @@
     }
 
     function sortValue(entry, prop) {
-        if (prop === 'τροποποίηση') return entry.mtime;
+        if (prop === 'modified') return entry.mtime;
         const v = entry.fm[prop];
         const d = Date.parse(v);
         return isNaN(d) ? (v || '') : d;

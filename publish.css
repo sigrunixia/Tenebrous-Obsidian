@@ -630,7 +630,7 @@ svg * {
   pointer-events: none;
 }
 
-.idea .metadata-property[data-property-key=πηγές] .multi-select-pill {
+.idea .metadata-property[data-property-key=sources] .multi-select-pill {
   color: var(--purple);
   background: color-mix(in oklch, var(--purple) 14%, transparent);
   border-color: color-mix(in oklch, var(--purple) 40%, transparent);

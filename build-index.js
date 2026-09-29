@@ -7,7 +7,7 @@
 //   vault-root defaults to /Users/Signia/Vaults/Tenebrous
 //
 // Rebuild whenever a published note's frontmatter changes in a way that would
-// affect a rendered base view (τύπος, κατηγορίες, εικόνα, permalink, ...), or
+// affect a rendered base view (types, categories, cover, permalink, ...), or
 // whenever a note's publish flag flips. Nothing else in the vault needs this
 // re-run for.
 //
@@ -31,7 +31,7 @@ const IMG_MARKER = /const IMG_PATHS = (?:null|\{[^\n]*\}); \/\* @IMG_PATHS \*\//
 // Never descend into these, by exact vault-relative path or bare directory
 // name. Legends holds credentials — it is never read, not even for
 // frontmatter parsing.
-const SKIP_PATHS = new Set(['Διαχείριση 🗄️/Legends', 'Διαχείριση 🗄️/Templates']);
+const SKIP_PATHS = new Set(['Admin/Legends', 'Admin/Templates']);
 const SKIP_DIRS = new Set(['.obsidian', '.trash', '.git', 'node_modules']);
 
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg']);
@@ -39,7 +39,7 @@ const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg']);
 // ── Frontmatter parsing ──────────────────────────────────────────────────────
 // Handles the shapes Tenebrous frontmatter actually uses: inline scalars
 // (`permalink: foo`), quoted strings, booleans, and block sequences
-// (`τύπος:\n  - "[[Foo]]"`). Not a general YAML parser.
+// (`types:\n  - "[[Foo]]"`). Not a general YAML parser.
 
 function parseFrontmatter(content) {
     if (!content.startsWith('---')) return {};
@@ -122,12 +122,12 @@ function walk(dir, rel, cb) {
 }
 
 // ── Cover image publishing ──────────────────────────────────────────────────
-// A note's εικόνα field is only frontmatter metadata, not a real ![[...]]
+// A note's cover field is only frontmatter metadata, not a real ![[...]]
 // embed in the note body — so Obsidian's own publish-dependency scan never
 // notices it needs uploading, unlike an image actually embedded in the note.
 // Left alone, a cover image 404s on the live site until someone manually
 // publish:adds it (this bit us with Obsidian October.png). So: after every
-// build, explicitly publish every image any published note's εικόνα points
+// build, explicitly publish every image any published note's cover points
 // at. Idempotent — re-publishing an already-published, unchanged file is a
 // harmless no-op — so this runs unconditionally on every build rather than
 // trying to diff against what's already live.
@@ -153,14 +153,14 @@ function publishAsset(relPath) {
 function publishCoverImages(index, imgPaths) {
     const paths = new Set();
     for (const entry of index) {
-        const raw = entry.fm['εικόνα'];
+        const raw = entry.fm['cover'];
         if (!raw) continue;
         const filename = wikilinkTarget(raw).split('/').pop();
         const imgPath = filename && imgPaths[filename];
         if (imgPath) paths.add(imgPath);
     }
     if (!paths.size) return;
-    console.log(`Publishing ${paths.size} cover image(s) referenced by εικόνα...`);
+    console.log(`Publishing ${paths.size} cover image(s) referenced by cover...`);
     for (const p of paths) {
         console.log(`  ${publishAsset(p) ? 'published' : 'FAILED (is Obsidian running?)'}: ${p}`);
     }
@@ -208,7 +208,7 @@ function build() {
         index.push({
             path: rel,
             basename: path.basename(name, '.md'),
-            mtime: parseDate(fm['τροποποίηση']) || stat.mtimeMs,
+            mtime: parseDate(fm['modified']) || stat.mtimeMs,
             permalink: fm['permalink'] || null,
             fm,
         });
