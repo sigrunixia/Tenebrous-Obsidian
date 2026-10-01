@@ -1,6 +1,7 @@
 @use 'base';
 @use 'dark';
 @use 'landing';
+@use 'contact';
 
 // Obsidian Publish's own CSS (site-header, sidebars, graph, search, nav tree)
 // reads color entirely from the same --text-*/--background-*/--h*-color
@@ -10,6 +11,13 @@
 // with the theme's flat corners (see _base.scss, $radius).
 .published-container {
 	--logo-radius: #{base.$radius};
+	// Alegreya Sans as the site-wide default body font -- the same
+	// serif-heading/sans-body pairing the desktop Greek-styled pages already
+	// use (_greek.scss), and the better choice for sustained reading in dark
+	// mode specifically (thin-stroked serifs like Cardo tend to halo against
+	// a dark background; a sans-serif's more uniform strokes don't). Cardo
+	// stays for headings and the site name (below), not body text.
+	--font-text: 'Alegreya Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .graph-view-container,
@@ -35,6 +43,137 @@ body {
 .site-body-left-column-site-theme-toggle {
 	display: none;
 }
+
+// Site name. Cardo (the theme's heading face, with Greek) bold, spaced and
+// uppercase, centered. Two places carry the name. Desktop shows it in the left column
+// (.site-body-left-column-site-name); below 750px Publish swaps to the top bar
+// (.site-header) and hides the column, so both get the same treatment. The
+// social row under the name is centered to match.
+.site-body-left-column-site-name,
+.site-header-text {
+	font-family: 'Cardo', 'Palatino Linotype', Palatino, serif;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+// Colour. Publish defaults the name to plain text grey, the only uncoloured
+// thing on the page. It takes the H1 colour at rest and the link hover cyan on
+// hover, which is also when the Greek shows. The .published-container prefix
+// outranks Publish's own :hover rule, which has the same specificity as ours.
+.published-container {
+	.site-body-left-column-site-name,
+	.site-header-text {
+		color: var(--h1-color);
+	}
+}
+
+@media (hover: hover) {
+	.published-container {
+		.site-body-left-column-site-name:hover,
+		.site-header-text:hover {
+			color: var(--link-color-hover);
+		}
+	}
+}
+
+// On hover the English name gives way to its Greek equivalent, «Μια Σκοτεινή
+// Δράκαινα» (feminine, agreeing with the dragon). The English text is shrunk
+// to nothing and an ::after carries the Greek at the full name size, so the
+// element keeps its full-width hit area and the pointer never leaves it.
+// Greek capitals drop the tonos, so the string is written already uppercase
+// rather than left to text-transform. Hover devices only; touch keeps English.
+// The ::after only exists while hovering, so the animation replays on every
+// hover. The English text is gone at once (a real crossfade isn't possible
+// with one element), so only the Greek fades in. Skipped for reduced motion.
+@keyframes site-name-greek-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.site-body-left-column-site-name:hover::after,
+	.site-header-text:hover::after {
+		animation: none;
+	}
+}
+
+@media (hover: hover) {
+	.site-body-left-column-site-name:hover,
+	.site-header-text:hover {
+		font-size: 0;
+		letter-spacing: 0;
+
+		&::after {
+			content: "ΜΙΑ ΣΚΟΤΕΙΝΗ ΔΡΑΚΑΙΝΑ";
+			font-size: var(--site-name-size);
+			letter-spacing: 0.12em;
+			animation: site-name-greek-in 1.4s ease-out both;
+		}
+	}
+}
+
+.site-body-left-column-site-name {
+	display: block;
+	padding: 4px 0 12px;
+}
+
+.site-social-links {
+	justify-content: center;
+}
+
+// Social link row, inserted above the right column's search box by publish.js.
+.site-social-links {
+	display: flex;
+	gap: var(--size-4-3);
+	padding: 0 0 var(--size-4-3);
+}
+
+.site-social-link {
+	display: inline-flex;
+	color: var(--text-muted);
+	text-decoration: none;
+
+	svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--text-normal);
+		}
+	}
+}
+
+// Phone layout. The strip under the top bar is the only row shown at 750px and
+// under, and the right column copy is hidden there so there is never a pair.
+// Wide screens hide the strip. Icons and gaps are larger for touch.
+.site-social-links-bar {
+	display: none;
+}
+
+@media screen and (max-width: 750px) {
+	.site-social-links-bar {
+		display: flex;
+		justify-content: center;
+		gap: var(--size-4-5);
+		padding: var(--size-4-2) var(--size-4-4);
+		border-bottom: 1px solid var(--background-modifier-border);
+		background-color: var(--header-background, transparent);
+
+		.site-social-link svg {
+			width: 22px;
+			height: 22px;
+		}
+	}
+
+	.site-body-right-column .site-social-links {
+		display: none;
+	}
+}
+
 
 // Hub backlink cards. Obsidian Publish doesn't run Bases queries, so
 // publish.js reimplements the one card view the hub pages use and renders it
@@ -113,6 +252,125 @@ body {
 	}
 }
 
+// A `type: map` Bases codeblock (see the "Bases map views" section in
+// publish.js) expands into a Leaflet map -- it needs an explicit height on
+// its container before it can measure anything to render into.
+.base-map-embed {
+	height: 420px;
+	border-radius: base.$radius;
+	overflow: hidden;
+	margin: var(--size-4-4) 0;
+
+	.leaflet-popup-content-wrapper {
+		background-color: var(--background-secondary);
+		color: var(--text-normal);
+		border-radius: base.$radius;
+		box-shadow: 0 2px 8px var(--background-modifier-box-shadow);
+
+		a {
+			color: var(--text-normal);
+		}
+	}
+
+	.leaflet-popup-tip {
+		background-color: var(--background-secondary);
+	}
+
+	.leaflet-control-attribution {
+		font-size: var(--font-ui-smaller);
+		background-color: var(--background-secondary);
+		color: var(--text-muted);
+
+		a {
+			color: var(--text-muted);
+		}
+	}
+
+	// Leaflet's own default right margin (24px) is deliberate -- it's exactly
+	// the width of the popup's absolutely-positioned close button, so a
+	// single-line trip name doesn't run underneath it. Only the other three
+	// sides get the theme's own spacing tokens.
+	.leaflet-popup-content {
+		margin: var(--size-4-2) 24px var(--size-4-2) var(--size-4-3);
+	}
+
+	.leaflet-container {
+		background-color: var(--background-secondary);
+		font-family: inherit;
+	}
+}
+
+// Same icon-as-mask trick as .hub-backlink-card-cover--icon, but tinted white
+// rather than --text-muted since it always sits on the marker's own flat
+// --color from the note's location, not a neutral background.
+.base-map-marker {
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	border: 2px solid var(--background-primary);
+	box-shadow: 0 1px 4px var(--background-modifier-box-shadow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.base-map-marker-icon {
+	width: 60%;
+	height: 60%;
+	background-color: white;
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+// Badge shown in place of overlapping markers at a given zoom (Naperville
+// and Chicago are close enough to collide) -- same pin shape as a single
+// marker, just bigger and carrying a count instead of an icon.
+.base-map-cluster {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 2px solid var(--background-primary);
+	box-shadow: 0 1px 4px var(--background-modifier-box-shadow);
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--font-ui-small);
+	font-weight: var(--bold-weight);
+	cursor: pointer;
+}
+
+// Leaflet's own scale control (bottom-left, metric only per house style --
+// see renderBaseMapLeaflet) needs a matching dark-theme skin same as
+// everything else in the map.
+.leaflet-control-scale-line {
+	background-color: var(--background-secondary);
+	color: var(--text-normal);
+	border-color: var(--text-normal);
+}
+
+// Base-layer switcher (Street/Satellite/Topographic, top-right) -- same dark
+// skin as the scale bar and popups.
+.leaflet-control-layers {
+	background-color: var(--background-secondary);
+	color: var(--text-normal);
+	box-shadow: 0 2px 8px var(--background-modifier-box-shadow);
+}
+
+.leaflet-control-layers-expanded {
+	padding: var(--size-4-2) var(--size-4-3);
+}
+
+.leaflet-control-layers-separator {
+	border-color: var(--background-modifier-border);
+}
+
 .hub-backlink-card-title {
 	padding: var(--size-4-2) var(--size-4-2) 0;
 	font-weight: var(--bold-weight);
@@ -157,5 +415,52 @@ body {
 	&:last-of-type {
 		color: var(--text-normal);
 		font-weight: var(--bold-weight);
+	}
+}
+
+// Back to top, any screen size (wired in publish.js) -- phones only at first,
+// but there's no reason a long desktop essay shouldn't get it too. The
+// length gate is handled in JS (SCROLL_SHOW_PX): it only fades in once
+// scrolled far enough that a short page would never trigger it anyway.
+.back-to-top-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	right: max(16px, env(safe-area-inset-right));
+	bottom: max(16px, env(safe-area-inset-bottom));
+	z-index: 100;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border-radius: 50%;
+	border: 1px solid var(--background-modifier-border);
+	background-color: var(--background-secondary);
+	color: var(--text-muted);
+	box-shadow: 0 2px 8px var(--background-modifier-box-shadow);
+	// Taps are taps, not the start of a double-tap zoom.
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+	opacity: 0;
+	transform: translateY(8px);
+	pointer-events: none;
+	transition: opacity 0.2s ease, transform 0.2s ease, color 0.15s ease;
+	cursor: pointer;
+
+	&.is-visible {
+		opacity: 1;
+		transform: none;
+		pointer-events: auto;
+	}
+
+	svg {
+		width: 22px;
+		height: 22px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.back-to-top-button {
+		transition: none;
 	}
 }

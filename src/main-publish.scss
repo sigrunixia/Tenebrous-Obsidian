@@ -10,7 +10,11 @@
 // Dark mode only, deliberately -- no 'light' partial. _publish.scss forces
 // .theme-light onto the dark palette instead, so it doesn't matter which class
 // Publish's own JS lands the visitor on.
-@use 'fonts';
+//
+// 'fonts-publish', not 'fonts' -- a trimmed subset built for Publish
+// specifically (full Alegreya Sans, Cardo without its italic faces); see
+// that file for why.
+@use 'fonts-publish';
 @use 'base';
 @use 'dark';
 @use 'syntax';
