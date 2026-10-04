@@ -1,4 +1,4 @@
-@use '../../functions' as *;
+@use '../../lib/functions' as *;
 @use 'mixins' as *;
 
 .markdown-reading-view .callout[data-callout="place"] {

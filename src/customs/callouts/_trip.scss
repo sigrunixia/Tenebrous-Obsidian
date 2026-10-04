@@ -1,6 +1,6 @@
 @use '../../base';
-@use '../../functions' as *;
-@use '../../typography' as t;
+@use '../../lib/functions' as *;
+@use '../../lib/typography' as t;
 @use 'mixins' as *;
 
 .callout:is([data-callout="day"], [data-callout="stay"], [data-callout="pack"], [data-callout="plan"]) {

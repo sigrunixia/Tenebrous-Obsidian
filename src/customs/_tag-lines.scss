@@ -1,4 +1,4 @@
-@use '../functions' as *;
+@use '../lib/functions' as *;
 @mixin tag-line($tag, $color, $tint: 12%, $rule: true, $strike: false) {
 
 	a.tag[href="##{$tag}"],

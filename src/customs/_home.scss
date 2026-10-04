@@ -1,7 +1,7 @@
-@use '../icons' as *;
-@use '../functions' as *;
+@use '../lib/icons' as *;
+@use '../lib/functions' as *;
 @use "sass:list";
-@use '../mixins' as *;
+@use '../lib/mixins' as *;
 
 $cards: ':is(.home, .hub, .gallery)';
 

@@ -1,7 +1,7 @@
 @use 'sass:list';
-@use '../icons' as *;
-@use '../functions' as *;
-@use '../mixins' as *;
+@use '../lib/icons' as *;
+@use '../lib/functions' as *;
+@use '../lib/mixins' as *;
 
 .hub {
 	--hub-hue: var(--amber);

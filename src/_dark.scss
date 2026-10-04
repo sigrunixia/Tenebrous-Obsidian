@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "sass:map";
-@use "functions" as *;
-@use "palette" as *;
+@use "lib/functions" as *;
+@use "lib/palette" as *;
 
 $purple:          color.mix($magenta, $blue0, 50%);
 

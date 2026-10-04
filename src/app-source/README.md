@@ -6,7 +6,7 @@ properties Obsidian's core reads that we never set, or checking whether a select
 default styling relies on a variable at all.
 
 Not `@use`'d anywhere -- it does not affect the compiled `theme.css`, same as
-[`../_upstream-palette.scss`](../_upstream-palette.scss).
+[`../lib/_upstream-palette.scss`](../lib/_upstream-palette.scss).
 
 - Extracted: one `cssRules` entry per line, via the running app's own DOM (not asar
   extraction -- the shipped `app.asar` is just the Electron shell; the actual UI stylesheet
