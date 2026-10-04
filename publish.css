@@ -1534,3 +1534,6 @@ body {
     transition: none;
   }
 }
+.site-footer {
+  display: none;
+}
