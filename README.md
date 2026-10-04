@@ -1,16 +1,22 @@
 # Tenebrous
 
-A dark theme for Obsidian that focuses on contrast. The colors come from [Tenebrous](https://github.com/sigrunixia/Tenebrous), and there is a matching theme for [Zed](https://github.com/sigrunixia/Tenebrous-Zed).
+A dark theme for Obsidian that focuses on contrast. The colors come from [Tenebrous](https://github.com/sigrunixia/Tenebrous), a custom color scheme I have made.
+
+This theme is very opinionated. I built it around how I use Obsidian, so I will not accept feature requests or changes to it. If you want it different, fork it and make it yours.
+
+## Features
+
+### Callouts
+
+Every callout has unique colors. 
 
 ![Tenebrous theme in Obsidian](screenshot.png)
+
+### Tag lines
 
 Lines that carry a status tag get a left rule, a tint and a matching tag pill.
 
 ![Tag lines in Obsidian](screenshots/tag-lines.png)
-
-## Opinionated
-
-This theme is very opinionated. I built it around how I use Obsidian, so I will not accept feature requests or changes to it. If you want it different, fork it and make it yours.
 
 ## Special thanks
 
