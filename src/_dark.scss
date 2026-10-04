@@ -1,45 +1,34 @@
 @use "sass:color";
 @use "functions" as *;
 
-// Dark palette
-// Contrast ratios vs #14161b bg (WCAG AA requires 4.5:1 for normal text).
-// Verified 2026-07-30 with the WCAG 2.1 relative-luminance formula.
-$bg-dark2:        #0c0d11;
+// Dark palette -- Greek Tenebrism. A near-black midnight-blue ground (kept
+// from the Poimandres pass below) with a chiaroscuro accent band of gold
+// leaf, lapis, verdigris bronze, wine and terracotta -- the "lit subject"
+// colors read against the flat dark rest of the UI, the way Byzantine icons
+// and Caravaggio both put a narrow band of warm, saturated light against an
+// otherwise unlit ground. Contrast ratios vs #14161b bg (WCAG AA requires
+// 4.5:1 for normal text). Verified 2026-10-04 with the WCAG 2.1
+// relative-luminance formula.
+$bg-dark2:        #0d0e10;
 $bg:              #14161b;
-$bg-highlight:    #1c1e25;
-$bg-highlight-dk: #171920;
-$fg:              #e4e7ea;
-$fg-dark:         #b8bfc9;
-$comment:         #7da0b3;  // 6.51:1
-$blue0:           #c5d0e6;  // 11.67:1
-$cyan:            #84bfcf;  // 8.91:1
-$cyan0:           #6f9fad;  // 6.24:1
-$magenta:         #d2a5c4;  // 8.55:1
+$bg-highlight:    #242838;
+$bg-highlight-dk: #1d202b;
+$fg:              #a6accd;  // 8.10:1
+$fg-dark:         #898fb3;  // 5.73:1
+$comment:         #6d7397;  // 3.92:1 (faint by design, not AA-bound)
+$blue0:           #6e9cc4;  // 6.22:1  -- lapis/Aegean blue
+$cyan:            #e8c878;  // 11.17:1 -- gilded gold, bright
+$cyan0:           #d9b35c;  // 9.09:1  -- antique gold leaf
+$magenta:         #bd6b7a;  // 4.78:1  -- wine/oxblood
 $purple:          color.mix($magenta, $blue0, 50%);
-$orange:          #f2a070;  // 8.65:1
-$yellow:          #dcb583;  // 9.46:1
-$green:           #7bbfb0;  // 8.55:1
-$green0:          #6a998f;  // 5.66:1
-$teal:            #5db3be;  // 7.46:1
-$red:             #d1889a;  // 6.64:1
-$red1:            #c16277;  // 4.55:1 (was #c06075, 4.46:1 -- failed AA)
+$teal:            #5bb296;  // 7.11:1  -- verdigris, bronze patina
+$green:           #b3a562;  // 7.30:1  -- olive
+$green0:          #8c8150;  // 4.63:1  -- dimmer olive
+$red:             #c56b4b;  // 4.81:1  -- terracotta
+$red1:            #d4785a;  // 5.72:1  -- bright terracotta, for emphasis
+$orange:          #cf8f54;  // 6.64:1  -- amber/bronze, between gold and terracotta
+$yellow:          #f0d78a;  // 12.75:1 -- bright gold-yellow
 $unknown:         #ffffff;
-
-// Vivid variants for the small set of "lit subject" elements that should pop
-// (headings, links, interactive-accent) -- see pop() in _functions.scss.
-// The base palette above stays as-is for tags/code/callouts/canvas/etc.
-//
-// cyan/teal/green start only 6-26deg apart in hue -- a flat saturation bump
-// made them converge further, so h1/h3/h5 also get a hue nudge apart here.
-// blue0 is very light (L 84%) -- saturation alone still reads as pale grey,
-// so h2 gets a lightness pull-down too.
-$cyan-pop:    to-rgb(color.scale(color.adjust($cyan, $hue: 10deg), $saturation: 45%));
-$blue0-pop:   to-rgb(color.scale($blue0, $saturation: 60%, $lightness: -18%));
-$teal-pop:    to-rgb(color.scale(color.adjust($teal, $hue: -6deg), $saturation: 55%, $lightness: -8%));
-$magenta-pop: pop($magenta);
-$green-pop:   to-rgb(color.scale(color.adjust($green, $hue: -12deg), $saturation: 45%));
-$yellow-pop:  pop($yellow);
-$cyan0-pop:   pop($cyan0);
 
 // Accent
 $accent-h: 210;
@@ -178,12 +167,12 @@ $error-rgb:   rgb-triplet($red1);
 	--scrollbar-active-thumb-bg: var(--comment);
 	--scrollbar-width:           8px;
 
-	--h1-color: #{$blue0-pop};
-	--h2-color: #{$cyan-pop};
-	--h3-color: #{$teal-pop};
-	--h4-color: #{$magenta-pop};
-	--h5-color: #{$green-pop};
-	--h6-color: #{$yellow-pop};
+	--h1-color: var(--blue0);
+	--h2-color: var(--cyan);
+	--h3-color: var(--teal);
+	--h4-color: var(--magenta);
+	--h5-color: var(--green);
+	--h6-color: var(--yellow);
 
 	--border-width: 2px;
 
@@ -203,8 +192,8 @@ $error-rgb:   rgb-triplet($red1);
 	--tag-size:               var(--font-smaller);
 	--tag-weight:             inherit;
 
-	--link-color:               #{$cyan0-pop};
-	--link-color-hover:         #{$cyan-pop};
+	--link-color:               var(--cyan0);
+	--link-color-hover:         var(--cyan);
 	--link-external-color:      var(--fg_dark);
 	--link-external-color-hover: var(--fg);
 
@@ -275,7 +264,7 @@ $error-rgb:   rgb-triplet($red1);
 	--code-value:       var(--yellow);
 	--code-number:      var(--orange);
 	--code-atom:        var(--red);
-	--code-builtin:     #{$blue0-pop};
+	--code-builtin:     var(--blue0);
 	--code-string-2:    var(--green0);
 	--code-def:         var(--cyan);
 	--code-variable-2:  var(--purple);
