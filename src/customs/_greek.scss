@@ -1,5 +1,5 @@
-@use 'typography' as t;
-@use 'functions' as *;
+@use '../typography' as t;
+@use '../functions' as *;
 $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0 19h1V1h18v12H7V7h6v12h7' fill='none' stroke='black' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E");
 
 $gold: var(--yellow);

@@ -1,8 +1,8 @@
 @use 'typography' as t;
 @use 'base';
 @use 'dark';
-@use 'callouts/landing';
-@use 'callouts/contact';
+@use 'customs/callouts/landing';
+@use 'customs/callouts/contact';
 
 .published-container {
 	--logo-radius: #{base.$radius};

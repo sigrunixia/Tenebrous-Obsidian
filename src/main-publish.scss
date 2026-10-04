@@ -1,11 +1,11 @@
 @use 'base';
 @use 'dark';
 @use 'syntax';
-@use 'pages' with ($only: ('trips'));
-@use 'callouts/place';
-@use 'callouts/grid';
-@use 'callouts/trip';
-@use 'trips';
-@use 'tag-lines';
+@use 'customs/pages' with ($only: ('trips'));
+@use 'customs/callouts/place';
+@use 'customs/callouts/grid';
+@use 'customs/callouts/trip';
+@use 'customs/trips';
+@use 'customs/tag-lines';
 @use 'publish';
 @use 'publish/publish-footer';
