@@ -131,10 +131,9 @@ svg * {
   --text-selection: color-mix(in oklch, var(--amber) 25%, transparent);
   --text-on-accent: var(--bg);
   --highlight-opacity: 25%;
-  --text-highlight-bg: color-mix(in oklch, var(--yellow) 25%, transparent);
   --bold-color: var(--blue0);
   --italic-color: var(--amber);
-  --highlight-bg-color: var(--text-highlight-bg);
+  --highlight-bg-color: var(--highlight-background);
   --highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
   --button-hover-color: var(--interactive-hover);
   --toggled-btn-bg-color: var(--interactive-accent);
@@ -191,6 +190,11 @@ svg * {
   --table-row-background-hover: var(--bg_dark2);
   --table-row-alt-background-hover: var(--bg_dark2);
   --bases-table-header-color: var(--amber);
+  --bases-kanban-column-background: var(--background-secondary);
+  --bases-kanban-card-background: var(--bg_highlight_dark);
+  --bases-kanban-card-shadow: 0 0 0 1px var(--bg_highlight);
+  --bases-kanban-card-shadow-hover: 0 0 0 1px var(--amber);
+  --bases-kanban-card-shadow-focus: 0 0 0 2px var(--amber);
   --bases-group-heading-value-color: var(--fg);
   --metadata-divider-color-hover: var(--comment);
   --metadata-divider-color-focus: var(--interactive-accent);

@@ -100,11 +100,10 @@ $error-rgb:   rgb-triplet($red1);
 	--text-selection:    #{tint(var(--amber), 25%)};
 	--text-on-accent:    var(--bg);
 	--highlight-opacity: 25%;
-	--text-highlight-bg: #{tint(var(--yellow), 25%)};
 	--bold-color:        var(--blue0);
 	--italic-color:      var(--amber);
 
-	--highlight-bg-color:          var(--text-highlight-bg);
+	--highlight-bg-color:          var(--highlight-background);
 	--highlight-selected-bg-color: #{tint(var(--orange), 45%)};
 
 	--button-hover-color:   var(--interactive-hover);
@@ -173,6 +172,12 @@ $error-rgb:   rgb-triplet($red1);
 	--table-row-alt-background-hover: var(--bg_dark2);
 
 	--bases-table-header-color: var(--amber);
+
+	--bases-kanban-column-background: var(--background-secondary);
+	--bases-kanban-card-background:   var(--bg_highlight_dark);
+	--bases-kanban-card-shadow:       0 0 0 1px var(--bg_highlight);
+	--bases-kanban-card-shadow-hover: 0 0 0 1px var(--amber);
+	--bases-kanban-card-shadow-focus: 0 0 0 2px var(--amber);
 
 	--bases-group-heading-value-color: var(--fg);
 
