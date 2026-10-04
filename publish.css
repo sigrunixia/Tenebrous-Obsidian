@@ -640,6 +640,100 @@ svg * {
   border-radius: 0;
 }
 
+/* Place infobox: Wikipedia-style, floated right of the lead text. Cover
+   photo on top, then the facts as a stacked list with small-caps labels.
+   Scoped to .markdown-reading-view only -- float breaks the CodeMirror
+   editor's own layout in Live Preview / source mode, detaching the box
+   from its source position, so editing shows the plain, unstyled callout. */
+.markdown-reading-view .callout[data-callout=place] {
+  --callout-color: var(--teal);
+  --callout-icon: lucide-map-pin;
+  float: right;
+  width: clamp(14rem, 32vw, 18rem);
+  margin: 0 0 1rem 1.4rem;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklch, var(--callout-color) 30%, transparent);
+  border-radius: 14px;
+  background: var(--background-secondary);
+}
+
+.markdown-reading-view .callout[data-callout=place] > .callout-title {
+  display: none;
+}
+
+.markdown-reading-view .callout[data-callout=place] > .callout-content {
+  padding: 0;
+}
+
+.markdown-reading-view .callout[data-callout=place] > .callout-content > p:first-child {
+  margin: 0;
+}
+
+.markdown-reading-view .callout[data-callout=place] .internal-embed.image-embed img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  max-height: none;
+  border-radius: 0;
+}
+
+.markdown-reading-view .callout[data-callout=place] > .callout-content > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.markdown-reading-view .callout[data-callout=place] > .callout-content > ul > li {
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border-top: 1px solid color-mix(in oklch, var(--callout-color) 18%, transparent);
+  font-size: 0.85rem;
+  list-style: none;
+}
+
+.markdown-reading-view .callout[data-callout=place] > .callout-content > ul > li::marker {
+  content: "";
+}
+
+.markdown-reading-view .callout[data-callout=place] > .callout-content > ul > li > strong {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-size: 0.68rem;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--callout-color);
+}
+
+@media (max-width: 40rem) {
+  .markdown-reading-view .callout[data-callout=place] {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+/* A Bases embed is a block box that needs its full column width, so a float
+   alone doesn't shrink it, CSS just pushes the whole block below the float
+   once it no longer fits beside it. Cap its width to the leftover column
+   (matching the infobox's own max width + margin) so it actually renders
+   beside the infobox instead of waiting below it, and let its toolbar wrap
+   instead of forcing the block wider than that. */
+.markdown-reading-view .el-div:has(> .callout[data-callout=place]) ~ .el-p:has(.bases-embed) {
+  width: calc(100% - 19.4rem);
+}
+
+.markdown-reading-view .bases-toolbar {
+  flex-wrap: wrap;
+  height: auto;
+}
+
+@media (max-width: 40rem) {
+  .markdown-reading-view .el-div:has(> .callout[data-callout=place]) ~ .el-p:has(.bases-embed) {
+    width: 100%;
+  }
+}
 /* Gallery page. */
 .gallery .inline-title {
   font-size: clamp(2rem, 8vw, 3rem);
@@ -826,6 +920,54 @@ svg * {
 }
 .callout[data-callout=lessons] ol > li > br {
   display: none;
+}
+
+.callout[data-callout=caption] {
+  --callout-color: var(--comment);
+  margin: 1.4rem 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1.5px solid var(--callout-color);
+  border-radius: 4px;
+  background: color-mix(in oklch, var(--callout-color) 12%, var(--background-primary));
+}
+.callout[data-callout=caption] > .callout-title {
+  display: none;
+}
+.callout[data-callout=caption] > .callout-content {
+  padding: 0;
+}
+.callout[data-callout=caption] > .callout-content > p:first-child {
+  margin: 0;
+  text-align: center;
+}
+.callout[data-callout=caption] .internal-embed,
+.callout[data-callout=caption] img {
+  display: block;
+  margin-inline: auto;
+}
+.callout[data-callout=caption] img {
+  max-width: 100%;
+  max-height: 28rem;
+  width: auto;
+  border-radius: 0;
+}
+.callout[data-callout=caption] > .callout-content > p {
+  margin: 0;
+}
+.callout[data-callout=caption] > .callout-content > p:not(:first-child) {
+  padding: 0.6rem clamp(0.9rem, 3vw, 1.2rem) 0.8rem;
+  border-top: 1px solid var(--callout-color);
+  font-family: "Cardo", Georgia, serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.45;
+  text-align: left;
+  color: var(--text-muted);
+}
+.callout[data-callout=caption] > .callout-content > p:not(:first-child) em, .callout[data-callout=caption] > .callout-content > p:not(:first-child) i {
+  font-style: normal;
+  color: var(--teal);
 }
 
 .callout[data-callout=plan] {

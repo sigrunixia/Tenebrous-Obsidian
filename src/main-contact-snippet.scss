@@ -1,0 +1,9 @@
+// Standalone CSS snippet for local preview of the About page's contact cards
+// (_contact.scss) in Obsidian's own Reading view, without pushing to the live
+// site. Same idea as main-landing-snippet.scss -- Reading view and Publish
+// share a renderer, and the cards are plain callouts.
+//
+// Enable in Settings -> Appearance -> CSS snippets. Requires the Tenebrous
+// theme active (this snippet only carries the cards, not the palette
+// variables they read).
+@use 'contact';

@@ -1,5 +1,5 @@
 // Trip notes: the callout set used by every note in Trips that is
-// published. Six callouts, one job each.
+// published. Seven callouts, one job each.
 //
 //   [!trip]    masthead: cover photo, then a grid of labelled facts
 //   [!day]     one card per day, dated in the title
@@ -7,6 +7,7 @@
 //   [!pack]    what I brought
 //   [!lessons] the lessons, one callout holding a numbered list
 //   [!plan]-   folded planning notes
+//   [!caption] a photo with its caption underneath
 //
 // The callout types are not scoped to .trip. Their names are unique to
 // trips, so there is nothing to collide with, and page-level rules (the
@@ -140,6 +141,72 @@ $serif: 'Cardo', Georgia, serif;
 			}
 
 			> br { display: none; }
+		}
+	}
+}
+
+// Caption. A photo framed as a small card, cutline below -- same family as
+// day/stay/pack (card, border, radius) but photo-first: no title, no left
+// rail. The photo keeps its native aspect ratio (no crop -- trip photos are
+// a mix of landscape and tall portrait shots, and cropping to a fixed box
+// cuts the subject off a portrait shot), capped to a shared max-height so no
+// single photo dominates the page; a muted band behind it keeps the card's
+// footprint full-width even when the photo itself is narrower.
+// A title italicised in the cutline (an artwork, a dish) reverses to upright
+// and picks up the teal accent, so a museum-label-style credit line reads as
+// distinct from a plain descriptive caption without any new syntax.
+//
+//   > [!caption]
+//   > ![[photo.jpg]]
+//   >
+//   > What the photo shows. *A title* stays italic-reversed to upright teal.
+.callout[data-callout="caption"] {
+	--callout-color: var(--comment);
+	margin: 1.4rem 0;
+	padding: 0;
+	overflow: hidden;
+	border: 1.5px solid var(--callout-color);
+	border-radius: base.$radius;
+	background: color-mix(in oklch, var(--callout-color) 12%, var(--background-primary));
+
+	> .callout-title { display: none; }
+	> .callout-content { padding: 0; }
+
+	> .callout-content > p:first-child {
+		margin: 0;
+		text-align: center;
+	}
+
+	.internal-embed,
+	img {
+		display: block;
+		margin-inline: auto;
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 28rem;
+		width: auto;
+		border-radius: 0;
+	}
+
+	> .callout-content > p {
+		margin: 0;
+
+		&:not(:first-child) {
+			padding: 0.6rem clamp(0.9rem, 3vw, 1.2rem) 0.8rem;
+			border-top: 1px solid var(--callout-color);
+			font-family: $serif;
+			font-size: 0.9rem;
+			font-style: italic;
+			line-height: 1.45;
+			text-align: left;
+			color: var(--text-muted);
+
+			em, i {
+				font-style: normal;
+				color: var(--teal);
+			}
 		}
 	}
 }
