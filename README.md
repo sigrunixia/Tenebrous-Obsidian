@@ -10,3 +10,4 @@ This theme is very opinionated. I built it around how I use Obsidian, so I will 
 
 - [Poimandres](https://github.com/drcmda/poimandres-theme) by drcmda, the original theme that inspired this
 - [Poimandres for Obsidian](https://github.com/yoGhastly/poimandres-obsidian) by yoGhastly, where this theme started
+- [Dbarenholz](https://github.com/dbarenholz) for dealing with me on [halcyon-obsidian](https://github.com/dbarenholz/halcyon-obsidian)
