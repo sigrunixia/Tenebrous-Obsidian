@@ -22,6 +22,6 @@ Lines that carry a status tag get a left rule, a tint and a matching tag pill.
 
 ## Special thanks
 
-- [Poimandres](https://github.com/drcmda/poimandres-theme) by drcmda, the original theme that inspired this
-- [Poimandres for Obsidian](https://github.com/yoGhastly/poimandres-obsidian) by yoGhastly, where this theme started
-- [Dbarenholz](https://github.com/dbarenholz) for dealing with me on [halcyon-obsidian](https://github.com/dbarenholz/halcyon-obsidian)
+- [Poimandres](https://github.com/drcmda/poimandres-theme) by drcmda, the original theme that inspired this full cascading mess.
+- [Poimandres for Obsidian](https://github.com/yoGhastly/poimandres-obsidian) by yoGhastly, whose interpretation I used for a while.
+- [Dbarenholz](https://github.com/dbarenholz) for dealing with me on [halcyon-obsidian](https://github.com/dbarenholz/halcyon-obsidian).
