@@ -62,58 +62,8 @@
 
 		.callout[data-callout^="hub-"] {
 			--hub-hue: var(--amber);
-			position: relative;
-			margin: 0;
-			overflow: hidden;
-			border: 1px solid tint(var(--hub-hue), 28%);
-			border-left: 3px solid var(--hub-hue);
-			border-radius: 12px;
-			background:
-				radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 20%), transparent 60%),
-				var(--background-secondary);
-			transition: transform 0.15s ease, border-color 0.15s ease;
-		}
-
-		.callout[data-callout^="hub-"] .callout-title a {
-			&::after {
-				content: "";
-				position: absolute;
-				inset: 0;
-			}
-		}
-
-		@media (hover: hover) {
-			.callout[data-callout^="hub-"]:hover {
-				border-color: var(--hub-hue);
-				transform: translateY(-2px);
-			}
-		}
-
-		.callout[data-callout^="hub-"] .callout-icon {
-			color: var(--hub-hue);
-		}
-
-		.callout[data-callout^="hub-"] .callout-icon svg {
-			width: 1.5em;
-			height: 1.5em;
-			filter: drop-shadow(0 0 6px tint(var(--hub-hue), 60%));
-		}
-
-		.callout[data-callout^="hub-"] .callout-title {
-			gap: 0.6em;
-			font-size: 0.85em;
-			letter-spacing: 0.06em;
-			text-transform: uppercase;
-			color: var(--hub-hue);
-		}
-
-		.callout[data-callout^="hub-"] .callout-content {
-			padding-top: 0;
-			font-size: 0.85em;
-		}
-
-		.callout[data-callout^="hub-"] ul {
-			margin: 0;
+			@include hue-card(--hub-hue);
+			@include hue-icon-svg(--hub-hue);
 		}
 
 		.callout[data-callout="hub-obsidian"] { --callout-icon: lucide-gem; --hub-hue: var(--purple); }

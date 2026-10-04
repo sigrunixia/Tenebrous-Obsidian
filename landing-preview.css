@@ -67,26 +67,7 @@
   border-left: 3px solid var(--hub-hue);
   border-radius: 12px;
   background: radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--hub-hue) 20%, transparent), transparent 60%), var(--background-secondary);
-  transition: transform 0.15s ease, border-color 0.15s ease;
-}
-.landing .callout[data-callout^=hub-] .callout-title a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-@media (hover: hover) {
-  .landing .callout[data-callout^=hub-]:hover {
-    border-color: var(--hub-hue);
-    transform: translateY(-2px);
-  }
-}
-.landing .callout[data-callout^=hub-] .callout-icon {
-  color: var(--hub-hue);
-}
-.landing .callout[data-callout^=hub-] .callout-icon svg {
-  width: 1.5em;
-  height: 1.5em;
-  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hub-hue) 60%, transparent));
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .landing .callout[data-callout^=hub-] .callout-title {
   gap: 0.6em;
@@ -95,12 +76,32 @@
   text-transform: uppercase;
   color: var(--hub-hue);
 }
+.landing .callout[data-callout^=hub-] .callout-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
 .landing .callout[data-callout^=hub-] .callout-content {
   padding-top: 0;
   font-size: 0.85em;
 }
+.landing .callout[data-callout^=hub-] .callout-icon {
+  color: var(--hub-hue);
+}
 .landing .callout[data-callout^=hub-] ul {
   margin: 0;
+}
+@media (hover: hover) {
+  .landing .callout[data-callout^=hub-]:hover {
+    border-color: var(--hub-hue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+  }
+}
+.landing .callout[data-callout^=hub-] .callout-icon svg {
+  width: 1.5em;
+  height: 1.5em;
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hub-hue) 60%, transparent));
 }
 .landing .callout[data-callout=hub-obsidian] {
   --callout-icon: lucide-gem;

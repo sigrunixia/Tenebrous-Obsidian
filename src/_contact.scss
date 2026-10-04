@@ -1,42 +1,11 @@
 @use 'functions' as *;
-.callout[data-callout="contact"] {
-	padding: 0;
-	border: none;
-	background: none;
-	margin: var(--size-4-4) 0;
-}
+@use 'mixins' as *;
 
-.callout[data-callout="contact"] > .callout-title {
-	display: none;
-}
-
-.callout[data-callout="contact"] > .callout-content {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
-	gap: 0.7em;
-	padding: 0;
-}
+@include card-grid("contact", var(--size-4-4) 0);
 
 .callout[data-callout^="contact-"] {
 	--contact-hue: var(--amber);
-	position: relative;
-	margin: 0;
-	overflow: hidden;
-	border: 1px solid tint(var(--contact-hue), 28%);
-	border-left: 3px solid var(--contact-hue);
-	border-radius: 12px;
-	background:
-		radial-gradient(circle at 0% 0%, tint(var(--contact-hue), 20%), transparent 60%),
-		var(--background-secondary);
-	transition: transform 0.15s ease, border-color 0.15s ease;
-
-	.callout-title {
-		gap: 0.6em;
-		font-size: 0.85em;
-		letter-spacing: 0.06em;
-		text-transform: uppercase;
-		color: var(--contact-hue);
-	}
+	@include hue-card(--contact-hue);
 
 	a,
 	a.external-link {
@@ -52,26 +21,11 @@
 
 	.callout-content {
 		overflow-wrap: anywhere;
-	}
-
-	.callout-title a::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-	}
-
-	.callout-content {
-		padding-top: 0;
-		font-size: 0.85em;
 		color: var(--text-muted);
 	}
 
 	.callout-content p {
 		margin: 0;
-	}
-
-	.callout-icon {
-		color: var(--contact-hue);
 	}
 
 	.callout-icon svg {
@@ -86,15 +40,9 @@
 		background: var(--contact-icon-fill, var(--contact-hue));
 		mask: var(--contact-icon) center / contain no-repeat;
 		-webkit-mask: var(--contact-icon) center / contain no-repeat;
-		filter: drop-shadow(0 0 6px tint(var(--contact-hue), 60%));
+		@include hue-glow(--contact-hue);
 	}
 
-	@media (hover: hover) {
-		&:hover {
-			border-color: var(--contact-hue);
-			transform: translateY(-2px);
-		}
-	}
 }
 
 .callout[data-callout="contact-email"] {

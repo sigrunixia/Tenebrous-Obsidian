@@ -1,14 +1,13 @@
 @use 'icons' as *;
 @use 'functions' as *;
+@use 'mixins' as *;
 .hub { --hub-hue: var(--amber); }
 
 .hub .inline-title {
   position: relative;
   margin: 0 0 1em;
   padding: clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) calc(clamp(1rem, 4vw, 1.6rem) + 2.4em);
-  border: 1px solid tint(var(--hub-hue), 35%);
-  border-left: 3px solid var(--hub-hue);
-  border-radius: 14px;
+  @include hue-border(--hub-hue, 35%, 14px);
   color: var(--hub-hue);
   background:
     radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 28%), transparent 60%),

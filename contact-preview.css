@@ -25,7 +25,7 @@
   border-left: 3px solid var(--contact-hue);
   border-radius: 12px;
   background: radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--contact-hue) 20%, transparent), transparent 60%), var(--background-secondary);
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .callout[data-callout^=contact-] .callout-title {
   gap: 0.6em;
@@ -33,6 +33,28 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--contact-hue);
+}
+.callout[data-callout^=contact-] .callout-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.callout[data-callout^=contact-] .callout-content {
+  padding-top: 0;
+  font-size: 0.85em;
+}
+.callout[data-callout^=contact-] .callout-icon {
+  color: var(--contact-hue);
+}
+.callout[data-callout^=contact-] ul {
+  margin: 0;
+}
+@media (hover: hover) {
+  .callout[data-callout^=contact-]:hover {
+    border-color: var(--contact-hue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+  }
 }
 .callout[data-callout^=contact-] a,
 .callout[data-callout^=contact-] a.external-link {
@@ -46,22 +68,10 @@
 }
 .callout[data-callout^=contact-] .callout-content {
   overflow-wrap: anywhere;
-}
-.callout[data-callout^=contact-] .callout-title a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-.callout[data-callout^=contact-] .callout-content {
-  padding-top: 0;
-  font-size: 0.85em;
   color: var(--text-muted);
 }
 .callout[data-callout^=contact-] .callout-content p {
   margin: 0;
-}
-.callout[data-callout^=contact-] .callout-icon {
-  color: var(--contact-hue);
 }
 .callout[data-callout^=contact-] .callout-icon svg {
   display: none;
@@ -75,12 +85,6 @@
   mask: var(--contact-icon) center/contain no-repeat;
   -webkit-mask: var(--contact-icon) center/contain no-repeat;
   filter: drop-shadow(0 0 6px color-mix(in oklch, var(--contact-hue) 60%, transparent));
-}
-@media (hover: hover) {
-  .callout[data-callout^=contact-]:hover {
-    border-color: var(--contact-hue);
-    transform: translateY(-2px);
-  }
 }
 
 .callout[data-callout=contact-email] {

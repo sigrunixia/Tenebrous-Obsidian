@@ -1,8 +1,15 @@
-@mixin card-grid($callout) {
+@use 'functions' as *;
+
+$lift-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+
+@mixin card-grid($callout, $margin: null) {
 	.callout[data-callout="#{$callout}"] {
 		padding: 0;
 		border: none;
 		background: none;
+		@if $margin {
+			margin: $margin;
+		}
 	}
 
 	.callout[data-callout="#{$callout}"] > .callout-title {
@@ -14,5 +21,80 @@
 		grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
 		gap: 0.7em;
 		padding: 0;
+	}
+}
+
+@mixin hue-border($hue, $strength: 28%, $radius: 12px) {
+	border: 1px solid tint(var(#{$hue}), $strength);
+	border-left: 3px solid var(#{$hue});
+	border-radius: $radius;
+}
+
+@mixin hue-glow($hue, $radius: 6px, $strength: 60%) {
+	filter: drop-shadow(0 0 $radius tint(var(#{$hue}), $strength));
+}
+
+@mixin lift {
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+	@media (hover: hover) {
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: $lift-shadow;
+		}
+	}
+}
+
+@mixin hue-card($hue) {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+	@include hue-border($hue);
+	background:
+		radial-gradient(circle at 0% 0%, tint(var(#{$hue}), 20%), transparent 60%),
+		var(--background-secondary);
+	transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+
+	.callout-title {
+		gap: 0.6em;
+		font-size: 0.85em;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(#{$hue});
+	}
+
+	.callout-title a::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	.callout-content {
+		padding-top: 0;
+		font-size: 0.85em;
+	}
+
+	.callout-icon {
+		color: var(#{$hue});
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			border-color: var(#{$hue});
+			transform: translateY(-2px);
+			box-shadow: $lift-shadow;
+		}
+	}
+}
+
+@mixin hue-icon-svg($hue) {
+	.callout-icon svg {
+		width: 1.5em;
+		height: 1.5em;
+		@include hue-glow($hue);
 	}
 }

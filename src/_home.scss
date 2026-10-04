@@ -165,7 +165,6 @@ $covers: (
 	(("Health",), "heart-pulse", "red"),
 	(("Relationship",), "heart", "magenta"),
 	(("Conversation",), "message-circle", "amber"),
-	(("Text conversation",), "message-square-text", "amber"),
 	(("Social outing", "Social gathering", "Online community", "Quality time"), "users", "amber"),
 	(("Friendship", "Therapy"), "heart-handshake", "magenta"),
 	(("Care",), "hand-heart", "magenta"),
@@ -198,8 +197,7 @@ $covers: (
 	(("Consulate visit",), "landmark", "teal"),
 	(("Flight",), "plane", "teal"),
 	(("Train",), "train-front", "teal"),
-	(("Road trip",), "car", "teal"),
-	(("Ship",), "ship", "teal")
+	(("Road trip",), "car", "teal")
 );
 
 @each $hrefs, $icon, $hue in $covers {
@@ -220,33 +218,9 @@ $covers: (
 .home .callout[data-callout^="hub-"] {
   --hub-hue: var(--amber);
   --callout-color: var(--color-accent-rgb);
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid tint(var(--hub-hue), 28%);
-  border-left: 3px solid var(--hub-hue);
-  border-radius: 12px;
-  background:
-    radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 20%), transparent 60%),
-    var(--background-secondary);
+  @include hue-card(--hub-hue);
+  @include hue-icon-svg(--hub-hue);
 }
-
-.home .callout[data-callout^="hub-"] .callout-icon { color: var(--hub-hue); }
-.home .callout[data-callout^="hub-"] .callout-icon svg {
-  width: 1.5em;
-  height: 1.5em;
-  filter: drop-shadow(0 0 6px tint(var(--hub-hue), 60%));
-}
-
-.home .callout[data-callout^="hub-"] .callout-title {
-  gap: 0.6em;
-  font-size: 0.85em;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--hub-hue);
-}
-
-.home .callout[data-callout^="hub-"] .callout-content { padding-top: 0; font-size: 0.85em; }
-.home .callout[data-callout^="hub-"] ul { margin: 0; }
 
 $hub-callouts: (
 	("places", "map-pin", "amber"),
@@ -267,14 +241,8 @@ $hub-callouts: (
 
 .home .callout[data-callout="info"] { margin-top: 0.6em; border-radius: 12px; }
 
-@media (hover: hover) {
-  .home .callout[data-callout^="hub-"],
-  #{$cards} .bases-cards-item { transition: transform 0.15s ease, box-shadow 0.15s ease; }
-  .home .callout[data-callout^="hub-"]:hover,
-  #{$cards} .bases-cards-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
-  }
+#{$cards} .bases-cards-item {
+  @include lift;
 }
 
 @media (prefers-reduced-motion: reduce) {
