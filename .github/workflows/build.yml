@@ -1,13 +1,17 @@
-name: Build theme.css
+name: Build theme.css and publish.js
 
 on:
   push:
     paths:
       - "src/**"
+      - "build-publish.sh"
+      - "tsconfig.json"
       - ".github/workflows/build.yml"
   pull_request:
     paths:
       - "src/**"
+      - "build-publish.sh"
+      - "tsconfig.json"
       - ".github/workflows/build.yml"
 
 jobs:
@@ -31,5 +35,26 @@ jobs:
         run: |
           if ! git diff --exit-code theme.css; then
             echo "::error::theme.css is out of date -- build theme.css and commit the result."
+            exit 1
+          fi
+
+      - name: Install esbuild and TypeScript
+        env:
+          ESBUILD_VERSION: "0.28.2"
+          TSC_VERSION: "7.0.2"
+        run: |
+          mkdir -p "$HOME/tools/esbuild" "$HOME/tools/tsc"
+          curl -fsSL "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-${ESBUILD_VERSION}.tgz" | tar -xz -C "$HOME/tools/esbuild" --strip-components=1
+          curl -fsSL "https://registry.npmjs.org/@typescript/typescript-linux-x64/-/typescript-linux-x64-${TSC_VERSION}.tgz" | tar -xz -C "$HOME/tools/tsc" --strip-components=1
+          echo "$HOME/tools/esbuild/bin" >> "$GITHUB_PATH"
+          echo "$HOME/tools/tsc/lib" >> "$GITHUB_PATH"
+
+      - name: Build publish.js
+        run: ./build-publish.sh
+
+      - name: Verify publish.js is up to date
+        run: |
+          if ! git diff --exit-code publish.js; then
+            echo "::error::publish.js is out of date -- run build-publish.sh and commit the result."
             exit 1
           fi
