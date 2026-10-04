@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // build-index.js — walks the Tenebrous vault, collects frontmatter from every
-// publish: true note, and bakes it into src/publish/baked-data.ts as the INDEX
+// publish: true note, and bakes it into src/scripts/baked-data.ts as the INDEX
 // the Bases codeblock renderer queries against, then rebuilds publish.js.
 //
 // Run:   node build-index.js [vault-root]
@@ -12,7 +12,7 @@
 // re-run for.
 //
 // Plain Node, no npm packages — matches the "no npm, no node_modules" rule.
-// Rewrites the three marked constants in src/publish/baked-data.ts, then runs
+// Rewrites the three marked constants in src/scripts/baked-data.ts, then runs
 // build-publish.sh (esbuild + tsc) to produce publish.js in this repo.
 
 'use strict';
@@ -22,7 +22,7 @@ const path = require('path');
 const { execSync, execFileSync } = require('child_process');
 
 const VAULT = path.resolve(process.argv[2] || '/Users/Signia/Vaults/Tenebrous');
-const BAKED_DATA = path.join(__dirname, 'src', 'publish', 'baked-data.ts');
+const BAKED_DATA = path.join(__dirname, 'src', 'scripts', 'baked-data.ts');
 const BUILD_SCRIPT = path.join(__dirname, 'build-publish.sh');
 
 const MARKER = /export const INDEX: IndexEntry\[\] \| null = (?:null|\[[\s\S]*?\]); \/\* @INDEX \*\//;
