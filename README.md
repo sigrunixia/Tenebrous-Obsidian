@@ -4,6 +4,10 @@ A dark theme for Obsidian that focuses on contrast. The colors come from [Tenebr
 
 ![Tenebrous theme in Obsidian](screenshot.png)
 
+Lines that carry a status tag get a left rule, a tint and a matching tag pill.
+
+![Tag lines in Obsidian](screenshots/tag-lines.png)
+
 ## Opinionated
 
 This theme is very opinionated. I built it around how I use Obsidian, so I will not accept feature requests or changes to it. If you want it different, fork it and make it yours.
