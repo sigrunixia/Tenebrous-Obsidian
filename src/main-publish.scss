@@ -1,8 +1,10 @@
-@use 'fonts-publish';
 @use 'base';
 @use 'dark';
 @use 'syntax';
-@use 'pages';
+@use 'pages' with ($only: ('trips'));
+@use 'callouts/place';
+@use 'callouts/grid';
+@use 'callouts/trip';
 @use 'trips';
 @use 'tag-lines';
 @use 'publish';

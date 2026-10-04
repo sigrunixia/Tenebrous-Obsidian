@@ -1,0 +1,39 @@
+@use '../functions' as *;
+@use '../mixins' as *;
+@use 'mixins' as *;
+
+.landing {
+	.callout[data-callout="hero"] {
+		@include hero;
+	}
+
+	@include hero-drift(landing-drift);
+
+	@include card-grid("hub");
+
+	.callout[data-callout^="hub-"] {
+		--hub-hue: var(--amber);
+		@include hue-card(--hub-hue);
+		@include hue-icon-svg(--hub-hue);
+	}
+
+	.callout[data-callout="hub-obsidian"] {
+		--callout-icon: lucide-gem;
+		--hub-hue: var(--purple);
+	}
+
+	.callout[data-callout="hub-tattoos"] {
+		--callout-icon: lucide-flame;
+		--hub-hue: var(--red);
+	}
+
+	.callout[data-callout="hub-traveling"] {
+		--callout-icon: lucide-luggage;
+		--hub-hue: var(--teal);
+	}
+
+	.callout[data-callout="hub-about"] {
+		--callout-icon: lucide-user;
+		--hub-hue: var(--yellow);
+	}
+}

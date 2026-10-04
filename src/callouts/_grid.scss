@@ -1,0 +1,36 @@
+@use 'mixins' as *;
+
+.callout[data-callout="grid"] {
+	@include bare;
+	@include untitled;
+
+	.callout-content > p {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+		grid-auto-rows: 14rem;
+		gap: 0.6rem;
+		margin: 0;
+
+		+ p {
+			margin-top: 0.6rem;
+		}
+
+		br {
+			display: none;
+		}
+	}
+
+	.internal-embed.image-embed {
+		display: block;
+		width: 100%;
+		height: 100%;
+
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+	}
+}

@@ -4,11 +4,9 @@
   background: none;
   margin: var(--size-4-4) 0;
 }
-
 .callout[data-callout=contact] > .callout-title {
   display: none;
 }
-
 .callout[data-callout=contact] > .callout-content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));

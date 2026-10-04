@@ -1,0 +1,158 @@
+@use '../functions' as *;
+@use '../mixins' as *;
+
+@mixin bare($margin: null) {
+	padding: 0;
+	border: none;
+	background: none;
+	@if $margin {
+		margin: $margin;
+	}
+}
+
+@mixin untitled {
+	> .callout-title {
+		display: none;
+	}
+
+	> .callout-content {
+		padding: 0;
+	}
+}
+
+@mixin framed($radius, $strength: 30%) {
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid tint(var(--callout-color), $strength);
+	border-radius: $radius;
+}
+
+@mixin card-grid($callout, $margin: null) {
+	.callout[data-callout="#{$callout}"] {
+		@include bare($margin);
+
+		> .callout-title {
+			display: none;
+		}
+
+		> .callout-content {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+			gap: 0.7em;
+			padding: 0;
+		}
+	}
+}
+
+@mixin hue-card($hue) {
+	position: relative;
+	margin: 0;
+	overflow: hidden;
+	@include hue-border($hue);
+	background:
+		radial-gradient(circle at 0% 0%, tint(var(#{$hue}), 20%), transparent 60%),
+		var(--background-secondary);
+	transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+
+	.callout-title {
+		gap: 0.6em;
+		font-size: 0.85em;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(#{$hue});
+	}
+
+	.callout-title a::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	.callout-content {
+		padding-top: 0;
+		font-size: 0.85em;
+	}
+
+	.callout-icon {
+		color: var(#{$hue});
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			border-color: var(#{$hue});
+			transform: translateY(-2px);
+			box-shadow: $lift-shadow;
+		}
+	}
+}
+
+@mixin hue-icon-svg($hue) {
+	.callout-icon svg {
+		width: 1.5em;
+		height: 1.5em;
+		@include hue-glow($hue);
+	}
+}
+
+@mixin hero($dots: "") {
+	position: relative;
+	overflow: hidden;
+	margin: 0 0 1.4em;
+	padding: clamp(1.4rem, 6vw, 2.8rem) clamp(1.2rem, 5vw, 2.6rem);
+	border: 1px solid tint(var(--purple), 35%);
+	border-radius: 16px;
+	background:
+		radial-gradient(circle at 12% 18%, tint(var(--purple), 38%), transparent 55%),
+		radial-gradient(circle at 88% 82%, tint(var(--amber), 32%), transparent 50%),
+		#{$dots}
+		linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+
+	.callout-icon {
+		display: none;
+	}
+
+	.callout-title-inner {
+		font-size: clamp(2.1rem, 9vw, 3.4rem);
+		font-weight: 700;
+		line-height: 1.1;
+		letter-spacing: 0.02em;
+		background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.callout-content {
+		padding: 0.4em 0 0;
+		color: var(--text-muted);
+		font-size: clamp(0.95rem, 3.6vw, 1.1rem);
+	}
+}
+
+@mixin hero-drift($name) {
+	@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+		.callout[data-callout="hero"]::before {
+			content: "";
+			position: absolute;
+			inset: -40%;
+			pointer-events: none;
+			background:
+				radial-gradient(circle at 30% 30%, tint(var(--purple), 24%), transparent 38%),
+				radial-gradient(circle at 70% 70%, tint(var(--amber), 20%), transparent 38%);
+			animation: #{$name} 28s ease-in-out infinite alternate;
+		}
+
+		.callout[data-callout="hero"] > * {
+			position: relative;
+			z-index: 1;
+		}
+
+		@keyframes #{$name} {
+			to { transform: translate(7%, 5%) rotate(9deg); }
+		}
+	}
+}

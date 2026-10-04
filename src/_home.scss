@@ -4,148 +4,165 @@
 @use 'mixins' as *;
 
 $cards: ':is(.home, .hub, .gallery)';
-.home .inline-title { display: none; }
 
-.markdown-rendered.home .metadata-container { display: none; }
-
-.home .callout[data-callout="hero"] {
-  --callout-color: var(--amber);
-  position: relative;
-  overflow: hidden;
-  margin: 0 0 1.4em;
-  padding: clamp(1.4rem, 6vw, 2.8rem) clamp(1.2rem, 5vw, 2.6rem);
-  border: 1px solid tint(var(--purple), 35%);
-  border-radius: 16px;
-  background:
-    radial-gradient(circle at 12% 18%, tint(var(--purple), 38%), transparent 55%),
-    radial-gradient(circle at 88% 82%, tint(var(--amber), 32%), transparent 50%),
-    radial-gradient(circle, color-mix(in oklch, var(--amber) 70%, white) 1px, transparent 1.5px) 62% 12% / 4px 4px no-repeat,
-    radial-gradient(circle, color-mix(in oklch, var(--purple) 70%, white) 1px, transparent 1.5px) 80% 20% / 4px 4px no-repeat,
-    radial-gradient(circle, color-mix(in oklch, var(--amber) 70%, white) 1px, transparent 1.5px) 92% 34% / 4px 4px no-repeat,
-    radial-gradient(circle, color-mix(in oklch, var(--purple) 70%, white) 1px, transparent 1.5px) 96% 70% / 4px 4px no-repeat,
-    radial-gradient(circle, color-mix(in oklch, var(--amber) 70%, white) 1px, transparent 1.5px) 84% 84% / 4px 4px no-repeat,
-    radial-gradient(circle, color-mix(in oklch, var(--purple) 70%, white) 1px, transparent 1.5px) 68% 92% / 4px 4px no-repeat,
-    radial-gradient(circle, color-mix(in oklch, var(--amber) 70%, white) 1px, transparent 1.5px) 40% 10% / 4px 4px no-repeat,
-    radial-gradient(circle, color-mix(in oklch, var(--purple) 70%, white) 1px, transparent 1.5px) 28% 16% / 4px 4px no-repeat,
-    linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+.home .inline-title {
+	display: none;
 }
 
-.home .callout[data-callout="hero"] .callout-icon { display: none; }
-
-.home .callout[data-callout="hero"] .callout-title-inner {
-  font-size: clamp(2.1rem, 9vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-  color: var(--amber);
-  background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.markdown-rendered.home .metadata-container {
+	display: none;
 }
 
-.home .callout[data-callout="hero"] .callout-content {
-  padding: 0.4em 0 0;
-  color: var(--text-muted);
-  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
+.home {
+
+	h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.45em;
+		margin-top: 1.7em;
+		padding-bottom: 0.35em;
+		border-bottom: 0;
+		background: linear-gradient(90deg, var(--h2-color), transparent 75%) bottom / 100% 2px no-repeat;
+	}
+
+	h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		margin-top: 1.1em;
+		font-size: 0.8em;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	:is(h2, h3)[data-heading]::before {
+		content: "";
+		flex: none;
+		width: 1.1em;
+		height: 1.1em;
+		background-color: var(--h2-color);
+		-webkit-mask: var(--heading-icon) center / contain no-repeat;
+		mask: var(--heading-icon) center / contain no-repeat;
+	}
+
+	:is(h2, h3)[data-heading="Επερχόμενα"] {
+		--heading-icon: #{icon('calendar-clock')};
+	}
+
+	:is(h2, h3)[data-heading="Σαν σήμερα"] {
+		--heading-icon: #{icon('rotate-ccw-clock')};
+	}
+
+	:is(h2, h3)[data-heading="Ζώπυρα"] {
+		--heading-icon: #{icon('flame')};
+	}
+
+	:is(h2, h3)[data-heading="Πρόσφατα"] {
+		--heading-icon: #{icon('sparkles')};
+	}
+
+	:is(h2, h3)[data-heading="Browse"] {
+		--heading-icon: #{icon('layout-grid')};
+	}
+
+	:is(h2, h3)[data-heading="Συντήρηση"] {
+		--heading-icon: #{icon('wrench')};
+	}
+
+	:is(h2, h3)[data-heading="Σημειώσεις"] {
+		--heading-icon: #{icon('notebook-pen')};
+	}
+
+	:is(h2, h3)[data-heading="Ιδέες"] {
+		--heading-icon: #{icon('lightbulb')};
+	}
+
+	:is(h2, h3)[data-heading="Trips"] {
+		--heading-icon: #{icon('plane')};
+	}
 }
 
-.home h2 {
-  display: flex;
-  align-items: center;
-  gap: 0.45em;
-  margin-top: 1.7em;
-  padding-bottom: 0.35em;
-  border-bottom: 0;
-  background: linear-gradient(90deg, var(--h2-color), transparent 75%) bottom / 100% 2px no-repeat;
+#{$cards} .bases-view {
+	font-size: 0.85em;
 }
 
-.home h3 {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  margin-top: 1.1em;
-  font-size: 0.8em;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+#{$cards} .bases-table-header {
+	color: var(--text-faint);
 }
 
-.home :is(h2, h3)[data-heading]::before {
-  content: "";
-  flex: none;
-  width: 1.1em;
-  height: 1.1em;
-  background-color: var(--h2-color);
-  -webkit-mask: var(--heading-icon) center / contain no-repeat;
-  mask: var(--heading-icon) center / contain no-repeat;
+#{$cards} .bases-cards-container {
+	gap: 0.6em;
 }
 
-.home :is(h2, h3)[data-heading="Επερχόμενα"] { --heading-icon: #{icon('calendar-clock')}; }
-.home :is(h2, h3)[data-heading="Σαν σήμερα"] { --heading-icon: #{icon('rotate-ccw-clock')}; }
-.home :is(h2, h3)[data-heading="Ζώπυρα"] { --heading-icon: #{icon('flame')}; }
-.home :is(h2, h3)[data-heading="Πρόσφατα"] { --heading-icon: #{icon('sparkles')}; }
-.home :is(h2, h3)[data-heading="Browse"] { --heading-icon: #{icon('layout-grid')}; }
-.home :is(h2, h3)[data-heading="Συντήρηση"] { --heading-icon: #{icon('wrench')}; }
-.home :is(h2, h3)[data-heading="Σημειώσεις"] { --heading-icon: #{icon('notebook-pen')}; }
-.home :is(h2, h3)[data-heading="Ιδέες"] { --heading-icon: #{icon('lightbulb')}; }
-.home :is(h2, h3)[data-heading="Trips"] { --heading-icon: #{icon('plane')}; }
-
-#{$cards} .bases-view { font-size: 0.85em; }
-#{$cards} .bases-table-header { color: var(--text-faint); }
-#{$cards} .bases-cards-container { gap: 0.6em; }
-
-#{$cards} .bases-cards-item { border-radius: 12px; overflow: hidden; }
+#{$cards} .bases-cards-item {
+	border-radius: 12px;
+	overflow: hidden;
+}
 
 #{$cards} .bases-cards-cover:not([style*="background-image"]) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(circle at 30% 25%, tint(var(--cover-hue, var(--amber)), 22%), transparent 65%),
-    var(--background-secondary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background:
+		radial-gradient(circle at 30% 25%, tint(var(--cover-hue, var(--amber)), 22%), transparent 65%),
+		var(--background-secondary);
 }
 
 #{$cards} .bases-cards-cover:not([style*="background-image"])::before {
-  content: "";
-  width: 34%;
-  aspect-ratio: 1;
-  background-color: var(--cover-hue, var(--amber));
-  opacity: 0.85;
-  filter: drop-shadow(0 0 10px tint(var(--cover-hue, var(--amber)), 55%));
-  -webkit-mask: var(--home-cover-icon) center / contain no-repeat;
-  mask: var(--home-cover-icon) center / contain no-repeat;
+	content: "";
+	width: 34%;
+	aspect-ratio: 1;
+	background-color: var(--cover-hue, var(--amber));
+	opacity: 0.85;
+	filter: drop-shadow(0 0 10px tint(var(--cover-hue, var(--amber)), 55%));
+	-webkit-mask: var(--home-cover-icon) center / contain no-repeat;
+	mask: var(--home-cover-icon) center / contain no-repeat;
 }
 
-#{$cards} .bases-cards-item { --home-cover-icon: #{icon('lightbulb')}; --cover-hue: var(--yellow); }
-#{$cards} .bases-cards-item:has([data-property="note.types"]) { --home-cover-icon: #{icon('notebook-pen')}; --cover-hue: var(--amber); }
-#{$cards} .bases-cards-item:has([data-property="note.locations"]) { --home-cover-icon: #{icon('luggage')}; --cover-hue: var(--teal); }
+#{$cards} .bases-cards-item {
+	--home-cover-icon: #{icon('lightbulb')};
+	--cover-hue: var(--yellow);
+}
+
+#{$cards} .bases-cards-item:has([data-property="note.types"]) {
+	--home-cover-icon: #{icon('notebook-pen')};
+	--cover-hue: var(--amber);
+}
+
+#{$cards} .bases-cards-item:has([data-property="note.locations"]) {
+	--home-cover-icon: #{icon('luggage')};
+	--cover-hue: var(--teal);
+}
 
 #{$cards} .bases-cards-item:has([data-property="formula.Days"]) {
-  --home-cover-icon: #{icon('calendar-clock')};
-  --cover-hue: var(--orange);
+	--home-cover-icon: #{icon('calendar-clock')};
+	--cover-hue: var(--orange);
 }
 
-#{$cards} .bases-cards-item [data-property="formula.Days"] .bases-cards-label { display: none; }
+#{$cards} .bases-cards-item [data-property="formula.Days"] .bases-cards-label {
+	display: none;
+}
 
 #{$cards} .bases-cards-item [data-property="formula.Days"] .bases-cards-line {
-  display: inline-block;
-  padding: 0.1em 0.7em;
-  border-radius: 999px;
-  font-size: 0.8em;
-  font-weight: 600;
-  color: var(--orange);
-  background: tint(var(--orange), 16%);
-  border: 1px solid tint(var(--orange), 40%);
+	display: inline-block;
+	padding: 0.1em 0.7em;
+	border-radius: 999px;
+	font-size: 0.8em;
+	font-weight: 600;
+	color: var(--orange);
+	background: tint(var(--orange), 16%);
+	border: 1px solid tint(var(--orange), 40%);
 }
 
 .home a.tag {
-  --ember: var(--text-muted);
-  color: var(--ember);
-  background: tint(var(--ember), 14%);
-  border-color: tint(var(--ember), 40%);
+	--ember: var(--text-muted);
+	color: var(--ember);
+	background: tint(var(--ember), 14%);
+	border-color: tint(var(--ember), 40%);
 }
+
 $embers: (
 	("movement", "orange"),
 	("nature", "green"),
@@ -159,158 +176,18 @@ $embers: (
 	.home a.tag[href="##{$tag}"] { --ember: var(--#{$hue}); }
 }
 
-$covers: (
-	(("Work",), "briefcase", "orange"),
-	(("Reflection",), "brain", "purple"),
-	(("Health",), "heart-pulse", "red"),
-	(("Relationship",), "heart", "magenta"),
-	(("Conversation",), "message-circle", "amber"),
-	(("Social outing", "Social gathering", "Online community", "Quality time"), "users", "amber"),
-	(("Friendship", "Therapy"), "heart-handshake", "magenta"),
-	(("Care",), "hand-heart", "magenta"),
-	(("Meal log",), "utensils", "green"),
-	(("Diet",), "salad", "green"),
-	(("Fasting practice",), "timer", "green"),
-	(("Caffeine", "Cafe"), "coffee", "orange"),
-	(("Pets",), "paw-print", "orange"),
-	(("Money management",), "wallet", "yellow"),
-	(("Shopping log",), "shopping-cart", "yellow"),
-	(("Gift",), "gift", "magenta"),
-	(("Birthday", "Anniversaries"), "cake", "magenta"),
-	(("Worldbuilding",), "globe", "teal"),
-	(("Greek", "Language learning"), "languages", "teal"),
-	(("Medical appointment",), "stethoscope", "red"),
-	(("TTRPG session",), "dices", "purple"),
-	(("Reading",), "book-open", "amber"),
-	(("Housing",), "house", "orange"),
-	(("Home maintenance",), "wrench", "orange"),
-	(("Vehicle maintenance",), "car", "teal"),
-	(("Video game",), "gamepad-2", "purple"),
-	(("Walking",), "footprints", "green"),
-	(("Software development",), "code", "amber"),
-	(("Physical progress",), "trending-up", "green"),
-	(("Workout", "Weightlifting log"), "dumbbell", "red"),
-	(("Crafts",), "paintbrush", "magenta"),
-	(("Weather",), "cloud-sun", "yellow"),
-	(("Daily review",), "calendar-check", "amber"),
-	(("Photography practice",), "camera", "purple"),
-	(("Consulate visit",), "landmark", "teal"),
-	(("Flight",), "plane", "teal"),
-	(("Train",), "train-front", "teal"),
-	(("Road trip",), "car", "teal")
-);
-
-@each $hrefs, $icon, $hue in $covers {
-	$selectors: ();
-	@each $href in $hrefs {
-		$selectors: list.append($selectors, "#{$cards} .bases-cards-item:has(.internal-link[data-href=\"#{$href}\"])", comma);
-	}
-	#{$selectors} {
-		--home-cover-icon: #{icon($icon)};
-		--cover-hue: var(--#{$hue});
-	}
-}
-
-.home {
-  @include card-grid("hub");
-}
-
-.home .callout[data-callout^="hub-"] {
-  --hub-hue: var(--amber);
-  --callout-color: var(--color-accent-rgb);
-  @include hue-card(--hub-hue);
-  @include hue-icon-svg(--hub-hue);
-}
-
-$hub-callouts: (
-	("places", "map-pin", "amber"),
-	("people", "users", "magenta"),
-	("things", "shopping-bag", "orange"),
-	("media", "drama", "purple"),
-	("food", "utensils", "green"),
-	("journal", "notebook-pen", "yellow"),
-	("travel", "luggage", "teal"),
-	("records", "archive", "red"),
-	("money", "wallet", "yellow"),
-	("clippings", "scissors", "amber")
-);
-
-@each $name, $icon, $hue in $hub-callouts {
-	.home .callout[data-callout="hub-#{$name}"] { --callout-icon: lucide-#{$icon}; --hub-hue: var(--#{$hue}); }
-}
-
-.home .callout[data-callout="info"] { margin-top: 0.6em; border-radius: 12px; }
 
 #{$cards} .bases-cards-item {
-  @include lift;
+	@include lift;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .home * { transition: none !important; transform: none !important; }
 }
 
-.home .callout[data-callout="actions"] {
-  --callout-color: var(--amber);
-  margin: 0 0 1.2em;
-  padding: 0;
-  border: none;
-  background: none;
-}
-.home .callout[data-callout="actions"] > .callout-title { display: none; }
-.home .callout[data-callout="actions"] .callout-content { padding: 0; }
-.home .callout[data-callout="actions"] ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6em;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.home .callout[data-callout="actions"] li { margin: 0; padding: 0; }
-.home .callout[data-callout="actions"] li::marker { content: none; }
-.home .callout[data-callout="actions"] a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.45em 1em;
-  border-radius: 999px;
-  border: 1px solid tint(var(--amber), 40%);
-  background: tint(var(--amber), 12%);
-  color: var(--amber);
-  font-size: 0.9em;
-  font-weight: 600;
-  text-decoration: none;
-  background-image: none;
-  min-height: 2.6em;
-}
-.home .callout[data-callout="actions"] a::after { display: none; }
 
-.home .callout[data-callout="actions"] a::before {
-  content: "";
-  width: 1.1em;
-  height: 1.1em;
-  background-color: currentColor;
-  -webkit-mask: var(--action-icon) center / contain no-repeat;
-  mask: var(--action-icon) center / contain no-repeat;
+body.is-phone .home {
+	h2 {
+		margin-top: 1.3em;
+	}
 }
-.home .callout[data-callout="actions"] a[href^="obsidian://new"] { --action-icon: #{icon('plus')}; }
-.home .callout[data-callout="actions"] a[href^="obsidian://search"] { --action-icon: #{icon('search')}; }
-.home .callout[data-callout="actions"] a[href*="vault=Scales"] { --action-icon: #{icon('languages')}; }
-
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .home .callout[data-callout="hero"]::before {
-    content: "";
-    position: absolute;
-    inset: -40%;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 30% 30%, tint(var(--purple), 24%), transparent 38%),
-      radial-gradient(circle at 70% 70%, tint(var(--amber), 20%), transparent 38%);
-    animation: home-drift 28s ease-in-out infinite alternate;
-  }
-  .home .callout[data-callout="hero"] > * { position: relative; z-index: 1; }
-  @keyframes home-drift { to { transform: translate(7%, 5%) rotate(9deg); } }
-}
-
-body.is-phone .home h2 { margin-top: 1.3em; }
-body.is-phone .home .callout[data-callout="hero"] { border-radius: 14px; }

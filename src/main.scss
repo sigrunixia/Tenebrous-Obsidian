@@ -1,10 +1,14 @@
-@use 'fonts';
 @use 'base';
 @use 'dark';
 @use 'syntax';
 @use 'misc';
 @use 'home';
+@use 'callouts/general';
+@use 'callouts/home' as callout-home;
 @use 'pages';
+@use 'callouts/place';
+@use 'callouts/grid';
+@use 'callouts/trip';
 @use 'trips';
 @use 'greek';
 @use 'tag-lines';
