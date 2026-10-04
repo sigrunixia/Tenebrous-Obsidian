@@ -1,0 +1,121 @@
+.landing .callout[data-callout=hero] {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 1.4em;
+  padding: clamp(1.4rem, 6vw, 2.8rem) clamp(1.2rem, 5vw, 2.6rem);
+  border: 1px solid color-mix(in oklch, var(--purple) 35%, transparent);
+  border-radius: 16px;
+  background: radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--purple) 38%, transparent), transparent 55%), radial-gradient(circle at 88% 82%, color-mix(in oklch, var(--amber) 32%, transparent), transparent 50%), linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+}
+.landing .callout[data-callout=hero] .callout-icon {
+  display: none;
+}
+.landing .callout[data-callout=hero] .callout-title-inner {
+  font-size: clamp(2.1rem, 9vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.landing .callout[data-callout=hero] .callout-content {
+  padding: 0.4em 0 0;
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .landing .callout[data-callout=hero]::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    pointer-events: none;
+    background: radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--purple) 24%, transparent), transparent 38%), radial-gradient(circle at 70% 70%, color-mix(in oklch, var(--amber) 20%, transparent), transparent 38%);
+    animation: landing-drift 28s ease-in-out infinite alternate;
+  }
+  .landing .callout[data-callout=hero] > * {
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes landing-drift {
+    to {
+      transform: translate(7%, 5%) rotate(9deg);
+    }
+  }
+}
+.landing .callout[data-callout=hub] {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.landing .callout[data-callout=hub] > .callout-title {
+  display: none;
+}
+.landing .callout[data-callout=hub] > .callout-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  gap: 0.7em;
+  padding: 0;
+}
+.landing .callout[data-callout^=hub-] {
+  --hub-hue: var(--amber);
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklch, var(--hub-hue) 28%, transparent);
+  border-left: 3px solid var(--hub-hue);
+  border-radius: 12px;
+  background: radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--hub-hue) 20%, transparent), transparent 60%), var(--background-secondary);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.landing .callout[data-callout^=hub-] .callout-title {
+  gap: 0.6em;
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hub-hue);
+}
+.landing .callout[data-callout^=hub-] .callout-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.landing .callout[data-callout^=hub-] .callout-content {
+  padding-top: 0;
+  font-size: 0.85em;
+}
+.landing .callout[data-callout^=hub-] .callout-icon {
+  color: var(--hub-hue);
+}
+.landing .callout[data-callout^=hub-] ul {
+  margin: 0;
+}
+@media (hover: hover) {
+  .landing .callout[data-callout^=hub-]:hover {
+    border-color: var(--hub-hue);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+  }
+}
+.landing .callout[data-callout^=hub-] .callout-icon svg {
+  width: 1.5em;
+  height: 1.5em;
+  filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hub-hue) 60%, transparent));
+}
+.landing .callout[data-callout=hub-obsidian] {
+  --callout-icon: lucide-gem;
+  --hub-hue: var(--purple);
+}
+.landing .callout[data-callout=hub-tattoos] {
+  --callout-icon: lucide-flame;
+  --hub-hue: var(--red);
+}
+.landing .callout[data-callout=hub-traveling] {
+  --callout-icon: lucide-luggage;
+  --hub-hue: var(--teal);
+}
+.landing .callout[data-callout=hub-about] {
+  --callout-icon: lucide-user;
+  --hub-hue: var(--yellow);
+}

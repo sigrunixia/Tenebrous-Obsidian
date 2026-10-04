@@ -1,0 +1,130 @@
+@use 'functions' as *;
+$meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0 19h1V1h18v12H7V7h6v12h7' fill='none' stroke='black' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E");
+
+$gold: var(--yellow);
+
+@mixin key-band($height: 14px, $color: $gold, $opacity: 0.7) {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: $height;
+  pointer-events: none;
+  background-color: $color;
+  opacity: $opacity;
+  -webkit-mask: $meander repeat-x left center / $height $height;
+  mask: $meander repeat-x left center / $height $height;
+}
+
+:is(.home, .hub, .gallery) .bases-cards-item,
+.home .callout[data-callout="hero"],
+.home .callout[data-callout^="hub-"],
+.home .callout[data-callout="info"],
+.home .callout[data-callout="actions"] a,
+.home .bases-cards-item [data-property="formula.Days"] .bases-cards-line,
+.home a.tag,
+.hub .inline-title {
+  border-radius: 0;
+}
+
+$rosette: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%280 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%2830 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%2860 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%2890 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28120 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28150 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28180 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28210 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28240 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28270 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28300 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Cellipse cx='50' cy='22' rx='9' ry='20' transform='rotate%28330 50 50%29' fill='none' stroke='black' stroke-width='2.4'/%3E%3Ccircle cx='50' cy='50' r='9' fill='black'/%3E%3Ccircle cx='50' cy='50' r='16' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E");
+
+.home .callout[data-callout="hero"] {
+  border-color: tint($gold, 45%);
+  padding-right: clamp(6rem, 24vw, 11rem);
+}
+
+.home .callout[data-callout="hero"]::after {
+  content: "";
+  position: absolute;
+  right: clamp(1rem, 4vw, 2.2rem);
+  top: 50%;
+  width: clamp(4rem, 16vw, 8rem);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  background: var(--orange);
+  opacity: 0.85;
+  pointer-events: none;
+  -webkit-mask: $rosette center / contain no-repeat;
+  mask: $rosette center / contain no-repeat;
+}
+
+.home .callout[data-callout="hero"] .callout-title-inner {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--text-normal);
+}
+
+:is(.home, .hub, .gallery) {
+  font-family: 'Alegreya Sans', 'Palatino Linotype', Palatino, serif;
+}
+:is(.home, .hub, .gallery) :is(h1, h2, h3, .inline-title, .callout-title-inner) {
+  font-family: 'Cardo', 'Palatino Linotype', Palatino, serif;
+}
+.home h2 { text-transform: uppercase; letter-spacing: 0.1em; }
+
+.home h2 {
+  position: relative;
+  padding-bottom: 0.9em;
+  background: none;
+}
+
+.home h2::after {
+  @include key-band(12px, var(--h2-color), 0.55);
+  bottom: 0;
+}
+
+.home .callout[data-callout^="hub-"] {
+  border-left: 10px solid transparent;
+  background-origin: border-box, padding-box, padding-box;
+  background-image:
+    repeating-linear-gradient(90deg, var(--hub-hue) 0 2px, transparent 2px 4px),
+    radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 20%), transparent 60%);
+  background-size: 10px 100%, auto;
+  background-position: left top, 0 0;
+  background-repeat: no-repeat, no-repeat;
+  background-color: var(--background-secondary);
+}
+
+.hub .inline-title { padding-bottom: calc(clamp(1rem, 4vw, 1.6rem) + 12px); }
+.hub .inline-title::after {
+  @include key-band(12px, var(--hub-hue), 0.6);
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+}
+
+.idea .inline-title {
+  border-left: 0;
+  padding-left: 1.4em;
+  background:
+    linear-gradient(var(--purple), var(--purple)) left / 3px 100% no-repeat,
+    linear-gradient(var(--purple), var(--purple)) 7px 0 / 1px 100% no-repeat;
+}
+
+.home .callout[data-callout="actions"] a { min-height: 2.6em; }
+
+.home .callout[data-callout="hero"] {
+  background:
+    radial-gradient(circle at 92% 8%, tint(var(--amber), 14%), transparent 55%),
+    linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+}
+.home .callout[data-callout="hero"]::before { display: none; }
+
+:is(.home, .hub, .gallery) .bases-cards-cover[style*="background-image"][style*="contain"] {
+  background-color: color-mix(in oklch, var(--purple) 55%, white);
+  background-origin: content-box;
+  padding: 0.6rem;
+}
+
+.home .bases-header { display: none; }
+
+.home .callout[data-callout="actions"] :is(ul, li) { list-style: none; }
+.home .callout[data-callout="actions"] .list-bullet { display: none; }
+
+.home .callout[data-callout^="hub-"] a.external-link { background-image: none; padding-inline-end: 0; }
+
+.home .callout[data-callout^="hub-"] li li { list-style: none; margin-inline-start: -1.1em; }
+.home .callout[data-callout^="hub-"] li li::marker { content: none; }

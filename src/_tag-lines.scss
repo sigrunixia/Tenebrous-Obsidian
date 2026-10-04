@@ -1,0 +1,43 @@
+@use 'functions' as *;
+@mixin tag-line($tag, $color, $tint: 12%, $rule: true, $strike: false) {
+
+	a.tag[href="##{$tag}"],
+	.cm-tag-#{$tag} {
+		--status-color:     #{$color};
+		--tag-color:        color-mix(in srgb, var(--status-color) 50%, var(--silver));
+		--tag-background:   #{tint(var(--status-color), 12%)};
+		--tag-border-color: #{tint(var(--status-color), 40%)};
+	}
+
+	:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="##{$tag}"]):not(:has(> br)),
+	.cm-line:has(.cm-tag-#{$tag}) {
+		--status-color: #{$color};
+		@if $tint > 0% {
+			background: color-mix(in oklch, var(--status-color) #{$tint}, transparent);
+		}
+		@if $rule {
+			box-shadow: inset 3px 0 0 var(--status-color);
+		}
+		@if $strike {
+			text-decoration: line-through;
+			text-decoration-color: tint(var(--status-color), 70%);
+		}
+	}
+	:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="##{$tag}"]):not(:has(> br)) {
+		padding-inline: 0.6em 0.4em;
+		border-radius: 2px;
+
+		@if $strike {
+			> a.tag { display: inline-block; }
+		}
+	}
+}
+
+@include tag-line(todo,      var(--blue0));
+@include tag-line(doing,     var(--amber));
+@include tag-line(waiting,   var(--magenta));
+@include tag-line(blocked,   var(--red));
+@include tag-line(completed, var(--green), 8%, true, true);
+@include tag-line(canceled,  var(--fg_dark), 0%, false, true);
+@include tag-line(important, var(--pink));
+@include tag-line(question,  var(--yellow));

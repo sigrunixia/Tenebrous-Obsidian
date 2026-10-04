@@ -1,0 +1,230 @@
+@use 'icons' as *;
+@use 'functions' as *;
+@use 'mixins' as *;
+.hub { --hub-hue: var(--amber); }
+
+.hub .inline-title {
+  position: relative;
+  margin: 0 0 1em;
+  padding: clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) calc(clamp(1rem, 4vw, 1.6rem) + 2.4em);
+  @include hue-border(--hub-hue, 35%, 14px);
+  color: var(--hub-hue);
+  background:
+    radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 28%), transparent 60%),
+    radial-gradient(circle at 100% 100%, tint(var(--hub-hue), 12%), transparent 55%),
+    var(--background-secondary);
+}
+
+.hub .inline-title::before {
+  content: "";
+  position: absolute;
+  left: clamp(1rem, 4vw, 1.6rem);
+  top: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translateY(-50%);
+  background-color: var(--hub-hue);
+  -webkit-mask: var(--hub-icon) center / contain no-repeat;
+  mask: var(--hub-icon) center / contain no-repeat;
+  filter: drop-shadow(0 0 8px tint(var(--hub-hue), 55%));
+}
+
+.hub .bases-cards-item { --home-cover-icon: var(--hub-icon); --cover-hue: var(--hub-hue); }
+
+$hubs: (
+	("albums", "amber", "disc-3"),
+	("people", "magenta", "users"),
+	("clippings", "orange", "scissors"),
+	("records", "purple", "archive"),
+	("books", "green", "book-open"),
+	("events", "teal", "calendar-days"),
+	("podcast-episodes", "yellow", "mic"),
+	("show-episodes", "red", "tv"),
+	("board-games", "amber", "dices"),
+	("apps", "magenta", "app-window"),
+	("journal", "orange", "book-open"),
+	("ideas", "purple", "lightbulb"),
+	("communities", "green", "users-round"),
+	("companies", "teal", "building-complex"),
+	("games", "yellow", "gamepad-2"),
+	("programs", "red", "layers"),
+	("prompts", "amber", "sparkles"),
+	("products", "magenta", "shopping-bag"),
+	("podcasts", "orange", "mic-signal"),
+	("shows", "purple", "tv"),
+	("meetings", "green", "calendar-days"),
+	("recipes", "teal", "chef-hat"),
+	("plans", "yellow", "clipboard-list"),
+	("movies", "red", "clapperboard"),
+	("trips", "amber", "luggage"),
+	("places", "magenta", "map-pin"),
+	("plants", "orange", "sprout"),
+	("map", "purple", "map")
+);
+
+@each $name, $hue, $icon in $hubs {
+	.hub-#{$name} { --hub-hue: var(--#{$hue}); --hub-icon: #{icon($icon)}; }
+}
+
+.idea .inline-title {
+  position: relative;
+  padding: 0.15em 0 0.15em 1.1em;
+  border-left: 4px solid var(--purple);
+  font-size: clamp(1.5rem, 5.5vw, 2.3rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.idea .inline-title::before {
+  content: "\201C";
+  position: absolute;
+  left: 0.15em;
+  top: -0.35em;
+  font-size: 2.4em;
+  line-height: 1;
+  color: tint(var(--purple), 45%);
+  pointer-events: none;
+}
+
+.idea .metadata-property[data-property-key="sources"] .multi-select-pill {
+  color: var(--purple);
+  background: tint(var(--purple), 14%);
+  border-color: tint(var(--purple), 40%);
+}
+
+.place .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--teal), transparent 80%) 1;
+}
+
+.place .internal-embed.image-embed img {
+  display: block;
+  width: 100%;
+  max-height: min(22rem, 60vw);
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.place .callout .internal-embed.image-embed img { max-height: none; border-radius: 0; }
+
+.markdown-reading-view .callout[data-callout="place"] {
+  --callout-color: var(--teal);
+  --callout-icon: lucide-map-pin;
+  float: right;
+  width: clamp(14rem, 32vw, 18rem);
+  margin: 0 0 1rem 1.4rem;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid tint(var(--callout-color), 30%);
+  border-radius: 14px;
+  background: var(--background-secondary);
+}
+
+.markdown-reading-view .callout[data-callout="place"] > .callout-title { display: none; }
+
+.markdown-reading-view .callout[data-callout="place"] > .callout-content { padding: 0; }
+
+.markdown-reading-view .callout[data-callout="place"] > .callout-content > p:first-child { margin: 0; }
+
+.markdown-reading-view .callout[data-callout="place"] .internal-embed.image-embed img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  max-height: none;
+  border-radius: 0;
+}
+
+.markdown-reading-view .callout[data-callout="place"] > .callout-content > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.markdown-reading-view .callout[data-callout="place"] > .callout-content > ul > li {
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border-top: 1px solid tint(var(--callout-color), 18%);
+  font-size: 0.85rem;
+  list-style: none;
+}
+
+.markdown-reading-view .callout[data-callout="place"] > .callout-content > ul > li::marker { content: ""; }
+
+.markdown-reading-view .callout[data-callout="place"] > .callout-content > ul > li > strong {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-size: 0.68rem;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--callout-color);
+}
+
+@media (max-width: 40rem) {
+  .markdown-reading-view .callout[data-callout="place"] { float: none; width: 100%; margin: 0 0 1rem; }
+}
+
+.markdown-reading-view .el-div:has(> .callout[data-callout="place"]) ~ .el-p:has(.bases-embed) {
+  width: calc(100% - 19.4rem);
+}
+
+.markdown-reading-view .bases-toolbar { flex-wrap: wrap; height: auto; }
+
+@media (max-width: 40rem) {
+  .markdown-reading-view .el-div:has(> .callout[data-callout="place"]) ~ .el-p:has(.bases-embed) { width: 100%; }
+}
+
+.gallery .inline-title {
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gallery .bases-group-heading,
+.gallery .bases-group-header {
+  color: var(--h2-color);
+  letter-spacing: 0.06em;
+}
+
+.callout[data-callout="grid"] {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.callout[data-callout="grid"] > .callout-title { display: none; }
+
+.callout[data-callout="grid"] > .callout-content {
+  padding: 0;
+}
+
+.callout[data-callout="grid"] .callout-content > p {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-auto-rows: 14rem;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.callout[data-callout="grid"] .callout-content > p + p { margin-top: 0.6rem; }
+
+.callout[data-callout="grid"] .callout-content > p br { display: none; }
+
+.callout[data-callout="grid"] .internal-embed.image-embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.callout[data-callout="grid"] .internal-embed.image-embed img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}

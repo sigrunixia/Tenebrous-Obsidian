@@ -1,54 +1,37 @@
 @use "sass:color";
+@use "sass:map";
 @use "functions" as *;
+@use "palette" as *;
 
-// Dark palette
-// Contrast ratios vs #14161b bg (WCAG AA requires 4.5:1 for normal text).
-// Verified 2026-07-30 with the WCAG 2.1 relative-luminance formula.
-$bg-dark2:        #0c0d11;
-$bg:              #14161b;
-$bg-highlight:    #1c1e25;
-$bg-highlight-dk: #171920;
-$fg:              #e4e7ea;
-$fg-dark:         #b8bfc9;
-$comment:         #7da0b3;  // 6.51:1
-$blue0:           #c5d0e6;  // 11.67:1
-$cyan:            #84bfcf;  // 8.91:1
-$cyan0:           #6f9fad;  // 6.24:1
-$magenta:         #d2a5c4;  // 8.55:1
 $purple:          color.mix($magenta, $blue0, 50%);
-$orange:          #f2a070;  // 8.65:1
-$yellow:          #dcb583;  // 9.46:1
-$green:           #7bbfb0;  // 8.55:1
-$green0:          #6a998f;  // 5.66:1
-$teal:            #5db3be;  // 7.46:1
-$red:             #d1889a;  // 6.64:1
-$red1:            #c16277;  // 4.55:1 (was #c06075, 4.46:1 -- failed AA)
-$unknown:         #ffffff;
 
-// Vivid variants for the small set of "lit subject" elements that should pop
-// (headings, links, interactive-accent) -- see pop() in _functions.scss.
-// The base palette above stays as-is for tags/code/callouts/canvas/etc.
-//
-// cyan/teal/green start only 6-26deg apart in hue -- a flat saturation bump
-// made them converge further, so h1/h3/h5 also get a hue nudge apart here.
-// blue0 is very light (L 84%) -- saturation alone still reads as pale grey,
-// so h2 gets a lightness pull-down too.
-$cyan-pop:    to-rgb(color.scale(color.adjust($cyan, $hue: 10deg), $saturation: 45%));
-$blue0-pop:   to-rgb(color.scale($blue0, $saturation: 60%, $lightness: -18%));
-$teal-pop:    to-rgb(color.scale(color.adjust($teal, $hue: -6deg), $saturation: 55%, $lightness: -8%));
-$magenta-pop: pop($magenta);
-$green-pop:   to-rgb(color.scale(color.adjust($green, $hue: -12deg), $saturation: 45%));
-$yellow-pop:  pop($yellow);
-$cyan0-pop:   pop($cyan0);
+$palette: (
+	"comment": $comment,
+	"blue0": $blue0,
+	"amber": $amber,
+	"amber0": $amber0,
+	"magenta": $magenta,
+	"purple": to-rgb($purple),
+	"orange": $orange,
+	"yellow": $yellow,
+	"silver": $silver,
+	"pink": $pink,
+	"cyan": $cyan,
+	"lime": $lime,
+	"rose": $rose,
+	"crimson": $crimson,
+	"green": $green,
+	"green0": $green0,
+	"teal": $teal,
+	"red": $red,
+	"red1": $red1,
+	"unknown": $unknown
+);
 
-// Accent
 $accent-h: 210;
 $accent-s: 55%;
 $accent-l: 50%;
 
-// Success/error RGB values (used by Obsidian for background-modifier-*-rgb)
-// -- kept in sync with $green/$red1 via rgb-triplet() rather than
-// hardcoded, so a palette edit can't desync them.
 $success-rgb: rgb-triplet($green);
 $error-rgb:   rgb-triplet($red1);
 
@@ -65,52 +48,19 @@ $error-rgb:   rgb-triplet($red1);
 	--fg:      #{$fg};
 	--fg_dark: #{$fg-dark};
 
-	--comment: #{$comment};
-	--blue0:   #{$blue0};
-	--cyan:    #{$cyan};
-	--cyan0:   #{$cyan0};
-	--magenta: #{$magenta};
-	--purple:  #{to-rgb($purple)};
-	--orange:  #{$orange};
-	--yellow:  #{$yellow};
-	--green:   #{$green};
-	--green0:  #{$green0};
-	--teal:    #{$teal};
-	--red:     #{$red};
-	--red1:    #{$red1};
-	--unknown: #{$unknown};
+	@each $name, $value in $palette {
+		--#{$name}: #{$value};
+	}
 
-	// Neutral scale used by newer surfaces (Bases tables/cards, some
-	// dialogs/menus) that don't read --background-* / --bg directly.
-	--color-base-00:  #{base-step($bg, $fg, 0)};
-	--color-base-05:  #{base-step($bg, $fg, 5)};
-	--color-base-10:  #{base-step($bg, $fg, 10)};
-	--color-base-20:  #{base-step($bg, $fg, 20)};
-	--color-base-25:  #{base-step($bg, $fg, 25)};
-	--color-base-30:  #{base-step($bg, $fg, 30)};
-	--color-base-35:  #{base-step($bg, $fg, 35)};
-	--color-base-40:  #{base-step($bg, $fg, 40)};
-	--color-base-50:  #{base-step($bg, $fg, 50)};
-	--color-base-60:  #{base-step($bg, $fg, 60)};
-	--color-base-70:  #{base-step($bg, $fg, 70)};
-	--color-base-100: #{base-step($bg, $fg, 100)};
+	@each $label, $step in ("00": 0, "05": 5, "10": 10, "20": 20, "25": 25, "30": 30, "35": 35, "40": 40, "50": 50, "60": 60, "70": 70, "100": 100) {
+		--color-base-#{$label}: #{base-step($bg, $fg, $step)};
+	}
 
-	--color-red:        var(--red);
-	--color-red-rgb:    #{rgb-triplet($red)};
-	--color-purple:     var(--purple);
-	--color-purple-rgb: #{rgb-triplet($purple)};
-	--color-green:      var(--green);
-	--color-green-rgb:  #{rgb-triplet($green)};
-	--color-cyan:       var(--cyan);
-	--color-cyan-rgb:   #{rgb-triplet($cyan)};
-	--color-blue:       var(--blue0);
-	--color-blue-rgb:   #{rgb-triplet($blue0)};
-	--color-yellow:     var(--yellow);
-	--color-yellow-rgb: #{rgb-triplet($yellow)};
-	--color-orange:     var(--orange);
-	--color-orange-rgb: #{rgb-triplet($orange)};
-	--color-pink:       var(--magenta);
-	--color-pink-rgb:   #{rgb-triplet($magenta)};
+	$slots: ("red": "red", "purple": "magenta", "green": "green", "cyan": "cyan", "blue": "blue0", "yellow": "yellow", "orange": "orange", "pink": "pink");
+	@each $slot, $name in $slots {
+		--color-#{$slot}: var(--#{$name});
+		--color-#{$slot}-rgb: #{rgb-triplet(map.get($palette, $name))};
+	}
 
 	--background-primary:                     var(--bg);
 	--background-primary-alt:                 var(--bg);
@@ -120,7 +70,7 @@ $error-rgb:   rgb-triplet($red1);
 	--background-modifier-border-focus:       var(--bg_highlight);
 	--background-modifier-border-hover:       var(--bg_highlight);
 	--background-modifier-form-field:         var(--bg_dark2);
-	--background-modifier-form-field-highlighted: var(--bg_dark2); /* legacy */
+	--background-modifier-form-field-highlighted: var(--bg_dark2);
 	--background-modifier-form-field-hover:   var(--bg_dark2);
 	--background-modifier-box-shadow:         rgba(0, 0, 0, 0.3);
 	--background-modifier-success:            var(--green);
@@ -130,40 +80,40 @@ $error-rgb:   rgb-triplet($red1);
 	--background-modifier-error-rgb:          #{$error-rgb};
 	--background-modifier-warning:            var(--orange);
 	--background-modifier-warning-hover:      var(--orange);
-	// Unset by default (.message.mod-info has no color at all); match callout-info.
+
 	--background-modifier-info:               var(--blue0);
 	--background-modifier-cover:              var(--bg_dark2);
 	--background-modifier-hover:              var(--bg_highlight);
 	--background-modifier-message:            var(--bg_highlight_dark);
 	--background-modifier-active-hover:       var(--bg);
 
+	--notice-color:  var(--fg);
+	--tooltip-color: var(--fg);
+
 	--text-normal:       var(--fg);
 	--text-faint:        var(--comment);
 	--text-muted:        var(--fg_dark);
 	--text-error:        var(--red);
-	--text-error-hover:  var(--fg); /* legacy */
+	--text-error-hover:  var(--fg);
 	--text-accent:       var(--magenta);
-	--text-accent-hover: var(--cyan);
-	--text-selection:    color-mix(in oklch, var(--cyan) 25%, transparent);
+	--text-accent-hover: var(--amber);
+	--text-selection:    #{tint(var(--amber), 25%)};
 	--text-on-accent:    var(--bg);
-	--text-highlight-bg: color-mix(in oklch, var(--yellow) 25%, transparent);
+	--highlight-opacity: 25%;
+	--text-highlight-bg: #{tint(var(--yellow), 25%)};
 	--bold-color:        var(--blue0);
-	--italic-color:      var(--cyan);
+	--italic-color:      var(--amber);
 
-	// PDF-viewer in-document search highlight -- unset by default, so it
-	// fell back to Obsidian's stock magenta/green. Match the ==mark== color.
 	--highlight-bg-color:          var(--text-highlight-bg);
-	--highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
+	--highlight-selected-bg-color: #{tint(var(--orange), 45%)};
 
-	// PDF-viewer toolbar toggle buttons (e.g. annotate mode) -- unset by
-	// default, so a toggled-on button had no visible active state.
 	--button-hover-color:   var(--interactive-hover);
 	--toggled-btn-bg-color: var(--interactive-accent);
 	--toggled-btn-color:    var(--text-on-accent);
 
 	--interactive-normal:        var(--bg_dark2);
 	--interactive-hover:         var(--bg);
-	--interactive-success:       var(--green); /* legacy */
+	--interactive-success:       var(--green);
 	--interactive-accent:        hsl(var(--accent-h), var(--accent-s), var(--accent-l));
 	--interactive-accent-hover:  var(--fg);
 
@@ -172,21 +122,21 @@ $error-rgb:   rgb-triplet($red1);
 	--scrollbar-active-thumb-bg: var(--comment);
 	--scrollbar-width:           8px;
 
-	--h1-color: #{$blue0-pop};
-	--h2-color: #{$cyan-pop};
-	--h3-color: #{$teal-pop};
-	--h4-color: #{$magenta-pop};
-	--h5-color: #{$green-pop};
-	--h6-color: #{$yellow-pop};
+	--h1-color: var(--blue0);
+	--h2-color: var(--amber);
+	--h3-color: var(--teal);
+	--h4-color: var(--magenta);
+	--h5-color: var(--green);
+	--h6-color: var(--silver);
 
 	--border-width: 2px;
 
-	--tag-color:              var(--magenta);
-	--tag-background:         color-mix(in oklch, var(--magenta) 20%, transparent);
-	--tag-color-hover:        var(--cyan);
-	--tag-background-hover:   color-mix(in oklch, var(--cyan) 20%, transparent);
-	--tag-border-color:       color-mix(in oklch, var(--magenta) 40%, transparent);
-	--tag-border-color-hover: color-mix(in oklch, var(--cyan) 40%, transparent);
+	--tag-color:              color-mix(in srgb, var(--magenta) 50%, var(--silver));
+	--tag-background:         #{tint(var(--magenta), 12%)};
+	--tag-color-hover:        color-mix(in srgb, var(--amber) 60%, var(--silver));
+	--tag-background-hover:   #{tint(var(--amber), 12%)};
+	--tag-border-color:       #{tint(var(--magenta), 40%)};
+	--tag-border-color-hover: #{tint(var(--amber), 40%)};
 	--tag-border-width:       1px;
 	--tag-corner-shape:       round;
 	--tag-decoration:         none;
@@ -197,22 +147,19 @@ $error-rgb:   rgb-triplet($red1);
 	--tag-size:               var(--font-smaller);
 	--tag-weight:             inherit;
 
-	--link-color:               #{$cyan0-pop};
-	--link-color-hover:         #{$cyan-pop};
+	--link-color:               var(--amber0);
+	--link-color-hover:         var(--amber);
 	--link-external-color:      var(--fg_dark);
 	--link-external-color-hover: var(--fg);
 
 	--checkbox-radius:            4px;
 	--checkbox-color:             var(--comment);
 	--checkbox-color-hover:       var(--comment);
-	--checkbox-marker-color:      var(--cyan0);
+	--checkbox-marker-color:      var(--amber0);
 	--checkbox-border-color:      var(--comment);
 	--checkbox-border-color-hover: var(--comment);
-	--checklist-done-color:       var(--cyan);
+	--checklist-done-color:       var(--amber);
 
-	// Text inputs/textareas/radios -- all three were hardcoded (black,
-	// #8f8f9d, Canvas) regardless of theme, so hover/focus/border states
-	// didn't adapt to dark/light at all.
 	--input-hover-border-color: var(--comment);
 	--input-focus-outline:      1px solid var(--interactive-accent);
 	--radio-border-color:       var(--comment);
@@ -222,79 +169,64 @@ $error-rgb:   rgb-triplet($red1);
 	--table-header-background-hover: var(--bg_dark2);
 	--table-row-alt-background:      var(--bg_dark2);
 	--table-row-background-hover:    var(--bg_dark2);
-	// Was unset (fell back to --table-background: transparent), so hovering
-	// an alt row had no feedback at all while regular rows did.
+
 	--table-row-alt-background-hover: var(--bg_dark2);
 
-	// Bases tables/cards: keep cell backgrounds on the neutral
-	// --color-base-* ramp (dense data, a tint would compete with content),
-	// but let the header row read as an accent, matching links.
-	--bases-table-header-color: var(--cyan);
-	// Group-by heading value (e.g. the folder name) was unset -- give it
-	// full text strength so it stands out from the muted property label.
+	--bases-table-header-color: var(--amber);
+
 	--bases-group-heading-value-color: var(--fg);
 
-	// Properties panel: divider/input/label/row hover-and-focus states were
-	// all unset (transparent), so nothing in the panel gave any interactive
-	// feedback at all -- same "-hover: transparent" gap as the table fix above.
 	--metadata-divider-color-hover:      var(--comment);
 	--metadata-divider-color-focus:      var(--interactive-accent);
 	--metadata-input-background-hover:   var(--bg_highlight);
 	--metadata-label-background-hover:   var(--bg_highlight);
 	--metadata-property-background-hover: var(--bg_highlight);
-	// Tag pills inside a "tags" property field -- same dead-hover pattern.
+
 	--pill-background-hover: var(--bg_highlight);
 
-	// Native <input type=range> sliders were hardcoded white regardless of
-	// theme -- invisible in light mode against the light track.
 	--slider-thumb-background:       var(--interactive-accent);
 	--slider-thumb-background-hover: var(--interactive-accent);
 
-	// Prior mapping put keyword/punctuation/string-2 all on green0, and
-	// string/tag/value all on plain green -- three roles apiece read as one
-	// color. Spread across the palette instead; roles that rarely appear in
-	// the same snippet (atom vs tag, def/url vs function/operator) still
-	// share a hue where the budget runs out.
 	--code-normal:      var(--fg);
 	--code-background:  var(--bg_highlight_dark);
 	--code-comment:     var(--fg_dark);
-	--code-function:    var(--cyan);
+	--code-function:    var(--amber);
 	--code-important:   var(--red1);
 	--code-keyword:     var(--magenta);
 	--code-operator:    var(--teal);
-	--code-property:    var(--fg);
+	--code-property:    var(--cyan);
 	--code-punctuation: var(--fg_dark);
 	--code-string:      var(--green);
 	--code-tag:         var(--red);
 	--code-value:       var(--yellow);
-	--code-number:      var(--orange);
+	--code-number:      var(--pink);
 	--code-atom:        var(--red);
-	--code-builtin:     #{$blue0-pop};
+	--code-builtin:     var(--blue0);
 	--code-string-2:    var(--green0);
-	--code-def:         var(--cyan);
-	--code-variable-2:  var(--purple);
+	--code-def:         var(--silver);
+	--code-variable-2:  var(--teal);
 	--code-meta:        var(--comment);
-	--code-url:         var(--cyan0);
+	--code-url:         var(--amber0);
 
-	--flashing-background: var(--bg_dark2); /* legacy */
-	--mermaid-note:        var(--blue0);    /* legacy */
-	--mermaid-actor:       var(--fg_dark);  /* legacy */
-	--mermaid-loopline:    var(--blue0);    /* legacy */
+	--flashing-background: var(--bg_dark2);
+	--mermaid-note:        var(--blue0);
+	--mermaid-actor:       var(--fg_dark);
+	--mermaid-loopline:    var(--blue0);
 
 	--blockquote-background-color: var(--bg_dark2);
 	--callout-default:   var(--blue0);
-	--callout-info:      var(--blue0);
 	--callout-summary:   var(--cyan);
-	--callout-tip:       var(--cyan);
-	--callout-todo:      var(--cyan);
-	--callout-bug:       var(--red);
-	--callout-error:     var(--red1);
-	--callout-fail:      var(--red1);
-	--callout-example:   var(--magenta);
-	--callout-important: var(--green);
-	--callout-success:   var(--teal);
+	--callout-info:      var(--teal);
+	--callout-todo:      var(--silver);
+	--callout-tip:       var(--green);
+	--callout-important: var(--pink);
+	--callout-success:   var(--lime);
 	--callout-question:  var(--yellow);
 	--callout-warning:   var(--orange);
+	--callout-fail:      var(--crimson);
+	--callout-error:     var(--red);
+	--callout-bug:       var(--rose);
+	--callout-example:   var(--magenta);
 	--callout-quote:     var(--fg_dark);
 
 	--icon-color-hover:   var(--blue0);
@@ -305,7 +237,7 @@ $error-rgb:   rgb-triplet($red1);
 	--nav-item-background-hover:  var(--bg_highlight);
 	--nav-item-color-active:      var(--green);
 	--nav-item-background-active: var(--bg_highlight);
-	--nav-file-tag:               var(--yellow); /* legacy */
+	--nav-file-tag:               var(--yellow);
 	--nav-indentation-guide-color: var(--bg_highlight);
 
 	--indentation-guide-color:        var(--comment);
@@ -315,6 +247,8 @@ $error-rgb:   rgb-triplet($red1);
 	--graph-node:            var(--fg);
 	--graph-node-tag:        var(--orange);
 	--graph-node-attachment: var(--blue0);
+	--graph-node-unresolved: var(--comment);
+	--graph-node-focused:    var(--magenta);
 
 	--tab-text-color:                    var(--fg_dark);
 	--tab-text-color-active:             var(--fg);

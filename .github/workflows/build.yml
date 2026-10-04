@@ -4,12 +4,10 @@ on:
   push:
     paths:
       - "src/**"
-      - "build.sh"
       - ".github/workflows/build.yml"
   pull_request:
     paths:
       - "src/**"
-      - "build.sh"
       - ".github/workflows/build.yml"
 
 jobs:
@@ -27,11 +25,11 @@ jobs:
           echo "$PWD/dart-sass" >> "$GITHUB_PATH"
 
       - name: Build theme.css
-        run: ./build.sh
+        run: sass --no-source-map src/main.scss theme.css
 
       - name: Verify theme.css is up to date
         run: |
           if ! git diff --exit-code theme.css; then
-            echo "::error::theme.css is out of date -- run ./build.sh and commit the result."
+            echo "::error::theme.css is out of date -- build theme.css and commit the result."
             exit 1
           fi

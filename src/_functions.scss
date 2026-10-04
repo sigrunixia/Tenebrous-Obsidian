@@ -6,27 +6,18 @@
 	@return math.round(color.channel($color, $name, $space: rgb));
 }
 
-// Comma-separated "R, G, B" triplet for use in rgba(var(--x-rgb), alpha).
 @function rgb-triplet($color) {
 	@return #{channel($color, "red")}, #{channel($color, "green")}, #{channel($color, "blue")};
 }
 
-// A sass color value as a plain rgb() string, independent of whatever
-// colorspace/precision the value happens to carry internally.
 @function to-rgb($color) {
 	@return string.unquote("rgb(#{channel($color, 'red')}, #{channel($color, 'green')}, #{channel($color, 'blue')})");
 }
 
-// One step of Obsidian's --color-base-NN neutral scale: NN% of the way from
-// $bg (NN: 0, the page background) to $fg (NN: 100, body text).
 @function base-step($bg, $fg, $percent) {
 	@return to-rgb(color.mix($fg, $bg, $percent * 1%));
 }
 
-// A more saturated variant of $color, for the small set of "lit subject"
-// elements (headings, links, interactive-accent) that should pop against the
-// otherwise flat, dark, desaturated rest of the UI -- tenebrism, not a
-// uniform saturation bump across the whole palette.
-@function pop($color, $amount: 25%) {
-	@return to-rgb(color.scale($color, $saturation: $amount));
+@function tint($color, $percent) {
+	@return string.unquote("color-mix(in oklch, #{$color} #{$percent}, transparent)");
 }

@@ -1,4 +1,3 @@
-// Live preview / source editor (CodeMirror tokens)
 .cm-s-obsidian {
 	.cm-number     { color: var(--code-number); }
 	.cm-atom       { color: var(--code-atom); }
@@ -8,9 +7,10 @@
 	.cm-variable-2 { color: var(--code-variable-2); }
 	.cm-meta       { color: var(--code-meta); }
 	.cm-url        { color: var(--code-url); }
+
+	span.cm-hashtag { color: var(--tag-color); }
 }
 
-// Reading mode (Prism tokens) -- bring in line with live preview colors
 .token {
 	&.number                  { color: var(--code-number); }
 	&.builtin                 { color: var(--code-builtin); }

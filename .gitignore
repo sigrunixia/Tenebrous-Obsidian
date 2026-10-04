@@ -1,11 +1,22 @@
-# vscode
-.vscode
-.idea
+# Obsidian
 .obsidian
 
-# npm
+# Editors and IDEs
+.idea
+.vscode
+.zed
+*.swp
+*.iml
+
+# Dependencies and logs
 node_modules
 package-lock.json
+*.log
+
+# Secrets
+.env
+.env.*
 
 # Mac
 .DS_Store
+._*

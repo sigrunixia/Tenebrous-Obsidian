@@ -1,0 +1,246 @@
+@use 'base';
+@use 'functions' as *;
+
+$serif: 'Cardo', Georgia, serif;
+
+.callout:is([data-callout="day"], [data-callout="stay"], [data-callout="pack"], [data-callout="plan"]) {
+	--trip-hue: var(--callout-color);
+	margin: 1.4rem 0;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid tint(var(--trip-hue), 22%);
+	border-left: 3px solid var(--trip-hue);
+	border-radius: base.$radius;
+	background:
+		linear-gradient(115deg, tint(var(--trip-hue), 9%), transparent 55%),
+		var(--background-secondary);
+
+	> .callout-title {
+		padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 0;
+		gap: 0.6rem;
+		color: var(--trip-hue);
+		font-family: $serif;
+		font-size: 1.15rem;
+		letter-spacing: 0.04em;
+
+		.callout-icon { opacity: 0.85; }
+	}
+
+	> .callout-content {
+		padding: 0.5rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
+
+		> p { margin: 0.6em 0; }
+		> :first-child { margin-top: 0.3em; }
+		> :last-child { margin-bottom: 0; }
+	}
+}
+
+.callout[data-callout="day"] {
+	--callout-color: var(--blue0);
+	--callout-icon: lucide-calendar-days;
+
+	> .callout-content > p:first-child > strong:only-child {
+		display: block;
+		font-family: $serif;
+		font-size: 1.35rem;
+		font-weight: normal;
+		letter-spacing: 0.01em;
+		color: var(--text-normal);
+	}
+}
+
+.callout[data-callout="stay"] {
+	--callout-color: var(--purple);
+	--callout-icon: lucide-bed-double;
+}
+
+.callout[data-callout="pack"] {
+	--callout-color: var(--yellow);
+	--callout-icon: lucide-backpack;
+}
+
+.callout[data-callout="lessons"] {
+	--callout-color: var(--green);
+	--callout-icon: lucide-lightbulb;
+	margin: 1rem 0;
+	padding: 0;
+	border: none;
+	background: none;
+
+	> .callout-title { display: none; }
+	> .callout-content { padding: 0; }
+
+	ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: trip-lesson;
+
+		> li {
+			position: relative;
+			counter-increment: trip-lesson;
+			margin: 0.8rem 0;
+			padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
+			border: 1px solid tint(var(--callout-color), 22%);
+			border-left: 3px solid var(--callout-color);
+			border-radius: base.$radius;
+			background:
+				linear-gradient(115deg, tint(var(--callout-color), 9%), transparent 55%),
+				var(--background-secondary);
+
+			&::marker { content: ""; }
+
+			&::before {
+				content: counter(trip-lesson, decimal-leading-zero);
+				display: block;
+				font-family: $serif;
+				font-size: 1.5rem;
+				line-height: 1;
+				color: var(--callout-color);
+				opacity: 0.55;
+			}
+
+			> strong:first-child {
+				display: block;
+				margin: 0.2rem 0 0.35rem;
+				font-family: $serif;
+				font-size: 1.15rem;
+				font-weight: normal;
+				letter-spacing: 0.04em;
+				color: var(--callout-color);
+			}
+
+			> br { display: none; }
+		}
+	}
+}
+
+.callout[data-callout="caption"] {
+	--callout-color: var(--comment);
+	margin: 1.4rem 0;
+	padding: 0;
+	overflow: hidden;
+	border: 1.5px solid var(--callout-color);
+	border-radius: base.$radius;
+	background: color-mix(in oklch, var(--callout-color) 12%, var(--background-primary));
+
+	> .callout-title { display: none; }
+	> .callout-content { padding: 0; }
+
+	> .callout-content > p:first-child {
+		margin: 0;
+		text-align: center;
+	}
+
+	.internal-embed,
+	img {
+		display: block;
+		margin-inline: auto;
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 28rem;
+		width: auto;
+		border-radius: 0;
+	}
+
+	> .callout-content > p {
+		margin: 0;
+
+		&:not(:first-child) {
+			padding: 0.6rem clamp(0.9rem, 3vw, 1.2rem) 0.8rem;
+			border-top: 1px solid var(--callout-color);
+			font-family: $serif;
+			font-size: 0.9rem;
+			font-style: italic;
+			line-height: 1.45;
+			text-align: left;
+			color: var(--text-muted);
+
+			em, i {
+				font-style: normal;
+				color: var(--teal);
+			}
+		}
+	}
+}
+
+.callout[data-callout="plan"] {
+	--callout-color: var(--comment);
+	--callout-icon: lucide-clipboard-list;
+	border-style: dashed;
+	border-left-style: solid;
+	background: transparent;
+
+	> .callout-title { color: var(--text-muted); }
+}
+
+.callout[data-callout="trip"] {
+	--callout-color: var(--amber);
+	--callout-icon: lucide-map-pin;
+	--trip-cover-focus: 50% 42%;
+	display: flex;
+	flex-direction: column;
+	margin: 1rem 0 2rem;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid tint(var(--callout-color), 30%);
+	border-radius: base.$radius;
+	background: var(--background-secondary);
+
+	> .callout-title { display: none; }
+
+	> .callout-content {
+		padding: 0;
+
+		> p:first-child {
+			margin: 0;
+
+			.internal-embed,
+			img {
+				display: block;
+				width: 100%;
+			}
+
+			img {
+				aspect-ratio: 16 / 9;
+				object-fit: cover;
+				object-position: var(--trip-cover-focus);
+				max-height: none;
+				border-radius: 0;
+			}
+		}
+
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+			gap: 1px;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			background: tint(var(--callout-color), 18%);
+
+			> li {
+				margin: 0;
+				padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem);
+				background: var(--background-secondary);
+				list-style: none;
+
+				&::marker { content: ""; }
+
+				> strong {
+					display: block;
+					margin-bottom: 0.15rem;
+					font-size: 0.72rem;
+					font-weight: normal;
+					letter-spacing: 0.14em;
+					text-transform: uppercase;
+					color: var(--callout-color);
+				}
+			}
+		}
+	}
+}
+
+.trip .inline-title { display: none; }
