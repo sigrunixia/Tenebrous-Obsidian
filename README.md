@@ -4,13 +4,15 @@ A dark theme for Obsidian that focuses on contrast. The colors come from [Tenebr
 
 This theme is very opinionated. I built it around how I use Obsidian, so I will not accept feature requests or changes to it. If you want it different, fork it and make it yours.
 
+![Tenebrous theme in Obsidian](screenshot.png)
+
 ## Features
 
 ### Callouts
 
 Every callout has unique colors. 
 
-![Tenebrous theme in Obsidian](screenshot.png)
+![Callouts in Obsidian](screenshots/callouts.png)
 
 ### Tag lines
 
