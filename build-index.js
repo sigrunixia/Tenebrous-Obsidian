@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // build-index.js — walks the Tenebrous vault, collects frontmatter from every
-// publish: true note, and bakes it into publish.js as the INDEX the Bases
-// codeblock renderer queries against (see publish.js).
+// publish: true note, and bakes it into src/publish/baked-data.ts as the INDEX
+// the Bases codeblock renderer queries against, then rebuilds publish.js.
 //
 // Run:   node build-index.js [vault-root]
 //   vault-root defaults to /Users/Signia/Vaults/Tenebrous
@@ -11,10 +11,9 @@
 // whenever a note's publish flag flips. Nothing else in the vault needs this
 // re-run for.
 //
-// Plain Node, no TypeScript, no npm packages — matches the "no npm, no
-// node_modules" rule. Reads publish.js (the marker version, hand-edited),
-// injects the index, writes the result to publish.js in this repo. build.sh
-// still copies that to the vault root afterward.
+// Plain Node, no npm packages — matches the "no npm, no node_modules" rule.
+// Rewrites the three marked constants in src/publish/baked-data.ts, then runs
+// build-publish.sh (esbuild + tsc) to produce publish.js in this repo.
 
 'use strict';
 
@@ -23,11 +22,12 @@ const path = require('path');
 const { execSync, execFileSync } = require('child_process');
 
 const VAULT = path.resolve(process.argv[2] || '/Users/Signia/Vaults/Tenebrous');
-const PUBLISH_JS = path.join(__dirname, 'publish.js');
+const BAKED_DATA = path.join(__dirname, 'src', 'publish', 'baked-data.ts');
+const BUILD_SCRIPT = path.join(__dirname, 'build-publish.sh');
 
-const MARKER = /const INDEX = (?:null|\[[\s\S]*?\]); \/\* @INDEX \*\//;
-const IMG_MARKER = /const IMG_PATHS = (?:null|\{[^\n]*\}); \/\* @IMG_PATHS \*\//;
-const MAPS_MARKER = /const MAPS = (?:null|\{[\s\S]*?\}); \/\* @MAPS \*\//;
+const MARKER = /export const INDEX: IndexEntry\[\] \| null = (?:null|\[[\s\S]*?\]); \/\* @INDEX \*\//;
+const IMG_MARKER = /export const IMG_PATHS: Record<string, string> \| null = (?:null|\{[^\n]*\}); \/\* @IMG_PATHS \*\//;
+const MAPS_MARKER = /export const MAPS: Record<string, MapData> \| null = (?:null|\{[\s\S]*?\}); \/\* @MAPS \*\//;
 
 // Never descend into these, by exact vault-relative path or bare directory
 // name. Legends holds credentials — it is never read, not even for
@@ -400,13 +400,13 @@ function parseDate(v) {
 }
 
 function build() {
-    if (!fs.existsSync(PUBLISH_JS)) {
-        console.error('publish.js not found at', PUBLISH_JS);
+    if (!fs.existsSync(BAKED_DATA)) {
+        console.error('baked-data.ts not found at', BAKED_DATA);
         process.exit(1);
     }
-    const src = fs.readFileSync(PUBLISH_JS, 'utf8');
+    const src = fs.readFileSync(BAKED_DATA, 'utf8');
     if (!MARKER.test(src)) {
-        console.error('Marker "@INDEX" not found in publish.js — was it manually removed?');
+        console.error('Marker "@INDEX" not found in baked-data.ts — was it manually removed?');
         process.exit(1);
     }
 
@@ -442,7 +442,7 @@ function build() {
         });
     });
 
-    // Same exact-then-case-insensitive match publish.js's own findImagePath
+    // Same exact-then-case-insensitive match the publish cover-image feature's findImagePath
     // does at runtime (for a wikilink whose case doesn't match the real
     // filename) -- done once here instead, so the shipped map only ever
     // needs a plain lookup.
@@ -457,13 +457,17 @@ function build() {
     console.log('Resolving base map embeds...');
     const maps = buildMaps(index);
 
-    let updated = src.replace(MARKER, `const INDEX = ${JSON.stringify(index)}; /* @INDEX */`);
-    updated = updated.replace(IMG_MARKER, `const IMG_PATHS = ${JSON.stringify(imgPaths)}; /* @IMG_PATHS */`);
-    updated = updated.replace(MAPS_MARKER, `const MAPS = ${JSON.stringify(maps)}; /* @MAPS */`);
-    fs.writeFileSync(PUBLISH_JS, updated);
+    // Function replacers, so a "$&" or "$1" inside the data is never read as a
+    // replacement pattern.
+    let updated = src.replace(MARKER, () => `export const INDEX: IndexEntry[] | null = ${JSON.stringify(index)}; /* @INDEX */`);
+    updated = updated.replace(IMG_MARKER, () => `export const IMG_PATHS: Record<string, string> | null = ${JSON.stringify(imgPaths)}; /* @IMG_PATHS */`);
+    updated = updated.replace(MAPS_MARKER, () => `export const MAPS: Record<string, MapData> | null = ${JSON.stringify(maps)}; /* @MAPS */`);
+    fs.writeFileSync(BAKED_DATA, updated);
 
     const ts = new Date().toLocaleTimeString();
-    console.log(`[${ts}] Indexed ${index.length} published notes, ${Object.keys(imgPaths).length} images${skipped ? ` (${skipped} skipped)` : ''} -> publish.js updated`);
+    console.log(`[${ts}] Indexed ${index.length} published notes, ${Object.keys(imgPaths).length} images${skipped ? ` (${skipped} skipped)` : ''} -> baked-data.ts updated`);
+
+    execFileSync(BUILD_SCRIPT, { stdio: 'inherit' });
 
     publishCoverImages(index, imgPaths);
 }
