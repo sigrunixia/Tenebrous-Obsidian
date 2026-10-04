@@ -1,98 +1,3 @@
-// Blockquotes, embeds, canvas, links, pills, lists, misc.
-//
-// Three real gaps found and fixed in _dark.scss/_light.scss (see #2):
-//   --background-modifier-info    -- unset (.message.mod-info had no color
-//                                     at all); now matches --callout-info.
-//   --pill-background-hover        -- another dead-hover case (tag pills in
-//                                     a "tags" property field), same pattern
-//                                     as the table/metadata fixes.
-//   --slider-thumb-background(-hover) -- hardcoded white regardless of
-//                                     theme; invisible in light mode against
-//                                     the light track. Now --interactive-accent,
-//                                     verified >=3.98:1 against the track in
-//                                     both themes.
-//
-// Two more found in app.css directly (not exposed as variables, so fixed
-// as selector overrides below rather than in _dark.scss/_light.scss):
-//   .cm-tooltip-docstring / .cm-completionInfo -- editor hint/autocomplete-
-//                                     detail popups. Background already
-//                                     read --background-modifier-message,
-//                                     but text was hardcoded rgb(250,250,250)
-//                                     -- unreadable in light mode.
-//   .canvas-minimap path              -- stroke hardcoded rgb(192,192,192)
-//                                     while the sibling rect already read
-//                                     --background-modifier-border; low
-//                                     contrast against the light canvas bg.
-//
-// Everything else here is layout, blend-mode, shadow, z-index, or an
-// intentional/theme-neutral default -- not a color gap:
-//
-// Layout/spacing/keywords, not color:
-// --blockquote-border-thickness: 2px;
-// --blockquote-style: /* border-style for the live-preview blockquote marker, not a color */;
-// --bold-modifier: 200;
-// --checklist-done-decoration: line-through;
-// --code-white-space: pre-wrap;
-// --heading-spacing: calc(var(--p-spacing) * 2.5);
-// --link-decoration/-hover/-thickness, --link-external-decoration/-hover,
-//   --link-unresolved-decoration-style (all text-decoration keywords)
-// --list-bullet-border: none;
-// --list-marker-space: 0;
-// --list-numbered-style: decimal;
-// --list-spacing: 0.075em;
-// --p-spacing / --p-spacing-empty
-// --pill-decoration-hover: none;
-// --pill-focus-left-adjust: -4px;
-// --sidebar-tab-text-display: none;
-// --slider-thumb-y / --slider-thumb-y-active
-// --view-*-spacing, --view-header-position
-//
-// Blend modes / filters, not color:
-// --callout-blend-mode: var(--highlight-mix-blend-mode);
-// --highlight-mix-blend-mode: darken;
-// --hover-filter: brightness(0.9);
-// --link-external-filter / --link-unresolved-filter / --link-outline: none;
-//
-// Blur recipes (opt-in polish, not a gap -- see _menus-dialogs.scss):
-// --blur-brightness / --blur-m / --blur-s / --blur-saturation
-// --embed-actions-blur / --raised-blur
-//
-// z-index stacking, not color:
-// --layer-cover/-dragged-item/-menu/-modal/-notice/-popover/-sidedock/
-//   -slides/-status-bar/-tooltip
-//
-// Shape token, see _buttons.scss:
-// --corner-shape: round;
-// --embed-actions-corner-shape: var(--corner-shape);
-//
-// Shadows/masks, theme-neutral regardless of palette:
-// --embed-actions-shadow, --pdf-shadow/-spread-shadow/-thumbnail-shadow,
-// --slider-thumb-shadow, --raised-shadow, --raised-mask-*,
-// --view-bottom-fade-mask/-top-fade-mask
-// --swatch-shadow (already auto-inverts via --mono-100, see _chrome.scss)
-//
-// Intentional / already correct as a universal convention:
-// --blockquote-color: inherit;
-// --callout-content-background: transparent;
-// --callout-title-color: inherit;
-// --drag-ghost-background: rgba(0, 0, 0, 0.85); --drag-ghost-text-color: #fff;
-//   (a floating drag-preview overlay -- black+white works as a universal
-//   high-contrast convention regardless of theme, same reasoning as the
-//   lightbox in _menus-dialogs.scss)
-// --embed-border-bottom/-end/-top: none; --embed-border-left/-right: unset;
-//   (embeds intentionally get a single accent left border -- --embed-border-start
-//   -- already set; no border on the other three sides)
-// --page-bg-color: unset; --page-border: 9px solid transparent;
-//   (PDF-embed page chrome -- a PDF page should look like paper regardless
-//   of app theme)
-// --text-on-accent-inverted: black;
-//   (rarely-triggered .mod-foreground-dark context; "black" as a safe
-//   always-readable inverted choice, not worth chasing without a concrete
-//   case where it shows up)
-//
-// Niche/low-priority:
-// --touch-background: /* no default at all, mobile-only touch state */;
-
 .cm-tooltip.cm-tooltip-docstring,
 .cm-tooltip.cm-completionInfo {
 	color: var(--text-normal);
@@ -100,4 +5,11 @@
 
 .canvas-minimap path {
 	stroke: var(--background-modifier-border);
+}
+
+.markdown-rendered mark,
+.markdown-rendered mark .internal-link,
+.cm-s-obsidian span.cm-highlight,
+.cm-s-obsidian span.cm-formatting-highlight {
+	color: var(--silver);
 }

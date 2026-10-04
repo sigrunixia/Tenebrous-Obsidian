@@ -1,30 +1,17 @@
-// Landing page, ported from the vault's own home note (Αρχική, cssclasses:
-// home, src/_home.scss) -- same [!hero] + [!hub] > [!hub-*] callout pattern,
-// minus anything that depends on Bases (Publish doesn't run Bases queries as
-// of 2026-09, see https://forum.obsidian.md/t/do-bases-work-with-obsidian-publish/106703).
-// Set `cssclasses: landing` on a note to opt in -- see "Tenebrous Dragon"
-// (permalink: home) in Σκοτεινή 🌐's successor folders.
-//
-// Reading view uses the same renderer as Publish, so this partial is built
-// two ways: into publish.css (main-publish.scss) for the live site, and into
-// a standalone CSS snippet (main-landing-snippet.scss) for local preview in
-// Obsidian without pushing -- see build.sh.
-// `landing` lands on .markdown-rendered itself (same as .home elsewhere in
-// this theme), not on some wrapping ancestor -- so these are plain
-// descendant selectors off .landing, not `.landing .markdown-rendered ...`,
-// which can never match since an element isn't its own descendant.
+@use 'functions' as *;
+@use 'mixins' as *;
 .landing {
-		// Hero
+
 		.callout[data-callout="hero"] {
 			position: relative;
 			overflow: hidden;
 			margin: 0 0 1.4em;
 			padding: clamp(1.4rem, 6vw, 2.8rem) clamp(1.2rem, 5vw, 2.6rem);
-			border: 1px solid color-mix(in oklch, var(--purple) 35%, transparent);
+			border: 1px solid tint(var(--purple), 35%);
 			border-radius: 16px;
 			background:
-				radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--purple) 38%, transparent), transparent 55%),
-				radial-gradient(circle at 88% 82%, color-mix(in oklch, var(--cyan) 32%, transparent), transparent 50%),
+				radial-gradient(circle at 12% 18%, tint(var(--purple), 38%), transparent 55%),
+				radial-gradient(circle at 88% 82%, tint(var(--amber), 32%), transparent 50%),
 				linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
 		}
 
@@ -37,7 +24,7 @@
 			font-weight: 700;
 			line-height: 1.1;
 			letter-spacing: 0.02em;
-			background: linear-gradient(90deg, var(--cyan), var(--purple) 60%, var(--magenta));
+			background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
 			-webkit-background-clip: text;
 			background-clip: text;
 			-webkit-text-fill-color: transparent;
@@ -56,8 +43,8 @@
 				inset: -40%;
 				pointer-events: none;
 				background:
-					radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--purple) 24%, transparent), transparent 38%),
-					radial-gradient(circle at 70% 70%, color-mix(in oklch, var(--cyan) 20%, transparent), transparent 38%);
+					radial-gradient(circle at 30% 30%, tint(var(--purple), 24%), transparent 38%),
+					radial-gradient(circle at 70% 70%, tint(var(--amber), 20%), transparent 38%);
 				animation: landing-drift 28s ease-in-out infinite alternate;
 			}
 
@@ -71,36 +58,18 @@
 			}
 		}
 
-		// Hub grid. Outer callout is a bare grid, inner callouts are the cards.
-		.callout[data-callout="hub"] {
-			padding: 0;
-			border: none;
-			background: none;
-		}
+		@include card-grid("hub");
 
-		.callout[data-callout="hub"] > .callout-title {
-			display: none;
-		}
-
-		.callout[data-callout="hub"] > .callout-content {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
-			gap: 0.7em;
-			padding: 0;
-		}
-
-		// Whole card is clickable via a stretched link: the real <a> stays in
-		// the title, ::after just extends its hit area over the full card.
 		.callout[data-callout^="hub-"] {
-			--hub-hue: var(--cyan);
+			--hub-hue: var(--amber);
 			position: relative;
 			margin: 0;
 			overflow: hidden;
-			border: 1px solid color-mix(in oklch, var(--hub-hue) 28%, transparent);
+			border: 1px solid tint(var(--hub-hue), 28%);
 			border-left: 3px solid var(--hub-hue);
 			border-radius: 12px;
 			background:
-				radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--hub-hue) 20%, transparent), transparent 60%),
+				radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 20%), transparent 60%),
 				var(--background-secondary);
 			transition: transform 0.15s ease, border-color 0.15s ease;
 		}
@@ -127,7 +96,7 @@
 		.callout[data-callout^="hub-"] .callout-icon svg {
 			width: 1.5em;
 			height: 1.5em;
-			filter: drop-shadow(0 0 6px color-mix(in oklch, var(--hub-hue) 60%, transparent));
+			filter: drop-shadow(0 0 6px tint(var(--hub-hue), 60%));
 		}
 
 		.callout[data-callout^="hub-"] .callout-title {

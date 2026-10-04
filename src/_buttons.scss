@@ -1,11 +1,1 @@
-// Buttons.
-//
-// --button-hover-color/--toggled-btn-* are now set in _dark.scss/_light.scss
-// (see #2).
-//
-// --button-corner-shape (-> --corner-shape, default "round") is left as-is:
-// tried --corner-shape: square in _base.scss and it had no visible effect on
-// button/input/menu corners at our small border-radius (4px) -- corner-shape
-// changes the curve profile (round/squircle/bevel), not the radius itself,
-// and the difference isn't perceptible until radii are much larger. Not
-// worth the cross-cutting change for zero visible payoff.
+

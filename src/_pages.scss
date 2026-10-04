@@ -1,23 +1,18 @@
-// Hub, idea, place and gallery pages, selected by cssclasses. Per-hub icon and hue rules
-// are generated from the hub notes' icon property.
-
-/* Hub, idea, place and gallery pages. Sits after home.css so equal-specificity rules here win.
-   Colours come from the theme variables only. */
-
-/* Hub pages: a banner with the hub's own icon and colour. */
-.hub { --hub-hue: var(--cyan); }
+@use 'icons' as *;
+@use 'functions' as *;
+.hub { --hub-hue: var(--amber); }
 
 .hub .inline-title {
   position: relative;
   margin: 0 0 1em;
   padding: clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) calc(clamp(1rem, 4vw, 1.6rem) + 2.4em);
-  border: 1px solid color-mix(in oklch, var(--hub-hue) 35%, transparent);
+  border: 1px solid tint(var(--hub-hue), 35%);
   border-left: 3px solid var(--hub-hue);
   border-radius: 14px;
   color: var(--hub-hue);
   background:
-    radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--hub-hue) 28%, transparent), transparent 60%),
-    radial-gradient(circle at 100% 100%, color-mix(in oklch, var(--hub-hue) 12%, transparent), transparent 55%),
+    radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 28%), transparent 60%),
+    radial-gradient(circle at 100% 100%, tint(var(--hub-hue), 12%), transparent 55%),
     var(--background-secondary);
 }
 
@@ -32,41 +27,46 @@
   background-color: var(--hub-hue);
   -webkit-mask: var(--hub-icon) center / contain no-repeat;
   mask: var(--hub-icon) center / contain no-repeat;
-  filter: drop-shadow(0 0 8px color-mix(in oklch, var(--hub-hue) 55%, transparent));
+  filter: drop-shadow(0 0 8px tint(var(--hub-hue), 55%));
 }
 
 .hub .bases-cards-item { --home-cover-icon: var(--hub-icon); --cover-hue: var(--hub-hue); }
 
-.hub-albums { --hub-hue: var(--cyan); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22 /%3E %3Cpath d=%22M6 12c0-1.7.7-3.2 1.8-4.2%22 /%3E %3Ccircle cx=%2212%22 cy=%2212%22 r=%222%22 /%3E %3Cpath d=%22M18 12c0 1.7-.7 3.2-1.8 4.2%22 /%3E %3C/svg%3E"); }
-.hub-people { --hub-hue: var(--magenta); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2%22 /%3E %3Cpath d=%22M16 3.128a4 4 0 0 1 0 7.744%22 /%3E %3Cpath d=%22M22 21v-2a4 4 0 0 0-3-3.87%22 /%3E %3Ccircle cx=%229%22 cy=%227%22 r=%224%22 /%3E %3C/svg%3E"); }
-.hub-clippings { --hub-hue: var(--orange); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Ccircle cx=%226%22 cy=%226%22 r=%223%22 /%3E %3Cpath d=%22M8.12 8.12 12 12%22 /%3E %3Cpath d=%22M20 4 8.12 15.88%22 /%3E %3Ccircle cx=%226%22 cy=%2218%22 r=%223%22 /%3E %3Cpath d=%22M14.8 14.8 20 20%22 /%3E %3C/svg%3E"); }
-.hub-records { --hub-hue: var(--purple); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Crect width=%2220%22 height=%225%22 x=%222%22 y=%223%22 rx=%221%22 /%3E %3Cpath d=%22M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8%22 /%3E %3Cpath d=%22M10 12h4%22 /%3E %3C/svg%3E"); }
-.hub-books { --hub-hue: var(--green); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M12 5v16%22 /%3E %3Cpath d=%22M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z%22 /%3E %3C/svg%3E"); }
-.hub-events { --hub-hue: var(--teal); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M8 2v3%22 /%3E %3Cpath d=%22M16 2v3%22 /%3E %3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22 /%3E %3Cpath d=%22M3 9h18%22 /%3E %3Cpath d=%22M8 13h.01%22 /%3E %3Cpath d=%22M12 13h.01%22 /%3E %3Cpath d=%22M16 13h.01%22 /%3E %3Cpath d=%22M8 17h.01%22 /%3E %3Cpath d=%22M12 17h.01%22 /%3E %3Cpath d=%22M16 17h.01%22 /%3E %3C/svg%3E"); }
-.hub-podcast-episodes { --hub-hue: var(--yellow); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M12 19v3%22 /%3E %3Cpath d=%22M19 10v2a7 7 0 0 1-14 0v-2%22 /%3E %3Crect x=%229%22 y=%222%22 width=%226%22 height=%2213%22 rx=%223%22 /%3E %3C/svg%3E"); }
-.hub-show-episodes { --hub-hue: var(--red); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22m17 2-5 5-5-5%22 /%3E %3Crect width=%2220%22 height=%2215%22 x=%222%22 y=%227%22 rx=%222%22 /%3E %3C/svg%3E"); }
-.hub-board-games { --hub-hue: var(--cyan); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Crect width=%2212%22 height=%2212%22 x=%222%22 y=%2210%22 rx=%222%22 ry=%222%22 /%3E %3Cpath d=%22m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6%22 /%3E %3Cpath d=%22M6 18h.01%22 /%3E %3Cpath d=%22M10 14h.01%22 /%3E %3Cpath d=%22M15 6h.01%22 /%3E %3Cpath d=%22M18 9h.01%22 /%3E %3C/svg%3E"); }
-.hub-apps { --hub-hue: var(--magenta); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Crect x=%222%22 y=%224%22 width=%2220%22 height=%2216%22 rx=%222%22 /%3E %3Cpath d=%22M10 4v4%22 /%3E %3Cpath d=%22M2 8h20%22 /%3E %3Cpath d=%22M6 4v4%22 /%3E %3C/svg%3E"); }
-.hub-journal { --hub-hue: var(--orange); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M12 5v16%22 /%3E %3Cpath d=%22M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z%22 /%3E %3C/svg%3E"); }
-.hub-ideas { --hub-hue: var(--purple); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5%22 /%3E %3Cpath d=%22M9 18h6%22 /%3E %3Cpath d=%22M10 22h4%22 /%3E %3C/svg%3E"); }
-.hub-communities { --hub-hue: var(--green); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M18 21a8 8 0 0 0-16 0%22 /%3E %3Ccircle cx=%2210%22 cy=%228%22 r=%225%22 /%3E %3Cpath d=%22M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3%22 /%3E %3C/svg%3E"); }
-.hub-companies { --hub-hue: var(--teal); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M10 12h4%22 /%3E %3Cpath d=%22M10 8h4%22 /%3E %3Cpath d=%22M14 21v-3a2 2 0 0 0-4 0v3%22 /%3E %3Cpath d=%22M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2%22 /%3E %3Cpath d=%22M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16%22 /%3E %3C/svg%3E"); }
-.hub-games { --hub-hue: var(--yellow); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cline x1=%226%22 x2=%2210%22 y1=%2211%22 y2=%2211%22 /%3E %3Cline x1=%228%22 x2=%228%22 y1=%229%22 y2=%2213%22 /%3E %3Cline x1=%2215%22 x2=%2215.01%22 y1=%2212%22 y2=%2212%22 /%3E %3Cline x1=%2218%22 x2=%2218.01%22 y1=%2210%22 y2=%2210%22 /%3E %3Cpath d=%22M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z%22 /%3E %3C/svg%3E"); }
-.hub-programs { --hub-hue: var(--red); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z%22 /%3E %3Cpath d=%22M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12%22 /%3E %3Cpath d=%22M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17%22 /%3E %3C/svg%3E"); }
-.hub-prompts { --hub-hue: var(--cyan); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z%22 /%3E %3Cpath d=%22M20 2v4%22 /%3E %3Cpath d=%22M22 4h-4%22 /%3E %3Ccircle cx=%224%22 cy=%2220%22 r=%222%22 /%3E %3C/svg%3E"); }
-.hub-products { --hub-hue: var(--magenta); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M16 10a4 4 0 0 1-8 0%22 /%3E %3Cpath d=%22M3.103 6.034h17.794%22 /%3E %3Cpath d=%22M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z%22 /%3E %3C/svg%3E"); }
-.hub-podcasts { --hub-hue: var(--orange); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M12 17v4%22 /%3E %3Cpath d=%22M18 11a6 6 0 00-3-5.197%22 /%3E %3Cpath d=%22M2 11a10 10 0 015-8.662%22 /%3E %3Cpath d=%22M22 11a10 10 0 00-5-8.662%22 /%3E %3Cpath d=%22M6 11a6 6 0 013-5.197%22 /%3E %3Cpath d=%22M9 21h6%22 /%3E %3Crect x=%2210%22 y=%229%22 width=%224%22 height=%228%22 rx=%222%22 /%3E %3C/svg%3E"); }
-.hub-shows { --hub-hue: var(--purple); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22m17 2-5 5-5-5%22 /%3E %3Crect width=%2220%22 height=%2215%22 x=%222%22 y=%227%22 rx=%222%22 /%3E %3C/svg%3E"); }
-.hub-meetings { --hub-hue: var(--green); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M8 2v3%22 /%3E %3Cpath d=%22M16 2v3%22 /%3E %3Crect x=%223%22 y=%223%22 width=%2218%22 height=%2218%22 rx=%222%22 /%3E %3Cpath d=%22M3 9h18%22 /%3E %3Cpath d=%22M8 13h.01%22 /%3E %3Cpath d=%22M12 13h.01%22 /%3E %3Cpath d=%22M16 13h.01%22 /%3E %3Cpath d=%22M8 17h.01%22 /%3E %3Cpath d=%22M12 17h.01%22 /%3E %3Cpath d=%22M16 17h.01%22 /%3E %3C/svg%3E"); }
-.hub-recipes { --hub-hue: var(--teal); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M17 21a1 1 0 0 0 1-1v-5.35c0-.457.316-.844.727-1.041a4 4 0 0 0-2.134-7.589 5 5 0 0 0-9.186 0 4 4 0 0 0-2.134 7.588c.411.198.727.585.727 1.041V20a1 1 0 0 0 1 1Z%22 /%3E %3Cpath d=%22M6 17h12%22 /%3E %3C/svg%3E"); }
-.hub-plans { --hub-hue: var(--yellow); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Crect width=%228%22 height=%224%22 x=%228%22 y=%222%22 rx=%221%22 ry=%221%22 /%3E %3Cpath d=%22M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2%22 /%3E %3Cpath d=%22M12 11h4%22 /%3E %3Cpath d=%22M12 16h4%22 /%3E %3Cpath d=%22M8 11h.01%22 /%3E %3Cpath d=%22M8 16h.01%22 /%3E %3C/svg%3E"); }
-.hub-movies { --hub-hue: var(--red); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22m12.296 3.464 3.02 3.956%22 /%3E %3Cpath d=%22M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z%22 /%3E %3Cpath d=%22M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z%22 /%3E %3Cpath d=%22m6.18 5.276 3.1 3.899%22 /%3E %3C/svg%3E"); }
-.hub-trips { --hub-hue: var(--cyan); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2%22 /%3E %3Cpath d=%22M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14%22 /%3E %3Cpath d=%22M10 20h4%22 /%3E %3Ccircle cx=%2216%22 cy=%2220%22 r=%222%22 /%3E %3Ccircle cx=%228%22 cy=%2220%22 r=%222%22 /%3E %3C/svg%3E"); }
-.hub-places { --hub-hue: var(--magenta); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0%22 /%3E %3Ccircle cx=%2212%22 cy=%2210%22 r=%223%22 /%3E %3C/svg%3E"); }
-.hub-plants { --hub-hue: var(--orange); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3%22 /%3E %3Cpath d=%22M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4%22 /%3E %3Cpath d=%22M5 21h14%22 /%3E %3C/svg%3E"); }
-.hub-map { --hub-hue: var(--purple); --hub-icon: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 %3E %3Cpath d=%22M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z%22 /%3E %3Cpath d=%22M15 5.764v15%22 /%3E %3Cpath d=%22M9 3.236v15%22 /%3E %3C/svg%3E"); }
+$hubs: (
+	("albums", "amber", "disc-3"),
+	("people", "magenta", "users"),
+	("clippings", "orange", "scissors"),
+	("records", "purple", "archive"),
+	("books", "green", "book-open"),
+	("events", "teal", "calendar-days"),
+	("podcast-episodes", "yellow", "mic"),
+	("show-episodes", "red", "tv"),
+	("board-games", "amber", "dices"),
+	("apps", "magenta", "app-window"),
+	("journal", "orange", "book-open"),
+	("ideas", "purple", "lightbulb"),
+	("communities", "green", "users-round"),
+	("companies", "teal", "building-complex"),
+	("games", "yellow", "gamepad-2"),
+	("programs", "red", "layers"),
+	("prompts", "amber", "sparkles"),
+	("products", "magenta", "shopping-bag"),
+	("podcasts", "orange", "mic-signal"),
+	("shows", "purple", "tv"),
+	("meetings", "green", "calendar-days"),
+	("recipes", "teal", "chef-hat"),
+	("plans", "yellow", "clipboard-list"),
+	("movies", "red", "clapperboard"),
+	("trips", "amber", "luggage"),
+	("places", "magenta", "map-pin"),
+	("plants", "orange", "sprout"),
+	("map", "purple", "map")
+);
 
-/* Idea notes: the claim is the title, so set it as a pull quote. */
+@each $name, $hue, $icon in $hubs {
+	.hub-#{$name} { --hub-hue: var(--#{$hue}); --hub-icon: #{icon($icon)}; }
+}
+
 .idea .inline-title {
   position: relative;
   padding: 0.15em 0 0.15em 1.1em;
@@ -83,17 +83,16 @@
   top: -0.35em;
   font-size: 2.4em;
   line-height: 1;
-  color: color-mix(in oklch, var(--purple) 45%, transparent);
+  color: tint(var(--purple), 45%);
   pointer-events: none;
 }
 
 .idea .metadata-property[data-property-key="sources"] .multi-select-pill {
   color: var(--purple);
-  background: color-mix(in oklch, var(--purple) 14%, transparent);
-  border-color: color-mix(in oklch, var(--purple) 40%, transparent);
+  background: tint(var(--purple), 14%);
+  border-color: tint(var(--purple), 40%);
 }
 
-/* Place notes: the photo becomes a banner and the title gets a teal rule. */
 .place .inline-title {
   padding-bottom: 0.2em;
   border-bottom: 2px solid transparent;
@@ -110,11 +109,6 @@
 
 .place .callout .internal-embed.image-embed img { max-height: none; border-radius: 0; }
 
-/* Place infobox: Wikipedia-style, floated right of the lead text. Cover
-   photo on top, then the facts as a stacked list with small-caps labels.
-   Scoped to .markdown-reading-view only -- float breaks the CodeMirror
-   editor's own layout in Live Preview / source mode, detaching the box
-   from its source position, so editing shows the plain, unstyled callout. */
 .markdown-reading-view .callout[data-callout="place"] {
   --callout-color: var(--teal);
   --callout-icon: lucide-map-pin;
@@ -123,7 +117,7 @@
   margin: 0 0 1rem 1.4rem;
   padding: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in oklch, var(--callout-color) 30%, transparent);
+  border: 1px solid tint(var(--callout-color), 30%);
   border-radius: 14px;
   background: var(--background-secondary);
 }
@@ -152,7 +146,7 @@
 .markdown-reading-view .callout[data-callout="place"] > .callout-content > ul > li {
   margin: 0;
   padding: 0.55rem 0.9rem;
-  border-top: 1px solid color-mix(in oklch, var(--callout-color) 18%, transparent);
+  border-top: 1px solid tint(var(--callout-color), 18%);
   font-size: 0.85rem;
   list-style: none;
 }
@@ -173,12 +167,6 @@
   .markdown-reading-view .callout[data-callout="place"] { float: none; width: 100%; margin: 0 0 1rem; }
 }
 
-/* A Bases embed is a block box that needs its full column width, so a float
-   alone doesn't shrink it, CSS just pushes the whole block below the float
-   once it no longer fits beside it. Cap its width to the leftover column
-   (matching the infobox's own max width + margin) so it actually renders
-   beside the infobox instead of waiting below it, and let its toolbar wrap
-   instead of forcing the block wider than that. */
 .markdown-reading-view .el-div:has(> .callout[data-callout="place"]) ~ .el-p:has(.bases-embed) {
   width: calc(100% - 19.4rem);
 }
@@ -189,11 +177,10 @@
   .markdown-reading-view .el-div:has(> .callout[data-callout="place"]) ~ .el-p:has(.bases-embed) { width: 100%; }
 }
 
-/* Gallery page. */
 .gallery .inline-title {
   font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 700;
-  background: linear-gradient(90deg, var(--cyan), var(--purple) 60%, var(--magenta));
+  background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -205,23 +192,6 @@
   letter-spacing: 0.06em;
 }
 
-/* Hub backlinks base cards (cssclasses: κόμβος, set by Hub template.md).
-   Left-aligned title is the default, nothing to override. Title-left/
-   date-right in one row isn't worth pursuing: Bases positions card children
-   with inline pixel top/height from its own virtualizer, which beats any
-   grid/flex placement in the stylesheet. */
-
-/* [!grid] callout: a bare photo grid, used in essays for session/progress
-   photo sets. No hub cssclass scoping needed, any published page can use it.
-   Confirmed via the real rendered DOM (obsidian eval on the open note) that
-   consecutive `> ![[img]]` lines land as ONE <p> per run, holding multiple
-   .internal-embed spans separated by <br> -- not one <p> per image, and not
-   all promoted to children of .callout-content either. So the grid goes on
-   the <p> itself (there can be more than one <p> if a blank line splits the
-   callout into groups), fixed-height rows with object-fit: cover so mixed
-   portrait/landscape photos crop to even tiles instead of one tall photo
-   swallowing the whole row width and pushing everything else onto its own
-   line, which is what a height-capped, width:auto flex row did. */
 .callout[data-callout="grid"] {
   padding: 0;
   border: none;

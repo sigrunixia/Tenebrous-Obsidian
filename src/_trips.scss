@@ -1,41 +1,18 @@
-// Trip notes: the callout set used by every note in Trips that is
-// published. Seven callouts, one job each.
-//
-//   [!trip]    masthead: cover photo, then a grid of labelled facts
-//   [!day]     one card per day, dated in the title
-//   [!stay]    where I stayed
-//   [!pack]    what I brought
-//   [!lessons] the lessons, one callout holding a numbered list
-//   [!plan]-   folded planning notes
-//   [!caption] a photo with its caption underneath
-//
-// The callout types are not scoped to .trip. Their names are unique to
-// trips, so there is nothing to collide with, and page-level rules (the
-// counter reset below) hang off the rendered container instead.
-//
-// The facts in [!trip] are a plain bullet list, `- **When** Wednesday...`,
-// with the bold label styled as a small caps eyebrow above its value. No
-// colon or hyphen is needed in the source.
-//
-// Colours come from the theme variables only, so the app theme and Publish
-// pick them up the same way.
 @use 'base';
+@use 'functions' as *;
 
 $serif: 'Cardo', Georgia, serif;
 
-// Shared frame. Every trip callout is a flat card with a coloured left rail
-// and an eyebrow title, so the page has one visual rhythm and the hue does
-// the sorting.
 .callout:is([data-callout="day"], [data-callout="stay"], [data-callout="pack"], [data-callout="plan"]) {
 	--trip-hue: var(--callout-color);
 	margin: 1.4rem 0;
 	padding: 0;
 	overflow: hidden;
-	border: 1px solid color-mix(in oklch, var(--trip-hue) 22%, transparent);
+	border: 1px solid tint(var(--trip-hue), 22%);
 	border-left: 3px solid var(--trip-hue);
 	border-radius: base.$radius;
 	background:
-		linear-gradient(115deg, color-mix(in oklch, var(--trip-hue) 9%, transparent), transparent 55%),
+		linear-gradient(115deg, tint(var(--trip-hue), 9%), transparent 55%),
 		var(--background-secondary);
 
 	> .callout-title {
@@ -58,7 +35,6 @@ $serif: 'Cardo', Georgia, serif;
 	}
 }
 
-// Day. The bold first line is the day's headline, set as a subtitle.
 .callout[data-callout="day"] {
 	--callout-color: var(--blue0);
 	--callout-icon: lucide-calendar-days;
@@ -83,12 +59,6 @@ $serif: 'Cardo', Georgia, serif;
 	--callout-icon: lucide-backpack;
 }
 
-// Lessons. One callout holding a real numbered list, so the numbers come from
-// the list itself and stay right in Live Preview, Reading view and Publish.
-// (One callout per lesson can't be counted in CSS: Live Preview renders each
-// callout as its own widget.) Each item is a bold title, then its reason on
-// the next line. The section already has a "Lessons" heading, so the callout
-// carries no title of its own.
 .callout[data-callout="lessons"] {
 	--callout-color: var(--green);
 	--callout-icon: lucide-lightbulb;
@@ -111,11 +81,11 @@ $serif: 'Cardo', Georgia, serif;
 			counter-increment: trip-lesson;
 			margin: 0.8rem 0;
 			padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
-			border: 1px solid color-mix(in oklch, var(--callout-color) 22%, transparent);
+			border: 1px solid tint(var(--callout-color), 22%);
 			border-left: 3px solid var(--callout-color);
 			border-radius: base.$radius;
 			background:
-				linear-gradient(115deg, color-mix(in oklch, var(--callout-color) 9%, transparent), transparent 55%),
+				linear-gradient(115deg, tint(var(--callout-color), 9%), transparent 55%),
 				var(--background-secondary);
 
 			&::marker { content: ""; }
@@ -145,21 +115,6 @@ $serif: 'Cardo', Georgia, serif;
 	}
 }
 
-// Caption. A photo framed as a small card, cutline below -- same family as
-// day/stay/pack (card, border, radius) but photo-first: no title, no left
-// rail. The photo keeps its native aspect ratio (no crop -- trip photos are
-// a mix of landscape and tall portrait shots, and cropping to a fixed box
-// cuts the subject off a portrait shot), capped to a shared max-height so no
-// single photo dominates the page; a muted band behind it keeps the card's
-// footprint full-width even when the photo itself is narrower.
-// A title italicised in the cutline (an artwork, a dish) reverses to upright
-// and picks up the teal accent, so a museum-label-style credit line reads as
-// distinct from a plain descriptive caption without any new syntax.
-//
-//   > [!caption]
-//   > ![[photo.jpg]]
-//   >
-//   > What the photo shows. *A title* stays italic-reversed to upright teal.
 .callout[data-callout="caption"] {
 	--callout-color: var(--comment);
 	margin: 1.4rem 0;
@@ -211,8 +166,6 @@ $serif: 'Cardo', Georgia, serif;
 	}
 }
 
-// Plan. Folded by default in the source ([!plan]-), so it reads as an
-// appendix: dashed, muted, no hue gradient.
 .callout[data-callout="plan"] {
 	--callout-color: var(--comment);
 	--callout-icon: lucide-clipboard-list;
@@ -223,12 +176,8 @@ $serif: 'Cardo', Georgia, serif;
 	> .callout-title { color: var(--text-muted); }
 }
 
-// Trip masthead. Cover photo across the top, then the facts as a grid of
-// small cards. The photo is portrait, so it is cropped to a wide band and
-// anchored slightly above centre where the skyline sits; change
-// --trip-cover-focus per trip if a cover needs a different anchor.
 .callout[data-callout="trip"] {
-	--callout-color: var(--cyan);
+	--callout-color: var(--amber);
 	--callout-icon: lucide-map-pin;
 	--trip-cover-focus: 50% 42%;
 	display: flex;
@@ -236,18 +185,15 @@ $serif: 'Cardo', Georgia, serif;
 	margin: 1rem 0 2rem;
 	padding: 0;
 	overflow: hidden;
-	border: 1px solid color-mix(in oklch, var(--callout-color) 30%, transparent);
+	border: 1px solid tint(var(--callout-color), 30%);
 	border-radius: base.$radius;
 	background: var(--background-secondary);
 
-	// The page already has a title, so the masthead carries none. The source
-	// is a bare `> [!trip]`, and Obsidian's default "Trip" label is hidden.
 	> .callout-title { display: none; }
 
 	> .callout-content {
 		padding: 0;
 
-		// Cover: the first paragraph, holding the image embed.
 		> p:first-child {
 			margin: 0;
 
@@ -273,7 +219,7 @@ $serif: 'Cardo', Georgia, serif;
 			margin: 0;
 			padding: 0;
 			list-style: none;
-			background: color-mix(in oklch, var(--callout-color) 18%, transparent);
+			background: tint(var(--callout-color), 18%);
 
 			> li {
 				margin: 0;
@@ -297,7 +243,4 @@ $serif: 'Cardo', Georgia, serif;
 	}
 }
 
-// One title per trip page. The filename ("2026-09 Chicago") is what
-// Obsidian and Publish print as the inline title; the note's own H1
-// ("2026 Chicago, IL") is the readable one, so the inline title steps aside.
 .trip .inline-title { display: none; }

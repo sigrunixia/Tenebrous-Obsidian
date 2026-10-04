@@ -1,15 +1,4 @@
-// Contact cards on the About page ("Sigrunixia"). Same shape as the landing
-// hub cards (_landing.scss) -- an outer [!contact] callout that is only a grid,
-// and inner [!contact-*] callouts as the cards, with the title link stretched
-// over the whole card. Publish only ships Lucide for callout icons and has no
-// brand marks, so each icon here is a mask over the callout icon, filled with
-// the card's own hue. Lucide for email and CV, Simple Icons for the brands.
-//
-// Email and CV take palette colors. The four social cards use each brand's
-// own color instead, hardcoded because they are not theme colors. GitHub and
-// Threads are black marks on a light page, so on this dark one they use the
-// theme's foreground, which is how both brands show themselves in dark mode.
-// Instagram's icon takes its gradient; its label takes the flat brand pink.
+@use 'functions' as *;
 .callout[data-callout="contact"] {
 	padding: 0;
 	border: none;
@@ -29,15 +18,15 @@
 }
 
 .callout[data-callout^="contact-"] {
-	--contact-hue: var(--cyan);
+	--contact-hue: var(--amber);
 	position: relative;
 	margin: 0;
 	overflow: hidden;
-	border: 1px solid color-mix(in oklch, var(--contact-hue) 28%, transparent);
+	border: 1px solid tint(var(--contact-hue), 28%);
 	border-left: 3px solid var(--contact-hue);
 	border-radius: 12px;
 	background:
-		radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--contact-hue) 20%, transparent), transparent 60%),
+		radial-gradient(circle at 0% 0%, tint(var(--contact-hue), 20%), transparent 60%),
 		var(--background-secondary);
 	transition: transform 0.15s ease, border-color 0.15s ease;
 
@@ -49,8 +38,6 @@
 		color: var(--contact-hue);
 	}
 
-	// Links in a card read as labels, not inline links: no underline, no
-	// external-link icon, and the email address is never broken mid-word.
 	a,
 	a.external-link {
 		text-decoration: none;
@@ -99,7 +86,7 @@
 		background: var(--contact-icon-fill, var(--contact-hue));
 		mask: var(--contact-icon) center / contain no-repeat;
 		-webkit-mask: var(--contact-icon) center / contain no-repeat;
-		filter: drop-shadow(0 0 6px color-mix(in oklch, var(--contact-hue) 60%, transparent));
+		filter: drop-shadow(0 0 6px tint(var(--contact-hue), 60%));
 	}
 
 	@media (hover: hover) {
@@ -111,7 +98,7 @@
 }
 
 .callout[data-callout="contact-email"] {
-	--contact-hue: var(--cyan);
+	--contact-hue: var(--amber);
 	--contact-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' %3E%3Cpath d='m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7' /%3E%3Crect x='2' y='4' width='20' height='16' rx='2' /%3E%3C/svg%3E");
 }
 

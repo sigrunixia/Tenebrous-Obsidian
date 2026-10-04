@@ -1,10 +1,1 @@
-// Standalone CSS snippet for local preview of Publish-only pages (currently
-// just .landing) in Obsidian's own Reading view, without pushing to the live
-// site -- Reading view and Publish share the same renderer, so plain-markdown
-// CSS like this one (nothing that depends on Publish-only DOM such as
-// .site-header or .published-container) looks the same in both.
-//
-// Enable in Settings -> Appearance -> CSS snippets. Requires the Tenebrous
-// theme active (this snippet only carries .landing itself, not the palette
-// variables it reads).
 @use 'landing';

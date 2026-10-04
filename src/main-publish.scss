@@ -1,23 +1,8 @@
-// Obsidian Publish output. Theme's own color/typography/syntax layers, plus
-// 'pages' for cssclasses that DO land on published notes (.hub for hub pages,
-// .idea/.place/.gallery, and callouts like [!grid] used in essays). 'trips'
-// for .trip pages, whose [!trip] masthead callout stands in for the native
-// properties panel, hidden below. 'home' and
-// 'greek' stay out -- .home is the vault-internal home note only (the site's
-// own home page uses .landing, styled by _landing.scss via _publish.scss), and
-// the Greek meander/key decoration hasn't been requested on Publish.
-//
-// Dark mode only, deliberately -- no 'light' partial. _publish.scss forces
-// .theme-light onto the dark palette instead, so it doesn't matter which class
-// Publish's own JS lands the visitor on.
-//
-// 'fonts-publish', not 'fonts' -- a trimmed subset built for Publish
-// specifically (full Alegreya Sans, Cardo without its italic faces); see
-// that file for why.
 @use 'fonts-publish';
 @use 'base';
 @use 'dark';
 @use 'syntax';
 @use 'pages';
 @use 'trips';
+@use 'tag-lines';
 @use 'publish';

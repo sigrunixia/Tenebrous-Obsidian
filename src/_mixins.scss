@@ -1,0 +1,18 @@
+@mixin card-grid($callout) {
+	.callout[data-callout="#{$callout}"] {
+		padding: 0;
+		border: none;
+		background: none;
+	}
+
+	.callout[data-callout="#{$callout}"] > .callout-title {
+		display: none;
+	}
+
+	.callout[data-callout="#{$callout}"] > .callout-content {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+		gap: 0.7em;
+		padding: 0;
+	}
+}
