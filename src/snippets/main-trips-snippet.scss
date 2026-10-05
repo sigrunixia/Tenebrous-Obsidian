@@ -5,5 +5,12 @@
 @use '../customs/pages/gallery';
 @use '../customs/callouts/place';
 @use '../customs/callouts/grid';
+@use '../customs/callouts/trip-cards-base';
+@use '../customs/callouts/day';
+@use '../customs/callouts/stay';
+@use '../customs/callouts/pack';
+@use '../customs/callouts/lessons';
+@use '../customs/callouts/caption';
+@use '../customs/callouts/plan';
 @use '../customs/callouts/trip';
 @use '../customs/pages/trip' as page-trip;

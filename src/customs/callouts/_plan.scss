@@ -1,0 +1,11 @@
+.callout[data-callout="plan"] {
+	--callout-color: var(--comment);
+	--callout-icon: lucide-clipboard-list;
+	border-style: dashed;
+	border-left-style: solid;
+	background: transparent;
+
+	> .callout-title {
+		color: var(--text-muted);
+	}
+}

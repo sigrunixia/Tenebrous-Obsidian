@@ -1,5 +1,5 @@
-@use '../../lib/functions' as *;
-@use '../../lib/mixins' as *;
+@use 'functions' as *;
+@use 'mixins' as *;
 
 @mixin bare($margin: null) {
 	padding: 0;

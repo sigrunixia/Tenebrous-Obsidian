@@ -1,0 +1,59 @@
+@use '../../lib/radius';
+@use '../../lib/functions' as *;
+@use '../../lib/typography' as t;
+@use '../../lib/callout-mixins' as *;
+
+.callout[data-callout="lessons"] {
+	--callout-color: var(--green);
+	--callout-icon: lucide-lightbulb;
+	@include bare(1rem 0);
+	@include untitled;
+
+	ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: trip-lesson;
+
+		> li {
+			position: relative;
+			counter-increment: trip-lesson;
+			margin: 0.8rem 0;
+			padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
+			border: 1px solid tint(var(--callout-color), 22%);
+			border-left: 3px solid var(--callout-color);
+			border-radius: radius.$radius;
+			background:
+				linear-gradient(115deg, tint(var(--callout-color), 9%), transparent 55%),
+				var(--background-secondary);
+
+			&::marker {
+				content: "";
+			}
+
+			&::before {
+				content: counter(trip-lesson, decimal-leading-zero);
+				display: block;
+				font-family: t.$serif;
+				font-size: 1.5rem;
+				line-height: 1;
+				color: var(--callout-color);
+				opacity: 0.55;
+			}
+
+			> strong:first-child {
+				display: block;
+				margin: 0.2rem 0 0.35rem;
+				font-family: t.$serif;
+				font-size: 1.15rem;
+				font-weight: normal;
+				letter-spacing: 0.04em;
+				color: var(--callout-color);
+			}
+
+			> br {
+				display: none;
+			}
+		}
+	}
+}

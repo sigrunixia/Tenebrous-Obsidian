@@ -1,4 +1,4 @@
-@use 'mixins' as *;
+@use '../../lib/callout-mixins' as *;
 
 .callout[data-callout="grid"] {
 	@include bare;

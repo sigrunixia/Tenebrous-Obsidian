@@ -1,0 +1,58 @@
+@use '../../lib/functions' as *;
+@use '../../lib/callout-mixins' as *;
+
+$hub-callouts: (
+	("places", "map-pin", "amber"),
+	("people", "users", "magenta"),
+	("things", "shopping-bag", "orange"),
+	("media", "drama", "purple"),
+	("food", "utensils", "green"),
+	("journal", "notebook-pen", "yellow"),
+	("travel", "luggage", "teal"),
+	("records", "archive", "red"),
+	("money", "wallet", "yellow"),
+	("clippings", "scissors", "amber")
+);
+
+.home {
+	@include card-grid("hub");
+
+	.callout[data-callout^="hub-"] {
+		--hub-hue: var(--amber);
+		--callout-color: var(--color-accent-rgb);
+		@include hue-card(--hub-hue);
+		@include hue-icon-svg(--hub-hue);
+	}
+}
+
+@each $name, $icon, $hue in $hub-callouts {
+	.home .callout[data-callout="hub-#{$name}"] { --callout-icon: lucide-#{$icon}; --hub-hue: var(--#{$hue}); }
+}
+
+.home {
+	.callout[data-callout^="hub-"] {
+		border-left: 10px solid transparent;
+		background-origin: border-box, padding-box, padding-box;
+		background-image:
+			repeating-linear-gradient(90deg, var(--hub-hue) 0 2px, transparent 2px 4px),
+			radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 20%), transparent 60%);
+		background-size: 10px 100%, auto;
+		background-position: left top, 0 0;
+		background-repeat: no-repeat, no-repeat;
+		background-color: var(--background-secondary);
+
+		a.external-link {
+			background-image: none;
+			padding-inline-end: 0;
+		}
+
+		li li {
+			list-style: none;
+			margin-inline-start: -1.1em;
+
+			&::marker {
+				content: none;
+			}
+		}
+	}
+}

@@ -1,7 +1,8 @@
 @use 'lib/typography' as t;
 @use 'lib/radius';
 @use 'theme/dark';
-@use 'customs/callouts/landing';
+@use 'customs/callouts/landing-hero';
+@use 'customs/callouts/landing-hubs';
 @use 'customs/callouts/contact';
 
 .published-container {

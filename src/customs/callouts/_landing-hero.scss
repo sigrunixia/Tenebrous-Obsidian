@@ -1,0 +1,9 @@
+@use '../../lib/callout-mixins' as *;
+
+.landing {
+	.callout[data-callout="hero"] {
+		@include hero;
+	}
+
+	@include hero-drift(landing-drift);
+}

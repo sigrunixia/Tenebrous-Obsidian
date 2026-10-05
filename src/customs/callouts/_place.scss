@@ -1,5 +1,5 @@
 @use '../../lib/functions' as *;
-@use 'mixins' as *;
+@use '../../lib/callout-mixins' as *;
 
 .markdown-reading-view .callout[data-callout="place"] {
 	--callout-color: var(--teal);

@@ -1,14 +1,6 @@
-@use '../../lib/functions' as *;
-@use '../../lib/mixins' as *;
-@use 'mixins' as *;
+@use '../../lib/callout-mixins' as *;
 
 .landing {
-	.callout[data-callout="hero"] {
-		@include hero;
-	}
-
-	@include hero-drift(landing-drift);
-
 	@include card-grid("hub");
 
 	.callout[data-callout^="hub-"] {

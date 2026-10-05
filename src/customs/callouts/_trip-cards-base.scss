@@ -1,0 +1,45 @@
+@use '../../lib/radius';
+@use '../../lib/functions' as *;
+@use '../../lib/typography' as t;
+
+.callout:is([data-callout="day"], [data-callout="stay"], [data-callout="pack"], [data-callout="plan"]) {
+	--trip-hue: var(--callout-color);
+	margin: 1.4rem 0;
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid tint(var(--trip-hue), 22%);
+	border-left: 3px solid var(--trip-hue);
+	border-radius: radius.$radius;
+	background:
+		linear-gradient(115deg, tint(var(--trip-hue), 9%), transparent 55%),
+		var(--background-secondary);
+
+	> .callout-title {
+		padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 0;
+		gap: 0.6rem;
+		color: var(--trip-hue);
+		font-family: t.$serif;
+		font-size: 1.15rem;
+		letter-spacing: 0.04em;
+
+		.callout-icon {
+			opacity: 0.85;
+		}
+	}
+
+	> .callout-content {
+		padding: 0.5rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
+
+		> p {
+			margin: 0.6em 0;
+		}
+
+		> :first-child {
+			margin-top: 0.3em;
+		}
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+	}
+}

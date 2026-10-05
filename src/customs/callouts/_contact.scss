@@ -1,6 +1,5 @@
-@use '../../lib/functions' as *;
+@use '../../lib/callout-mixins' as *;
 @use '../../lib/mixins' as *;
-@use 'mixins' as *;
 
 @include card-grid("contact", var(--size-4-4) 0);
 

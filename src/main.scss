@@ -19,8 +19,12 @@
 @use 'customs/home/ember-tags';
 @use 'customs/home/card-lift';
 @use 'customs/home/phone-headings';
-@use 'customs/callouts/general';
-@use 'customs/callouts/home' as callout-home;
+@use 'customs/callouts/nested';
+@use 'customs/callouts/title-color';
+@use 'customs/callouts/hero';
+@use 'customs/callouts/hub' as callout-hub;
+@use 'customs/callouts/info';
+@use 'customs/callouts/actions';
 @use 'customs/pages/hub';
 @use 'customs/pages/hub-variants';
 @use 'customs/pages/idea';
@@ -28,6 +32,13 @@
 @use 'customs/pages/gallery';
 @use 'customs/callouts/place';
 @use 'customs/callouts/grid';
+@use 'customs/callouts/trip-cards-base';
+@use 'customs/callouts/day';
+@use 'customs/callouts/stay';
+@use 'customs/callouts/pack';
+@use 'customs/callouts/lessons';
+@use 'customs/callouts/caption';
+@use 'customs/callouts/plan';
 @use 'customs/callouts/trip';
 @use 'customs/pages/trip' as page-trip;
 @use 'customs/greek/square-corners';
