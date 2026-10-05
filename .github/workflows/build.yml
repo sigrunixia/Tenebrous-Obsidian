@@ -38,6 +38,16 @@ jobs:
             exit 1
           fi
 
+      - name: Build publish.css
+        run: sass --no-source-map src/main-publish.scss publish.css
+
+      - name: Verify publish.css is up to date
+        run: |
+          if ! git diff --exit-code publish.css; then
+            echo "::error::publish.css is out of date -- build publish.css and commit the result."
+            exit 1
+          fi
+
       - name: Install esbuild and TypeScript
         env:
           ESBUILD_VERSION: "0.28.2"
