@@ -1,0 +1,13 @@
+@use '../lib/radius';
+
+body {
+	--radius-s: #{radius.$radius};
+	--radius-m: #{radius.$radius};
+	--radius-l: #{radius.$radius};
+	--input-radius: #{radius.$radius};
+	--tab-radius-active: #{radius.$radius};
+	--checkbox-radius: #{radius.$radius};
+	--toggle-radius: #{radius.$radius};
+	--toggle-thumb-radius: #{radius.$radius};
+	--slider-thumb-radius: #{radius.$radius};
+}

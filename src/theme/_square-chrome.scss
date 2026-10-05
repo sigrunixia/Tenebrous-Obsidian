@@ -1,0 +1,17 @@
+.menu {
+	padding-top: 0;
+	padding-bottom: 0;
+
+	> .item,
+	&-separator {
+		border-radius: 0;
+	}
+}
+
+.workspace-tab-header-container {
+	border-radius: 0;
+}
+
+.status-bar {
+	border-radius: 0;
+}

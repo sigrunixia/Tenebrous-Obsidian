@@ -1,4 +1,4 @@
-@use '../../base';
+@use '../../lib/radius';
 @use '../../lib/functions' as *;
 @use '../../lib/typography' as t;
 @use 'mixins' as *;
@@ -10,7 +10,7 @@
 	overflow: hidden;
 	border: 1px solid tint(var(--trip-hue), 22%);
 	border-left: 3px solid var(--trip-hue);
-	border-radius: base.$radius;
+	border-radius: radius.$radius;
 	background:
 		linear-gradient(115deg, tint(var(--trip-hue), 9%), transparent 55%),
 		var(--background-secondary);
@@ -88,7 +88,7 @@
 			padding: 0.7rem clamp(0.9rem, 3vw, 1.4rem) 1rem;
 			border: 1px solid tint(var(--callout-color), 22%);
 			border-left: 3px solid var(--callout-color);
-			border-radius: base.$radius;
+			border-radius: radius.$radius;
 			background:
 				linear-gradient(115deg, tint(var(--callout-color), 9%), transparent 55%),
 				var(--background-secondary);
@@ -130,7 +130,7 @@
 	padding: 0;
 	overflow: hidden;
 	border: 1.5px solid var(--callout-color);
-	border-radius: base.$radius;
+	border-radius: radius.$radius;
 	background: color-mix(in oklch, var(--callout-color) 12%, var(--background-primary));
 	@include untitled;
 
@@ -192,7 +192,7 @@
 	display: flex;
 	flex-direction: column;
 	margin: 1rem 0 2rem;
-	@include framed(base.$radius);
+	@include framed(radius.$radius);
 	background: var(--background-secondary);
 
 	> .callout-title {

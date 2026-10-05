@@ -1,4 +1,7 @@
-@use 'base';
+@use 'theme/corner-radius';
+@use 'theme/square-svg-strokes';
+@use 'theme/square-chrome';
+@use 'theme/checkbox-shadow';
 @use 'dark';
 @use 'syntax';
 @use 'customs/pages' with ($only: ('trips'));

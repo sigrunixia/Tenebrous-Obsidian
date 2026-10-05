@@ -200,45 +200,6 @@
   border-radius: 10px;
 }
 
-body {
-  --radius-s: 4px;
-  --radius-m: 4px;
-  --radius-l: 4px;
-  --input-radius: 4px;
-  --tab-radius-active: 4px;
-  --checkbox-radius: 4px;
-  --toggle-radius: 4px;
-  --toggle-thumb-radius: 4px;
-  --slider-thumb-radius: 4px;
-}
-
-svg * {
-  stroke-linecap: square;
-  stroke-linejoin: miter;
-  rx: 0;
-  ry: 0;
-}
-
-.menu {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-.menu > .item, .menu-separator {
-  border-radius: 0;
-}
-
-.workspace-tab-header-container {
-  border-radius: 0;
-}
-
-.status-bar {
-  border-radius: 0;
-}
-
-.checkbox-container::after {
-  box-shadow: 0 0 0 1px var(--comment), rgba(0, 0, 0, 0.15) 0 1px 2px;
-}
-
 .callout:is([data-callout=day], [data-callout=stay], [data-callout=pack], [data-callout=plan]) {
   --trip-hue: var(--callout-color);
   margin: 1.4rem 0;
