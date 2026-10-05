@@ -629,13 +629,19 @@ svg * {
   --ember: var(--purple);
 }
 
-:is(.home, .hub, .gallery) .bases-cards-item {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
 @media (hover: hover) {
   :is(.home, .hub, .gallery) .bases-cards-item:hover {
-    transform: translateY(-2px);
     box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  :is(.home, .hub, .gallery) .bases-cards-item {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  :is(.home, .hub, .gallery) .bases-cards-item:hover {
+    transform: translateY(-2px);
   }
 }
 

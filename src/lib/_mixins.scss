@@ -13,12 +13,19 @@ $lift-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000
 }
 
 @mixin lift {
-	transition: transform 0.15s ease, box-shadow 0.15s ease;
-
 	@media (hover: hover) {
 		&:hover {
-			transform: translateY(-2px);
 			box-shadow: $lift-shadow;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+		@media (hover: hover) {
+			&:hover {
+				transform: translateY(-2px);
+			}
 		}
 	}
 }
