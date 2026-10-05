@@ -2,11 +2,11 @@ $meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' view
 
 $gold: var(--yellow);
 
-@mixin key-band($height: 14px, $color: $gold, $opacity: 0.7) {
+@mixin key-band($height: 14px, $color: $gold, $opacity: 0.7, $inset: 0) {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  left: $inset;
+  right: $inset;
   height: $height;
   pointer-events: none;
   background-color: $color;

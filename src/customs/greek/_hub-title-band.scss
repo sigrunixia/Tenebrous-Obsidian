@@ -4,9 +4,7 @@
   padding-bottom: calc(clamp(1rem, 4vw, 1.6rem) + 12px);
 
   &::after {
-    @include key-band(12px, var(--hub-hue), 0.6);
+    @include key-band(12px, var(--hub-hue), 0.6, 6px);
     bottom: 6px;
-    left: 6px;
-    right: 6px;
   }
 }
