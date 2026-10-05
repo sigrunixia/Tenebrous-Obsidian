@@ -338,6 +338,70 @@ function fetchLiveFrontmatter(paths) {
     return new Map(rows.map((r) => [r.path, r]));
 }
 
+// ── Same-city trips ──────────────────────────────────────────────────────────
+// Trips take their pin from the city's coordinates, so two trips to the same
+// city land on the exact same point and the map can only cluster them. When
+// that happens, each of those trips moves to the place it stayed instead: the
+// first wikilink on its callout's "Stayed" line that points at a note with
+// coordinates. A trip with no such note keeps the city's point. Trips alone in
+// their city are left where they are.
+
+function stayLinks(notePath) {
+    let content;
+    try { content = fs.readFileSync(path.join(VAULT, notePath), 'utf8'); }
+    catch { return []; }
+    const line = content.match(/^>\s*-\s*\*\*Stayed\*\*(.*)$/m);
+    if (!line) return [];
+    return [...line[1].matchAll(/\[\[([^\]|#]+)/g)].map((m) => m[1].trim());
+}
+
+// Resolves each link the way Obsidian does and reads the target's
+// coordinates from its own metadata cache, same as fetchLiveFrontmatter.
+function fetchStayCoordinates(items) {
+    const code = `JSON.stringify(${JSON.stringify(items)}.map(it => {
+        for (const link of it.links) {
+            const f = app.metadataCache.getFirstLinkpathDest(link, it.path);
+            const fm = f ? (app.metadataCache.getFileCache(f) || {}).frontmatter : null;
+            const c = fm && fm.coordinates;
+            if (Array.isArray(c) && c.length === 2 && !isNaN(parseFloat(c[0])) && !isNaN(parseFloat(c[1]))) {
+                return { path: it.path, stay: f.basename, lat: parseFloat(c[0]), lng: parseFloat(c[1]) };
+            }
+        }
+        return { path: it.path, stay: null };
+    }))`;
+    const out = execFileSync('obsidian', ['eval', 'vault=Tenebrous', 'code=' + code], { stdio: ['ignore', 'pipe', 'pipe'] });
+    return JSON.parse(out.toString('utf8').replace(/^=>\s*/, ''));
+}
+
+function useStayCoordinates(markers, label) {
+    const byPoint = new Map();
+    for (const marker of markers) {
+        const key = `${marker.lat.toFixed(4)},${marker.lng.toFixed(4)}`;
+        if (!byPoint.has(key)) byPoint.set(key, []);
+        byPoint.get(key).push(marker);
+    }
+    const shared = [...byPoint.values()].filter((group) => group.length > 1).flat();
+    if (!shared.length) return;
+
+    let found;
+    try {
+        found = fetchStayCoordinates(shared.map((m) => ({ path: m.path, links: stayLinks(m.path) })));
+    } catch (err) {
+        console.warn(`  stay coordinates FAILED for ${label} (is Obsidian running?): ${err.message.split('\n')[0]}`);
+        return;
+    }
+    for (const hit of found) {
+        const marker = shared.find((m) => m.path === hit.path);
+        if (!hit.stay) {
+            console.warn(`  ${marker.name}: shares a city but no stay with coordinates, keeping the city point`);
+            continue;
+        }
+        marker.lat = hit.lat;
+        marker.lng = hit.lng;
+        console.log(`  ${marker.name}: moved to ${hit.stay}`);
+    }
+}
+
 function buildMaps(index) {
     const codeblocks = findMapCodeblocks(index);
     if (!codeblocks.length) return null;
@@ -398,6 +462,7 @@ function buildMaps(index) {
         }
         if (!best) continue;
         const { rows, markers } = best;
+        useStayCoordinates(markers, label);
 
         const settings = viewMapSettings(source);
         maps[key] = { zoom: settings.zoom, center: settings.center, markers };

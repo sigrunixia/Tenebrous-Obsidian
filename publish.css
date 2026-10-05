@@ -1540,6 +1540,10 @@ body {
   overflow: hidden;
   margin: var(--size-4-4) 0;
 }
+.base-map-embed .leaflet-tile {
+  width: 256.5px !important;
+  height: 256.5px !important;
+}
 .base-map-embed .leaflet-popup-content-wrapper {
   background-color: var(--background-secondary);
   color: var(--text-normal);

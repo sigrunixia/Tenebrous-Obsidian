@@ -6,6 +6,15 @@
 	overflow: hidden;
 	margin: var(--size-4-4) 0;
 
+	// The map zooms in quarter steps, and at a fractional zoom the browser
+	// scales the tile layer and can leave hairline gaps between rows of
+	// tiles. Making each tile half a pixel bigger lets neighbours overlap
+	// and hides the seam. Every layer uses 256 px tiles.
+	.leaflet-tile {
+		width: 256.5px !important;
+		height: 256.5px !important;
+	}
+
 	.leaflet-popup-content-wrapper {
 		background-color: var(--background-secondary);
 		color: var(--text-normal);
