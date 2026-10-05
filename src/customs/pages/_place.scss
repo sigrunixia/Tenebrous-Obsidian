@@ -1,0 +1,20 @@
+.place {
+	.inline-title {
+		padding-bottom: 0.2em;
+		border-bottom: 2px solid transparent;
+		border-image: linear-gradient(90deg, var(--teal), transparent 80%) 1;
+	}
+
+	.internal-embed.image-embed img {
+		display: block;
+		width: 100%;
+		max-height: min(22rem, 60vw);
+		object-fit: cover;
+		border-radius: 14px;
+	}
+
+	.callout .internal-embed.image-embed img {
+		max-height: none;
+		border-radius: 0;
+	}
+}

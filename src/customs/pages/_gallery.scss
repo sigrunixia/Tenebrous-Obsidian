@@ -1,0 +1,15 @@
+.gallery {
+	.inline-title {
+		font-size: clamp(2rem, 8vw, 3rem);
+		font-weight: 700;
+		background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.bases-group-heading, .bases-group-header {
+		color: var(--h2-color);
+		letter-spacing: 0.06em;
+	}
+}

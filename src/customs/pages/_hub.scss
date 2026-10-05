@@ -1,0 +1,37 @@
+@use '../../lib/functions' as *;
+@use '../../lib/mixins' as *;
+
+.hub {
+	--hub-hue: var(--amber);
+
+	.inline-title {
+		position: relative;
+		margin: 0 0 1em;
+		padding: clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) calc(clamp(1rem, 4vw, 1.6rem) + 2.4em);
+		@include hue-border(--hub-hue, 35%, 14px);
+		color: var(--hub-hue);
+		background:
+			radial-gradient(circle at 0% 0%, tint(var(--hub-hue), 28%), transparent 60%),
+			radial-gradient(circle at 100% 100%, tint(var(--hub-hue), 12%), transparent 55%),
+			var(--background-secondary);
+
+		&::before {
+			content: "";
+			position: absolute;
+			left: clamp(1rem, 4vw, 1.6rem);
+			top: 50%;
+			width: 1.5em;
+			height: 1.5em;
+			transform: translateY(-50%);
+			background-color: var(--hub-hue);
+			-webkit-mask: var(--hub-icon) center / contain no-repeat;
+			mask: var(--hub-icon) center / contain no-repeat;
+			filter: drop-shadow(0 0 8px tint(var(--hub-hue), 55%));
+		}
+	}
+
+	.bases-cards-item {
+		--home-cover-icon: var(--hub-icon);
+		--cover-hue: var(--hub-hue);
+	}
+}

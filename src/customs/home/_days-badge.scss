@@ -1,0 +1,17 @@
+@use '../../lib/card-selectors' as *;
+@use '../../lib/functions' as *;
+
+#{$cards} .bases-cards-item [data-property="formula.Days"] .bases-cards-label {
+	display: none;
+}
+
+#{$cards} .bases-cards-item [data-property="formula.Days"] .bases-cards-line {
+	display: inline-block;
+	padding: 0.1em 0.7em;
+	border-radius: 999px;
+	font-size: 0.8em;
+	font-weight: 600;
+	color: var(--orange);
+	background: tint(var(--orange), 16%);
+	border: 1px solid tint(var(--orange), 40%);
+}

@@ -1,0 +1,29 @@
+@use '../../lib/functions' as *;
+
+.idea {
+	.inline-title {
+		position: relative;
+		padding: 0.15em 0 0.15em 1.1em;
+		border-left: 4px solid var(--purple);
+		font-size: clamp(1.5rem, 5.5vw, 2.3rem);
+		font-weight: 700;
+		line-height: 1.25;
+
+		&::before {
+			content: "\201C";
+			position: absolute;
+			left: 0.15em;
+			top: -0.35em;
+			font-size: 2.4em;
+			line-height: 1;
+			color: tint(var(--purple), 45%);
+			pointer-events: none;
+		}
+	}
+
+	.metadata-property[data-property-key="sources"] .multi-select-pill {
+		color: var(--purple);
+		background: tint(var(--purple), 14%);
+		border-color: tint(var(--purple), 40%);
+	}
+}

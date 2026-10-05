@@ -1,0 +1,9 @@
+@use '../../lib/typography' as t;
+
+:is(.home, .hub, .gallery) {
+  font-family: t.$sans;
+
+  :is(h1, h2, h3, .inline-title, .callout-title-inner) {
+    font-family: t.$serif;
+  }
+}

@@ -1,0 +1,34 @@
+.home {
+
+	h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.45em;
+		margin-top: 1.7em;
+		padding-bottom: 0.35em;
+		border-bottom: 0;
+		background: linear-gradient(90deg, var(--h2-color), transparent 75%) bottom / 100% 2px no-repeat;
+	}
+
+	h3 {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		margin-top: 1.1em;
+		font-size: 0.8em;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	:is(h2, h3)[data-heading]::before {
+		content: "";
+		flex: none;
+		width: 1.1em;
+		height: 1.1em;
+		background-color: var(--h2-color);
+		-webkit-mask: var(--heading-icon) center / contain no-repeat;
+		mask: var(--heading-icon) center / contain no-repeat;
+	}
+}

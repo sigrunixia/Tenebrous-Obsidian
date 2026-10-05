@@ -1,0 +1,12 @@
+@use '../../lib/meander' as *;
+
+.hub .inline-title {
+  padding-bottom: calc(clamp(1rem, 4vw, 1.6rem) + 12px);
+
+  &::after {
+    @include key-band(12px, var(--hub-hue), 0.6);
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+  }
+}

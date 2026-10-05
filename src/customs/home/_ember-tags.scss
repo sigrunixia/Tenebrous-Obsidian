@@ -1,0 +1,21 @@
+@use '../../lib/functions' as *;
+
+.home a.tag {
+	--ember: var(--text-muted);
+	color: var(--ember);
+	background: tint(var(--ember), 14%);
+	border-color: tint(var(--ember), 40%);
+}
+
+$embers: (
+	("movement", "orange"),
+	("nature", "green"),
+	("art", "magenta"),
+	("offering", "yellow"),
+	("belonging", "teal"),
+	("learning", "purple")
+);
+
+@each $tag, $hue in $embers {
+	.home a.tag[href="##{$tag}"] { --ember: var(--#{$hue}); }
+}

@@ -1,0 +1,39 @@
+@use '../../lib/icons' as *;
+
+.home {
+	:is(h2, h3)[data-heading="Επερχόμενα"] {
+		--heading-icon: #{icon('calendar-clock')};
+	}
+
+	:is(h2, h3)[data-heading="Σαν σήμερα"] {
+		--heading-icon: #{icon('rotate-ccw-clock')};
+	}
+
+	:is(h2, h3)[data-heading="Ζώπυρα"] {
+		--heading-icon: #{icon('flame')};
+	}
+
+	:is(h2, h3)[data-heading="Πρόσφατα"] {
+		--heading-icon: #{icon('sparkles')};
+	}
+
+	:is(h2, h3)[data-heading="Browse"] {
+		--heading-icon: #{icon('layout-grid')};
+	}
+
+	:is(h2, h3)[data-heading="Συντήρηση"] {
+		--heading-icon: #{icon('wrench')};
+	}
+
+	:is(h2, h3)[data-heading="Σημειώσεις"] {
+		--heading-icon: #{icon('notebook-pen')};
+	}
+
+	:is(h2, h3)[data-heading="Ιδέες"] {
+		--heading-icon: #{icon('lightbulb')};
+	}
+
+	:is(h2, h3)[data-heading="Trips"] {
+		--heading-icon: #{icon('plane')};
+	}
+}

@@ -1,0 +1,43 @@
+@use '../../lib/card-selectors' as *;
+@use '../../lib/functions' as *;
+@use '../../lib/icons' as *;
+
+#{$cards} .bases-cards-cover:not([style*="background-image"]) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background:
+		radial-gradient(circle at 30% 25%, tint(var(--cover-hue, var(--amber)), 22%), transparent 65%),
+		var(--background-secondary);
+}
+
+#{$cards} .bases-cards-cover:not([style*="background-image"])::before {
+	content: "";
+	width: 34%;
+	aspect-ratio: 1;
+	background-color: var(--cover-hue, var(--amber));
+	opacity: 0.85;
+	filter: drop-shadow(0 0 10px tint(var(--cover-hue, var(--amber)), 55%));
+	-webkit-mask: var(--home-cover-icon) center / contain no-repeat;
+	mask: var(--home-cover-icon) center / contain no-repeat;
+}
+
+#{$cards} .bases-cards-item {
+	--home-cover-icon: #{icon('lightbulb')};
+	--cover-hue: var(--yellow);
+}
+
+#{$cards} .bases-cards-item:has([data-property="note.types"]) {
+	--home-cover-icon: #{icon('notebook-pen')};
+	--cover-hue: var(--amber);
+}
+
+#{$cards} .bases-cards-item:has([data-property="note.locations"]) {
+	--home-cover-icon: #{icon('luggage')};
+	--cover-hue: var(--teal);
+}
+
+#{$cards} .bases-cards-item:has([data-property="formula.Days"]) {
+	--home-cover-icon: #{icon('calendar-clock')};
+	--cover-hue: var(--orange);
+}

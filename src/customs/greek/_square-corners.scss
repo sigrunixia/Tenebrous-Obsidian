@@ -1,0 +1,10 @@
+:is(.home, .hub, .gallery) .bases-cards-item,
+.home .callout[data-callout="hero"],
+.home .callout[data-callout^="hub-"],
+.home .callout[data-callout="info"],
+.home .callout[data-callout="actions"] a,
+.home .bases-cards-item [data-property="formula.Days"] .bases-cards-line,
+.home a.tag,
+.hub .inline-title {
+  border-radius: 0;
+}

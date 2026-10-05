@@ -1,0 +1,18 @@
+@use '../../lib/card-selectors' as *;
+
+#{$cards} .bases-view {
+	font-size: 0.85em;
+}
+
+#{$cards} .bases-table-header {
+	color: var(--text-faint);
+}
+
+#{$cards} .bases-cards-container {
+	gap: 0.6em;
+}
+
+#{$cards} .bases-cards-item {
+	border-radius: 12px;
+	overflow: hidden;
+}

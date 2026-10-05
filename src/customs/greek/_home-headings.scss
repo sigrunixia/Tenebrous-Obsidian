@@ -1,0 +1,19 @@
+@use '../../lib/meander' as *;
+
+.home {
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h2 {
+    position: relative;
+    padding-bottom: 0.9em;
+    background: none;
+
+    &::after {
+      @include key-band(12px, var(--h2-color), 0.55);
+      bottom: 0;
+    }
+  }
+}
