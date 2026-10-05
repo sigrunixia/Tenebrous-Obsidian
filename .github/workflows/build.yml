@@ -6,12 +6,20 @@ on:
       - "src/**"
       - "build-publish.sh"
       - "tsconfig.json"
+      - "theme.css"
+      - "publish.css"
+      - "publish.js"
+      - "snippets/**"
       - ".github/workflows/build.yml"
   pull_request:
     paths:
       - "src/**"
       - "build-publish.sh"
       - "tsconfig.json"
+      - "theme.css"
+      - "publish.css"
+      - "publish.js"
+      - "snippets/**"
       - ".github/workflows/build.yml"
 
 jobs:
