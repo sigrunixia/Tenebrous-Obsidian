@@ -2,6 +2,7 @@ import { INDEX } from '../../baked-data';
 import { arrayify, wikilinkTarget } from '../../lib/wikilink';
 import { buildGroupFn, coverProp, parseFormulas, parseOrder, parseProperties } from './card-options';
 import { renderCards } from './card-grid';
+import { dateFilter, matchesDateFilter } from './date-filter';
 import { exclusions, resolveFilter } from './filter';
 import { renderBaseMapCodeblock } from './map/map-embed';
 import { limitSpec, sortEntries, sortSpec } from './sort-limit';
@@ -34,6 +35,9 @@ export function registerBases(): void {
         if (excl.length) {
             entries = entries.filter((entry) => !excl.some((x) => entry.basename.includes(x)));
         }
+
+        const when = dateFilter(source);
+        if (when) entries = entries.filter((entry) => matchesDateFilter(entry, when));
 
         entries = sortEntries(entries, sortSpec(source));
 

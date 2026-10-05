@@ -265,6 +265,28 @@
     });
   }
 
+  // src/scripts/features/bases/date-filter.ts
+  function dateFilter(source) {
+    let m = source.match(/(\w+)\s*>\s*today\(\)/);
+    if (m) return { prop: m[1], kind: "upcoming" };
+    m = source.match(/(\w+)\s*<=\s*today\(\)/);
+    if (m) return { prop: m[1], kind: "started" };
+    return null;
+  }
+  function localDay(d) {
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+  }
+  function calendarDay(raw) {
+    const m = String(raw ?? "").match(/^(\d{4})-(\d{2})-(\d{2})/);
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]).getTime() : null;
+  }
+  function matchesDateFilter(entry, filter) {
+    const day = calendarDay(entry.fm[filter.prop]);
+    const today = localDay(/* @__PURE__ */ new Date());
+    if (filter.kind === "upcoming") return day === null || day > today;
+    return day !== null && day <= today;
+  }
+
   // src/scripts/lib/current-note.ts
   function currentBasename() {
     const path = publish.currentFilepath || "";
@@ -457,6 +479,8 @@
       if (excl.length) {
         entries = entries.filter((entry) => !excl.some((x) => entry.basename.includes(x)));
       }
+      const when = dateFilter(source);
+      if (when) entries = entries.filter((entry) => matchesDateFilter(entry, when));
       entries = sortEntries(entries, sortSpec(source));
       const limit = limitSpec(source);
       if (limit != null) entries = entries.slice(0, limit);
