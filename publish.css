@@ -1532,7 +1532,7 @@ body {
 .base-map-marker-icon {
   width: 60%;
   height: 60%;
-  background-color: white;
+  background-color: #fff;
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
