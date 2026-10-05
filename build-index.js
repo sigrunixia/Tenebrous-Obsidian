@@ -34,6 +34,8 @@ const MARKER = /export const INDEX: IndexEntry\[\] \| null = (?:null|\[[\s\S]*?\
 const IMG_MARKER = /export const IMG_PATHS: Record<string, string> \| null = (?:null|\{[^\n]*\}); \/\* @IMG_PATHS \*\//;
 const MAPS_MARKER = /export const MAPS: Record<string, MapData> \| null = (?:null|\{[\s\S]*?\}); \/\* @MAPS \*\//;
 
+const CANVASES_MARKER = /export const CANVASES: Record<string, CanvasData> \| null = (?:null|\{[\s\S]*?\}); \/\* @CANVASES \*\//;
+
 // Never descend into these, by exact vault-relative path or bare directory
 // name. Legends holds credentials — it is never read, not even for
 // frontmatter parsing.
@@ -183,8 +185,13 @@ function publishAsset(relPath) {
     }
 }
 
-function publishCoverImages(index, imgPaths, upload) {
+function publishCoverImages(index, imgPaths, upload, extraNames = new Set()) {
     const paths = new Set();
+    // Images shown by a canvas are no note's cover, but Publish needs them
+    // uploaded for the same reason.
+    for (const name of extraNames) {
+        if (imgPaths[name]) paths.add(imgPaths[name]);
+    }
     for (const entry of index) {
         const raw = entry.fm['cover'];
         if (!raw) continue;
@@ -400,6 +407,57 @@ function buildMaps(index) {
     return maps;
 }
 
+// ── Canvases ─────────────────────────────────────────────────────────────────
+// Obsidian Publish can't serve or render .canvas files, so a published note
+// names the canvas in a fenced ```canvas block (the way a ```base block holds
+// a query) and publish.js draws it from the JSON baked in here. Keyed by the
+// lowercased base name, with no folder and no extension, which is also how
+// the runtime looks it up (canvasKey in features/canvas/index.ts). Image
+// file nodes feed referencedNames so IMG_PATHS can resolve them.
+
+const CANVAS_BLOCK_RE = /```canvas\n([\s\S]*?)```/g;
+
+function canvasKey(name) {
+    return path.basename(name.trim()).replace(/\.canvas$/i, '').toLowerCase();
+}
+
+function canvasBlockNames(content) {
+    const names = [];
+    let m;
+    CANVAS_BLOCK_RE.lastIndex = 0;
+    while ((m = CANVAS_BLOCK_RE.exec(content))) {
+        if (m[1].trim()) names.push(canvasKey(m[1]));
+    }
+    return names;
+}
+
+function buildCanvases(names, files, referencedNames, canvasImages) {
+    if (!names.size) return null;
+    const canvases = {};
+    for (const key of names) {
+        const full = files[key];
+        if (!full) {
+            console.warn(`  canvas "${key}" is named in a note but no .canvas file has that name`);
+            continue;
+        }
+        let data;
+        try { data = JSON.parse(fs.readFileSync(full, 'utf8')); }
+        catch (err) {
+            console.warn(`  canvas "${key}" could not be read: ${err.message}`);
+            continue;
+        }
+        for (const node of data.nodes || []) {
+            if (node.type === 'file' && IMG_EXTS.has(path.extname(node.file || '').toLowerCase())) {
+                referencedNames.add(path.basename(node.file));
+                canvasImages.add(path.basename(node.file));
+            }
+        }
+        canvases[key] = { nodes: data.nodes || [], edges: data.edges || [] };
+        console.log(`  ${key}: ${canvases[key].nodes.length} nodes, ${canvases[key].edges.length} edges`);
+    }
+    return Object.keys(canvases).length ? canvases : null;
+}
+
 // ── Build ─────────────────────────────────────────────────────────────────────
 
 function parseDate(v) {
@@ -422,12 +480,19 @@ function build() {
     const index = [];
     const allImgPaths = Object.create(null); // every image in the vault, by filename -- resolution source only, never emitted
     const referencedNames = new Set();
+    const canvasFiles = Object.create(null); // lowercase basename -> full path, every .canvas in the vault
+    const canvasNames = new Set();           // canvases a published note names in a ```canvas block
+    const canvasImages = new Set();          // image file names those canvases show
     let skipped = 0;
 
     walk(VAULT, '', (full, rel, name) => {
         const ext = path.extname(name).toLowerCase();
         if (IMG_EXTS.has(ext)) {
             allImgPaths[name] = rel;
+            return;
+        }
+        if (ext === '.canvas') {
+            canvasFiles[canvasKey(name)] = full;
             return;
         }
         if (ext !== '.md') return;
@@ -440,6 +505,7 @@ function build() {
         if (fm['publish'] !== true) return;
 
         referencedImageNames(fm, content).forEach((n) => referencedNames.add(n));
+        canvasBlockNames(content).forEach((n) => canvasNames.add(n));
 
         const stat = fs.statSync(full);
         index.push({
@@ -450,6 +516,9 @@ function build() {
             fm,
         });
     });
+
+    console.log('Resolving canvas embeds...');
+    const canvases = buildCanvases(canvasNames, canvasFiles, referencedNames, canvasImages);
 
     // Same exact-then-case-insensitive match the publish cover-image feature's findImagePath
     // does at runtime (for a wikilink whose case doesn't match the real
@@ -471,6 +540,7 @@ function build() {
     let updated = src.replace(MARKER, () => `export const INDEX: IndexEntry[] | null = ${JSON.stringify(index)}; /* @INDEX */`);
     updated = updated.replace(IMG_MARKER, () => `export const IMG_PATHS: Record<string, string> | null = ${JSON.stringify(imgPaths)}; /* @IMG_PATHS */`);
     updated = updated.replace(MAPS_MARKER, () => `export const MAPS: Record<string, MapData> | null = ${JSON.stringify(maps)}; /* @MAPS */`);
+    updated = updated.replace(CANVASES_MARKER, () => `export const CANVASES: Record<string, CanvasData> | null = ${JSON.stringify(canvases)}; /* @CANVASES */`);
     fs.writeFileSync(BAKED_DATA, updated);
 
     const ts = new Date().toLocaleTimeString();
@@ -478,7 +548,7 @@ function build() {
 
     execFileSync(BUILD_SCRIPT, { stdio: 'inherit' });
 
-    publishCoverImages(index, imgPaths, PUBLISH_COVERS);
+    publishCoverImages(index, imgPaths, PUBLISH_COVERS, canvasImages);
 }
 
 build();
