@@ -1,0 +1,21 @@
+// The dragon above the right column's social links, a share of the column's
+// width so it scales with it. Mirrored so it faces into the page. The phone
+// layout drops the social links from the column, so the dragon goes too.
+.site-dragon {
+	padding: 0 0 var(--size-4-3);
+
+	img {
+		display: block;
+		width: 45%;
+		max-width: 140px;
+		height: auto;
+		margin: 0 auto;
+		transform: scaleX(-1);
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.site-body-right-column .site-dragon {
+		display: none;
+	}
+}

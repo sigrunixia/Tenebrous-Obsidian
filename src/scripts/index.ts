@@ -1,5 +1,6 @@
 import { mountBackToTop } from './features/back-to-top';
 import { registerBases } from './features/bases';
+import { mountSiteDragon } from './features/site-dragon';
 import { mountSocialLinks } from './features/social-links';
 import { stripUnresolvedLinks } from './features/unresolved-links';
 
@@ -7,4 +8,5 @@ import { stripUnresolvedLinks } from './features/unresolved-links';
 stripUnresolvedLinks();
 registerBases();
 mountSocialLinks();
+mountSiteDragon();
 mountBackToTop();
