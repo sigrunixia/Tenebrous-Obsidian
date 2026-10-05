@@ -1,0 +1,123 @@
+@use '../lib/radius';
+
+// Read-only canvas viewer drawn by src/scripts/features/canvas. The stage is
+// moved and scaled by script; everything inside uses the canvas size units
+// of the source file, so sizes here are in canvas pixels.
+.canvas-embed {
+	position: relative;
+	height: 520px;
+	margin: var(--size-4-4) 0;
+	overflow: hidden;
+	border-radius: radius.$radius;
+	background-color: var(--canvas-background, var(--background-secondary));
+	cursor: grab;
+	touch-action: none;
+	user-select: none;
+
+	&.is-dragging {
+		cursor: grabbing;
+	}
+}
+
+.canvas-embed-stage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: 0 0;
+}
+
+.canvas-embed-edges {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.canvas-embed-edge-label {
+	fill: var(--text-muted);
+	font-size: 14px;
+	paint-order: stroke;
+	stroke: var(--canvas-background, var(--background-secondary));
+	stroke-width: 6px;
+}
+
+.canvas-embed-node {
+	--node-color: var(--canvas-color, var(--background-modifier-border));
+	position: absolute;
+	box-sizing: border-box;
+	border: 2px solid var(--node-color);
+	border-radius: radius.$radius;
+
+	&.is-group {
+		background-color: color-mix(in srgb, var(--node-color) 8%, transparent);
+	}
+
+	&:not(.is-group) {
+		background-color: color-mix(in srgb, var(--node-color) 10%, var(--background-primary));
+		overflow: hidden;
+	}
+}
+
+.canvas-embed-group-label {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	padding: 0 var(--size-4-1);
+	font-size: 18px;
+	color: var(--text-muted);
+	white-space: nowrap;
+}
+
+.canvas-embed-node-body {
+	height: 100%;
+	box-sizing: border-box;
+	padding: 12px 16px;
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 1.4;
+	color: var(--text-normal);
+
+	h1, h2, h3, h4, h5, h6, p, ul, ol {
+		margin: 0 0 0.5em;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-size: 1.1em;
+	}
+
+	ul, ol {
+		padding-left: 1.25em;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.is-file > & {
+		padding: 0;
+	}
+}
+
+.canvas-embed-controls {
+	position: absolute;
+	top: var(--size-4-2);
+	right: var(--size-4-2);
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-4-1);
+
+	button {
+		min-width: 32px;
+		padding: var(--size-4-1) var(--size-4-2);
+		font-size: var(--font-ui-small);
+		color: var(--text-normal);
+		background-color: var(--background-secondary);
+		border: 1px solid var(--background-modifier-border);
+		border-radius: radius.$radius;
+		cursor: pointer;
+	}
+}
