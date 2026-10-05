@@ -96,7 +96,7 @@
   .landing .callout[data-callout^=hub-]:hover {
     border-color: var(--hub-hue);
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
   }
 }
 .landing .callout[data-callout^=hub-] .callout-icon svg {

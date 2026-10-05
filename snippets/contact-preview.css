@@ -51,7 +51,7 @@
   .callout[data-callout^=contact-]:hover {
     border-color: var(--contact-hue);
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
   }
 }
 .callout[data-callout^=contact-] a,

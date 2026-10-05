@@ -635,7 +635,7 @@ svg * {
 @media (hover: hover) {
   :is(.home, .hub, .gallery) .bases-cards-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
   }
 }
 
@@ -794,7 +794,7 @@ body.is-phone .home .callout[data-callout=hero] {
   .home .callout[data-callout^=hub-]:hover {
     border-color: var(--hub-hue);
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+    box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
   }
 }
 .home .callout[data-callout^=hub-] .callout-icon svg {

@@ -1,6 +1,6 @@
 @use 'functions' as *;
 
-$lift-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, black);
+$lift-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
 
 @mixin hue-border($hue, $strength: 28%, $radius: 12px) {
 	border: 1px solid tint(var(#{$hue}), $strength);
