@@ -4,7 +4,3 @@
 #{$cards} .bases-cards-item {
 	@include lift;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .home * { transition: none !important; transform: none !important; }
-}

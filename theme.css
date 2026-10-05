@@ -645,12 +645,6 @@ svg * {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .home * {
-    transition: none !important;
-    transform: none !important;
-  }
-}
 body.is-phone .home h2 {
   margin-top: 1.3em;
 }
