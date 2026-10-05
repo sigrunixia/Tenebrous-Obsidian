@@ -48,6 +48,19 @@ jobs:
             exit 1
           fi
 
+      - name: Build snippets
+        run: |
+          sass --no-source-map src/snippets/main-contact-snippet.scss snippets/contact-preview.css
+          sass --no-source-map src/snippets/main-landing-snippet.scss snippets/landing-preview.css
+          sass --no-source-map src/snippets/main-trips-snippet.scss snippets/trips-preview.css
+
+      - name: Verify snippets are up to date
+        run: |
+          if ! git diff --exit-code snippets; then
+            echo "::error::A snippet is out of date -- build the snippets and commit the result."
+            exit 1
+          fi
+
       - name: Install esbuild and TypeScript
         env:
           ESBUILD_VERSION: "0.28.2"
