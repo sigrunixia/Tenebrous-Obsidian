@@ -1,0 +1,6 @@
+@use '../lib/radius';
+
+.graph-view-container,
+.search-results {
+	border-radius: radius.$radius;
+}

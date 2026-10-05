@@ -1,0 +1,21 @@
+.mod-header ~ .el-p:first-of-type > p {
+	margin: 0 0 1.6em;
+	font-size: var(--font-ui-smaller);
+	color: var(--text-faint);
+	letter-spacing: 0.02em;
+
+	a.internal-link {
+		color: var(--text-muted);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--text-normal);
+			text-decoration: underline;
+		}
+
+		&:last-of-type {
+			color: var(--text-normal);
+			font-weight: var(--bold-weight);
+		}
+	}
+}

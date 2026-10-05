@@ -1,0 +1,8 @@
+@use '../lib/radius';
+@use '../lib/typography' as t;
+
+.published-container {
+	--logo-radius: #{radius.$radius};
+
+	--font-text: #{t.$sans};
+}

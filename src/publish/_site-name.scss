@@ -1,0 +1,31 @@
+@use '../lib/typography' as t;
+
+.site-body-left-column-site-name,
+.site-header-text {
+	font-family: t.$serif;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.published-container {
+	.site-body-left-column-site-name,
+	.site-header-text {
+		color: var(--h1-color);
+	}
+}
+
+@media (hover: hover) {
+	.published-container {
+		.site-body-left-column-site-name:hover,
+		.site-header-text:hover {
+			color: var(--link-color-hover);
+		}
+	}
+}
+
+.site-body-left-column-site-name {
+	display: block;
+	padding: 4px 0 12px;
+}

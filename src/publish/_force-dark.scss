@@ -1,0 +1,13 @@
+@use '../theme/dark';
+
+.theme-light {
+	@extend .theme-dark;
+}
+
+body {
+	color-scheme: dark;
+}
+
+.site-body-left-column-site-theme-toggle {
+	display: none;
+}

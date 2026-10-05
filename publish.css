@@ -1327,6 +1327,11 @@ body {
     color: var(--link-color-hover);
   }
 }
+.site-body-left-column-site-name {
+  display: block;
+  padding: 4px 0 12px;
+}
+
 @keyframes site-name-greek-in {
   from {
     opacity: 0;
@@ -1355,11 +1360,6 @@ body {
     animation: site-name-greek-in 1.4s ease-out both;
   }
 }
-.site-body-left-column-site-name {
-  display: block;
-  padding: 4px 0 12px;
-}
-
 .site-social-links {
   justify-content: center;
 }
@@ -1465,6 +1465,24 @@ body {
   -webkit-mask-position: center;
 }
 
+.hub-backlink-card-title {
+  padding: var(--size-4-2) var(--size-4-2) 0;
+  font-weight: var(--bold-weight);
+}
+.hub-backlink-card-title:last-child {
+  padding-bottom: var(--size-4-2);
+}
+
+.hub-backlink-card-line {
+  padding: 0 var(--size-4-2);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+.hub-backlink-card-line:last-child {
+  padding-bottom: var(--size-4-2);
+}
+
 .base-map-embed {
   height: 420px;
   border-radius: 4px;
@@ -1557,24 +1575,6 @@ body {
 
 .leaflet-control-layers-separator {
   border-color: var(--background-modifier-border);
-}
-
-.hub-backlink-card-title {
-  padding: var(--size-4-2) var(--size-4-2) 0;
-  font-weight: var(--bold-weight);
-}
-.hub-backlink-card-title:last-child {
-  padding-bottom: var(--size-4-2);
-}
-
-.hub-backlink-card-line {
-  padding: 0 var(--size-4-2);
-  font-size: var(--font-ui-smaller);
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-.hub-backlink-card-line:last-child {
-  padding-bottom: var(--size-4-2);
 }
 
 .mod-header ~ .el-p:first-of-type > p {

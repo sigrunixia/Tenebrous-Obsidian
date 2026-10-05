@@ -1,0 +1,26 @@
+@keyframes site-name-greek-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.site-body-left-column-site-name:hover::after,
+	.site-header-text:hover::after {
+		animation: none;
+	}
+}
+
+@media (hover: hover) {
+	.site-body-left-column-site-name:hover,
+	.site-header-text:hover {
+		font-size: 0;
+		letter-spacing: 0;
+
+		&::after {
+			content: "ΜΙΑ ΣΚΟΤΕΙΝΗ ΔΡΑΚΑΙΝΑ";
+			font-size: var(--site-name-size);
+			letter-spacing: 0.12em;
+			animation: site-name-greek-in 1.4s ease-out both;
+		}
+	}
+}

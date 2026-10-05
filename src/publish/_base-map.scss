@@ -1,0 +1,102 @@
+@use '../lib/radius';
+
+.base-map-embed {
+	height: 420px;
+	border-radius: radius.$radius;
+	overflow: hidden;
+	margin: var(--size-4-4) 0;
+
+	.leaflet-popup-content-wrapper {
+		background-color: var(--background-secondary);
+		color: var(--text-normal);
+		border-radius: radius.$radius;
+		box-shadow: 0 2px 8px var(--background-modifier-box-shadow);
+
+		a {
+			color: var(--text-normal);
+		}
+	}
+
+	.leaflet-popup-tip {
+		background-color: var(--background-secondary);
+	}
+
+	.leaflet-control-attribution {
+		font-size: var(--font-ui-smaller);
+		background-color: var(--background-secondary);
+		color: var(--text-muted);
+
+		a {
+			color: var(--text-muted);
+		}
+	}
+
+	.leaflet-popup-content {
+		margin: var(--size-4-2) 24px var(--size-4-2) var(--size-4-3);
+	}
+
+	.leaflet-container {
+		background-color: var(--background-secondary);
+		font-family: inherit;
+	}
+}
+
+.base-map-marker {
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	border: 2px solid var(--background-primary);
+	box-shadow: 0 1px 4px var(--background-modifier-box-shadow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.base-map-marker-icon {
+	width: 60%;
+	height: 60%;
+	background-color: white;
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+.base-map-cluster {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	border: 2px solid var(--background-primary);
+	box-shadow: 0 1px 4px var(--background-modifier-box-shadow);
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--font-ui-small);
+	font-weight: var(--bold-weight);
+	cursor: pointer;
+}
+
+.leaflet-control-scale-line {
+	background-color: var(--background-secondary);
+	color: var(--text-normal);
+	border-color: var(--text-normal);
+}
+
+.leaflet-control-layers {
+	background-color: var(--background-secondary);
+	color: var(--text-normal);
+	box-shadow: 0 2px 8px var(--background-modifier-box-shadow);
+}
+
+.leaflet-control-layers-expanded {
+	padding: var(--size-4-2) var(--size-4-3);
+}
+
+.leaflet-control-layers-separator {
+	border-color: var(--background-modifier-border);
+}
