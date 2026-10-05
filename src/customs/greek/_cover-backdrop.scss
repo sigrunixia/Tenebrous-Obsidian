@@ -1,5 +1,5 @@
 :is(.home, .hub, .gallery) .bases-cards-cover[style*="background-image"][style*="contain"] {
-  background-color: color-mix(in oklch, var(--purple) 55%, white);
+  background-color: color-mix(in oklch, var(--purple) 55%, #fff);
   background-origin: content-box;
   padding: 0.6rem;
 }
