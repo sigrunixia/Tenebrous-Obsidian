@@ -1,4 +1,18 @@
 @use '../lib/functions' as *;
+@mixin tag-line-paint($color, $tint, $rule, $strike) {
+	--status-color: #{$color};
+	@if $tint > 0% {
+		background: color-mix(in oklch, var(--status-color) #{$tint}, transparent);
+	}
+	@if $rule {
+		box-shadow: inset 3px 0 0 var(--status-color);
+	}
+	@if $strike {
+		text-decoration: line-through;
+		text-decoration-color: tint(var(--status-color), 70%);
+	}
+}
+
 @mixin tag-line($tag, $color, $tint: 12%, $rule: true, $strike: false) {
 
 	a.tag[href="##{$tag}"],
@@ -9,27 +23,18 @@
 		--tag-border-color: #{tint(var(--status-color), 40%)};
 	}
 
-	:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="##{$tag}"]):not(:has(> br)),
-	.cm-line:has(.cm-tag-#{$tag}) {
-		--status-color: #{$color};
-		@if $tint > 0% {
-			background: color-mix(in oklch, var(--status-color) #{$tint}, transparent);
-		}
-		@if $rule {
-			box-shadow: inset 3px 0 0 var(--status-color);
-		}
-		@if $strike {
-			text-decoration: line-through;
-			text-decoration-color: tint(var(--status-color), 70%);
-		}
-	}
 	:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="##{$tag}"]):not(:has(> br)) {
+		@include tag-line-paint($color, $tint, $rule, $strike);
 		padding-inline: 0.6em 0.4em;
 		border-radius: 2px;
 
 		@if $strike {
 			> a.tag { display: inline-block; }
 		}
+	}
+
+	.cm-line:has(.cm-tag-#{$tag}) {
+		@include tag-line-paint($color, $tint, $rule, $strike);
 	}
 }
 

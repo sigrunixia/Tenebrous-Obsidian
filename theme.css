@@ -1613,16 +1613,18 @@ a.tag[href="#todo"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#todo"]):not(:has(> br)),
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#todo"]):not(:has(> br)) {
+  --status-color: var(--blue0);
+  background: color-mix(in oklch, var(--status-color) 12%, transparent);
+  box-shadow: inset 3px 0 0 var(--status-color);
+  padding-inline: 0.6em 0.4em;
+  border-radius: 2px;
+}
+
 .cm-line:has(.cm-tag-todo) {
   --status-color: var(--blue0);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#todo"]):not(:has(> br)) {
-  padding-inline: 0.6em 0.4em;
-  border-radius: 2px;
 }
 
 a.tag[href="#doing"],
@@ -1633,16 +1635,18 @@ a.tag[href="#doing"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#doing"]):not(:has(> br)),
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#doing"]):not(:has(> br)) {
+  --status-color: var(--amber);
+  background: color-mix(in oklch, var(--status-color) 12%, transparent);
+  box-shadow: inset 3px 0 0 var(--status-color);
+  padding-inline: 0.6em 0.4em;
+  border-radius: 2px;
+}
+
 .cm-line:has(.cm-tag-doing) {
   --status-color: var(--amber);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#doing"]):not(:has(> br)) {
-  padding-inline: 0.6em 0.4em;
-  border-radius: 2px;
 }
 
 a.tag[href="#waiting"],
@@ -1653,16 +1657,18 @@ a.tag[href="#waiting"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#waiting"]):not(:has(> br)),
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#waiting"]):not(:has(> br)) {
+  --status-color: var(--magenta);
+  background: color-mix(in oklch, var(--status-color) 12%, transparent);
+  box-shadow: inset 3px 0 0 var(--status-color);
+  padding-inline: 0.6em 0.4em;
+  border-radius: 2px;
+}
+
 .cm-line:has(.cm-tag-waiting) {
   --status-color: var(--magenta);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#waiting"]):not(:has(> br)) {
-  padding-inline: 0.6em 0.4em;
-  border-radius: 2px;
 }
 
 a.tag[href="#blocked"],
@@ -1673,16 +1679,18 @@ a.tag[href="#blocked"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#blocked"]):not(:has(> br)),
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#blocked"]):not(:has(> br)) {
+  --status-color: var(--red);
+  background: color-mix(in oklch, var(--status-color) 12%, transparent);
+  box-shadow: inset 3px 0 0 var(--status-color);
+  padding-inline: 0.6em 0.4em;
+  border-radius: 2px;
+}
+
 .cm-line:has(.cm-tag-blocked) {
   --status-color: var(--red);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#blocked"]):not(:has(> br)) {
-  padding-inline: 0.6em 0.4em;
-  border-radius: 2px;
 }
 
 a.tag[href="#completed"],
@@ -1693,21 +1701,25 @@ a.tag[href="#completed"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#completed"]):not(:has(> br)),
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#completed"]):not(:has(> br)) {
+  --status-color: var(--green);
+  background: color-mix(in oklch, var(--status-color) 8%, transparent);
+  box-shadow: inset 3px 0 0 var(--status-color);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in oklch, var(--status-color) 70%, transparent);
+  padding-inline: 0.6em 0.4em;
+  border-radius: 2px;
+}
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#completed"]):not(:has(> br)) > a.tag {
+  display: inline-block;
+}
+
 .cm-line:has(.cm-tag-completed) {
   --status-color: var(--green);
   background: color-mix(in oklch, var(--status-color) 8%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
   text-decoration: line-through;
   text-decoration-color: color-mix(in oklch, var(--status-color) 70%, transparent);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#completed"]):not(:has(> br)) {
-  padding-inline: 0.6em 0.4em;
-  border-radius: 2px;
-}
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#completed"]):not(:has(> br)) > a.tag {
-  display: inline-block;
 }
 
 a.tag[href="#canceled"],
@@ -1718,19 +1730,21 @@ a.tag[href="#canceled"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#canceled"]):not(:has(> br)),
-.cm-line:has(.cm-tag-canceled) {
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#canceled"]):not(:has(> br)) {
   --status-color: var(--fg_dark);
   text-decoration: line-through;
   text-decoration-color: color-mix(in oklch, var(--status-color) 70%, transparent);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#canceled"]):not(:has(> br)) {
   padding-inline: 0.6em 0.4em;
   border-radius: 2px;
 }
 :is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#canceled"]):not(:has(> br)) > a.tag {
   display: inline-block;
+}
+
+.cm-line:has(.cm-tag-canceled) {
+  --status-color: var(--fg_dark);
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in oklch, var(--status-color) 70%, transparent);
 }
 
 a.tag[href="#important"],
@@ -1741,16 +1755,18 @@ a.tag[href="#important"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#important"]):not(:has(> br)),
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#important"]):not(:has(> br)) {
+  --status-color: var(--pink);
+  background: color-mix(in oklch, var(--status-color) 12%, transparent);
+  box-shadow: inset 3px 0 0 var(--status-color);
+  padding-inline: 0.6em 0.4em;
+  border-radius: 2px;
+}
+
 .cm-line:has(.cm-tag-important) {
   --status-color: var(--pink);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#important"]):not(:has(> br)) {
-  padding-inline: 0.6em 0.4em;
-  border-radius: 2px;
 }
 
 a.tag[href="#question"],
@@ -1761,14 +1777,16 @@ a.tag[href="#question"],
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#question"]):not(:has(> br)),
+:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#question"]):not(:has(> br)) {
+  --status-color: var(--yellow);
+  background: color-mix(in oklch, var(--status-color) 12%, transparent);
+  box-shadow: inset 3px 0 0 var(--status-color);
+  padding-inline: 0.6em 0.4em;
+  border-radius: 2px;
+}
+
 .cm-line:has(.cm-tag-question) {
   --status-color: var(--yellow);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
-}
-
-:is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#question"]):not(:has(> br)) {
-  padding-inline: 0.6em 0.4em;
-  border-radius: 2px;
 }
