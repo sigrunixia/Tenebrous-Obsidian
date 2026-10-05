@@ -1,19 +1,14 @@
 ## What this is
 
-A raw dump of Obsidian's own core stylesheet (`app://obsidian.md/app.css`), kept as a
-reference for auditing what our theme does and doesn't cover -- e.g. finding CSS custom
-properties Obsidian's core reads that we never set, or checking whether a selector's
-default styling relies on a variable at all.
+This is a raw dump of Obsidian's own stylesheets, kept so I can audit what my theme covers and what it doesn't. It is how I find CSS custom properties that Obsidian reads and I never set, and how I check whether a selector's default styling relies on a variable at all.
 
-Not `@use`'d anywhere -- it does not affect the compiled `theme.css`, same as
-[`../lib/_upstream-palette.scss`](../lib/_upstream-palette.scss).
+None of it gets `@use`'d, so it has no effect on the compiled `theme.css`, same as [`../lib/_upstream-palette.scss`](../lib/_upstream-palette.scss).
 
-- Extracted: one `cssRules` entry per line, via the running app's own DOM (not asar
-  extraction -- the shipped `app.asar` is just the Electron shell; the actual UI stylesheet
-  isn't a plain file on disk).
-- Filename tracks the Obsidian version it came from: `app-<version>.css` (desktop, macOS).
-  Keep old versions around rather than overwriting -- they're small and let you diff what
-  changed between Obsidian releases.
+- `app-1.13.2.css` is the desktop stylesheet for Obsidian 1.13.2, one `cssRules` entry per line.
+- `app-1.14.3.scss` is the one for 1.14.3, spread over about 22,000 lines instead of one rule per line.
+- `publish-app.css` is the stylesheet Obsidian Publish ships, with its own variables like `--page-width`.
+
+I pulled the desktop stylesheet out of the running app's own DOM and not out of `app.asar`, because the asar is only the Electron shell and the real UI stylesheet isn't a plain file on disk. The filename tracks the Obsidian version it came from, `app-<version>.css`, and I keep the old versions around instead of overwriting them. They are small, and they let me diff what changed between Obsidian releases.
 
 ## Regenerating
 
@@ -29,10 +24,6 @@ fs.writeFileSync('/absolute/path/to/src/app-source/app-<version>.css', text);
 "
 ```
 
-Get `<version>` from `require('electron').remote.app.getVersion()` in the same `obsidian
-eval` session (`app.appVersion` returns `undefined` in this context).
+Get `<version>` from `require('electron').remote.app.getVersion()` in the same `obsidian eval` session, because `app.appVersion` comes back `undefined` in this context.
 
-Re-run this after Obsidian updates if you suspect new variables or selectors have been
-introduced, then re-diff against `_dark.scss` / `_light.scss` to catch newly unthemed
-surfaces -- see the `--color-base-*` fix in this repo's history for an example of what
-that audit turns up, and `_ref-*.scss` for the current scaffold of known-unthemed vars.
+Re-run it after an Obsidian update if I suspect new variables or selectors have been introduced, then re-diff against `src/theme/dark/` to catch newly unthemed surfaces. The `--color-base-*` fix in this repo's history is a good example of what that audit turns up.
