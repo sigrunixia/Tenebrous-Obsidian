@@ -92,6 +92,7 @@
   var INDEX = [{ "path": "About This Site.md", "basename": "About This Site", "mtime": 1790638942e3, "permalink": "about-this-site", "fm": { "created": "2026-07-28T18:51:21-05:00", "modified": "2026-09-28T18:42:22-05:00", "aliases": ["Credits", "Meta", "About", "About this site"], "publish": true, "permalink": "about-this-site" } }, { "path": "Appendix N.md", "basename": "Appendix N", "mtime": 1785282681e3, "permalink": "appendix-n", "fm": { "created": "2026-07-28T18:51:21-05:00", "modified": "2026-07-28T18:51:21-05:00", "aliases": ["Appendix N Reading Project", "Appendix N"], "publish": true, "permalink": "appendix-n" } }, { "path": "CSS Test Page.md", "basename": "CSS Test Page", "mtime": 1790638942e3, "permalink": "css-test-page", "fm": { "created": "2026-09-28T18:16:49-05:00", "modified": "2026-09-28T18:42:22-05:00", "aliases": ["CSS test page"], "publish": true, "permalink": "css-test-page" } }, { "path": "Obsidian/Custom Checkboxes.md", "basename": "Custom Checkboxes", "mtime": 1785282681e3, "permalink": "custom-checkboxes", "fm": { "created": "2026-07-28T18:51:21-05:00", "modified": "2026-07-28T18:51:21-05:00", "aliases": ["Custom CSS Checkboxes", "Custom Checkboxes"], "publish": true, "permalink": "custom-checkboxes", "types": ["[[Obsidian]]"], "cover": "[[Custom checkboxes.png]]" } }, { "path": "Obsidian/Daily Note Workflow.md", "basename": "Daily Note Workflow", "mtime": 1790638942e3, "permalink": "daily-note-workflow", "fm": { "created": "2026-07-28T22:52:44-05:00", "modified": "2026-09-28T18:42:22-05:00", "aliases": ["Daily Note Workflow", "Daily note workflow"], "publish": true, "permalink": "daily-note-workflow", "tags": null, "types": ["[[Obsidian]]"], "cover": "[[Daily note workflow.png]]" } }, { "path": "Obsidian/FOSS and Obsidian.md", "basename": "FOSS and Obsidian", "mtime": 179048274e4, "permalink": "foss-and-obsidian", "fm": { "created": "2026-07-28T20:23:32-05:00", "modified": "2026-09-26T23:19:00-05:00", "aliases": ["Obsidian and FOSS", "FOSS and Obsidian"], "publish": true, "permalink": "foss-and-obsidian", "types": ["[[Obsidian]]"], "cover": "[[Scale icon.svg]]" } }, { "path": "Obsidian/Halcyon Theme Publish.md", "basename": "Halcyon Theme Publish", "mtime": 1785295339e3, "permalink": "halcyon-theme-publish", "fm": { "created": "2026-07-28T22:22:19-05:00", "modified": "2026-07-28T22:22:19-05:00", "aliases": ["Halcyon Theme for Obsidian Publish", "Halcyon theme Publish"], "publish": true, "permalink": "halcyon-theme-publish", "types": ["[[Obsidian]]"], "cover": "[[Halcyon theme publish.png]]" } }, { "path": "Obsidian/Obsidian Book Club.md", "basename": "Obsidian Book Club", "mtime": 1785282681e3, "permalink": "obsidian-book-club", "fm": { "created": "2026-07-28T18:51:21-05:00", "modified": "2026-07-28T18:51:21-05:00", "aliases": ["OMG Bookclub", "Obsidian Book Club"], "publish": true, "permalink": "obsidian-book-club", "types": ["[[Obsidian]]"], "cover": "[[Book open icon.svg]]" } }, { "path": "Obsidian/Obsidian October.md", "basename": "Obsidian October", "mtime": 179064144e4, "permalink": "obsidian-october", "fm": { "aliases": ["Obsidian October", "O_O-2024", "O_O-2025", "O_O"], "publish": true, "permalink": "obsidian-october", "cover": "[[Obsidian October.png]]", "created": "2024-10-02", "modified": "2026-09-28T19:24:00", "types": ["[[Obsidian]]"] } }, { "path": "Obsidian/This Is How I Obsidian.md", "basename": "This Is How I Obsidian", "mtime": 1785297239e3, "permalink": "this-is-how-i-obsidian", "fm": { "created": "2026-07-28T22:53:59-05:00", "modified": "2026-07-28T22:53:59-05:00", "aliases": ["The end of the megavault", "This is how I Obsidian"], "publish": true, "permalink": "this-is-how-i-obsidian", "cover": "[[This is how I obsidian.png]]", "tags": null, "types": ["[[Obsidian]]"] } }, { "path": "Obsidian/Zettelkasten for Dragons.md", "basename": "Zettelkasten for Dragons", "mtime": 1790640736e3, "permalink": "zettelkasten-for-dragons", "fm": { "created": "2026-07-28T18:51:21-05:00", "modified": "2026-09-28T19:12:16-05:00", "aliases": ["Zettelkasten for dragons"], "publish": true, "permalink": "zettelkasten-for-dragons", "types": ["[[Obsidian]]"], "cover": "[[Network icon.svg]]" } }, { "path": "Reference/Products/Obsidian.md", "basename": "Obsidian", "mtime": 17861472e5, "permalink": "obsidian", "fm": { "created": "2026-08-08", "aliases": ["Obsidian"], "categories": ["[[Products]]"], "manufacturers": "[[Dynalist Inc]]", "sources": ["https://obsidian.md"], "cover": "[[Obsidian icon.svg]]", "publish": true, "permalink": "obsidian", "modified": "2026-08-08", "types": ["[[Software]]"], "tags": ["hub"], "cssclasses": ["\u03BA\u03CC\u03BC\u03B2\u03BF\u03C2"] } }, { "path": "Reference/Types/Tattoos.md", "basename": "Tattoos", "mtime": 1790640393e3, "permalink": "tattoos", "fm": { "created": "2026-08-12T01:24:49-05:00", "modified": "2026-09-28T19:06:33-05:00", "tags": ["topics", "Egg", "hub"], "cssclasses": ["\u03BA\u03CC\u03BC\u03B2\u03BF\u03C2"], "publish": true, "permalink": "tattoos" } }, { "path": "Reference/Types/\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1.md", "basename": "\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1", "mtime": 1790475073e3, "permalink": "travel", "fm": { "created": "2026-08-01T22:44:30-05:00", "modified": "2026-09-26T21:11:13-05:00", "tags": ["categories", "hub"], "icon": "luggage", "aliases": ["Trips"], "cssclasses": ["hub", "hub-trips", "\u03BA\u03CC\u03BC\u03B2\u03BF\u03C2"], "publish": true, "permalink": "travel" } }, { "path": "Sigrunixia.md", "basename": "Sigrunixia", "mtime": 179063907e4, "permalink": "sigrunixia", "fm": { "created": "2026-07-28T22:22:20-05:00", "modified": "2026-09-28T18:44:30-05:00", "aliases": ["About Sigrunixia", "About Rebbecca Bishop", "Rebbecca Bishop", "\u03A3\u03C5\u03B3\u03BA\u03C1\u03BF\u03C5\u03BD\u03AF\u03BE\u03B9\u03B1", "Sigrunixia"], "publish": true, "permalink": "sigrunixia" } }, { "path": "Tattoos/Becoming the Battle Mage.md", "basename": "Becoming the Battle Mage", "mtime": 179063895e4, "permalink": "becoming-the-battle-mage", "fm": { "created": "2026-07-28T20:23:32-05:00", "modified": "2026-09-28T18:42:30-05:00", "aliases": ["Becoming the battle mage"], "publish": true, "permalink": "becoming-the-battle-mage", "types": ["[[Tattoos]]"], "cover": "[[Becoming the battle mage 36.webp]]" } }, { "path": "Tattoos/Manifesting Gemmy.md", "basename": "Manifesting Gemmy", "mtime": 179048274e4, "permalink": "manifesting-gemmy", "fm": { "created": "2026-07-28T20:23:32-05:00", "modified": "2026-09-26T23:19:00-05:00", "aliases": ["Manifesting gemmy", "Manifesting Gemmy"], "publish": true, "permalink": "manifesting-gemmy", "types": ["[[Tattoos]]"], "cover": "[[Manifesting gemmy.png]]" } }, { "path": "Tenebrous Dragon.md", "basename": "Tenebrous Dragon", "mtime": 1790639524e3, "permalink": "home", "fm": { "created": "2026-09-28T18:52:04-05:00", "modified": "2026-09-28T18:52:04-05:00", "aliases": ["A Tenebrous Dragon", "Start Here", "Home", "Tenebrous Dragon"], "publish": true, "permalink": "home", "cssclasses": ["landing"] } }, { "path": "Tenebrous Wish List.md", "basename": "Tenebrous Wish List", "mtime": 1790639681e3, "permalink": "tenebrous-wish-list", "fm": { "created": "2026-07-28T22:22:58-05:00", "modified": "2026-09-28T18:54:41-05:00", "aliases": ["Wish List", "Tenebrous Wish List"], "publish": true, "permalink": "tenebrous-wish-list" } }, { "path": "Trips/2019-08 Grand Rapids.md", "basename": "2019-08 Grand Rapids", "mtime": 17905536e5, "permalink": "grand-rapids-mn-2019", "fm": { "created": "2019-08-30", "aliases": ["2019 Grand Rapids", "2019 Grand Rapids, MN"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "publish": true, "permalink": "grand-rapids-mn-2019", "cssclasses": ["trip"], "people": ["[[Sigrunixia]]", "[[Sarkantu]]"], "started": "2019-08-30", "ended": "2019-09-01", "modified": "2026-09-28", "locations": ["[[\u0393\u03BA\u03C1\u03B1\u03BD\u03C4 \u03A1\u03AC\u03C0\u03B9\u03BD\u03C4\u03C2]]", "[[\u039C\u03B9\u03BD\u03B5\u03C3\u03CC\u03C4\u03B1]]", "[[\u0397\u03BD\u03C9\u03BC\u03AD\u03BD\u03B5\u03C2 \u03A0\u03BF\u03BB\u03B9\u03C4\u03B5\u03AF\u03B5\u03C2]]"], "coordinates": ["47.310299", "-93.555733"], "types": ["[[Road trip]]", "[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "cover": "[[Prairie Lake Morning.jpg]]" } }, { "path": "Trips/2025-02 Pioneertown.md", "basename": "2025-02 Pioneertown", "mtime": 17908128e5, "permalink": "pioneertown-ca-2025", "fm": { "created": "2026-04-17", "aliases": ["2025 Pioneertown", "2025 Palm Springs", "2025 Pioneertown, CA"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Aisha]]", "[[Silver]]", "[[Kepano]]", "[[Licat]]", "[[Johannes Theiner|Joethei]]", "[[Liam]]", "[[tgrosinger]]", "[[Aliya]]"], "publish": true, "permalink": "pioneertown-ca-2025", "cssclasses": ["trip"], "cover": "[[2025-pioneertown-ca.jpeg]]", "started": "2025-02-02", "ended": "2025-02-07", "modified": "2026-10-01", "locations": ["[[\u03A0\u03AC\u03B9\u03BF\u03BD\u03B9\u03C1\u03C4\u03AC\u03BF\u03C5\u03BD]]"], "coordinates": ["34.1367", "-116.4667"], "types": ["[[Flight]]"] } }, { "path": "Trips/2025-10 Finland MN.md", "basename": "2025-10 Finland MN", "mtime": 17908128e5, "permalink": "finland-mn-2025", "fm": { "created": "2026-04-17", "aliases": ["2025 Finland", "2025 Finland, MN"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Sarkantu]]"], "publish": true, "permalink": "finland-mn-2025", "cssclasses": ["trip"], "started": "2025-10-05", "ended": "2025-10-09", "modified": "2026-10-01", "locations": ["[[\u03A6\u03B9\u03BD\u03BB\u03AC\u03BD\u03C4, MN]]"], "coordinates": ["47.4166", "-91.2415"], "types": ["[[Road trip]]"], "cover": "[[2025-10 Finland MN cover.jpg]]", "sources": ["https://en.wikipedia.org/wiki/Finland%2C_Minnesota", "https://en.wikipedia.org/wiki/Silver_Bay%2C_Minnesota", "https://sugarloafnorthshore.org/about-sugarloaf/", "https://mesonet.agron.iastate.edu/request/daily.php"] } }, { "path": "Trips/2026-03 Bakersfield.md", "basename": "2026-03 Bakersfield", "mtime": 17907264e5, "permalink": "bakersfield-ca-2026", "fm": { "created": "2026-04-17", "aliases": ["2026 Bakersfield", "2026 Bakersfield, CA", "2026 Los Angeles", "2026 Los Angeles, CA", "2026 Southern California"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[uniquelyportablemagic]]", "[[Sarkantu]]"], "publish": true, "permalink": "bakersfield-ca-2026", "cssclasses": ["trip"], "started": "2026-03-05", "ended": "2026-03-08", "modified": "2026-09-30", "locations": ["[[\u039C\u03C0\u03AD\u03B9\u03BA\u03B5\u03C1\u03C3\u03C6\u03B9\u03BB\u03BD\u03C4]]", "[[\u03A3\u03AC\u03C6\u03C4\u03B5\u03C1]]", "[[\u0392\u03B5\u03BD\u03C4\u03BF\u03CD\u03C1\u03B1]]", "[[\u039B\u03BF\u03C2 \u0386\u03BD\u03C4\u03B6\u03B5\u03BB\u03B5\u03C2]]", "[[\u03A3\u03AC\u03BD\u03C4\u03B1 \u039C\u03CC\u03BD\u03B9\u03BA\u03B1]]"], "coordinates": ["35.3733", "-119.0189"], "types": ["[[Flight]]", "[[Vacation]]"], "cover": "[[2026-03 Bakersfield cover.jpg]]", "sources": ["https://en.wikipedia.org/wiki/Bakersfield%2C_California"] } }, { "path": "Trips/2026-04 Erie.md", "basename": "2026-04 Erie", "mtime": 17907264e5, "permalink": "erie-pa-2026", "fm": { "created": "2026-05-25", "aliases": ["2026 Erie", "2026 Erie, PA"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Sarkantu]]"], "publish": true, "permalink": "erie-pa-2026", "cssclasses": ["trip"], "started": "2026-04-18", "ended": "2026-04-25", "modified": "2026-09-30", "locations": ["[[\u0389\u03C1\u03B9, PA]]"], "coordinates": ["42.1292", "-80.0851"], "types": ["[[Flight]]"], "cover": "[[2026-04 Erie cover.jpg]]", "sources": ["https://en.wikipedia.org/wiki/Erie%2C_Pennsylvania"] } }, { "path": "Trips/2026-06 Selfoss.md", "basename": "2026-06 Selfoss", "mtime": 17907264e5, "permalink": "selfoss-is-2026", "fm": { "created": "2026-04-17", "aliases": ["2026 Selfoss", "2026 Reykjavik", "2026 Iceland", "2026 Selfoss, IS", "2026 Reykjavik, IS"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Aisha]]", "[[Sarkantu]]", "[[codedmart]]", "[[Kepano]]", "[[Licat]]", "[[Liam]]", "[[tgrosinger]]", "[[Aliya]]"], "publish": true, "permalink": "selfoss-is-2026", "cssclasses": ["trip"], "started": "2026-06-21", "ended": "2026-06-29", "modified": "2026-09-30", "locations": ["[[\u03A3\u03AD\u03BB\u03C6\u03BF\u03C2]]", "[[\u03A1\u03AD\u03B9\u03BA\u03B9\u03B1\u03B2\u03B9\u03BA]]"], "coordinates": ["63.95", "-20.96"], "types": ["[[Flight]]"], "cover": "[[2026-06 Selfoss cover.jpg]]", "sources": ["https://en.wikipedia.org/wiki/Selfoss_(town)", "https://en.wikipedia.org/wiki/Reykjav%C3%ADk"] } }, { "path": "Trips/2026-07 Naperville.md", "basename": "2026-07 Naperville", "mtime": 179064e7, "permalink": "naperville-il-2026", "fm": { "created": "2026-08-01", "aliases": ["2026 Naperville", "2026 Woodridge", "2026 Naperville, IL"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Sarkantu]]", "[[Lumi Ochizuke]]", "[[Heather Davenport]]"], "publish": true, "permalink": "naperville-il-2026", "cssclasses": ["trip"], "started": "2026-07-17", "ended": "2026-07-18", "modified": "2026-09-29", "locations": ["[[\u039D\u03AC\u03C0\u03B5\u03C1\u03B2\u03B9\u03BB, IL]]"], "coordinates": ["41.7508", "-88.1535"], "types": ["[[Road trip]]"], "cover": "[[2026-07 Naperville.jpg]]", "sources": ["https://en.wikipedia.org/wiki/Naperville%2C_Illinois", "https://commons.wikimedia.org/wiki/File:Naperville_IL_Skyline_2022.jpg"] } }, { "path": "Trips/2026-08 Athens.md", "basename": "2026-08 Athens", "mtime": 179064e7, "permalink": "athens-gr-2026", "fm": { "created": "2026-07-10", "aliases": ["2026 Athens", "2026 Greece", "2026 Athens, GR"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Sigrunixia]]"], "publish": true, "permalink": "athens-gr-2026", "cssclasses": ["trip"], "started": "2026-08-17", "ended": "2026-09-04", "modified": "2026-09-29", "locations": ["[[\u0391\u03B8\u03AE\u03BD\u03B1]]"], "coordinates": ["37.9838", "23.7275"], "types": ["[[Flight]]"], "cover": "[[2026-08 Athens cover.jpg]]", "sources": ["https://en.wikipedia.org/wiki/Athens"] } }, { "path": "Trips/2026-09 Chicago.md", "basename": "2026-09 Chicago", "mtime": 179064e7, "permalink": "chicago-il-2026", "fm": { "created": "2026-09-22", "aliases": ["2026 Chicago", "2026 Chicago, IL"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Sigrunixia]]"], "publish": true, "permalink": "chicago-il-2026", "cssclasses": ["trip"], "started": "2026-09-23T11:15:00", "ended": "2026-09-25T19:30:00", "modified": "2026-09-29", "locations": ["[[\u03A3\u03B9\u03BA\u03AC\u03B3\u03BF|Chicago, IL]]"], "coordinates": ["41.8781", "-87.6298"], "types": ["[[Train]]"], "cover": "[[2026-09 Chicago cover.jpg]]", "sources": ["https://en.wikipedia.org/wiki/Chicago", "https://en.wikipedia.org/wiki/Streeterville,_Chicago"] } }, { "path": "Trips/2026-10 Chicago.md", "basename": "2026-10 Chicago", "mtime": 17909856e5, "permalink": null, "fm": { "created": "2026-10-01", "aliases": ["2026 Chicago visa pickup", "2026 Chicago, IL visa pickup"], "categories": ["[[\u03A4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1|Trips]]"], "people": ["[[Sarkantu]]"], "publish": true, "cssclasses": ["trip"], "started": "2026-10-03", "ended": "2026-10-06", "modified": "2026-10-03", "locations": ["[[\u03A3\u03B9\u03BA\u03AC\u03B3\u03BF|Chicago, IL]]"], "coordinates": ["41.8781", "-87.6298"], "types": ["[[Road trip]]"], "sources": ["https://en.wikipedia.org/wiki/Chicago", "https://nationalhellenicmuseum.org/visit/", "https://www.timeout.com/chicago/art/the-odyssey-reimagined"] } }];
   var IMG_PATHS = { "Custom checkboxes.png": "Admin/Attachments/Custom checkboxes.png", "Daily note workflow.png": "Admin/Attachments/Daily note workflow.png", "Scale icon.svg": "Admin/Attachments/Scale icon.svg", "Halcyon theme publish.png": "Admin/Attachments/Halcyon theme publish.png", "Halcyon theme publish 1.png": "Admin/Attachments/Halcyon theme publish 1.png", "Book open icon.svg": "Admin/Attachments/Book open icon.svg", "Obsidian October.png": "Admin/Attachments/Obsidian October.png", "This is how I obsidian.png": "Admin/Attachments/This is how I obsidian.png", "Network icon.svg": "Admin/Attachments/Network icon.svg", "Obsidian icon.svg": "Admin/Attachments/Obsidian icon.svg", "Sigrunixia.png": "Admin/Attachments/Sigrunixia.png", "Becoming the battle mage 36.webp": "Admin/Attachments/Becoming the battle mage 36.webp", "Becoming the battle mage.webp": "Admin/Attachments/Becoming the battle mage.webp", "Becoming the battle mage 29.webp": "Admin/Attachments/Becoming the battle mage 29.webp", "Becoming the battle mage neck ip.png": "Admin/Attachments/Becoming the battle mage neck ip.png", "Becoming the battle mage 30.webp": "Admin/Attachments/Becoming the battle mage 30.webp", "Becoming the battle mage 31.webp": "Admin/Attachments/Becoming the battle mage 31.webp", "Becoming the battle mage 32.webp": "Admin/Attachments/Becoming the battle mage 32.webp", "Becoming the battle mage 33.webp": "Admin/Attachments/Becoming the battle mage 33.webp", "Becoming the battle mage 7.png": "Admin/Attachments/Becoming the battle mage 7.png", "Becoming the battle mage 34.webp": "Admin/Attachments/Becoming the battle mage 34.webp", "Becoming the battle mage 35.webp": "Admin/Attachments/Becoming the battle mage 35.webp", "Becoming the battle mage.jpeg": "Admin/Attachments/Becoming the battle mage.jpeg", "Becoming the battle mage 8.png": "Admin/Attachments/Becoming the battle mage 8.png", "Becoming the battle mage 37.webp": "Admin/Attachments/Becoming the battle mage 37.webp", "Becoming the battle mage ribs completed.png": "Admin/Attachments/Becoming the battle mage ribs completed.png", "Manifesting gemmy.png": "Admin/Attachments/Manifesting gemmy.png", "Manifesting gemmy 5.png": "Admin/Attachments/Manifesting gemmy 5.png", "Prairie Lake Morning.jpg": "Admin/Attachments/Prairie Lake Morning.jpg", "AirB and B Arrival.jpg": "Admin/Attachments/AirB and B Arrival.jpg", "AirB and B Arrival 2.jpg": "Admin/Attachments/AirB and B Arrival 2.jpg", "AirB and B Arrival 3.jpg": "Admin/Attachments/AirB and B Arrival 3.jpg", "AirB and B Arrival 4.jpg": "Admin/Attachments/AirB and B Arrival 4.jpg", "AirB and B Arrival 5.jpg": "Admin/Attachments/AirB and B Arrival 5.jpg", "Prairie Lake Morning 2.jpg": "Admin/Attachments/Prairie Lake Morning 2.jpg", "Community Thrift Store.jpg": "Admin/Attachments/Community Thrift Store.jpg", "Duluth Coffee Company.jpg": "Admin/Attachments/Duluth Coffee Company.jpg", "Duluth Coffee Company 3.jpg": "Admin/Attachments/Duluth Coffee Company 3.jpg", "2025-pioneertown-ca.jpeg": "Admin/Attachments/2025-pioneertown-ca.jpeg", "2025-10 Finland MN cover.jpg": "Admin/Attachments/2025-10 Finland MN cover.jpg", "2026-03 Bakersfield cover.jpg": "Admin/Attachments/2026-03 Bakersfield cover.jpg", "2026-04 Erie cover.jpg": "Admin/Attachments/2026-04 Erie cover.jpg", "2026-04 Erie heron.jpg": "Admin/Attachments/2026-04 Erie heron.jpg", "2026-04 Erie Oba Sushi.jpg": "Admin/Attachments/2026-04 Erie Oba Sushi.jpg", "2026-06 Selfoss cover.jpg": "Admin/Attachments/2026-06 Selfoss cover.jpg", "2026-06 Reykjavik Maritime Museum.jpg": "Admin/Attachments/2026-06 Reykjavik Maritime Museum.jpg", "2026-06 Reykjavik Phallological Museum NYPD.jpg": "Admin/Attachments/2026-06 Reykjavik Phallological Museum NYPD.jpg", "2026-07 Naperville.jpg": "Admin/Attachments/2026-07 Naperville.jpg", "2026-08 Athens cover.jpg": "Admin/Attachments/2026-08 Athens cover.jpg", "2026-09 Chicago cover.jpg": "Admin/Attachments/2026-09 Chicago cover.jpg", "2026-10 Chicago Journey Home.jpg": "Admin/Attachments/2026-10 Chicago Journey Home.jpg", "2026-10 Chicago museum rooftop view.jpg": "Admin/Attachments/2026-10 Chicago museum rooftop view.jpg", "2026-10 Chicago masticha mojito.jpg": "Admin/Attachments/2026-10 Chicago masticha mojito.jpg", "2026-10 Chicago 9 Muses lunch.jpg": "Admin/Attachments/2026-10 Chicago 9 Muses lunch.jpg", "2026-10 Chicago room.jpg": "Admin/Attachments/2026-10 Chicago room.jpg" };
   var MAPS = { "reference/types/\u03C4\u03B1 \u03C4\u03B1\u03BE\u03AF\u03B4\u03B9\u03B1.md#map": { "zoom": 2.5, "center": [30.18459, -20.21309], "markers": [{ "path": "Trips/2026-10 Chicago.md", "name": "2026-10 Chicago", "lat": 41.8781, "lng": -87.6298, "icon": "building-2", "color": "#7f7f7f" }, { "path": "Trips/2026-09 Chicago.md", "name": "2026-09 Chicago", "lat": 41.8781, "lng": -87.6298, "icon": "building-2", "color": "#7f7f7f" }, { "path": "Trips/2026-08 Athens.md", "name": "2026-08 Athens", "lat": 37.9838, "lng": 23.7275, "icon": "landmark", "color": "#8c564b" }, { "path": "Trips/2026-07 Naperville.md", "name": "2026-07 Naperville", "lat": 41.7508, "lng": -88.1535, "icon": "book-open", "color": "#9467bd" }, { "path": "Trips/2026-06 Selfoss.md", "name": "2026-06 Selfoss", "lat": 63.95, "lng": -20.96, "icon": "droplets", "color": "#58508d" }, { "path": "Trips/2026-04 Erie.md", "name": "2026-04 Erie", "lat": 42.1292, "lng": -80.0851, "icon": "waves", "color": "#003f5c" }, { "path": "Trips/2026-03 Bakersfield.md", "name": "2026-03 Bakersfield", "lat": 35.3733, "lng": -119.0189, "icon": "wheat", "color": "#c9a227" }, { "path": "Trips/2025-10 Finland MN.md", "name": "2025-10 Finland MN", "lat": 47.4166, "lng": -91.2415, "icon": "trees", "color": "#2ca02c" }, { "path": "Trips/2025-02 Pioneertown.md", "name": "2025-02 Pioneertown", "lat": 34.1367, "lng": -116.4667, "icon": "cactus", "color": "#ff7f0e" }, { "path": "Trips/2019-08 Grand Rapids.md", "name": "2019-08 Grand Rapids", "lat": 47.310299, "lng": -93.555733, "icon": "tent", "color": "#1f77b4" }] } };
+  var CANVASES = null;
 
   // src/scripts/lib/wikilink.ts
   function wikilinkTarget(raw) {
@@ -475,6 +476,352 @@
     });
   }
 
+  // src/scripts/features/canvas/colors.ts
+  function canvasColor(color) {
+    if (!color) return null;
+    return /^[1-6]$/.test(color) ? `var(--canvas-color-${color})` : color;
+  }
+
+  // src/scripts/features/canvas/edges.ts
+  var SVG_NS = "http://www.w3.org/2000/svg";
+  var ARROW = 12;
+  var DIRECTION = {
+    top: { x: 0, y: -1 },
+    right: { x: 1, y: 0 },
+    bottom: { x: 0, y: 1 },
+    left: { x: -1, y: 0 }
+  };
+  function anchor(n, side) {
+    switch (side) {
+      case "top":
+        return { x: n.x + n.width / 2, y: n.y };
+      case "bottom":
+        return { x: n.x + n.width / 2, y: n.y + n.height };
+      case "left":
+        return { x: n.x, y: n.y + n.height / 2 };
+      default:
+        return { x: n.x + n.width, y: n.y + n.height / 2 };
+    }
+  }
+  function guessSide(from, to) {
+    const dx = to.x + to.width / 2 - (from.x + from.width / 2);
+    const dy = to.y + to.height / 2 - (from.y + from.height / 2);
+    if (Math.abs(dx) > Math.abs(dy)) return dx > 0 ? "right" : "left";
+    return dy > 0 ? "bottom" : "top";
+  }
+  function arrowhead(tip, side, color) {
+    const out = DIRECTION[side];
+    const perp = { x: -out.y, y: out.x };
+    const base = { x: tip.x + out.x * ARROW, y: tip.y + out.y * ARROW };
+    const poly = document.createElementNS(SVG_NS, "polygon");
+    poly.setAttribute("points", [
+      `${tip.x},${tip.y}`,
+      `${base.x + perp.x * ARROW / 2},${base.y + perp.y * ARROW / 2}`,
+      `${base.x - perp.x * ARROW / 2},${base.y - perp.y * ARROW / 2}`
+    ].join(" "));
+    poly.setAttribute("fill", color);
+    return poly;
+  }
+  function buildEdges(edges, nodes, svg) {
+    for (const edge of edges) {
+      const from = nodes.get(edge.fromNode);
+      const to = nodes.get(edge.toNode);
+      if (!from || !to) continue;
+      const fromSide = edge.fromSide || guessSide(from, to);
+      const toSide = edge.toSide || guessSide(to, from);
+      const a = anchor(from, fromSide);
+      const b = anchor(to, toSide);
+      const color = canvasColor(edge.color) || "var(--canvas-color, var(--text-faint))";
+      const reach = Math.max(40, Math.hypot(b.x - a.x, b.y - a.y) / 3);
+      const c1 = { x: a.x + DIRECTION[fromSide].x * reach, y: a.y + DIRECTION[fromSide].y * reach };
+      const c2 = { x: b.x + DIRECTION[toSide].x * reach, y: b.y + DIRECTION[toSide].y * reach };
+      const start = edge.fromEnd === "arrow" ? { x: a.x + DIRECTION[fromSide].x * ARROW, y: a.y + DIRECTION[fromSide].y * ARROW } : a;
+      const showTo = edge.toEnd !== "none";
+      const end = showTo ? { x: b.x + DIRECTION[toSide].x * ARROW, y: b.y + DIRECTION[toSide].y * ARROW } : b;
+      const path = document.createElementNS(SVG_NS, "path");
+      path.setAttribute("d", `M${start.x},${start.y} C${c1.x},${c1.y} ${c2.x},${c2.y} ${end.x},${end.y}`);
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", color);
+      path.setAttribute("stroke-width", "2");
+      svg.appendChild(path);
+      if (edge.fromEnd === "arrow") svg.appendChild(arrowhead(a, fromSide, color));
+      if (showTo) svg.appendChild(arrowhead(b, toSide, color));
+      if (edge.label) {
+        const mid = {
+          x: (a.x + 3 * c1.x + 3 * c2.x + b.x) / 8,
+          y: (a.y + 3 * c1.y + 3 * c2.y + b.y) / 8
+        };
+        const text = document.createElementNS(SVG_NS, "text");
+        text.setAttribute("x", String(mid.x));
+        text.setAttribute("y", String(mid.y));
+        text.setAttribute("class", "canvas-embed-edge-label");
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("dominant-baseline", "central");
+        text.textContent = edge.label;
+        svg.appendChild(text);
+      }
+    }
+  }
+
+  // src/scripts/features/canvas/markdown-lite.ts
+  function escapeHtml(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function inline(raw) {
+    let s = escapeHtml(raw);
+    s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+    s = s.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_m, target, label) => `<a class="internal-link" data-href="${target}" href="${target}">${label || target}</a>`);
+    s = s.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a class="external-link" href="$2" target="_blank" rel="noopener">$1</a>');
+    s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/(^|[^*])\*([^*]+)\*/g, "$1<em>$2</em>");
+    return s;
+  }
+  function renderMarkdown(text) {
+    const out = [];
+    let list = null;
+    const closeList = () => {
+      if (list) {
+        out.push(`</${list}>`);
+        list = null;
+      }
+    };
+    for (const line of text.split("\n")) {
+      const heading = line.match(/^(#{1,6})\s+(.*)$/);
+      const bullet = line.match(/^\s*[-*+]\s+(.*)$/);
+      const numbered = line.match(/^\s*\d+[.)]\s+(.*)$/);
+      if (heading) {
+        closeList();
+        out.push(`<h${heading[1].length}>${inline(heading[2])}</h${heading[1].length}>`);
+      } else if (bullet || numbered) {
+        const kind = bullet ? "ul" : "ol";
+        if (list !== kind) {
+          closeList();
+          out.push(`<${kind}>`);
+          list = kind;
+        }
+        out.push(`<li>${inline((bullet || numbered)[1])}</li>`);
+      } else if (line.trim()) {
+        closeList();
+        out.push(`<p>${inline(line)}</p>`);
+      } else {
+        closeList();
+      }
+    }
+    closeList();
+    return out.join("");
+  }
+
+  // src/scripts/features/canvas/nodes.ts
+  var IMAGE_EXT = /\.(png|jpe?g|gif|webp|svg)$/i;
+  function fileBody(node, body) {
+    const file = node.file || "";
+    const name = file.split("/").pop() || file;
+    if (IMAGE_EXT.test(file)) {
+      const imgPath = findImagePath(name);
+      if (imgPath && publish.site) {
+        const img = document.createElement("img");
+        img.src = publish.site.getInternalUrl(imgPath);
+        img.alt = name;
+        img.draggable = false;
+        body.appendChild(img);
+        return;
+      }
+    }
+    const entry = INDEX && INDEX.find((e) => e.path === file);
+    const title = name.replace(/\.md$/i, "");
+    if (entry) {
+      const a = document.createElement("a");
+      a.className = "internal-link";
+      a.dataset.href = entry.basename;
+      a.href = entry.basename;
+      a.textContent = entry.basename;
+      body.appendChild(a);
+    } else {
+      body.textContent = title;
+    }
+  }
+  function linkBody(node, body) {
+    const a = document.createElement("a");
+    a.className = "external-link";
+    a.href = node.url || "";
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = node.url || "";
+    body.appendChild(a);
+  }
+  function buildNode(node) {
+    const el = document.createElement("div");
+    el.className = `canvas-embed-node is-${node.type}`;
+    el.style.left = `${node.x}px`;
+    el.style.top = `${node.y}px`;
+    el.style.width = `${node.width}px`;
+    el.style.height = `${node.height}px`;
+    const color = canvasColor(node.color);
+    if (color) el.style.setProperty("--node-color", color);
+    if (node.type === "group") {
+      if (node.label) {
+        const label = document.createElement("div");
+        label.className = "canvas-embed-group-label";
+        label.textContent = node.label;
+        el.appendChild(label);
+      }
+      return el;
+    }
+    const body = document.createElement("div");
+    body.className = "canvas-embed-node-body";
+    if (node.type === "text") body.innerHTML = renderMarkdown(node.text || "");
+    else if (node.type === "file") fileBody(node, body);
+    else linkBody(node, body);
+    el.appendChild(body);
+    return el;
+  }
+
+  // src/scripts/features/canvas/pan-zoom.ts
+  var MIN_SCALE = 0.05;
+  var MAX_SCALE = 3;
+  function attachPanZoom(viewport, stage, bounds) {
+    let scale = 1;
+    let tx = 0;
+    let ty = 0;
+    const apply = () => {
+      stage.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    };
+    const fit = () => {
+      const pad = 24;
+      const w = viewport.clientWidth;
+      const h = viewport.clientHeight;
+      if (!w || !h) return;
+      scale = Math.min((w - pad * 2) / bounds.width, (h - pad * 2) / bounds.height, 1);
+      tx = (w - bounds.width * scale) / 2 - bounds.x * scale;
+      ty = (h - bounds.height * scale) / 2 - bounds.y * scale;
+      apply();
+    };
+    const zoomAt = (factor, cx, cy) => {
+      const next = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale * factor));
+      const k = next / scale;
+      tx = cx - (cx - tx) * k;
+      ty = cy - (cy - ty) * k;
+      scale = next;
+      apply();
+    };
+    const zoomCenter = (factor) => zoomAt(factor, viewport.clientWidth / 2, viewport.clientHeight / 2);
+    viewport.addEventListener("wheel", (e) => {
+      if (!e.ctrlKey && !e.metaKey) return;
+      e.preventDefault();
+      const rect = viewport.getBoundingClientRect();
+      zoomAt(Math.exp(-e.deltaY * 0.01), e.clientX - rect.left, e.clientY - rect.top);
+    }, { passive: false });
+    let drag = null;
+    viewport.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("a, button")) return;
+      drag = { x: e.clientX, y: e.clientY };
+      viewport.setPointerCapture(e.pointerId);
+      viewport.classList.add("is-dragging");
+    });
+    viewport.addEventListener("pointermove", (e) => {
+      if (!drag) return;
+      tx += e.clientX - drag.x;
+      ty += e.clientY - drag.y;
+      drag = { x: e.clientX, y: e.clientY };
+      apply();
+    });
+    const endDrag = () => {
+      drag = null;
+      viewport.classList.remove("is-dragging");
+    };
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+    const controls = document.createElement("div");
+    controls.className = "canvas-embed-controls";
+    const button = (label, title, onClick) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = label;
+      b.title = title;
+      b.setAttribute("aria-label", title);
+      b.addEventListener("click", onClick);
+      controls.appendChild(b);
+    };
+    button("+", "Zoom in", () => zoomCenter(1.25));
+    button("-", "Zoom out", () => zoomCenter(0.8));
+    button("Fit", "Fit to view", fit);
+    viewport.appendChild(controls);
+    new ResizeObserver(fit).observe(viewport);
+  }
+
+  // src/scripts/features/canvas/index.ts
+  var SVG_NS2 = "http://www.w3.org/2000/svg";
+  function canvasKey(name) {
+    return (name.trim().split("/").pop() || "").replace(/\.canvas$/i, "").toLowerCase();
+  }
+  function registerCanvas() {
+    publish.registerMarkdownCodeBlockProcessor("canvas", (source, el) => {
+      el.empty();
+      const data = CANVASES && CANVASES[canvasKey(source)];
+      if (!data || !data.nodes || !data.nodes.length) {
+        el.hide();
+        return;
+      }
+      const nodes = data.nodes;
+      const byId = new Map(nodes.map((n) => [n.id, n]));
+      const minX = Math.min(...nodes.map((n) => n.x));
+      const minY = Math.min(...nodes.map((n) => n.y));
+      const maxX = Math.max(...nodes.map((n) => n.x + n.width));
+      const maxY = Math.max(...nodes.map((n) => n.y + n.height));
+      const bounds = new DOMRect(minX, minY, maxX - minX, maxY - minY);
+      const viewport = document.createElement("div");
+      viewport.className = "canvas-embed";
+      const stage = document.createElement("div");
+      stage.className = "canvas-embed-stage";
+      const groups = nodes.filter((n) => n.type === "group");
+      const cards = nodes.filter((n) => n.type !== "group");
+      groups.forEach((n) => stage.appendChild(buildNode(n)));
+      const svg = document.createElementNS(SVG_NS2, "svg");
+      svg.setAttribute("class", "canvas-embed-edges");
+      svg.setAttribute("width", "1");
+      svg.setAttribute("height", "1");
+      buildEdges(data.edges || [], byId, svg);
+      stage.appendChild(svg);
+      cards.forEach((n) => stage.appendChild(buildNode(n)));
+      viewport.appendChild(stage);
+      el.appendChild(viewport);
+      attachPanZoom(viewport, stage, bounds);
+    });
+  }
+
+  // src/scripts/features/site-dragon/index.ts
+  var DRAGON_PATH = "Admin/Attachments/tenebrous-dragon.png";
+  var DRAGON_WIDTH = 520;
+  var DRAGON_HEIGHT = 567;
+  function buildDragon() {
+    if (!publish.site) return null;
+    const wrap = document.createElement("div");
+    wrap.className = "site-dragon";
+    const img = document.createElement("img");
+    img.src = publish.site.getInternalUrl(DRAGON_PATH);
+    img.alt = "";
+    img.width = DRAGON_WIDTH;
+    img.height = DRAGON_HEIGHT;
+    img.draggable = false;
+    wrap.appendChild(img);
+    return hideUntilStyled(wrap);
+  }
+  function ensureDragon() {
+    const column = document.querySelector(".site-body-right-column");
+    if (!column) return;
+    const anchor2 = column.querySelector(".site-social-links:not(.site-social-links-bar)") || column.querySelector(".search-view-outer");
+    if (!anchor2) return;
+    const prev = anchor2.previousElementSibling;
+    if (prev && prev.classList.contains("site-dragon")) return;
+    document.querySelectorAll(".site-dragon").forEach((el) => el.remove());
+    const dragon = buildDragon();
+    if (dragon) anchor2.insertAdjacentElement("beforebegin", dragon);
+  }
+  function mountSiteDragon() {
+    ensureDragon();
+    new MutationObserver(ensureDragon).observe(document.body, { childList: true, subtree: true });
+  }
+
   // src/scripts/features/social-links/links.ts
   var SOCIAL_LINKS = [
     {
@@ -601,6 +948,8 @@
   // src/scripts/index.ts
   stripUnresolvedLinks();
   registerBases();
+  registerCanvas();
   mountSocialLinks();
+  mountSiteDragon();
   mountBackToTop();
 })();
