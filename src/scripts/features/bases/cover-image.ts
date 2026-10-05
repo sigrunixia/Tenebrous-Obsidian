@@ -13,7 +13,7 @@ export interface CoverInfo {
 // obsidian.png"). Scanning is fine here: it only runs on an already-rare
 // mismatch, not on every cover lookup, so it's not worth pre-baking a
 // lowercase duplicate of every entry into the shipped index for.
-function findImagePath(filename: string): string | null {
+export function findImagePath(filename: string): string | null {
     if (!IMG_PATHS) return null;
     if (IMG_PATHS[filename]) return IMG_PATHS[filename];
     const lower = filename.toLowerCase();
