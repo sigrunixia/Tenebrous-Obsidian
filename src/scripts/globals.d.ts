@@ -49,3 +49,37 @@ interface MapData {
     center: [number, number];
     markers: MapMarker[];
 }
+
+// JSON Canvas 1.0 (jsoncanvas.org/spec/1.0), as baked in from the vault's
+// .canvas files. Every field the spec marks optional is optional here.
+interface CanvasNode {
+    id: string;
+    type: 'text' | 'file' | 'link' | 'group';
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    color?: string;
+    text?: string;
+    file?: string;
+    subpath?: string;
+    url?: string;
+    label?: string;
+}
+
+interface CanvasEdge {
+    id: string;
+    fromNode: string;
+    toNode: string;
+    fromSide?: 'top' | 'right' | 'bottom' | 'left';
+    toSide?: 'top' | 'right' | 'bottom' | 'left';
+    fromEnd?: 'none' | 'arrow';
+    toEnd?: 'none' | 'arrow';
+    color?: string;
+    label?: string;
+}
+
+interface CanvasData {
+    nodes?: CanvasNode[];
+    edges?: CanvasEdge[];
+}
