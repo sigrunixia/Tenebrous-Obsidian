@@ -1,0 +1,34 @@
+@use "sass:color";
+@use "../../lib/functions" as *;
+@use "../../lib/palette" as *;
+
+$purple:          color.mix($magenta, $blue0, 50%);
+
+$palette: (
+	"comment": $comment,
+	"blue0": $blue0,
+	"amber": $amber,
+	"amber0": $amber0,
+	"magenta": $magenta,
+	"purple": to-rgb($purple),
+	"orange": $orange,
+	"yellow": $yellow,
+	"silver": $silver,
+	"pink": $pink,
+	"cyan": $cyan,
+	"lime": $lime,
+	"rose": $rose,
+	"crimson": $crimson,
+	"green": $green,
+	"green0": $green0,
+	"teal": $teal,
+	"red": $red,
+	"red1": $red1,
+	"unknown": $unknown
+);
+
+.theme-dark {
+	@each $name, $value in $palette {
+		--#{$name}: #{$value};
+	}
+}

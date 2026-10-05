@@ -1,0 +1,11 @@
+.theme-dark {
+	--button-hover-color:   var(--interactive-hover);
+	--toggled-btn-bg-color: var(--interactive-accent);
+	--toggled-btn-color:    var(--text-on-accent);
+
+	--interactive-normal:        var(--bg_dark2);
+	--interactive-hover:         var(--bg);
+	--interactive-success:       var(--green);
+	--interactive-accent:        hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+	--interactive-accent-hover:  var(--fg);
+}

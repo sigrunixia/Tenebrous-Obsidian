@@ -1,0 +1,16 @@
+@use "../../lib/functions" as *;
+
+.theme-dark {
+	--text-normal:       var(--fg);
+	--text-faint:        var(--comment);
+	--text-muted:        var(--fg_dark);
+	--text-error:        var(--red);
+	--text-error-hover:  var(--fg);
+	--text-accent:       var(--magenta);
+	--text-accent-hover: var(--amber);
+	--text-selection:    #{tint(var(--amber), 25%)};
+	--text-on-accent:    var(--bg);
+	--highlight-opacity: 25%;
+	--bold-color:        var(--blue0);
+	--italic-color:      var(--amber);
+}

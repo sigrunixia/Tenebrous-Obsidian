@@ -1,0 +1,32 @@
+@use "../../lib/functions" as *;
+@use "../../lib/palette" as *;
+
+$success-rgb: rgb-triplet($green);
+$error-rgb:   rgb-triplet($red1);
+
+.theme-dark {
+	--background-primary:                     var(--bg);
+	--background-primary-alt:                 var(--bg);
+	--background-secondary:                   var(--bg_dark2);
+	--background-secondary-alt:               var(--bg_dark2);
+	--background-modifier-border:             var(--bg_highlight);
+	--background-modifier-border-focus:       var(--bg_highlight);
+	--background-modifier-border-hover:       var(--bg_highlight);
+	--background-modifier-form-field:         var(--bg_dark2);
+	--background-modifier-form-field-highlighted: var(--bg_dark2);
+	--background-modifier-form-field-hover:   var(--bg_dark2);
+	--background-modifier-box-shadow:         rgba(0, 0, 0, 0.3);
+	--background-modifier-success:            var(--green);
+	--background-modifier-success-rgb:        #{$success-rgb};
+	--background-modifier-error:              var(--red1);
+	--background-modifier-error-hover:        var(--red);
+	--background-modifier-error-rgb:          #{$error-rgb};
+	--background-modifier-warning:            var(--orange);
+	--background-modifier-warning-hover:      var(--orange);
+
+	--background-modifier-info:               var(--blue0);
+	--background-modifier-cover:              var(--bg_dark2);
+	--background-modifier-hover:              var(--bg_highlight);
+	--background-modifier-message:            var(--bg_highlight_dark);
+	--background-modifier-active-hover:       var(--bg);
+}

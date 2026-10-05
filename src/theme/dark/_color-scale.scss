@@ -1,0 +1,8 @@
+@use "../../lib/functions" as *;
+@use "../../lib/palette" as *;
+
+.theme-dark {
+	@each $label, $step in ("00": 0, "05": 5, "10": 10, "20": 20, "25": 25, "30": 30, "35": 35, "40": 40, "50": 50, "60": 60, "70": 70, "100": 100) {
+		--color-base-#{$label}: #{base-step($bg, $fg, $step)};
+	}
+}

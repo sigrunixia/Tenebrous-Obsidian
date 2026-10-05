@@ -1,0 +1,22 @@
+.theme-dark {
+	--code-normal:      var(--fg);
+	--code-background:  var(--bg_highlight_dark);
+	--code-comment:     var(--fg_dark);
+	--code-function:    var(--amber);
+	--code-important:   var(--red1);
+	--code-keyword:     var(--magenta);
+	--code-operator:    var(--teal);
+	--code-property:    var(--cyan);
+	--code-punctuation: var(--fg_dark);
+	--code-string:      var(--green);
+	--code-tag:         var(--red);
+	--code-value:       var(--yellow);
+	--code-number:      var(--pink);
+	--code-atom:        var(--red);
+	--code-builtin:     var(--blue0);
+	--code-string-2:    var(--green0);
+	--code-def:         var(--silver);
+	--code-variable-2:  var(--teal);
+	--code-meta:        var(--comment);
+	--code-url:         var(--amber0);
+}

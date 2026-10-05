@@ -1,0 +1,9 @@
+$accent-h: 210;
+$accent-s: 55%;
+$accent-l: 50%;
+
+.theme-dark {
+	--accent-h: #{$accent-h};
+	--accent-s: #{$accent-s};
+	--accent-l: #{$accent-l};
+}

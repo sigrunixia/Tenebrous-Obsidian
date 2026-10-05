@@ -1,0 +1,8 @@
+@use "../../lib/functions" as *;
+
+.theme-dark {
+	--highlight-bg-color:          var(--highlight-background);
+	--highlight-selected-bg-color: #{tint(var(--orange), 45%)};
+
+	--flashing-background: var(--bg_dark2);
+}
