@@ -16,7 +16,7 @@ $hero-dots: (
 $hero-dots-css: "";
 
 @each $pos, $hue in $hero-dots {
-	$hero-dots-css: $hero-dots-css + "radial-gradient(circle, color-mix(in oklch, var(--#{$hue}) 70%, white) 1px, transparent 1.5px) #{list.nth($pos, 1)} #{list.nth($pos, 2)} / 4px 4px no-repeat, ";
+	$hero-dots-css: $hero-dots-css + "radial-gradient(circle, color-mix(in oklch, var(--#{$hue}) 70%, #fff) 1px, transparent 1.5px) #{list.nth($pos, 1)} #{list.nth($pos, 2)} / 4px 4px no-repeat, ";
 }
 
 $gold: var(--yellow);
