@@ -3,8 +3,11 @@
 // publish: true note, and bakes it into src/scripts/baked-data.ts as the INDEX
 // the Bases codeblock renderer queries against, then rebuilds publish.js.
 //
-// Run:   node build-index.js [vault-root]
+// Run:   node build-index.js [vault-root] [--publish-covers]
 //   vault-root defaults to /Users/Signia/Vaults/Tenebrous
+//   --publish-covers also uploads the cover images the published notes
+//   reference to the live Publish site (needs Obsidian open). Without it
+//   nothing is published; the script only reads the vault and builds locally.
 //
 // Rebuild whenever a published note's frontmatter changes in a way that would
 // affect a rendered base view (types, categories, cover, permalink, ...), or
@@ -21,7 +24,9 @@ const fs = require('fs');
 const path = require('path');
 const { execSync, execFileSync } = require('child_process');
 
-const VAULT = path.resolve(process.argv[2] || '/Users/Signia/Vaults/Tenebrous');
+const ARGS = process.argv.slice(2);
+const PUBLISH_COVERS = ARGS.includes('--publish-covers');
+const VAULT = path.resolve(ARGS.find((a) => !a.startsWith('--')) || '/Users/Signia/Vaults/Tenebrous');
 const BAKED_DATA = path.join(__dirname, 'src', 'scripts', 'baked-data.ts');
 const BUILD_SCRIPT = path.join(__dirname, 'build-publish.sh');
 
@@ -178,7 +183,7 @@ function publishAsset(relPath) {
     }
 }
 
-function publishCoverImages(index, imgPaths) {
+function publishCoverImages(index, imgPaths, upload) {
     const paths = new Set();
     for (const entry of index) {
         const raw = entry.fm['cover'];
@@ -188,6 +193,10 @@ function publishCoverImages(index, imgPaths) {
         if (imgPath) paths.add(imgPath);
     }
     if (!paths.size) return;
+    if (!upload) {
+        console.log(`${paths.size} cover image(s) referenced by cover, not published (pass --publish-covers to upload them).`);
+        return;
+    }
     console.log(`Publishing ${paths.size} cover image(s) referenced by cover...`);
     for (const p of paths) {
         console.log(`  ${publishAsset(p) ? 'published' : 'FAILED (is Obsidian running?)'}: ${p}`);
@@ -469,7 +478,7 @@ function build() {
 
     execFileSync(BUILD_SCRIPT, { stdio: 'inherit' });
 
-    publishCoverImages(index, imgPaths);
+    publishCoverImages(index, imgPaths, PUBLISH_COVERS);
 }
 
 build();
