@@ -3,7 +3,9 @@
 @use 'theme/square-chrome';
 @use 'theme/checkbox-shadow';
 @use 'theme/dark';
-@use 'syntax';
+@use 'theme/syntax/codemirror';
+@use 'theme/hashtag-color';
+@use 'theme/syntax/prism';
 @use 'customs/pages' with ($only: ('trips'));
 @use 'customs/callouts/place';
 @use 'customs/callouts/grid';

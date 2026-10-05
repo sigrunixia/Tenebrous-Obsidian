@@ -1,0 +1,33 @@
+.cm-s-obsidian {
+	.cm-number {
+		color: var(--code-number);
+	}
+
+	.cm-atom {
+		color: var(--code-atom);
+	}
+
+	.cm-builtin {
+		color: var(--code-builtin);
+	}
+
+	.cm-string-2 {
+		color: var(--code-string-2);
+	}
+
+	.cm-def {
+		color: var(--code-def);
+	}
+
+	.cm-variable-2 {
+		color: var(--code-variable-2);
+	}
+
+	.cm-meta {
+		color: var(--code-meta);
+	}
+
+	.cm-url {
+		color: var(--code-url);
+	}
+}

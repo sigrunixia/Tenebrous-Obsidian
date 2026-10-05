@@ -3,8 +3,13 @@
 @use 'theme/square-chrome';
 @use 'theme/checkbox-shadow';
 @use 'theme/dark';
-@use 'syntax';
-@use 'misc';
+@use 'theme/syntax/codemirror';
+@use 'theme/hashtag-color';
+@use 'theme/syntax/prism';
+@use 'theme/cm-tooltip-text';
+@use 'theme/canvas-minimap';
+@use 'theme/highlight-text';
+@use 'theme/footnote-backref';
 @use 'customs/home';
 @use 'customs/callouts/general';
 @use 'customs/callouts/home' as callout-home;
