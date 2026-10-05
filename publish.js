@@ -475,6 +475,60 @@
     });
   }
 
+  // src/scripts/features/keyboard-scroll.ts
+  var SCROLLER = ".markdown-preview-view";
+  var ARROW_STEP_PX = 40;
+  var PAGE_FRACTION = 0.9;
+  var TEXT_ENTRY = 'input, textarea, select, [contenteditable="true"]';
+  var ACTIVATES_ON_SPACE = "button, a, summary";
+  function pageStep(scroller) {
+    return scroller.clientHeight * PAGE_FRACTION;
+  }
+  function onKeydown(event) {
+    if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
+    const scroller = document.querySelector(SCROLLER);
+    const target = event.target;
+    if (!scroller || !(target instanceof Element)) return;
+    if (!(target === document.body || target === document.documentElement || scroller.contains(target))) return;
+    if (target.closest(TEXT_ENTRY)) return;
+    const isSpace = event.key === " ";
+    if (event.shiftKey && !isSpace) return;
+    let delta = null;
+    switch (event.key) {
+      case "ArrowDown":
+        delta = ARROW_STEP_PX;
+        break;
+      case "ArrowUp":
+        delta = -ARROW_STEP_PX;
+        break;
+      case "PageDown":
+        delta = pageStep(scroller);
+        break;
+      case "PageUp":
+        delta = -pageStep(scroller);
+        break;
+      case " ":
+        if (target.closest(ACTIVATES_ON_SPACE)) return;
+        delta = event.shiftKey ? -pageStep(scroller) : pageStep(scroller);
+        break;
+      case "Home":
+        scroller.scrollTo({ top: 0 });
+        event.preventDefault();
+        return;
+      case "End":
+        scroller.scrollTo({ top: scroller.scrollHeight });
+        event.preventDefault();
+        return;
+      default:
+        return;
+    }
+    scroller.scrollBy({ top: delta });
+    event.preventDefault();
+  }
+  function mountKeyboardScroll() {
+    window.addEventListener("keydown", onKeydown);
+  }
+
   // src/scripts/features/social-links/links.ts
   var SOCIAL_LINKS = [
     {
@@ -603,4 +657,5 @@
   registerBases();
   mountSocialLinks();
   mountBackToTop();
+  mountKeyboardScroll();
 })();

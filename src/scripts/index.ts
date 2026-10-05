@@ -1,5 +1,6 @@
 import { mountBackToTop } from './features/back-to-top';
 import { registerBases } from './features/bases';
+import { mountKeyboardScroll } from './features/keyboard-scroll';
 import { mountSocialLinks } from './features/social-links';
 import { stripUnresolvedLinks } from './features/unresolved-links';
 
@@ -8,3 +9,4 @@ stripUnresolvedLinks();
 registerBases();
 mountSocialLinks();
 mountBackToTop();
+mountKeyboardScroll();
