@@ -772,7 +772,6 @@ body.is-phone .home .callout[data-callout=hero] {
   border-left: 3px solid var(--hub-hue);
   border-radius: 12px;
   background: radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--hub-hue) 20%, transparent), transparent 60%), var(--background-secondary);
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .home .callout[data-callout^=hub-] .callout-title {
   gap: 0.6em;
@@ -799,8 +798,17 @@ body.is-phone .home .callout[data-callout=hero] {
 @media (hover: hover) {
   .home .callout[data-callout^=hub-]:hover {
     border-color: var(--hub-hue);
-    transform: translateY(-2px);
     box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home .callout[data-callout^=hub-] {
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .home .callout[data-callout^=hub-]:hover {
+    transform: translateY(-2px);
   }
 }
 .home .callout[data-callout^=hub-] .callout-icon svg {

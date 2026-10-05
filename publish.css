@@ -1118,7 +1118,6 @@ a.tag[href="#question"],
   border-left: 3px solid var(--hub-hue);
   border-radius: 12px;
   background: radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--hub-hue) 20%, transparent), transparent 60%), var(--background-secondary);
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .landing .callout[data-callout^=hub-] .callout-title {
   gap: 0.6em;
@@ -1145,8 +1144,17 @@ a.tag[href="#question"],
 @media (hover: hover) {
   .landing .callout[data-callout^=hub-]:hover {
     border-color: var(--hub-hue);
-    transform: translateY(-2px);
     box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .landing .callout[data-callout^=hub-] {
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .landing .callout[data-callout^=hub-]:hover {
+    transform: translateY(-2px);
   }
 }
 .landing .callout[data-callout^=hub-] .callout-icon svg {
@@ -1196,7 +1204,6 @@ a.tag[href="#question"],
   border-left: 3px solid var(--contact-hue);
   border-radius: 12px;
   background: radial-gradient(circle at 0% 0%, color-mix(in oklch, var(--contact-hue) 20%, transparent), transparent 60%), var(--background-secondary);
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .callout[data-callout^=contact-] .callout-title {
   gap: 0.6em;
@@ -1223,8 +1230,17 @@ a.tag[href="#question"],
 @media (hover: hover) {
   .callout[data-callout^=contact-]:hover {
     border-color: var(--contact-hue);
-    transform: translateY(-2px);
     box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .callout[data-callout^=contact-] {
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .callout[data-callout^=contact-]:hover {
+    transform: translateY(-2px);
   }
 }
 .callout[data-callout^=contact-] a,

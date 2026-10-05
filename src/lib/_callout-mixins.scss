@@ -52,7 +52,6 @@
 	background:
 		radial-gradient(circle at 0% 0%, tint(var(#{$hue}), 20%), transparent 60%),
 		var(--background-secondary);
-	transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 
 	.callout-title {
 		gap: 0.6em;
@@ -84,8 +83,17 @@
 	@media (hover: hover) {
 		&:hover {
 			border-color: var(#{$hue});
-			transform: translateY(-2px);
 			box-shadow: $lift-shadow;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+
+		@media (hover: hover) {
+			&:hover {
+				transform: translateY(-2px);
+			}
 		}
 	}
 }
