@@ -1,17 +1,6 @@
+@use 'sass:list';
 @use '../lib/functions' as *;
-@mixin tag-line-paint($color, $tint, $rule, $strike) {
-	--status-color: #{$color};
-	@if $tint > 0% {
-		background: color-mix(in oklch, var(--status-color) #{$tint}, transparent);
-	}
-	@if $rule {
-		box-shadow: inset 3px 0 0 var(--status-color);
-	}
-	@if $strike {
-		text-decoration: line-through;
-		text-decoration-color: tint(var(--status-color), 70%);
-	}
-}
+@use '../lib/tag-lines' as *;
 
 @mixin tag-line($tag, $color, $tint: 12%, $rule: true, $strike: false) {
 
@@ -38,11 +27,6 @@
 	}
 }
 
-@include tag-line(todo,      var(--blue0));
-@include tag-line(doing,     var(--amber));
-@include tag-line(waiting,   var(--magenta));
-@include tag-line(blocked,   var(--red));
-@include tag-line(completed, var(--green), 8%, true, true);
-@include tag-line(canceled,  var(--fg_dark), 0%, false, true);
-@include tag-line(important, var(--pink));
-@include tag-line(question,  var(--yellow));
+@each $tag, $args in $statuses {
+	@include tag-line($tag, list.nth($args, 1), list.nth($args, 2), list.nth($args, 3), list.nth($args, 4));
+}

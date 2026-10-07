@@ -1,0 +1,32 @@
+// The Quartz site uses Alegreya Sans and Cardo, which read Greek well. The
+// Obsidian theme keeps the system fonts.
+@use 'lib/typography' with (
+	$serif: ('Cardo', Georgia, 'Times New Roman', serif),
+	$sans: ('Alegreya Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif)
+);
+@use 'quartz/fonts';
+@use 'theme/dark';
+@use 'quartz/bridge';
+@use 'customs/callouts/place';
+@use 'customs/callouts/grid';
+@use 'customs/callouts/trip-cards-base';
+@use 'customs/callouts/day';
+@use 'customs/callouts/stay';
+@use 'customs/callouts/pack';
+@use 'customs/callouts/lessons';
+@use 'customs/callouts/caption';
+@use 'customs/callouts/plan';
+@use 'customs/callouts/trip';
+@use 'customs/callouts/landing-hero';
+@use 'customs/callouts/landing-hubs';
+@use 'customs/callouts/contact';
+@use 'quartz/callouts';
+@use 'quartz/breadcrumb';
+@use 'quartz/bases-cards';
+@use 'quartz/layout';
+@use 'quartz/chrome';
+@use 'quartz/header';
+@use 'quartz/highlights';
+@use 'quartz/tag-lines';
+@use 'customs/greek/fonts' as greek-fonts;
+@use 'quartz/tenebrism';

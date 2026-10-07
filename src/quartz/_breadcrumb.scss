@@ -1,0 +1,28 @@
+// The breadcrumb is the first line of a note, written by hand as a row of
+// links separated by " / ". The build marks it with the class breadcrumb.
+// Quartz's own title is also hidden on the home page, as the theme did there.
+.markdown-reading-view > p.breadcrumb {
+	margin: 0 0 1.6em;
+	font-size: var(--font-ui-smaller, 0.8em);
+	color: var(--text-faint);
+	letter-spacing: 0.02em;
+
+	a.internal-link {
+		color: var(--text-muted);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--text-normal);
+			text-decoration: underline;
+		}
+
+		&:last-of-type {
+			color: var(--text-normal);
+			font-weight: 600;
+		}
+	}
+}
+
+.home .article-title {
+	display: none;
+}

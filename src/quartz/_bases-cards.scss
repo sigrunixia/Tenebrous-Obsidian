@@ -1,0 +1,100 @@
+@use '../lib/radius';
+
+// Card views from the Bases plugin, dressed like the hub backlink cards on
+// Publish. The build copies each cover URL into --cover so a blurred copy can
+// sit behind the contained image.
+.markdown-reading-view {
+	.bases-cards {
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		gap: 0.75rem;
+		margin: 1rem 0;
+	}
+
+	.bases-card {
+		padding: 0;
+		border: none;
+		border-radius: radius.$radius;
+		background: var(--background-secondary);
+		box-shadow: none;
+		overflow: hidden;
+
+		&:hover {
+			box-shadow: none;
+		}
+	}
+
+	.bases-card-image {
+		position: relative;
+		height: 100px;
+		background: var(--background-modifier-border);
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: var(--cover, none) center / cover;
+			transform: scale(1.2);
+			filter: blur(20px) brightness(0.7);
+		}
+
+		img {
+			position: relative;
+			object-fit: contain !important;
+		}
+	}
+
+	.bases-card-body {
+		gap: 0;
+		padding: 0;
+	}
+
+	.bases-card-title {
+		padding: 0.5rem 0.5rem 0;
+		font-weight: 600;
+		color: var(--text-normal);
+
+		&:last-child {
+			padding-bottom: 0.5rem;
+		}
+	}
+
+	.bases-card-meta {
+		gap: 0;
+		padding-bottom: 0.5rem;
+	}
+
+	.bases-card-row {
+		justify-content: flex-start;
+		gap: 0.4em;
+		padding: 0 0.5rem;
+		font-size: 0.8em;
+		line-height: 1.4;
+		color: var(--text-muted);
+	}
+
+	.bases-card-label {
+		color: var(--text-faint);
+	}
+}
+
+.markdown-reading-view .bases-cards .bases-group-heading {
+	grid-column: 1 / -1;
+	margin: 0.75rem 0 0;
+	font-weight: 600;
+	color: var(--text-muted);
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+// Some covers are black line icons (SVG) made for a light page. Lighten them so
+// they show on the dark card.
+.markdown-reading-view .bases-card-image img[src$=".svg"] {
+	padding: 0.5rem;
+	filter: invert(0.8);
+}
+
+.markdown-reading-view .bases-card-row {
+	flex-wrap: wrap;
+}

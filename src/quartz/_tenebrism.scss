@@ -1,0 +1,143 @@
+// A tenebrist variant of the site, switched on by the class "tenebrism" on
+// <html> (the build adds it when TENEBRISM=1).
+//
+// Tenebrism is a dark ground with one strong light. The ground is the shared
+// palette's blue-black, so the old blue stays in the shadows, the links and the
+// sidebar, and amber is the single warm light on the subject. The light is a
+// wide cool falloff with a warm core, so the pool reads as light rather than as
+// brown. Furniture is left in shadow. The class theme-dark is on <body> as well
+// as <html> at run time, and it redefines the palette there, so both need the
+// overrides.
+html.theme-dark.tenebrism,
+html.tenebrism body.theme-dark {
+	--h1-color: var(--silver);
+	--h2-color: var(--amber);
+	--h3-color: var(--blue0);
+	--h4-color: var(--teal);
+	--h5-color: var(--magenta);
+	--h6-color: var(--fg_dark);
+	--bold-color: var(--silver);
+	--italic-color: var(--amber0);
+
+	// Links are blue, the old Tenebrous accent. Amber is kept for the lit
+	// subject. Each kind of link is told apart by more than colour.
+	--link-color: var(--blue0);
+	--link-color-hover: var(--cyan);
+	--link-external-color: var(--cyan);
+	--link-external-color-hover: var(--silver);
+}
+
+// The page is lit from above and slightly right, over the content column. A
+// bright core, a warm body and a wide umber falloff give the light some
+// graded mid-tones instead of a hard edge. Fixed, so the light stays put as
+// the page scrolls.
+html.tenebrism body {
+	background-image:
+		radial-gradient(ellipse 28% 36% at 63% 30%, rgba(255, 214, 140, 0.05), transparent 100%),
+		radial-gradient(ellipse 55% 65% at 63% 28%, rgba(240, 176, 74, 0.07), transparent 100%),
+		radial-gradient(ellipse 95% 105% at 63% 30%, rgba(122, 166, 230, 0.07), transparent 100%);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+// Cards are lit from above.
+html.tenebrism .bases-card {
+	background-image: linear-gradient(180deg, rgba(122, 166, 230, 0.08), transparent 65%);
+}
+
+// The site name is the lit subject.
+html.tenebrism .site-header-text {
+	color: var(--amber);
+	text-shadow: 0 0 18px rgba(240, 176, 74, 0.35);
+}
+
+// The lower headings step down in size as well as hue, and h6 is set in small
+// capitals, so no two levels depend on colour alone.
+html.tenebrism .markdown-reading-view {
+	h4 {
+		font-size: 1.1em;
+	}
+
+	h5 {
+		font-size: 1em;
+	}
+
+	h6 {
+		font-size: 0.9em;
+		font-variant-caps: all-small-caps;
+		letter-spacing: 0.06em;
+	}
+}
+
+// The sidebar is furniture, so it sits in the shadow and the article is the
+// brightest thing on the page. Quartz reads these variables for its text,
+// borders and icons, so lowering them there dims everything inside.
+html.tenebrism .sidebar {
+	--dark: var(--comment);
+	--darkgray: var(--comment);
+	--gray: #8c92b6;
+	--lightgray: #1c202c;
+}
+
+// Fields and buttons need an edge of 3:1 against the ground (WCAG 1.4.11), which
+// the dimmed sidebar border does not give. #59607f is 3.1:1 on #0d0f14.
+html.tenebrism .search > .search-button,
+html.tenebrism .sidebar button {
+	border-color: #59607f;
+}
+
+// Internal links are blue, a link to a note that is not published is dotted,
+// and an external link is cyan with its arrow. Tags are pink pills' text.
+html.tenebrism a.internal.unresolved {
+	color: var(--fg_dark);
+	text-decoration: underline dotted;
+	text-underline-offset: 0.2em;
+}
+
+html.tenebrism a.tag-link:not([class*="tl-"]) {
+	color: var(--pink);
+}
+
+// Cyan is the cool counter-light to amber, kept for the sidebar titles.
+html.tenebrism .sidebar h3 {
+	color: color-mix(in srgb, var(--cyan) 62%, var(--bg));
+}
+
+html.tenebrism .site-social-link {
+	color: var(--comment);
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--amber);
+		}
+	}
+}
+
+html.tenebrism .site-dragon img {
+	opacity: 0.72;
+	filter: brightness(0.85) saturate(0.85);
+}
+
+// People who ask for more contrast get brighter faint text and borders.
+@media (prefers-contrast: more) {
+	html.theme-dark.tenebrism,
+	html.tenebrism body.theme-dark {
+		--comment: #b4bad8;
+		--fg_dark: #d0d5ee;
+	}
+
+	html.tenebrism .sidebar {
+		--gray: #b4bad8;
+		--lightgray: #59607f;
+	}
+
+	html.tenebrism .search > .search-button,
+	html.tenebrism .sidebar button {
+		border-color: #9aa1c4;
+	}
+
+	html.tenebrism .site-dragon img {
+		opacity: 1;
+		filter: none;
+	}
+}

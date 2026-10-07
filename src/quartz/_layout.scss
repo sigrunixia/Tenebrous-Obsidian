@@ -1,0 +1,38 @@
+// Quartz lays pages out in three columns, with a right sidebar. The right
+// sidebar is empty here (graph and contents sit on the left), so drop it from
+// the grid at every width and let the left sidebar scroll if it runs long.
+.page[data-frame="default"] > #quartz-body {
+	.sidebar.right {
+		display: none;
+	}
+
+	.sidebar.left {
+		overflow-y: auto;
+	}
+
+	@media (min-width: 1201px) {
+		grid-template-columns: 320px auto;
+		grid-template-rows: auto auto auto;
+		grid-template-areas:
+			"grid-sidebar-left grid-header"
+			"grid-sidebar-left grid-center"
+			"grid-sidebar-left grid-footer";
+	}
+
+	@media (min-width: 801px) and (max-width: 1200px) {
+		grid-template-rows: auto auto auto;
+		grid-template-areas:
+			"grid-sidebar-left grid-header"
+			"grid-sidebar-left grid-center"
+			"grid-sidebar-left grid-footer";
+	}
+
+	@media (max-width: 800px) {
+		grid-template-rows: auto auto auto auto;
+		grid-template-areas:
+			"grid-sidebar-left"
+			"grid-header"
+			"grid-center"
+			"grid-footer";
+	}
+}

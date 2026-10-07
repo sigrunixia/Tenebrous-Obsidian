@@ -1,0 +1,76 @@
+// The logo and the social link row sit under the site title, above search.
+// Both are inserted by the build, copied from the Publish layout.
+.site-dragon {
+	padding: 0 0 0.75rem;
+
+	img {
+		display: block;
+		width: 45%;
+		max-width: 140px;
+		height: auto;
+		margin: 0 auto;
+	}
+}
+
+.site-social-links {
+	display: flex;
+	justify-content: center;
+	gap: 0.75rem;
+	padding: 0 0 0.75rem;
+}
+
+.site-social-link {
+	display: inline-flex;
+	color: var(--text-muted);
+	text-decoration: none;
+	background: none;
+
+	svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			color: var(--text-normal);
+		}
+	}
+}
+
+// On a phone the sidebar becomes a short stack above the article, a small logo,
+// the social links and search. The graph and outline are left out so the
+// article starts near the top. This is also what half a screen looks like at
+// page zoom.
+@media (max-width: 800px) {
+	.page[data-frame="default"] > #quartz-body .sidebar.left {
+		flex-direction: column;
+		align-items: center;
+		gap: 0.75rem;
+		height: auto;
+		padding: 1rem 0 0.5rem;
+		position: static;
+		overflow: visible;
+
+		.spacer,
+		.graph,
+		.toc {
+			display: none;
+		}
+
+		.flex-component {
+			width: 100%;
+		}
+	}
+
+	.site-dragon {
+		padding: 0;
+
+		img {
+			width: 64px;
+		}
+	}
+
+	.site-social-links {
+		padding: 0;
+	}
+}
