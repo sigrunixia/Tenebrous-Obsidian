@@ -40,8 +40,8 @@ interface MapMarker {
     name: string;
     lat: number;
     lng: number;
-    icon?: string;
-    color?: string;
+    icon?: string | null;
+    color?: string | null;
 }
 
 interface MapData {

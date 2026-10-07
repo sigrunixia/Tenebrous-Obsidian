@@ -31,7 +31,8 @@ $hubs: (
 	("trips", "amber", "luggage"),
 	("places", "magenta", "map-pin"),
 	("plants", "orange", "sprout"),
-	("map", "purple", "map")
+	("map", "purple", "map"),
+	("projects", "cyan", "wrench")
 );
 
 @each $name, $hue, $icon in $hubs {

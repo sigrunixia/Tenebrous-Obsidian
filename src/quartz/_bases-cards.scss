@@ -1,8 +1,7 @@
 @use '../lib/radius';
 
 // Card views from the Bases plugin, dressed like the hub backlink cards on
-// Publish. The build copies each cover URL into --cover so a blurred copy can
-// sit behind the contained image.
+// Publish.
 .markdown-reading-view {
 	.bases-cards {
 		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -23,23 +22,19 @@
 		}
 	}
 
+	// Covers are cropped to 4:3 by the build (card-covers.py), so the image simply
+	// fills the area.
 	.bases-card-image {
 		position: relative;
-		height: 100px;
+		aspect-ratio: 4 / 3;
+		height: auto;
 		background: var(--background-modifier-border);
 
-		&::before {
-			content: "";
-			position: absolute;
-			inset: 0;
-			background: var(--cover, none) center / cover;
-			transform: scale(1.2);
-			filter: blur(20px) brightness(0.7);
-		}
-
 		img {
-			position: relative;
-			object-fit: contain !important;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			object-fit: cover;
 		}
 	}
 
@@ -80,6 +75,7 @@
 .markdown-reading-view .bases-cards .bases-group-heading {
 	grid-column: 1 / -1;
 	margin: 0.75rem 0 0;
+	font-size: 1.1em;
 	font-weight: 600;
 	color: var(--text-muted);
 
@@ -88,11 +84,25 @@
 	}
 }
 
-// Some covers are black line icons (SVG) made for a light page. Lighten them so
-// they show on the dark card.
-.markdown-reading-view .bases-card-image img[src$=".svg"] {
-	padding: 0.5rem;
-	filter: invert(0.8);
+// Some covers are black line icons (SVG) made for a light page. They are not
+// cropped, so they sit contained over a blurred copy of themselves, and are
+// lightened so they show on the dark card.
+.markdown-reading-view .bases-card-image:has(img[src$=".svg"]) {
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: var(--cover, none) center / cover;
+		transform: scale(1.2);
+		filter: blur(20px) brightness(0.7);
+	}
+
+	img {
+		position: relative;
+		object-fit: contain !important;
+		padding: 0.5rem;
+		filter: invert(0.8);
+	}
 }
 
 .markdown-reading-view .bases-card-row {

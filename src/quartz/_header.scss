@@ -10,6 +10,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 	box-sizing: border-box;
 	height: var(--site-header-height);
 	padding: 0 2rem;
@@ -21,7 +22,9 @@
 .site-header-text {
 	display: inline-block;
 	font-family: t.$serif;
-	font-size: var(--site-name-size);
+	// Never wider than the screen: about 16 characters at 0.12em tracking fit
+	// in one line down to 320px.
+	font-size: min(var(--site-name-size), 5.4vw);
 	font-weight: 700;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
@@ -33,6 +36,12 @@
 		&:hover {
 			color: var(--link-color-hover);
 		}
+	}
+}
+
+@media (max-width: 600px) {
+	.site-header-text {
+		font-size: min(var(--site-name-size), 4.4vw);
 	}
 }
 

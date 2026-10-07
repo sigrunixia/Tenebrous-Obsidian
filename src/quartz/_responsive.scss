@@ -1,0 +1,90 @@
+// The responsive pass: text that scales, targets big enough to hit, and nothing
+// wider than the screen. Layout at each width lives with the feature it belongs
+// to (layout, chrome, infobox); this is what cuts across all of them.
+
+// Alegreya Sans sets small for its size, so the article text is a little larger
+// than 1rem and grows with the screen: about 17px on a phone, 19px at 1024px and
+// 20px from about 1250px. A fixed size read as small on a laptop.
+.markdown-reading-view {
+	font-size: clamp(1rem, 0.92rem + 0.3vw, 1.125rem);
+}
+
+// WCAG 2.2 asks for targets of at least 24px. The social icons are 18px, so they
+// get padding. Layout is unchanged, since the gap shrinks by the same amount.
+.site-social-link {
+	padding: 0.4rem;
+}
+
+.site-social-links {
+	gap: 0.25rem;
+}
+
+// Fingers need more than the 24px minimum. On a touch screen the controls get
+// about 44px, the usual comfortable size.
+@media (pointer: coarse) {
+	.search > .search-button {
+		min-height: 44px;
+	}
+
+	.readermode {
+		width: 44px;
+		height: 44px;
+
+		svg {
+			left: calc(50% - 10px);
+		}
+	}
+
+	.site-social-link {
+		padding: 0.7rem;
+	}
+
+	.graph > .graph-outer > .global-graph-icon {
+		width: 40px;
+		height: 40px;
+		padding: 0.55rem;
+	}
+}
+
+// Reader mode fades the sidebars. On a phone they are stacked above the article,
+// so fading them only leaves a blank gap, and the button does nothing useful.
+@media (max-width: 800px) {
+	.readermode {
+		display: none;
+	}
+
+	// With the button gone, search spans the row, centred, and does not stretch
+	// across a wide stacked screen.
+	.page[data-frame="default"] > #quartz-body .sidebar.left .flex-component {
+		display: flex;
+		justify-content: center;
+		max-width: 32rem;
+		margin-inline: auto;
+	}
+
+	// Quartz caps search at 14rem, which leaves it off-centre once the row is wider.
+	.search {
+		flex: 1 1 auto;
+		width: 100%;
+		max-width: none;
+	}
+}
+
+// Wide things scroll inside the page instead of widening it.
+.markdown-reading-view {
+	pre,
+	table {
+		max-width: 100%;
+		overflow-x: auto;
+	}
+
+	table {
+		display: block;
+	}
+
+	img,
+	video,
+	iframe {
+		max-width: 100%;
+	}
+}

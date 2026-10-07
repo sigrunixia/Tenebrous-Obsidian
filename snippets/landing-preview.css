@@ -124,6 +124,10 @@
   --callout-icon: lucide-luggage;
   --hub-hue: var(--teal);
 }
+.landing .callout[data-callout=hub-projects] {
+  --callout-icon: lucide-wrench;
+  --hub-hue: var(--cyan);
+}
 .landing .callout[data-callout=hub-about] {
   --callout-icon: lucide-user;
   --hub-hue: var(--yellow);

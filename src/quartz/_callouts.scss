@@ -80,3 +80,27 @@ $callout-icons: (
 	--icon-size: 1.5em;
 	filter: drop-shadow(0 0 6px var(--hub-hue));
 }
+
+// Quartz folds a callout by collapsing what is inside the content box. The theme
+// pads that box for the day, stay, pack and plan callouts, so a folded callout
+// still showed an empty strip. Folded means no padding.
+.markdown-reading-view .callout.is-collapsed > .callout-content {
+	padding-block: 0;
+
+	// The theme also gives these callouts' paragraphs and lists their own margins.
+	// Quartz zeroes the height of what is inside, but not those margins.
+	> * {
+		margin-block: 0;
+	}
+}
+
+// Quartz marks the home page with the class "home", so the older .home hub rules
+// (all amber) beat the .landing colours the note asks for. Obsidian never sets
+// "home", so this only repeats the landing colours with enough weight to win.
+html body .landing .callout {
+	&[data-callout="hub-obsidian"] { --hub-hue: var(--purple); }
+	&[data-callout="hub-tattoos"] { --hub-hue: var(--red); }
+	&[data-callout="hub-traveling"] { --hub-hue: var(--teal); }
+	&[data-callout="hub-projects"] { --hub-hue: var(--cyan); }
+	&[data-callout="hub-about"] { --hub-hue: var(--yellow); }
+}

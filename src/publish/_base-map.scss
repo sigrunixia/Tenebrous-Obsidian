@@ -4,7 +4,7 @@
 	height: 420px;
 	border-radius: radius.$radius;
 	overflow: hidden;
-	margin: var(--size-4-4) 0;
+	margin: var(--size-4-4) auto;
 
 	// The map zooms in quarter steps, and at a fractional zoom the browser
 	// scales the tile layer and can leave hairline gaps between rows of
@@ -33,10 +33,10 @@
 	.leaflet-control-attribution {
 		font-size: var(--font-ui-smaller);
 		background-color: var(--background-secondary);
-		color: var(--text-muted);
+		color: var(--text-normal);
 
 		a {
-			color: var(--text-muted);
+			color: var(--text-normal);
 		}
 	}
 
@@ -47,6 +47,10 @@
 	.leaflet-container {
 		background-color: var(--background-secondary);
 		font-family: inherit;
+		border: 0;
+		outline: 0;
+		box-shadow: none;
+		border-radius: inherit;
 	}
 }
 

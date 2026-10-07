@@ -9,7 +9,8 @@
 	@each $tag, $args in $statuses {
 		$color: list.nth($args, 1);
 
-		a.tl-#{$tag} {
+		a.tl-#{$tag},
+		span.tag-link.tl-#{$tag} {
 			--status-color:     #{$color};
 			color:              color-mix(in srgb, var(--status-color) 50%, var(--silver));
 			background:         #{tint($color, 12%)};
@@ -25,7 +26,7 @@
 			border-radius: 2px;
 
 			@if list.nth($args, 4) {
-				> a.tag-link { display: inline-block; }
+				> .tag-link { display: inline-block; }
 			}
 		}
 	}

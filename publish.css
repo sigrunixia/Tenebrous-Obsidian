@@ -1192,6 +1192,10 @@ a.tag[href="#question"],
   --callout-icon: lucide-luggage;
   --hub-hue: var(--teal);
 }
+.landing .callout[data-callout=hub-projects] {
+  --callout-icon: lucide-wrench;
+  --hub-hue: var(--cyan);
+}
 .landing .callout[data-callout=hub-about] {
   --callout-icon: lucide-user;
   --hub-hue: var(--yellow);
@@ -1538,7 +1542,7 @@ body {
   height: 420px;
   border-radius: 4px;
   overflow: hidden;
-  margin: var(--size-4-4) 0;
+  margin: var(--size-4-4) auto;
 }
 .base-map-embed .leaflet-tile {
   width: 256.5px !important;
@@ -1559,10 +1563,10 @@ body {
 .base-map-embed .leaflet-control-attribution {
   font-size: var(--font-ui-smaller);
   background-color: var(--background-secondary);
-  color: var(--text-muted);
+  color: var(--text-normal);
 }
 .base-map-embed .leaflet-control-attribution a {
-  color: var(--text-muted);
+  color: var(--text-normal);
 }
 .base-map-embed .leaflet-popup-content {
   margin: var(--size-4-2) 24px var(--size-4-2) var(--size-4-3);
@@ -1570,6 +1574,10 @@ body {
 .base-map-embed .leaflet-container {
   background-color: var(--background-secondary);
   font-family: inherit;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  border-radius: inherit;
 }
 
 .base-map-marker {

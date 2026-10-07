@@ -27,6 +27,11 @@
 @use 'quartz/chrome';
 @use 'quartz/header';
 @use 'quartz/highlights';
+@use 'quartz/base-map';
+@use 'quartz/infobox';
+@use 'quartz/graph';
+@use 'quartz/responsive';
+@use 'quartz/a11y';
 @use 'quartz/tag-lines';
 @use 'customs/greek/fonts' as greek-fonts;
 @use 'quartz/tenebrism';

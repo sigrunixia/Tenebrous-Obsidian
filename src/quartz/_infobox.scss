@@ -1,0 +1,118 @@
+@use '../lib/radius';
+
+// The infobox, built from frontmatter by infobox.py, in two copies. From 1280px
+// wide the right sidebar holds it (.infobox-side). Below that the inline copy
+// (.infobox-inline) floats to the right of the opening text, like an encyclopedia
+// infobox, and below 1100px the article is too narrow to share, so it stacks above
+// the text. Only one copy is ever shown.
+.infobox {
+	float: right;
+	width: 20rem;
+	max-width: 100%;
+	margin: 0.25rem 0 1rem 1.5rem;
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: radius.$radius;
+	overflow: hidden;
+	font-size: 0.92rem;
+
+	img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		margin: 0;
+	}
+
+	// The photo credit under the cover.
+	.infobox-credit {
+		margin: 0;
+		padding: 0.4rem 0.9rem 0;
+		font-size: 0.78rem;
+		color: var(--comment);
+	}
+
+	dl {
+		margin: 0;
+		padding: 0.7rem 0.9rem 0.3rem;
+	}
+
+	// Each label and its value travel together, so a column break never splits them.
+	dl > div {
+		break-inside: avoid;
+	}
+
+	dt {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		color: var(--comment);
+	}
+
+	dd {
+		margin: 0 0 0.65rem;
+		overflow-wrap: anywhere;
+	}
+
+	.infobox-note {
+		color: var(--comment);
+	}
+
+	// Below 1100px the article is too narrow to share with a floated card. It spans
+	// the article instead, with the cover on the left and the facts beside it.
+	@media (max-width: 1100px) {
+		float: none;
+		width: auto;
+		margin: 0 0 1rem;
+
+		&:has(img) {
+			display: grid;
+			grid-template-columns: minmax(10rem, 14rem) 1fr;
+		}
+
+		img {
+			height: 100%;
+			min-height: 11rem;
+			aspect-ratio: auto;
+		}
+	}
+
+	// On phones the cover goes on top, in a wide crop so it does not fill the
+	// screen, and the facts run in two columns where there is room.
+	@media (max-width: 800px) {
+		&:has(img) {
+			display: block;
+		}
+
+		img {
+			height: auto;
+			min-height: 0;
+			max-height: 20rem;
+			aspect-ratio: 16 / 9;
+		}
+
+		dl {
+			columns: 2 12rem;
+			column-gap: 1.5rem;
+		}
+	}
+}
+
+.infobox-side {
+	float: none;
+	width: auto;
+	margin: 0;
+}
+
+@media (min-width: 1280px) {
+	.infobox-inline {
+		display: none;
+	}
+}
+
+// The infobox shows the properties, so Quartz's own properties panel is hidden.
+// (The plugin has to stay on, or the build filters out every page.)
+.page-header .note-properties {
+	display: none;
+}

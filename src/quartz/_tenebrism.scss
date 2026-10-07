@@ -1,3 +1,6 @@
+@use 'sass:list';
+@use 'sass:math';
+
 // A tenebrist variant of the site, switched on by the class "tenebrism" on
 // <html> (the build adds it when TENEBRISM=1).
 //
@@ -31,13 +34,59 @@ html.tenebrism body.theme-dark {
 // bright core, a warm body and a wide umber falloff give the light some
 // graded mid-tones instead of a hard edge. Fixed, so the light stays put as
 // the page scrolls.
+// A radial glow that fades along a smoothstep curve. A plain fade to transparent
+// is linear, and at these low alphas on a dark ground each 8-bit colour step
+// shows as a ring. Twelve eased stops make the steps smaller and the edge soft.
+@function glow($size, $at, $r, $g, $b, $alpha, $stops: 12) {
+	$list: ();
+	@for $i from 0 through $stops {
+		$t: math.div($i, $stops);
+		$ease: 1 - $t * $t * (3 - 2 * $t);
+		// A string, so Sass keeps the decimal alpha. As a colour it would write it as
+		// 8-bit hex, which leaves a 0.05 glow with only about 13 levels.
+		$stop: 'rgb(#{$r} #{$g} #{$b} / #{math.div(math.round($alpha * $ease * 100000), 100000)}) #{math.div($i * 100, $stops)}%';
+		$list: list.append($list, #{$stop}, comma);
+	}
+	@return radial-gradient(ellipse #{$size} at #{$at}, $list);
+}
+
 html.tenebrism body {
 	background-image:
-		radial-gradient(ellipse 28% 36% at 63% 30%, rgba(255, 214, 140, 0.05), transparent 100%),
-		radial-gradient(ellipse 55% 65% at 63% 28%, rgba(240, 176, 74, 0.07), transparent 100%),
-		radial-gradient(ellipse 95% 105% at 63% 30%, rgba(122, 166, 230, 0.07), transparent 100%);
+		glow(28% 36%, 63% 30%, 255, 214, 140, 0.05),
+		glow(55% 65%, 63% 28%, 240, 176, 74, 0.07),
+		glow(95% 105%, 63% 30%, 122, 166, 230, 0.07);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+}
+
+// The swirl look, switched on by the class "swirl" next to "tenebrism". The same
+// light, but as three spiral arms, like light in a whirlpool (assets/swirl.svg).
+// The picture is square and sized to the larger side of the screen, and placed so
+// its centre sits where the spotlight's does. A faint wide glow stays behind it.
+html.tenebrism.swirl body {
+	--swirl: max(130vw, 130vh);
+	background-image:
+		url("/static/swirl.svg"),
+		glow(95% 105%, 63% 30%, 122, 166, 230, 0.04);
+	background-size: var(--swirl) var(--swirl), auto;
+	background-position: calc(63vw - var(--swirl) / 2) calc(30vh - var(--swirl) / 2), 0 0;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+// Even eased, the glow bands on an 8-bit screen, since each colour channel steps
+// at a different place. A fixed grain behind the content dithers it. Dithering
+// wants noise of about one colour level, so it is opaque, per channel (not grey),
+// and at 1.4%, which is a range of about 3 levels. It sits under everything
+// (z-index -1), so it cannot touch the text contrast.
+html.tenebrism body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	opacity: 0.014;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 // Cards are lit from above.
@@ -86,12 +135,16 @@ html.tenebrism .sidebar button {
 	border-color: #59607f;
 }
 
-// Internal links are blue, a link to a note that is not published is dotted,
-// and an external link is cyan with its arrow. Tags are pink pills' text.
-html.tenebrism a.internal.unresolved {
-	color: var(--fg_dark);
+// Internal links are blue, an external link is cyan with its arrow, and a name with
+// no published note is not a link at all (the build turns those into spans). It is
+// plain text with a dotted underline, which no link has, and the pointer stays an
+// arrow, so it does not look clickable. The tooltip says why.
+html.tenebrism .unresolved {
 	text-decoration: underline dotted;
-	text-underline-offset: 0.2em;
+	text-decoration-thickness: 1px;
+	text-decoration-color: color-mix(in srgb, currentColor 60%, transparent);
+	text-underline-offset: 0.25em;
+	cursor: default;
 }
 
 html.tenebrism a.tag-link:not([class*="tl-"]) {

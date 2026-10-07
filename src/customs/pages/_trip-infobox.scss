@@ -1,0 +1,103 @@
+@use '../../lib/radius';
+
+// A trip's properties, shown as an infobox to the right of the opening text, like
+// the one the site builds (see Tenebrous-Site/infobox.py). The note's own
+// frontmatter is the infobox, so the hand-written Trip callout is gone. This is
+// reading view only; Live Preview keeps Obsidian's plain properties.
+.markdown-preview-view.trip .metadata-container {
+	float: right;
+	width: 20rem;
+	max-width: 45%;
+	margin: 0 0 var(--size-4-4) var(--size-4-6);
+	padding: var(--size-4-3) var(--size-4-4) var(--size-4-1);
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: radius.$radius;
+
+	// The collapse heading is not part of the card.
+	.metadata-properties-heading {
+		display: none;
+	}
+
+	// A column, so Updated can be put first whatever the order in the file.
+	.metadata-properties {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+	}
+
+	// The photo credit comes first, under the cover on the site, then Updated.
+	.metadata-property[data-property-key="cover-credit"] {
+		order: -2;
+		margin-bottom: var(--size-4-2);
+		font-size: var(--font-ui-smaller);
+		color: var(--text-muted);
+
+		.metadata-property-key {
+			display: none;
+		}
+	}
+
+	.metadata-property[data-property-key="modified"] {
+		order: -1;
+
+		// The property is called modified; the infobox calls it Updated, like the site.
+		.metadata-property-key-input {
+			display: none;
+		}
+
+		.metadata-property-key::before {
+			content: "Updated";
+		}
+	}
+
+	.metadata-property {
+		display: block;
+		min-height: 0;
+		margin: 0 0 var(--size-4-3);
+		padding: 0;
+		border: 0;
+		background: none;
+	}
+
+	.metadata-property-icon {
+		display: none;
+	}
+
+	.metadata-property-key {
+		width: auto;
+		font-size: var(--font-ui-smaller);
+		font-weight: 600;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		color: var(--text-faint);
+	}
+
+	.metadata-property-value {
+		width: auto;
+		padding: 0;
+	}
+
+	// Housekeeping, not facts about the trip.
+	.metadata-property:is(
+		[data-property-key="aliases"],
+		[data-property-key="categories"],
+		[data-property-key="cssclasses"],
+		[data-property-key="created"],
+		[data-property-key="publish"],
+		[data-property-key="permalink"],
+		[data-property-key="coordinates"],
+		[data-property-key="sources"],
+		[data-property-key="cover"],
+		[data-property-key="tags"]
+	) {
+		display: none;
+	}
+
+	@media (max-width: 700px) {
+		float: none;
+		width: auto;
+		max-width: none;
+		margin: 0 0 var(--size-4-4);
+	}
+}

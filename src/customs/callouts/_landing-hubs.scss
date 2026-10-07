@@ -24,6 +24,11 @@
 		--hub-hue: var(--teal);
 	}
 
+	.callout[data-callout="hub-projects"] {
+		--callout-icon: lucide-wrench;
+		--hub-hue: var(--cyan);
+	}
+
 	.callout[data-callout="hub-about"] {
 		--callout-icon: lucide-user;
 		--hub-hue: var(--yellow);

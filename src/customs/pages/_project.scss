@@ -1,0 +1,35 @@
+.project {
+	.inline-title {
+		padding-bottom: 0.2em;
+		border-bottom: 2px solid transparent;
+		border-image: linear-gradient(90deg, var(--amber), transparent 80%) 1;
+	}
+
+	.metadata-property[data-property-key='statuses'] .multi-select-pill {
+		color: var(--green);
+		background: color-mix(in oklch, var(--green) 14%, transparent);
+		border-color: color-mix(in oklch, var(--green) 40%, transparent);
+	}
+
+	.metadata-property[data-property-key='platform'] .multi-select-pill {
+		color: var(--blue0);
+		background: color-mix(in oklch, var(--blue0) 14%, transparent);
+		border-color: color-mix(in oklch, var(--blue0) 40%, transparent);
+	}
+
+	.internal-embed.image-embed img {
+		display: block;
+		width: 100%;
+		max-height: min(26rem, 70vw);
+		object-fit: cover;
+		margin: 0.6rem 0;
+		border: 1px solid var(--background-modifier-border);
+		border-radius: 14px;
+	}
+
+	h2 {
+		margin-top: 1.6em;
+		padding-bottom: 0.2em;
+		border-bottom: 1px solid var(--background-modifier-border);
+	}
+}
