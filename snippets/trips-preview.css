@@ -461,8 +461,114 @@
   border: 1px solid var(--background-modifier-border);
   border-radius: 14px;
 }
+.project .callout .internal-embed.image-embed img {
+  max-height: 28rem;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  object-fit: contain;
+}
 .project h2 {
   margin-top: 1.6em;
   padding-bottom: 0.2em;
   border-bottom: 1px solid var(--background-modifier-border);
+}
+.project .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 14px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.project .metadata-properties-heading {
+  display: none;
+}
+.project .metadata-properties {
+  padding: 0.3rem 0;
+}
+.project .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.project .metadata-property[data-property-key=aliases], .project .metadata-property[data-property-key=publish], .project .metadata-property[data-property-key=permalink], .project .metadata-property[data-property-key=cssclasses], .project .metadata-property[data-property-key=categories], .project .metadata-property[data-property-key=types], .project .metadata-property[data-property-key=created], .project .metadata-property[data-property-key=modified], .project .metadata-property[data-property-key=description], .project .metadata-property[data-property-key=cover], .project .metadata-property:has(.is-empty), .project .metadata-property:has(.metadata-input-longtext:empty), .project .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.project .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--comment);
+}
+.project .metadata-property-key .metadata-property-icon,
+.project .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.project .metadata-property-key::after {
+  content: "";
+}
+.project .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+.project .metadata-property[data-property-key=statuses] .metadata-property-key::after {
+  content: "Status";
+}
+.project .metadata-property[data-property-key=role] .metadata-property-key::after {
+  content: "Role";
+}
+.project .metadata-property[data-property-key=started] .metadata-property-key::after {
+  content: "Started";
+}
+.project .metadata-property[data-property-key=ended] .metadata-property-key::after {
+  content: "Ended";
+}
+.project .metadata-property[data-property-key=year] .metadata-property-key::after {
+  content: "Year";
+}
+.project .metadata-property[data-property-key=people] .metadata-property-key::after,
+.project .metadata-property[data-property-key=organizations] .metadata-property-key::after {
+  content: "With";
+}
+.project .metadata-property[data-property-key=platform] .metadata-property-key::after {
+  content: "Works on";
+}
+.project .metadata-property[data-property-key=sources] .metadata-property-key::after {
+  content: "Links";
+}
+.project .metadata-property[data-property-key=sources] .multi-select-container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (max-width: 40rem) {
+  .project .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+.project .internal-embed[alt^="cover - "] {
+  float: right;
+  clear: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0 0 1rem 1.4rem;
+}
+.project .internal-embed[alt^="cover - "] img {
+  aspect-ratio: 4/3;
+  max-height: none;
+  margin: 0;
+}
+@media (max-width: 40rem) {
+  .project .internal-embed[alt^="cover - "] {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
 }

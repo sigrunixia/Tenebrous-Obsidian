@@ -27,9 +27,130 @@
 		border-radius: 14px;
 	}
 
+	.callout .internal-embed.image-embed img {
+		max-height: 28rem;
+		margin: 0;
+		border: none;
+		border-radius: 0;
+		object-fit: contain;
+	}
+
 	h2 {
 		margin-top: 1.6em;
 		padding-bottom: 0.2em;
 		border-bottom: 1px solid var(--background-modifier-border);
+	}
+
+	// The properties panel becomes the project card, matching the site infobox.
+	// Only the facts the site shows stay, empty ones are hidden, and the keys
+	// are relabelled to the site's wording.
+	.metadata-container {
+		float: right;
+		width: clamp(14rem, 32vw, 20rem);
+		margin: 0.25rem 0 0.6rem 1.4rem;
+		overflow: hidden;
+		border: 1px solid var(--background-modifier-border);
+		border-radius: 14px;
+		background: var(--background-secondary);
+		font-size: 0.85rem;
+	}
+
+	.metadata-properties-heading {
+		display: none;
+	}
+
+	.metadata-properties {
+		padding: 0.3rem 0;
+	}
+
+	.metadata-property {
+		display: block;
+		min-height: 0;
+		padding: 0.45rem 0.9rem;
+		border: none;
+
+		&[data-property-key='aliases'],
+		&[data-property-key='publish'],
+		&[data-property-key='permalink'],
+		&[data-property-key='cssclasses'],
+		&[data-property-key='categories'],
+		&[data-property-key='types'],
+		&[data-property-key='created'],
+		&[data-property-key='modified'],
+		&[data-property-key='description'],
+		&[data-property-key='cover'],
+		&:has(.is-empty),
+		&:has(.metadata-input-longtext:empty),
+		&:has(.multi-select-container > .multi-select-input:only-child) {
+			display: none;
+		}
+	}
+
+	.metadata-property-key {
+		width: auto;
+		margin-bottom: 0.1rem;
+		font-size: 0.72rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--comment);
+
+		.metadata-property-icon,
+		.metadata-property-key-input {
+			display: none;
+		}
+
+		&::after {
+			content: '';
+		}
+	}
+
+	.metadata-property-value {
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
+
+	.metadata-property[data-property-key='statuses'] .metadata-property-key::after { content: 'Status'; }
+	.metadata-property[data-property-key='role'] .metadata-property-key::after { content: 'Role'; }
+	.metadata-property[data-property-key='started'] .metadata-property-key::after { content: 'Started'; }
+	.metadata-property[data-property-key='ended'] .metadata-property-key::after { content: 'Ended'; }
+	.metadata-property[data-property-key='year'] .metadata-property-key::after { content: 'Year'; }
+	.metadata-property[data-property-key='people'] .metadata-property-key::after,
+	.metadata-property[data-property-key='organizations'] .metadata-property-key::after { content: 'With'; }
+	.metadata-property[data-property-key='platform'] .metadata-property-key::after { content: 'Works on'; }
+	.metadata-property[data-property-key='sources'] .metadata-property-key::after { content: 'Links'; }
+
+	.metadata-property[data-property-key='sources'] .multi-select-container {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	@media (max-width: 40rem) {
+		.metadata-container {
+			float: none;
+			width: 100%;
+			margin: 0 0 1rem;
+		}
+	}
+
+	// The cover, written in the body as ![[image|cover - description]], sits
+	// under the card like the site's infobox photo.
+	.internal-embed[alt^='cover - '] {
+		float: right;
+		clear: right;
+		width: clamp(14rem, 32vw, 20rem);
+		margin: 0 0 1rem 1.4rem;
+
+		img {
+			aspect-ratio: 4 / 3;
+			max-height: none;
+			margin: 0;
+		}
+
+		@media (max-width: 40rem) {
+			float: none;
+			width: 100%;
+			margin: 0 0 1rem;
+		}
 	}
 }
