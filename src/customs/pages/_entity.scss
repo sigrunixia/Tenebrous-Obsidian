@@ -39,6 +39,7 @@ $title-only: (
 	.metadata-container {
 		float: right;
 		width: clamp(14rem, 32vw, 20rem);
+		max-width: 45%;
 		margin: 0.25rem 0 0.6rem 1.4rem;
 		overflow: hidden;
 		border: 1px solid var(--background-modifier-border);

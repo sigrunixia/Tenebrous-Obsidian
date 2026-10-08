@@ -1208,6 +1208,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.company .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1275,6 +1276,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.community .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1342,6 +1344,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.movie .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1409,6 +1412,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.show .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1476,6 +1480,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.book .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1543,6 +1548,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.game .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1610,6 +1616,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.board-game .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1677,6 +1684,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.podcast .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1744,6 +1752,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.podcast-episode .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1811,6 +1820,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.recipe .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1878,6 +1888,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.event .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
@@ -1945,6 +1956,7 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-preview-view.program .metadata-container {
   float: right;
   width: clamp(14rem, 32vw, 20rem);
+  max-width: 45%;
   margin: 0.25rem 0 0.6rem 1.4rem;
   overflow: hidden;
   border: 1px solid var(--background-modifier-border);
