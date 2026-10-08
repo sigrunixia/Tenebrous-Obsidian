@@ -1184,6 +1184,873 @@ body.is-phone .home .callout[data-callout=hero] {
   letter-spacing: 0.06em;
 }
 
+.company .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--teal), transparent 80%) 1;
+}
+
+.markdown-preview-view.company .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--teal);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.company .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.company .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.company .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.company .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.company .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.company .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.company .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.company .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.company .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.company .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.company .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.company .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.community .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--green), transparent 80%) 1;
+}
+
+.markdown-preview-view.community .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--green);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.community .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.community .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.community .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.community .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.community .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.community .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.community .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.community .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.community .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.community .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.community .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.community .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.movie .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--red), transparent 80%) 1;
+}
+
+.markdown-preview-view.movie .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--red);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.movie .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.movie .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.movie .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.movie .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.movie .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.movie .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.movie .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.movie .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.movie .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.movie .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.movie .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.movie .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.show .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--periwinkle), transparent 80%) 1;
+}
+
+.markdown-preview-view.show .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--periwinkle);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.show .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.show .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.show .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.show .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.show .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.show .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.show .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.show .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.show .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.show .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.show .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.show .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.book .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--green), transparent 80%) 1;
+}
+
+.markdown-preview-view.book .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--green);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.book .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.book .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.book .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.book .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.book .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.book .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.book .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.book .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.book .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.book .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.book .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.book .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.game .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--yellow), transparent 80%) 1;
+}
+
+.markdown-preview-view.game .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--yellow);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.game .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.game .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.game .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.game .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.game .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.game .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.game .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.game .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.game .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.game .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.game .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.game .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.board-game .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--amber), transparent 80%) 1;
+}
+
+.markdown-preview-view.board-game .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--amber);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.board-game .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.board-game .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.board-game .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.board-game .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.board-game .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.board-game .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.board-game .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.board-game .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.board-game .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.board-game .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.board-game .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.board-game .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.podcast .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--orange), transparent 80%) 1;
+}
+
+.markdown-preview-view.podcast .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--orange);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.podcast .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.podcast .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.podcast .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.podcast .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.podcast .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.podcast .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.podcast .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.podcast .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.podcast .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.podcast .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.podcast .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.podcast .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.podcast-episode .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--yellow), transparent 80%) 1;
+}
+
+.markdown-preview-view.podcast-episode .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--yellow);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.podcast-episode .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.podcast-episode .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.podcast-episode .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.podcast-episode .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.podcast-episode .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.podcast-episode .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.podcast-episode .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.podcast-episode .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.podcast-episode .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.podcast-episode .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.podcast-episode .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.podcast-episode .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.recipe .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--teal), transparent 80%) 1;
+}
+
+.markdown-preview-view.recipe .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--teal);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.recipe .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.recipe .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.recipe .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.recipe .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.recipe .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.recipe .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.recipe .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.recipe .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.recipe .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.recipe .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.recipe .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.recipe .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.event .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--teal), transparent 80%) 1;
+}
+
+.markdown-preview-view.event .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--teal);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.event .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.event .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.event .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.event .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.event .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.event .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.event .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.event .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.event .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.event .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.event .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.event .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.program .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--red), transparent 80%) 1;
+}
+
+.markdown-preview-view.program .metadata-container {
+  float: right;
+  width: clamp(14rem, 32vw, 20rem);
+  margin: 0.25rem 0 0.6rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+  border-top: 3px solid var(--red);
+  border-radius: 4px;
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+}
+.markdown-preview-view.program .metadata-container .metadata-properties-heading {
+  display: none;
+}
+.markdown-preview-view.program .metadata-container .metadata-properties {
+  padding: 0.3rem 0;
+}
+.markdown-preview-view.program .metadata-container .metadata-property {
+  display: block;
+  min-height: 0;
+  padding: 0.45rem 0.9rem;
+  border: none;
+}
+.markdown-preview-view.program .metadata-container .metadata-property:is([data-property-key=aliases],
+[data-property-key=categories],
+[data-property-key=cssclasses],
+[data-property-key=created],
+[data-property-key=modified],
+[data-property-key=publish],
+[data-property-key=permalink],
+[data-property-key=description],
+[data-property-key=cover],
+[data-property-key=sources],
+[data-property-key=tags]), .markdown-preview-view.program .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.program .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.program .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
+  display: none;
+}
+.markdown-preview-view.program .metadata-container .metadata-property-key {
+  width: auto;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.markdown-preview-view.program .metadata-container .metadata-property-key .metadata-property-icon,
+.markdown-preview-view.program .metadata-container .metadata-property-key .metadata-property-key-input {
+  display: none;
+}
+.markdown-preview-view.program .metadata-container .metadata-property-value {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 40rem) {
+  .markdown-preview-view.program .metadata-container {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+}
+
+.person .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--purple), transparent 80%) 1;
+}
+
+.item .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--purple), transparent 80%) 1;
+}
+
+.vocab {
+  --vocab-hue: var(--amber);
+  --vocab-label: "Term";
+}
+.vocab .inline-title {
+  position: relative;
+  padding: 1.1em 0 0.2em 0.9em;
+  border-left: 3px solid var(--vocab-hue);
+}
+.vocab .inline-title::before {
+  content: var(--vocab-label);
+  position: absolute;
+  top: 0.1em;
+  left: 0.9em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vocab-hue);
+}
+
+.vocab-topic {
+  --vocab-hue: var(--periwinkle);
+  --vocab-label: "Topic";
+}
+
+.vocab-genre {
+  --vocab-hue: var(--red);
+  --vocab-label: "Genre";
+}
+
+.vocab-item-type {
+  --vocab-hue: var(--purple);
+  --vocab-label: "Item type";
+}
+
+.vocab-place-type {
+  --vocab-hue: var(--teal);
+  --vocab-label: "Place type";
+}
+
+.vocab-company-type {
+  --vocab-hue: var(--cyan);
+  --vocab-label: "Company type";
+}
+
+.vocab-vocabulary {
+  --vocab-hue: var(--amber);
+  --vocab-label: "Vocabulary";
+}
+
 .markdown-reading-view .callout[data-callout=place] {
   --callout-color: var(--teal);
   --callout-icon: lucide-map-pin;

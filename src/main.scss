@@ -30,6 +30,8 @@
 @use 'customs/pages/idea';
 @use 'customs/pages/place' as page-place;
 @use 'customs/pages/gallery';
+@use 'customs/pages/entity';
+@use 'customs/pages/vocab';
 @use 'customs/callouts/place';
 @use 'customs/callouts/grid';
 @use 'customs/callouts/trip-cards-base';

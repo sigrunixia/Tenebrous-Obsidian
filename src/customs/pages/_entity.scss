@@ -1,0 +1,127 @@
+@use 'sass:map';
+@use '../../lib/radius';
+
+// Reference notes about a kind of thing in the world. Each kind has the class its template
+// sets in cssclasses. The title gets a rule in the colour of its hub (see hub-variants), so a
+// movie note and the Movies hub share red. Place, person and item notes keep their callouts,
+// so they only get the title rule. Everything else also gets its properties as a card beside
+// the opening text, like the trip and project cards. The card is reading view only, and
+// Live Preview keeps Obsidian's plain properties.
+$entities: (
+	"company": "teal",
+	"community": "green",
+	"movie": "red",
+	"show": "periwinkle",
+	"book": "green",
+	"game": "yellow",
+	"board-game": "amber",
+	"podcast": "orange",
+	"podcast-episode": "yellow",
+	"recipe": "teal",
+	"event": "teal",
+	"program": "red"
+);
+
+$title-only: (
+	"person": "purple",
+	"item": "purple"
+);
+
+@mixin title-rule($hue) {
+	.inline-title {
+		padding-bottom: 0.2em;
+		border-bottom: 2px solid transparent;
+		border-image: linear-gradient(90deg, var(--#{$hue}), transparent 80%) 1;
+	}
+}
+
+@mixin card($hue) {
+	.metadata-container {
+		float: right;
+		width: clamp(14rem, 32vw, 20rem);
+		margin: 0.25rem 0 0.6rem 1.4rem;
+		overflow: hidden;
+		border: 1px solid var(--background-modifier-border);
+		border-top: 3px solid var(--#{$hue});
+		border-radius: radius.$radius;
+		background: var(--background-secondary);
+		font-size: 0.85rem;
+
+		.metadata-properties-heading {
+			display: none;
+		}
+
+		.metadata-properties {
+			padding: 0.3rem 0;
+		}
+
+		.metadata-property {
+			display: block;
+			min-height: 0;
+			padding: 0.45rem 0.9rem;
+			border: none;
+
+			// Housekeeping and empty fields are not facts about the thing.
+			&:is(
+				[data-property-key="aliases"],
+				[data-property-key="categories"],
+				[data-property-key="cssclasses"],
+				[data-property-key="created"],
+				[data-property-key="modified"],
+				[data-property-key="publish"],
+				[data-property-key="permalink"],
+				[data-property-key="description"],
+				[data-property-key="cover"],
+				[data-property-key="sources"],
+				[data-property-key="tags"]
+			),
+			&:has(.is-empty),
+			&:has(.metadata-input-longtext:empty),
+			&:has(.multi-select-container > .multi-select-input:only-child) {
+				display: none;
+			}
+		}
+
+		.metadata-property-key {
+			width: auto;
+			margin-bottom: 0.1rem;
+			font-size: 0.72rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: var(--text-faint);
+
+			.metadata-property-icon,
+			.metadata-property-key-input {
+				display: none;
+			}
+		}
+
+		.metadata-property-value {
+			width: auto;
+			margin: 0;
+			padding: 0;
+		}
+
+		@media (max-width: 40rem) {
+			float: none;
+			width: 100%;
+			margin: 0 0 1rem;
+		}
+	}
+}
+
+@each $name, $hue in $entities {
+	.#{$name} {
+		@include title-rule($hue);
+	}
+
+	.markdown-preview-view.#{$name} {
+		@include card($hue);
+	}
+}
+
+@each $name, $hue in $title-only {
+	.#{$name} {
+		@include title-rule($hue);
+	}
+}

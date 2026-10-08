@@ -1,0 +1,42 @@
+
+// A term in the controlled vocabulary (Reference/Types), such as a genre or a place type.
+// It is not a hub, so it gets a quiet title with a small label for its facet instead of the
+// hub banner. The facet class sets the colour and the label. The category hubs keep .hub.
+.vocab {
+	--vocab-hue: var(--amber);
+	--vocab-label: "Term";
+
+	.inline-title {
+		position: relative;
+		padding: 1.1em 0 0.2em 0.9em;
+		border-left: 3px solid var(--vocab-hue);
+
+		&::before {
+			content: var(--vocab-label);
+			position: absolute;
+			top: 0.1em;
+			left: 0.9em;
+			font-size: 0.7rem;
+			font-weight: 600;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+			color: var(--vocab-hue);
+		}
+	}
+}
+
+$facets: (
+	("topic", "periwinkle", "Topic"),
+	("genre", "red", "Genre"),
+	("item-type", "purple", "Item type"),
+	("place-type", "teal", "Place type"),
+	("company-type", "cyan", "Company type"),
+	("vocabulary", "amber", "Vocabulary")
+);
+
+@each $name, $hue, $label in $facets {
+	.vocab-#{$name} {
+		--vocab-hue: var(--#{$hue});
+		--vocab-label: "#{$label}";
+	}
+}
