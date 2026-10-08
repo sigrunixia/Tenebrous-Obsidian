@@ -54,7 +54,6 @@ svg * {
 .theme-dark, .theme-light {
   --blue: #7aa6e6;
   --amber: #f0b04a;
-  --amber0: #e8a955;
   --purple: #a894e8;
   --periwinkle: rgb(145, 157, 231);
   --orange: #f5a04a;
@@ -63,14 +62,9 @@ svg * {
   --pink: #f087bd;
   --cyan: #89ddff;
   --lime: #a8d86e;
-  --rose: #d370a3;
-  --crimson: #df6d7f;
   --green: #5de4c7;
-  --green0: #5fb3a1;
   --teal: #5fb8c8;
   --red: #e47461;
-  --red1: #f07a62;
-  --unknown: #ffffff;
 }
 
 .theme-dark, .theme-light {
@@ -121,9 +115,9 @@ svg * {
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
   --background-modifier-success: var(--green);
   --background-modifier-success-rgb: 93, 228, 199;
-  --background-modifier-error: var(--red1);
+  --background-modifier-error: var(--red);
   --background-modifier-error-hover: var(--red);
-  --background-modifier-error-rgb: 240, 122, 98;
+  --background-modifier-error-rgb: 228, 116, 97;
   --background-modifier-warning: var(--orange);
   --background-modifier-warning-hover: var(--orange);
   --background-modifier-info: var(--blue);
@@ -209,7 +203,7 @@ svg * {
 }
 
 .theme-dark, .theme-light {
-  --link-color: var(--amber0);
+  --link-color: var(--amber);
   --link-color-hover: var(--amber);
   --link-external-color: var(--text-muted);
   --link-external-color-hover: var(--text-normal);
@@ -219,7 +213,7 @@ svg * {
   --checkbox-radius: 4px;
   --checkbox-color: var(--text-faint);
   --checkbox-color-hover: var(--text-faint);
-  --checkbox-marker-color: var(--amber0);
+  --checkbox-marker-color: var(--amber);
   --checkbox-border-color: var(--text-faint);
   --checkbox-border-color-hover: var(--text-faint);
   --checklist-done-color: var(--amber);
@@ -270,7 +264,7 @@ svg * {
   --code-background: var(--bg-raised);
   --code-comment: var(--text-muted);
   --code-function: var(--amber);
-  --code-important: var(--red1);
+  --code-important: var(--red);
   --code-keyword: var(--purple);
   --code-operator: var(--teal);
   --code-property: var(--cyan);
@@ -281,11 +275,11 @@ svg * {
   --code-number: var(--pink);
   --code-atom: var(--red);
   --code-builtin: var(--blue);
-  --code-string-2: var(--green0);
+  --code-string-2: var(--green);
   --code-def: var(--silver);
   --code-variable-2: var(--teal);
   --code-meta: var(--text-faint);
-  --code-url: var(--amber0);
+  --code-url: var(--amber);
 }
 
 .theme-dark, .theme-light {
@@ -308,9 +302,9 @@ svg * {
   --callout-success: var(--lime);
   --callout-question: var(--yellow);
   --callout-warning: var(--orange);
-  --callout-fail: var(--crimson);
+  --callout-fail: var(--red);
   --callout-error: var(--red);
-  --callout-bug: var(--rose);
+  --callout-bug: var(--pink);
   --callout-example: var(--purple);
   --callout-quote: var(--text-muted);
 }
@@ -322,7 +316,7 @@ svg * {
 }
 
 .theme-dark, .theme-light {
-  --nav-item-color-hover: var(--unknown);
+  --nav-item-color-hover: var(--silver);
   --nav-item-background-hover: var(--bg-highlight);
   --nav-item-color-active: var(--green);
   --nav-item-background-active: var(--bg-highlight);
@@ -349,7 +343,7 @@ svg * {
   --tab-text-color-active: var(--text-normal);
   --tab-text-color-focused: var(--text-normal);
   --tab-text-color-focused-active: var(--green);
-  --tab-text-color-focused-active-current: var(--unknown);
+  --tab-text-color-focused-active-current: var(--silver);
   --tab-text-color-focused-highlighted: var(--purple);
 }
 

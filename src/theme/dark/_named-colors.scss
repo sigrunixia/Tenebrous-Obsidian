@@ -7,7 +7,6 @@ $periwinkle:      color.mix($purple, $blue, 50%);
 $palette: (
 	"blue": $blue,
 	"amber": $amber,
-	"amber0": $amber0,
 	"purple": $purple,
 	"periwinkle": to-rgb($periwinkle),
 	"orange": $orange,
@@ -16,14 +15,9 @@ $palette: (
 	"pink": $pink,
 	"cyan": $cyan,
 	"lime": $lime,
-	"rose": $rose,
-	"crimson": $crimson,
 	"green": $green,
-	"green0": $green0,
 	"teal": $teal,
 	"red": $red,
-	"red1": $red1,
-	"unknown": $unknown
 );
 
 .theme-dark {

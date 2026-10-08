@@ -2,7 +2,7 @@
 @use "../../lib/palette" as *;
 
 $success-rgb: rgb-triplet($green);
-$error-rgb:   rgb-triplet($red1);
+$error-rgb:   rgb-triplet($red);
 
 .theme-dark {
 	--background-primary:                     var(--bg);
@@ -18,7 +18,7 @@ $error-rgb:   rgb-triplet($red1);
 	--background-modifier-box-shadow:         rgba(0, 0, 0, 0.3);
 	--background-modifier-success:            var(--green);
 	--background-modifier-success-rgb:        #{$success-rgb};
-	--background-modifier-error:              var(--red1);
+	--background-modifier-error:              var(--red);
 	--background-modifier-error-hover:        var(--red);
 	--background-modifier-error-rgb:          #{$error-rgb};
 	--background-modifier-warning:            var(--orange);
