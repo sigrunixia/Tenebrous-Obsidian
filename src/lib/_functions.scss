@@ -14,10 +14,6 @@
 	@return string.unquote("rgb(#{channel($color, 'red')}, #{channel($color, 'green')}, #{channel($color, 'blue')})");
 }
 
-@function base-step($bg, $fg, $percent) {
-	@return to-rgb(color.mix($fg, $bg, $percent * 1%));
-}
-
 @function tint($color, $percent) {
 	@return string.unquote("color-mix(in oklch, #{$color} #{$percent}, transparent)");
 }

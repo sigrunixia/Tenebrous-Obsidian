@@ -1,8 +1,42 @@
+@use "sass:math";
+@use "sass:color";
+@use "sass:list";
 @use "../../lib/functions" as *;
 @use "../../lib/palette" as *;
 
+// Obsidian's grey scale, --color-base-00 to --color-base-100. It runs through the
+// palette's own neutrals, so each anchor is exactly one of them and the steps between
+// are mixed in OKLCH, which keeps the lightness even. Step 50 is faint text, 70 is
+// muted text and 100 is text, as in Obsidian's own themes.
+$anchors: (
+	(0: $bg),
+	(5: $bg-raised),
+	(20: $bg-highlight),
+	(50: $text-faint),
+	(70: $text-dim),
+	(100: $text)
+);
+
+@function base-color($step) {
+	$below: null;
+	@each $anchor in $anchors {
+		@each $at, $colour in $anchor {
+			@if $at == $step {
+				@return to-rgb($colour);
+			}
+			@if $at < $step {
+				$below: ($at, $colour);
+			} @else {
+				$from: list.nth($below, 1);
+				$weight: math.div($step - $from, $at - $from) * 100%;
+				@return to-rgb(color.mix($colour, list.nth($below, 2), $weight, $method: oklch));
+			}
+		}
+	}
+}
+
 .theme-dark {
 	@each $label, $step in ("00": 0, "05": 5, "10": 10, "20": 20, "25": 25, "30": 30, "35": 35, "40": 40, "50": 50, "60": 60, "70": 70, "100": 100) {
-		--color-base-#{$label}: #{base-step($bg, $text, $step)};
+		--color-base-#{$label}: #{base-color($step)};
 	}
 }

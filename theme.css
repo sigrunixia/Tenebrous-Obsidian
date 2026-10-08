@@ -69,16 +69,16 @@ svg * {
 
 .theme-dark {
   --color-base-00: rgb(13, 15, 20);
-  --color-base-05: rgb(22, 24, 31);
-  --color-base-10: rgb(31, 34, 41);
-  --color-base-20: rgb(49, 52, 62);
-  --color-base-25: rgb(59, 62, 73);
-  --color-base-30: rgb(68, 71, 83);
-  --color-base-35: rgb(77, 80, 94);
-  --color-base-40: rgb(86, 89, 104);
-  --color-base-50: rgb(104, 108, 125);
-  --color-base-60: rgb(122, 127, 146);
-  --color-base-70: rgb(140, 145, 167);
+  --color-base-05: rgb(19, 22, 33);
+  --color-base-10: rgb(24, 28, 43);
+  --color-base-20: rgb(34, 39, 64);
+  --color-base-25: rgb(50, 55, 82);
+  --color-base-30: rgb(67, 72, 101);
+  --color-base-35: rgb(84, 90, 121);
+  --color-base-40: rgb(102, 108, 141);
+  --color-base-50: rgb(140, 146, 182);
+  --color-base-60: rgb(153, 159, 193);
+  --color-base-70: rgb(166, 172, 205);
   --color-base-100: rgb(195, 201, 230);
 }
 
