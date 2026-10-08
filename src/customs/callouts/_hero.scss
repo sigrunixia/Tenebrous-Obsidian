@@ -4,13 +4,13 @@
 
 $hero-dots: (
 	(62% 12%, "amber"),
-	(80% 20%, "purple"),
+	(80% 20%, "periwinkle"),
 	(92% 34%, "amber"),
-	(96% 70%, "purple"),
+	(96% 70%, "periwinkle"),
 	(84% 84%, "amber"),
-	(68% 92%, "purple"),
+	(68% 92%, "periwinkle"),
 	(40% 10%, "amber"),
-	(28% 16%, "purple")
+	(28% 16%, "periwinkle")
 );
 
 $hero-dots-css: "";
@@ -46,7 +46,7 @@ body.is-phone .home .callout[data-callout="hero"] {
 		padding-right: clamp(6rem, 24vw, 11rem);
 		background:
 			radial-gradient(circle at 92% 8%, tint(var(--amber), 14%), transparent 55%),
-			linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+			linear-gradient(160deg, var(--bg-raised), var(--bg-deep));
 
 		&::before {
 			display: none;

@@ -1,7 +1,7 @@
 @use '../../lib/typography' as t;
 
 .callout[data-callout="day"] {
-	--callout-color: var(--blue0);
+	--callout-color: var(--blue);
 	--callout-icon: lucide-calendar-days;
 
 	> .callout-content > p:first-child > strong:only-child {

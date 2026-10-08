@@ -3,7 +3,7 @@
 @use '../../lib/callout-mixins' as *;
 
 .callout[data-callout="caption"] {
-	--callout-color: var(--comment);
+	--callout-color: var(--text-faint);
 	margin: 1.4rem 0;
 	padding: 0;
 	overflow: hidden;

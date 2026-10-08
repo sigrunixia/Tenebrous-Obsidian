@@ -35,7 +35,7 @@ svg * {
 }
 
 .checkbox-container::after {
-  box-shadow: 0 0 0 1px var(--comment), rgba(0, 0, 0, 0.15) 0 1px 2px;
+  box-shadow: 0 0 0 1px var(--text-faint), rgba(0, 0, 0, 0.15) 0 1px 2px;
 }
 
 .theme-dark, .theme-light {
@@ -45,21 +45,18 @@ svg * {
 }
 
 .theme-dark, .theme-light {
-  --bg_dark2: #080a0e;
+  --bg-deep: #080a0e;
   --bg: #0d0f14;
-  --bg_highlight: #222740;
-  --bg_highlight_dark: #131621;
-  --fg: #c3c9e6;
-  --fg_dark: #a6accd;
+  --bg-highlight: #222740;
+  --bg-raised: #131621;
 }
 
 .theme-dark, .theme-light {
-  --comment: #8c92b6;
-  --blue0: #7aa6e6;
+  --blue: #7aa6e6;
   --amber: #f0b04a;
   --amber0: #e8a955;
-  --magenta: #a894e8;
-  --purple: rgb(145, 157, 231);
+  --purple: #a894e8;
+  --periwinkle: rgb(145, 157, 231);
   --orange: #f5a04a;
   --yellow: #fffac2;
   --silver: #e2e7f2;
@@ -94,13 +91,13 @@ svg * {
 .theme-dark, .theme-light {
   --color-red: var(--red);
   --color-red-rgb: 228, 116, 97;
-  --color-purple: var(--magenta);
+  --color-purple: var(--purple);
   --color-purple-rgb: 168, 148, 232;
   --color-green: var(--green);
   --color-green-rgb: 93, 228, 199;
   --color-cyan: var(--cyan);
   --color-cyan-rgb: 137, 221, 255;
-  --color-blue: var(--blue0);
+  --color-blue: var(--blue);
   --color-blue-rgb: 122, 166, 230;
   --color-yellow: var(--yellow);
   --color-yellow-rgb: 255, 250, 194;
@@ -113,14 +110,14 @@ svg * {
 .theme-dark, .theme-light {
   --background-primary: var(--bg);
   --background-primary-alt: var(--bg);
-  --background-secondary: var(--bg_dark2);
-  --background-secondary-alt: var(--bg_dark2);
-  --background-modifier-border: var(--bg_highlight);
-  --background-modifier-border-focus: var(--bg_highlight);
-  --background-modifier-border-hover: var(--bg_highlight);
-  --background-modifier-form-field: var(--bg_dark2);
-  --background-modifier-form-field-highlighted: var(--bg_dark2);
-  --background-modifier-form-field-hover: var(--bg_dark2);
+  --background-secondary: var(--bg-deep);
+  --background-secondary-alt: var(--bg-deep);
+  --background-modifier-border: var(--bg-highlight);
+  --background-modifier-border-focus: var(--bg-highlight);
+  --background-modifier-border-hover: var(--bg-highlight);
+  --background-modifier-form-field: var(--bg-deep);
+  --background-modifier-form-field-highlighted: var(--bg-deep);
+  --background-modifier-form-field-hover: var(--bg-deep);
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
   --background-modifier-success: var(--green);
   --background-modifier-success-rgb: 93, 228, 199;
@@ -129,62 +126,62 @@ svg * {
   --background-modifier-error-rgb: 240, 122, 98;
   --background-modifier-warning: var(--orange);
   --background-modifier-warning-hover: var(--orange);
-  --background-modifier-info: var(--blue0);
-  --background-modifier-cover: var(--bg_dark2);
-  --background-modifier-hover: var(--bg_highlight);
-  --background-modifier-message: var(--bg_highlight_dark);
+  --background-modifier-info: var(--blue);
+  --background-modifier-cover: var(--bg-deep);
+  --background-modifier-hover: var(--bg-highlight);
+  --background-modifier-message: var(--bg-raised);
   --background-modifier-active-hover: var(--bg);
 }
 
 .theme-dark, .theme-light {
-  --notice-color: var(--fg);
-  --tooltip-color: var(--fg);
+  --notice-color: var(--text-normal);
+  --tooltip-color: var(--text-normal);
 }
 
 .theme-dark, .theme-light {
-  --text-normal: var(--fg);
-  --text-faint: var(--comment);
-  --text-muted: var(--fg_dark);
+  --text-normal: #c3c9e6;
+  --text-faint: #8c92b6;
+  --text-muted: #a6accd;
   --text-error: var(--red);
-  --text-error-hover: var(--fg);
-  --text-accent: var(--magenta);
+  --text-error-hover: var(--text-normal);
+  --text-accent: var(--purple);
   --text-accent-hover: var(--amber);
   --text-selection: color-mix(in oklch, var(--amber) 25%, transparent);
   --text-on-accent: var(--bg);
   --highlight-opacity: 25%;
-  --bold-color: var(--blue0);
+  --bold-color: var(--blue);
   --italic-color: var(--amber);
 }
 
 .theme-dark, .theme-light {
   --highlight-bg-color: var(--highlight-background);
   --highlight-selected-bg-color: color-mix(in oklch, var(--orange) 45%, transparent);
-  --flashing-background: var(--bg_dark2);
+  --flashing-background: var(--bg-deep);
 }
 
 .theme-dark, .theme-light {
   --button-hover-color: var(--interactive-hover);
   --toggled-btn-bg-color: var(--interactive-accent);
   --toggled-btn-color: var(--text-on-accent);
-  --interactive-normal: var(--bg_dark2);
+  --interactive-normal: var(--bg-deep);
   --interactive-hover: var(--bg);
   --interactive-success: var(--green);
   --interactive-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-  --interactive-accent-hover: var(--fg);
+  --interactive-accent-hover: var(--text-normal);
 }
 
 .theme-dark, .theme-light {
-  --scrollbar-bg: var(--bg_dark2);
-  --scrollbar-thumb-bg: var(--bg_highlight);
-  --scrollbar-active-thumb-bg: var(--comment);
+  --scrollbar-bg: var(--bg-deep);
+  --scrollbar-thumb-bg: var(--bg-highlight);
+  --scrollbar-active-thumb-bg: var(--text-faint);
   --scrollbar-width: 8px;
 }
 
 .theme-dark, .theme-light {
-  --h1-color: var(--blue0);
+  --h1-color: var(--blue);
   --h2-color: var(--amber);
   --h3-color: var(--teal);
-  --h4-color: var(--magenta);
+  --h4-color: var(--purple);
   --h5-color: var(--green);
   --h6-color: var(--silver);
 }
@@ -194,11 +191,11 @@ svg * {
 }
 
 .theme-dark, .theme-light {
-  --tag-color: color-mix(in srgb, var(--magenta) 50%, var(--silver));
-  --tag-background: color-mix(in oklch, var(--magenta) 12%, transparent);
+  --tag-color: color-mix(in srgb, var(--purple) 50%, var(--silver));
+  --tag-background: color-mix(in oklch, var(--purple) 12%, transparent);
   --tag-color-hover: color-mix(in srgb, var(--amber) 60%, var(--silver));
   --tag-background-hover: color-mix(in oklch, var(--amber) 12%, transparent);
-  --tag-border-color: color-mix(in oklch, var(--magenta) 40%, transparent);
+  --tag-border-color: color-mix(in oklch, var(--purple) 40%, transparent);
   --tag-border-color-hover: color-mix(in oklch, var(--amber) 40%, transparent);
   --tag-border-width: 1px;
   --tag-corner-shape: round;
@@ -214,95 +211,95 @@ svg * {
 .theme-dark, .theme-light {
   --link-color: var(--amber0);
   --link-color-hover: var(--amber);
-  --link-external-color: var(--fg_dark);
-  --link-external-color-hover: var(--fg);
+  --link-external-color: var(--text-muted);
+  --link-external-color-hover: var(--text-normal);
 }
 
 .theme-dark, .theme-light {
   --checkbox-radius: 4px;
-  --checkbox-color: var(--comment);
-  --checkbox-color-hover: var(--comment);
+  --checkbox-color: var(--text-faint);
+  --checkbox-color-hover: var(--text-faint);
   --checkbox-marker-color: var(--amber0);
-  --checkbox-border-color: var(--comment);
-  --checkbox-border-color-hover: var(--comment);
+  --checkbox-border-color: var(--text-faint);
+  --checkbox-border-color-hover: var(--text-faint);
   --checklist-done-color: var(--amber);
 }
 
 .theme-dark, .theme-light {
-  --input-hover-border-color: var(--comment);
+  --input-hover-border-color: var(--text-faint);
   --input-focus-outline: 1px solid var(--interactive-accent);
-  --radio-border-color: var(--comment);
-  --textarea-border-color: var(--comment);
+  --radio-border-color: var(--text-faint);
+  --textarea-border-color: var(--text-faint);
 }
 
 .theme-dark, .theme-light {
   --table-header-background: var(--bg);
-  --table-header-background-hover: var(--bg_dark2);
-  --table-row-alt-background: var(--bg_dark2);
-  --table-row-background-hover: var(--bg_dark2);
-  --table-row-alt-background-hover: var(--bg_dark2);
+  --table-header-background-hover: var(--bg-deep);
+  --table-row-alt-background: var(--bg-deep);
+  --table-row-background-hover: var(--bg-deep);
+  --table-row-alt-background-hover: var(--bg-deep);
 }
 
 .theme-dark, .theme-light {
   --bases-table-header-color: var(--amber);
   --bases-kanban-column-background: var(--background-secondary);
-  --bases-kanban-card-background: var(--bg_highlight_dark);
-  --bases-kanban-card-shadow: 0 0 0 1px var(--bg_highlight);
+  --bases-kanban-card-background: var(--bg-raised);
+  --bases-kanban-card-shadow: 0 0 0 1px var(--bg-highlight);
   --bases-kanban-card-shadow-hover: 0 0 0 1px var(--amber);
   --bases-kanban-card-shadow-focus: 0 0 0 2px var(--amber);
-  --bases-group-heading-value-color: var(--fg);
+  --bases-group-heading-value-color: var(--text-normal);
 }
 
 .theme-dark, .theme-light {
-  --metadata-divider-color-hover: var(--comment);
+  --metadata-divider-color-hover: var(--text-faint);
   --metadata-divider-color-focus: var(--interactive-accent);
-  --metadata-input-background-hover: var(--bg_highlight);
-  --metadata-label-background-hover: var(--bg_highlight);
-  --metadata-property-background-hover: var(--bg_highlight);
-  --pill-background-hover: var(--bg_highlight);
+  --metadata-input-background-hover: var(--bg-highlight);
+  --metadata-label-background-hover: var(--bg-highlight);
+  --metadata-property-background-hover: var(--bg-highlight);
+  --pill-background-hover: var(--bg-highlight);
 }
 
 .theme-dark, .theme-light {
   --slider-thumb-background: var(--interactive-accent);
   --slider-thumb-background-hover: var(--interactive-accent);
-  --slider-track-background: var(--bg_highlight);
+  --slider-track-background: var(--bg-highlight);
 }
 
 .theme-dark, .theme-light {
-  --code-normal: var(--fg);
-  --code-background: var(--bg_highlight_dark);
-  --code-comment: var(--fg_dark);
+  --code-normal: var(--text-normal);
+  --code-background: var(--bg-raised);
+  --code-comment: var(--text-muted);
   --code-function: var(--amber);
   --code-important: var(--red1);
-  --code-keyword: var(--magenta);
+  --code-keyword: var(--purple);
   --code-operator: var(--teal);
   --code-property: var(--cyan);
-  --code-punctuation: var(--fg_dark);
+  --code-punctuation: var(--text-muted);
   --code-string: var(--green);
   --code-tag: var(--red);
   --code-value: var(--yellow);
   --code-number: var(--pink);
   --code-atom: var(--red);
-  --code-builtin: var(--blue0);
+  --code-builtin: var(--blue);
   --code-string-2: var(--green0);
   --code-def: var(--silver);
   --code-variable-2: var(--teal);
-  --code-meta: var(--comment);
+  --code-meta: var(--text-faint);
   --code-url: var(--amber0);
 }
 
 .theme-dark, .theme-light {
-  --mermaid-note: var(--blue0);
-  --mermaid-actor: var(--fg_dark);
-  --mermaid-loopline: var(--blue0);
+  --mermaid-note: var(--blue);
+  --mermaid-actor: var(--text-muted);
+  --mermaid-loopline: var(--blue);
 }
 
 .theme-dark, .theme-light {
-  --blockquote-background-color: var(--bg_dark2);
+  --blockquote-background-color: var(--bg-deep);
 }
 
 .theme-dark, .theme-light {
-  --callout-default: var(--blue0);
+  --callout-default: var(--blue);
   --callout-summary: var(--cyan);
   --callout-info: var(--teal);
   --callout-todo: var(--silver);
@@ -314,68 +311,68 @@ svg * {
   --callout-fail: var(--crimson);
   --callout-error: var(--red);
   --callout-bug: var(--rose);
-  --callout-example: var(--magenta);
-  --callout-quote: var(--fg_dark);
+  --callout-example: var(--purple);
+  --callout-quote: var(--text-muted);
 }
 
 .theme-dark, .theme-light {
-  --icon-color-hover: var(--blue0);
+  --icon-color-hover: var(--blue);
   --icon-color-focused: var(--teal);
   --icon-color-active: var(--green);
 }
 
 .theme-dark, .theme-light {
   --nav-item-color-hover: var(--unknown);
-  --nav-item-background-hover: var(--bg_highlight);
+  --nav-item-background-hover: var(--bg-highlight);
   --nav-item-color-active: var(--green);
-  --nav-item-background-active: var(--bg_highlight);
+  --nav-item-background-active: var(--bg-highlight);
   --nav-file-tag: var(--yellow);
-  --nav-indentation-guide-color: var(--bg_highlight);
+  --nav-indentation-guide-color: var(--bg-highlight);
 }
 
 .theme-dark, .theme-light {
-  --indentation-guide-color: var(--comment);
-  --indentation-guide-color-active: var(--comment);
+  --indentation-guide-color: var(--text-faint);
+  --indentation-guide-color-active: var(--text-faint);
 }
 
 .theme-dark, .theme-light {
-  --graph-line: var(--comment);
-  --graph-node: var(--fg);
+  --graph-line: var(--text-faint);
+  --graph-node: var(--text-normal);
   --graph-node-tag: var(--orange);
-  --graph-node-attachment: var(--blue0);
-  --graph-node-unresolved: var(--comment);
-  --graph-node-focused: var(--magenta);
+  --graph-node-attachment: var(--blue);
+  --graph-node-unresolved: var(--text-faint);
+  --graph-node-focused: var(--purple);
 }
 
 .theme-dark, .theme-light {
-  --tab-text-color: var(--fg_dark);
-  --tab-text-color-active: var(--fg);
-  --tab-text-color-focused: var(--fg);
+  --tab-text-color: var(--text-muted);
+  --tab-text-color-active: var(--text-normal);
+  --tab-text-color-focused: var(--text-normal);
   --tab-text-color-focused-active: var(--green);
   --tab-text-color-focused-active-current: var(--unknown);
-  --tab-text-color-focused-highlighted: var(--magenta);
+  --tab-text-color-focused-highlighted: var(--purple);
 }
 
 .theme-dark, .theme-light {
-  --modal-border-color: var(--bg_highlight);
-  --prompt-border-color: var(--bg_highlight);
+  --modal-border-color: var(--bg-highlight);
+  --prompt-border-color: var(--bg-highlight);
 }
 
 .theme-dark, .theme-light {
-  --embed-background: var(--bg_highlight);
+  --embed-background: var(--bg-highlight);
   --embed-padding: 1.5rem 1.5rem 0.5rem;
-  --embed-border-start: 2px solid var(--bg_highlight);
+  --embed-border-start: 2px solid var(--bg-highlight);
 }
 
 .theme-dark, .theme-light {
-  --canvas-background: var(--bg_dark2);
-  --canvas-color: var(--bg_highlight_dark);
+  --canvas-background: var(--bg-deep);
+  --canvas-color: var(--bg-raised);
   --canvas-color-1: var(--red);
   --canvas-color-2: var(--orange);
   --canvas-color-3: var(--yellow);
   --canvas-color-4: var(--green);
   --canvas-color-5: var(--cyan);
-  --canvas-color-6: var(--magenta);
+  --canvas-color-6: var(--purple);
 }
 
 .theme-dark, .theme-light {
@@ -481,7 +478,7 @@ svg * {
 .idea .inline-title {
   position: relative;
   padding: 0.15em 0 0.15em 1.1em;
-  border-left: 4px solid var(--purple);
+  border-left: 4px solid var(--periwinkle);
   font-size: clamp(1.5rem, 5.5vw, 2.3rem);
   font-weight: 700;
   line-height: 1.25;
@@ -493,13 +490,13 @@ svg * {
   top: -0.35em;
   font-size: 2.4em;
   line-height: 1;
-  color: color-mix(in oklch, var(--purple) 45%, transparent);
+  color: color-mix(in oklch, var(--periwinkle) 45%, transparent);
   pointer-events: none;
 }
 .idea .metadata-property[data-property-key=sources] .multi-select-pill {
-  color: var(--purple);
-  background: color-mix(in oklch, var(--purple) 14%, transparent);
-  border-color: color-mix(in oklch, var(--purple) 40%, transparent);
+  color: var(--periwinkle);
+  background: color-mix(in oklch, var(--periwinkle) 14%, transparent);
+  border-color: color-mix(in oklch, var(--periwinkle) 40%, transparent);
 }
 
 .place .inline-title {
@@ -522,7 +519,7 @@ svg * {
 .gallery .inline-title {
   font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 700;
-  background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+  background: linear-gradient(90deg, var(--amber), var(--periwinkle) 60%, var(--purple));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -678,7 +675,7 @@ svg * {
 }
 
 .callout[data-callout=day] {
-  --callout-color: var(--blue0);
+  --callout-color: var(--blue);
   --callout-icon: lucide-calendar-days;
 }
 .callout[data-callout=day] > .callout-content > p:first-child > strong:only-child {
@@ -691,7 +688,7 @@ svg * {
 }
 
 .callout[data-callout=stay] {
-  --callout-color: var(--purple);
+  --callout-color: var(--periwinkle);
   --callout-icon: lucide-bed-double;
 }
 
@@ -756,7 +753,7 @@ svg * {
 }
 
 .callout[data-callout=caption] {
-  --callout-color: var(--comment);
+  --callout-color: var(--text-faint);
   margin: 1.4rem 0;
   padding: 0;
   overflow: hidden;
@@ -804,7 +801,7 @@ svg * {
 }
 
 .callout[data-callout=plan] {
-  --callout-color: var(--comment);
+  --callout-color: var(--text-faint);
   --callout-icon: lucide-clipboard-list;
   border-style: dashed;
   border-left-style: solid;
@@ -882,14 +879,14 @@ svg * {
 
 a.tag[href="#todo"],
 .cm-tag-todo {
-  --status-color: var(--blue0);
+  --status-color: var(--blue);
   --tag-color: color-mix(in srgb, var(--status-color) 50%, var(--silver));
   --tag-background: color-mix(in oklch, var(--status-color) 12%, transparent);
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
 :is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#todo"]):not(:has(> br)) {
-  --status-color: var(--blue0);
+  --status-color: var(--blue);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
   padding-inline: 0.6em 0.4em;
@@ -897,7 +894,7 @@ a.tag[href="#todo"],
 }
 
 .cm-line:has(.cm-tag-todo) {
-  --status-color: var(--blue0);
+  --status-color: var(--blue);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
 }
@@ -926,14 +923,14 @@ a.tag[href="#doing"],
 
 a.tag[href="#waiting"],
 .cm-tag-waiting {
-  --status-color: var(--magenta);
+  --status-color: var(--purple);
   --tag-color: color-mix(in srgb, var(--status-color) 50%, var(--silver));
   --tag-background: color-mix(in oklch, var(--status-color) 12%, transparent);
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
 :is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#waiting"]):not(:has(> br)) {
-  --status-color: var(--magenta);
+  --status-color: var(--purple);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
   padding-inline: 0.6em 0.4em;
@@ -941,7 +938,7 @@ a.tag[href="#waiting"],
 }
 
 .cm-line:has(.cm-tag-waiting) {
-  --status-color: var(--magenta);
+  --status-color: var(--purple);
   background: color-mix(in oklch, var(--status-color) 12%, transparent);
   box-shadow: inset 3px 0 0 var(--status-color);
 }
@@ -999,14 +996,14 @@ a.tag[href="#completed"],
 
 a.tag[href="#canceled"],
 .cm-tag-canceled {
-  --status-color: var(--fg_dark);
+  --status-color: var(--text-muted);
   --tag-color: color-mix(in srgb, var(--status-color) 50%, var(--silver));
   --tag-background: color-mix(in oklch, var(--status-color) 12%, transparent);
   --tag-border-color: color-mix(in oklch, var(--status-color) 40%, transparent);
 }
 
 :is(li, p, h1, h2, h3, h4, h5, h6):has(> a.tag[href="#canceled"]):not(:has(> br)) {
-  --status-color: var(--fg_dark);
+  --status-color: var(--text-muted);
   text-decoration: line-through;
   text-decoration-color: color-mix(in oklch, var(--status-color) 70%, transparent);
   padding-inline: 0.6em 0.4em;
@@ -1017,7 +1014,7 @@ a.tag[href="#canceled"],
 }
 
 .cm-line:has(.cm-tag-canceled) {
-  --status-color: var(--fg_dark);
+  --status-color: var(--text-muted);
   text-decoration: line-through;
   text-decoration-color: color-mix(in oklch, var(--status-color) 70%, transparent);
 }
@@ -1071,9 +1068,9 @@ a.tag[href="#question"],
   overflow: hidden;
   margin: 0 0 1.4em;
   padding: clamp(1.4rem, 6vw, 2.8rem) clamp(1.2rem, 5vw, 2.6rem);
-  border: 1px solid color-mix(in oklch, var(--purple) 35%, transparent);
+  border: 1px solid color-mix(in oklch, var(--periwinkle) 35%, transparent);
   border-radius: 16px;
-  background: radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--purple) 38%, transparent), transparent 55%), radial-gradient(circle at 88% 82%, color-mix(in oklch, var(--amber) 32%, transparent), transparent 50%), linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+  background: radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--periwinkle) 38%, transparent), transparent 55%), radial-gradient(circle at 88% 82%, color-mix(in oklch, var(--amber) 32%, transparent), transparent 50%), linear-gradient(160deg, var(--bg-raised), var(--bg-deep));
 }
 .landing .callout[data-callout=hero] .callout-icon {
   display: none;
@@ -1083,7 +1080,7 @@ a.tag[href="#question"],
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.02em;
-  background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+  background: linear-gradient(90deg, var(--amber), var(--periwinkle) 60%, var(--purple));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1099,7 +1096,7 @@ a.tag[href="#question"],
     position: absolute;
     inset: -40%;
     pointer-events: none;
-    background: radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--purple) 24%, transparent), transparent 38%), radial-gradient(circle at 70% 70%, color-mix(in oklch, var(--amber) 20%, transparent), transparent 38%);
+    background: radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--periwinkle) 24%, transparent), transparent 38%), radial-gradient(circle at 70% 70%, color-mix(in oklch, var(--amber) 20%, transparent), transparent 38%);
     animation: landing-drift 28s ease-in-out infinite alternate;
   }
   .landing .callout[data-callout=hero] > * {
@@ -1182,7 +1179,7 @@ a.tag[href="#question"],
 }
 .landing .callout[data-callout=hub-obsidian] {
   --callout-icon: lucide-gem;
-  --hub-hue: var(--purple);
+  --hub-hue: var(--periwinkle);
 }
 .landing .callout[data-callout=hub-tattoos] {
   --callout-icon: lucide-flame;
@@ -1307,7 +1304,7 @@ a.tag[href="#question"],
 }
 
 .callout[data-callout=contact-github] {
-  --contact-hue: var(--fg);
+  --contact-hue: var(--text-normal);
   --contact-icon: url("data:image/svg+xml,%3Csvg fill='black' role='img' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
 }
 
@@ -1318,7 +1315,7 @@ a.tag[href="#question"],
 }
 
 .callout[data-callout=contact-threads] {
-  --contact-hue: var(--fg);
+  --contact-hue: var(--text-normal);
   --contact-icon: url("data:image/svg+xml,%3Csvg fill='black' role='img' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z'/%3E%3C/svg%3E");
 }
 

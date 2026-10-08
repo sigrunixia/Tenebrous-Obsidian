@@ -12,9 +12,9 @@
 	}
 
 	.metadata-property[data-property-key='platform'] .multi-select-pill {
-		color: var(--blue0);
-		background: color-mix(in oklch, var(--blue0) 14%, transparent);
-		border-color: color-mix(in oklch, var(--blue0) 40%, transparent);
+		color: var(--blue);
+		background: color-mix(in oklch, var(--blue) 14%, transparent);
+		border-color: color-mix(in oklch, var(--blue) 40%, transparent);
 	}
 
 	.internal-embed.image-embed img {
@@ -92,7 +92,7 @@
 		font-size: 0.72rem;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		color: var(--comment);
+		color: var(--text-faint);
 
 		.metadata-property-icon,
 		.metadata-property-key-input {

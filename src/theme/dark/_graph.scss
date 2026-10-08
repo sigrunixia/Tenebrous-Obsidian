@@ -1,8 +1,8 @@
 .theme-dark {
-	--graph-line:            var(--comment);
-	--graph-node:            var(--fg);
+	--graph-line:            var(--text-faint);
+	--graph-node:            var(--text-normal);
 	--graph-node-tag:        var(--orange);
-	--graph-node-attachment: var(--blue0);
-	--graph-node-unresolved: var(--comment);
-	--graph-node-focused:    var(--magenta);
+	--graph-node-attachment: var(--blue);
+	--graph-node-unresolved: var(--text-faint);
+	--graph-node-focused:    var(--purple);
 }

@@ -1,9 +1,9 @@
 .theme-dark {
 	--checkbox-radius:            4px;
-	--checkbox-color:             var(--comment);
-	--checkbox-color-hover:       var(--comment);
+	--checkbox-color:             var(--text-faint);
+	--checkbox-color-hover:       var(--text-faint);
 	--checkbox-marker-color:      var(--amber0);
-	--checkbox-border-color:      var(--comment);
-	--checkbox-border-color-hover: var(--comment);
+	--checkbox-border-color:      var(--text-faint);
+	--checkbox-border-color-hover: var(--text-faint);
 	--checklist-done-color:       var(--amber);
 }

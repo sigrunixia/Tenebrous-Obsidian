@@ -4,7 +4,7 @@
 	.inline-title {
 		position: relative;
 		padding: 0.15em 0 0.15em 1.1em;
-		border-left: 4px solid var(--purple);
+		border-left: 4px solid var(--periwinkle);
 		font-size: clamp(1.5rem, 5.5vw, 2.3rem);
 		font-weight: 700;
 		line-height: 1.25;
@@ -16,14 +16,14 @@
 			top: -0.35em;
 			font-size: 2.4em;
 			line-height: 1;
-			color: tint(var(--purple), 45%);
+			color: tint(var(--periwinkle), 45%);
 			pointer-events: none;
 		}
 	}
 
 	.metadata-property[data-property-key="sources"] .multi-select-pill {
-		color: var(--purple);
-		background: tint(var(--purple), 14%);
-		border-color: tint(var(--purple), 40%);
+		color: var(--periwinkle);
+		background: tint(var(--periwinkle), 14%);
+		border-color: tint(var(--periwinkle), 40%);
 	}
 }

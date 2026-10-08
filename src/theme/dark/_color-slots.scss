@@ -3,7 +3,7 @@
 @use "named-colors" as colors;
 
 .theme-dark {
-	$slots: ("red": "red", "purple": "magenta", "green": "green", "cyan": "cyan", "blue": "blue0", "yellow": "yellow", "orange": "orange", "pink": "pink");
+	$slots: ("red": "red", "purple": "purple", "green": "green", "cyan": "cyan", "blue": "blue", "yellow": "yellow", "orange": "orange", "pink": "pink");
 	@each $slot, $name in $slots {
 		--color-#{$slot}: var(--#{$name});
 		--color-#{$slot}-rgb: #{rgb-triplet(map.get(colors.$palette, $name))};

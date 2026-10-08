@@ -1,6 +1,6 @@
 .theme-dark {
-	--input-hover-border-color: var(--comment);
+	--input-hover-border-color: var(--text-faint);
 	--input-focus-outline:      1px solid var(--interactive-accent);
-	--radio-border-color:       var(--comment);
-	--textarea-border-color:    var(--comment);
+	--radio-border-color:       var(--text-faint);
+	--textarea-border-color:    var(--text-faint);
 }

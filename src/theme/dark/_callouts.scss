@@ -1,5 +1,5 @@
 .theme-dark {
-	--callout-default:   var(--blue0);
+	--callout-default:   var(--blue);
 	--callout-summary:   var(--cyan);
 	--callout-info:      var(--teal);
 	--callout-todo:      var(--silver);
@@ -11,6 +11,6 @@
 	--callout-fail:      var(--crimson);
 	--callout-error:     var(--red);
 	--callout-bug:       var(--rose);
-	--callout-example:   var(--magenta);
-	--callout-quote:     var(--fg_dark);
+	--callout-example:   var(--purple);
+	--callout-quote:     var(--text-muted);
 }

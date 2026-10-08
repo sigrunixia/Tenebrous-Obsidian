@@ -1,11 +1,8 @@
 @use "../../lib/palette" as *;
 
 .theme-dark {
-	--bg_dark2:          #{$bg-dark2};
-	--bg:                #{$bg};
-	--bg_highlight:      #{$bg-highlight};
-	--bg_highlight_dark: #{$bg-highlight-dk};
-
-	--fg:      #{$fg};
-	--fg_dark: #{$fg-dark};
+	--bg-deep:      #{$bg-deep};
+	--bg:           #{$bg};
+	--bg-highlight: #{$bg-highlight};
+	--bg-raised:    #{$bg-raised};
 }

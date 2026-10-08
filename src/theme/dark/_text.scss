@@ -1,16 +1,17 @@
 @use "../../lib/functions" as *;
+@use "../../lib/palette" as *;
 
 .theme-dark {
-	--text-normal:       var(--fg);
-	--text-faint:        var(--comment);
-	--text-muted:        var(--fg_dark);
+	--text-normal:       #{$text};
+	--text-faint:        #{$text-faint};
+	--text-muted:        #{$text-dim};
 	--text-error:        var(--red);
-	--text-error-hover:  var(--fg);
-	--text-accent:       var(--magenta);
+	--text-error-hover:  var(--text-normal);
+	--text-accent:       var(--purple);
 	--text-accent-hover: var(--amber);
 	--text-selection:    #{tint(var(--amber), 25%)};
 	--text-on-accent:    var(--bg);
 	--highlight-opacity: 25%;
-	--bold-color:        var(--blue0);
+	--bold-color:        var(--blue);
 	--italic-color:      var(--amber);
 }

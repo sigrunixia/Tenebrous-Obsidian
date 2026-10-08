@@ -111,13 +111,13 @@
 	overflow: hidden;
 	margin: 0 0 1.4em;
 	padding: clamp(1.4rem, 6vw, 2.8rem) clamp(1.2rem, 5vw, 2.6rem);
-	border: 1px solid tint(var(--purple), 35%);
+	border: 1px solid tint(var(--periwinkle), 35%);
 	border-radius: 16px;
 	background:
-		radial-gradient(circle at 12% 18%, tint(var(--purple), 38%), transparent 55%),
+		radial-gradient(circle at 12% 18%, tint(var(--periwinkle), 38%), transparent 55%),
 		radial-gradient(circle at 88% 82%, tint(var(--amber), 32%), transparent 50%),
 		#{$dots}
-		linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+		linear-gradient(160deg, var(--bg-raised), var(--bg-deep));
 
 	.callout-icon {
 		display: none;
@@ -128,7 +128,7 @@
 		font-weight: 700;
 		line-height: 1.1;
 		letter-spacing: 0.02em;
-		background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+		background: linear-gradient(90deg, var(--amber), var(--periwinkle) 60%, var(--purple));
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -149,7 +149,7 @@
 			inset: -40%;
 			pointer-events: none;
 			background:
-				radial-gradient(circle at 30% 30%, tint(var(--purple), 24%), transparent 38%),
+				radial-gradient(circle at 30% 30%, tint(var(--periwinkle), 24%), transparent 38%),
 				radial-gradient(circle at 70% 70%, tint(var(--amber), 20%), transparent 38%);
 			animation: #{$name} 28s ease-in-out infinite alternate;
 		}

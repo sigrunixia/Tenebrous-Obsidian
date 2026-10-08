@@ -10,10 +10,10 @@
 $embers: (
 	("movement", "orange"),
 	("nature", "green"),
-	("art", "magenta"),
+	("art", "purple"),
 	("offering", "yellow"),
 	("belonging", "teal"),
-	("learning", "purple")
+	("learning", "periwinkle")
 );
 
 @each $tag, $hue in $embers {

@@ -2,15 +2,14 @@
 @use "../../lib/functions" as *;
 @use "../../lib/palette" as *;
 
-$purple:          color.mix($magenta, $blue0, 50%);
+$periwinkle:      color.mix($purple, $blue, 50%);
 
 $palette: (
-	"comment": $comment,
-	"blue0": $blue0,
+	"blue": $blue,
 	"amber": $amber,
 	"amber0": $amber0,
-	"magenta": $magenta,
-	"purple": to-rgb($purple),
+	"purple": $purple,
+	"periwinkle": to-rgb($periwinkle),
 	"orange": $orange,
 	"yellow": $yellow,
 	"silver": $silver,

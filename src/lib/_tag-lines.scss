@@ -4,12 +4,12 @@
 
 // tag, color, tint, rule, strike
 $statuses: (
-	todo:      (var(--blue0),   12%, true,  false),
+	todo:      (var(--blue),   12%, true,  false),
 	doing:     (var(--amber),   12%, true,  false),
-	waiting:   (var(--magenta), 12%, true,  false),
+	waiting:   (var(--purple), 12%, true,  false),
 	blocked:   (var(--red),     12%, true,  false),
 	completed: (var(--green),   8%,  true,  true),
-	canceled:  (var(--fg_dark), 0%,  false, true),
+	canceled:  (var(--text-muted), 0%,  false, true),
 	important: (var(--pink),    12%, true,  false),
 	question:  (var(--yellow),  12%, true,  false),
 );

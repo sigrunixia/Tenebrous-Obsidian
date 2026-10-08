@@ -7,14 +7,14 @@ $error-rgb:   rgb-triplet($red1);
 .theme-dark {
 	--background-primary:                     var(--bg);
 	--background-primary-alt:                 var(--bg);
-	--background-secondary:                   var(--bg_dark2);
-	--background-secondary-alt:               var(--bg_dark2);
-	--background-modifier-border:             var(--bg_highlight);
-	--background-modifier-border-focus:       var(--bg_highlight);
-	--background-modifier-border-hover:       var(--bg_highlight);
-	--background-modifier-form-field:         var(--bg_dark2);
-	--background-modifier-form-field-highlighted: var(--bg_dark2);
-	--background-modifier-form-field-hover:   var(--bg_dark2);
+	--background-secondary:                   var(--bg-deep);
+	--background-secondary-alt:               var(--bg-deep);
+	--background-modifier-border:             var(--bg-highlight);
+	--background-modifier-border-focus:       var(--bg-highlight);
+	--background-modifier-border-hover:       var(--bg-highlight);
+	--background-modifier-form-field:         var(--bg-deep);
+	--background-modifier-form-field-highlighted: var(--bg-deep);
+	--background-modifier-form-field-hover:   var(--bg-deep);
 	--background-modifier-box-shadow:         rgba(0, 0, 0, 0.3);
 	--background-modifier-success:            var(--green);
 	--background-modifier-success-rgb:        #{$success-rgb};
@@ -24,9 +24,9 @@ $error-rgb:   rgb-triplet($red1);
 	--background-modifier-warning:            var(--orange);
 	--background-modifier-warning-hover:      var(--orange);
 
-	--background-modifier-info:               var(--blue0);
-	--background-modifier-cover:              var(--bg_dark2);
-	--background-modifier-hover:              var(--bg_highlight);
-	--background-modifier-message:            var(--bg_highlight_dark);
+	--background-modifier-info:               var(--blue);
+	--background-modifier-cover:              var(--bg-deep);
+	--background-modifier-hover:              var(--bg-highlight);
+	--background-modifier-message:            var(--bg-raised);
 	--background-modifier-active-hover:       var(--bg);
 }

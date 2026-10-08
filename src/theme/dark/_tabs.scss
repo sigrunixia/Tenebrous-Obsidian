@@ -1,8 +1,8 @@
 .theme-dark {
-	--tab-text-color:                    var(--fg_dark);
-	--tab-text-color-active:             var(--fg);
-	--tab-text-color-focused:            var(--fg);
+	--tab-text-color:                    var(--text-muted);
+	--tab-text-color-active:             var(--text-normal);
+	--tab-text-color-focused:            var(--text-normal);
 	--tab-text-color-focused-active:     var(--green);
 	--tab-text-color-focused-active-current: var(--unknown);
-	--tab-text-color-focused-highlighted: var(--magenta);
+	--tab-text-color-focused-highlighted: var(--purple);
 }

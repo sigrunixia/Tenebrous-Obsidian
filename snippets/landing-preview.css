@@ -3,9 +3,9 @@
   overflow: hidden;
   margin: 0 0 1.4em;
   padding: clamp(1.4rem, 6vw, 2.8rem) clamp(1.2rem, 5vw, 2.6rem);
-  border: 1px solid color-mix(in oklch, var(--purple) 35%, transparent);
+  border: 1px solid color-mix(in oklch, var(--periwinkle) 35%, transparent);
   border-radius: 16px;
-  background: radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--purple) 38%, transparent), transparent 55%), radial-gradient(circle at 88% 82%, color-mix(in oklch, var(--amber) 32%, transparent), transparent 50%), linear-gradient(160deg, var(--bg_highlight_dark), var(--bg_dark2));
+  background: radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--periwinkle) 38%, transparent), transparent 55%), radial-gradient(circle at 88% 82%, color-mix(in oklch, var(--amber) 32%, transparent), transparent 50%), linear-gradient(160deg, var(--bg-raised), var(--bg-deep));
 }
 .landing .callout[data-callout=hero] .callout-icon {
   display: none;
@@ -15,7 +15,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.02em;
-  background: linear-gradient(90deg, var(--amber), var(--purple) 60%, var(--magenta));
+  background: linear-gradient(90deg, var(--amber), var(--periwinkle) 60%, var(--purple));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -31,7 +31,7 @@
     position: absolute;
     inset: -40%;
     pointer-events: none;
-    background: radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--purple) 24%, transparent), transparent 38%), radial-gradient(circle at 70% 70%, color-mix(in oklch, var(--amber) 20%, transparent), transparent 38%);
+    background: radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--periwinkle) 24%, transparent), transparent 38%), radial-gradient(circle at 70% 70%, color-mix(in oklch, var(--amber) 20%, transparent), transparent 38%);
     animation: landing-drift 28s ease-in-out infinite alternate;
   }
   .landing .callout[data-callout=hero] > * {
@@ -114,7 +114,7 @@
 }
 .landing .callout[data-callout=hub-obsidian] {
   --callout-icon: lucide-gem;
-  --hub-hue: var(--purple);
+  --hub-hue: var(--periwinkle);
 }
 .landing .callout[data-callout=hub-tattoos] {
   --callout-icon: lucide-flame;

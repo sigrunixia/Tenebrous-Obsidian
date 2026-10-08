@@ -1,11 +1,11 @@
 @use "../../lib/functions" as *;
 
 .theme-dark {
-	--tag-color:              color-mix(in srgb, var(--magenta) 50%, var(--silver));
-	--tag-background:         #{tint(var(--magenta), 12%)};
+	--tag-color:              color-mix(in srgb, var(--purple) 50%, var(--silver));
+	--tag-background:         #{tint(var(--purple), 12%)};
 	--tag-color-hover:        color-mix(in srgb, var(--amber) 60%, var(--silver));
 	--tag-background-hover:   #{tint(var(--amber), 12%)};
-	--tag-border-color:       #{tint(var(--magenta), 40%)};
+	--tag-border-color:       #{tint(var(--purple), 40%)};
 	--tag-border-color-hover: #{tint(var(--amber), 40%)};
 	--tag-border-width:       1px;
 	--tag-corner-shape:       round;
