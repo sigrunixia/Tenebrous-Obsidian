@@ -1187,6 +1187,14 @@ a.tag[href="#question"],
   --callout-icon: lucide-wrench;
   --hub-hue: var(--cyan);
 }
+.landing .callout[data-callout=hub-essays] {
+  --callout-icon: lucide-scroll-text;
+  --hub-hue: var(--purple);
+}
+.landing .callout[data-callout=hub-gear] {
+  --callout-icon: lucide-backpack;
+  --hub-hue: var(--orange);
+}
 .landing .callout[data-callout=hub-about] {
   --callout-icon: lucide-user;
   --hub-hue: var(--yellow);

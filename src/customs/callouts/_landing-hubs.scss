@@ -29,6 +29,16 @@
 		--hub-hue: var(--cyan);
 	}
 
+	.callout[data-callout="hub-essays"] {
+		--callout-icon: lucide-scroll-text;
+		--hub-hue: var(--purple);
+	}
+
+	.callout[data-callout="hub-gear"] {
+		--callout-icon: lucide-backpack;
+		--hub-hue: var(--orange);
+	}
+
 	.callout[data-callout="hub-about"] {
 		--callout-icon: lucide-user;
 		--hub-hue: var(--yellow);

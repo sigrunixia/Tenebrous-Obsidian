@@ -32,7 +32,10 @@ $hubs: (
 	("places", "purple", "map-pin"),
 	("plants", "orange", "sprout"),
 	("map", "periwinkle", "map"),
-	("projects", "cyan", "wrench")
+	("projects", "cyan", "wrench"),
+	("tattoos", "red", "flame"),
+	("essays", "purple", "scroll-text"),
+	("gear", "orange", "backpack")
 );
 
 @each $name, $hue, $icon in $hubs {
