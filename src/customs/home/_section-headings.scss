@@ -31,4 +31,29 @@
 		-webkit-mask: var(--heading-icon) center / contain no-repeat;
 		mask: var(--heading-icon) center / contain no-repeat;
 	}
+
+	// The budget embed brings its own section heading, which the section heading above already names.
+	.internal-embed[src^="Tenebrous ledger report"] :is(h1, h2, h3, h4) {
+		display: none;
+	}
+
+	// Tighten the highlights embed, which otherwise carries the full reading-view padding and list margin.
+	.internal-embed[src^="Tenebrous ledger report"] {
+		.markdown-preview-view {
+			padding: 0.4em 1em;
+		}
+
+		.markdown-embed-title,
+		.markdown-preview-pusher {
+			display: none;
+		}
+
+		.markdown-preview-section > div:empty {
+			display: none;
+		}
+
+		:is(ul, ol, p) {
+			margin-block: 0.3em;
+		}
+	}
 }

@@ -17,7 +17,11 @@
 		--heading-icon: #{icon('sparkles')};
 	}
 
-	:is(h2, h3)[data-heading="Browse"] {
+	:is(h2, h3)[data-heading="Προϋπολογισμός"] {
+		--heading-icon: #{icon('wallet')};
+	}
+
+	:is(h2, h3)[data-heading="Περιήγηση"] {
 		--heading-icon: #{icon('layout-grid')};
 	}
 
@@ -33,7 +37,7 @@
 		--heading-icon: #{icon('lightbulb')};
 	}
 
-	:is(h2, h3)[data-heading="Trips"] {
+	:is(h2, h3)[data-heading="Ταξίδια"] {
 		--heading-icon: #{icon('plane')};
 	}
 }
