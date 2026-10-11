@@ -2,7 +2,7 @@
 // A cards view fills as many columns as fit and refills them as the page changes width, which a
 // list view cannot do, because its rows are placed by script. The cards lose their frame and read
 // as a plain list. A row has one fixed height, so a long name ends in an ellipsis and does not wrap.
-.markdown-rendered:is(.item, .wardrobe) .bases-view[data-view-name="Posts"] {
+.markdown-rendered:is(.item, .wardrobe, .outfit) .bases-view[data-view-name="Posts"] {
 	scrollbar-width: none;
 
 	.bases-cards-item {
