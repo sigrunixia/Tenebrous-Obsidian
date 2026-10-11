@@ -1,0 +1,78 @@
+@use '../../lib/functions' as *;
+@use '../../lib/callout-mixins' as *;
+
+// The infobox for wardrobe notes. The cover goes at the top and the facts below it. The
+// width, the 4:3 crop and the rows match the place infobox, in the purple of the item hub. The crop
+// starts a quarter of the way down so the top of a garment stays in the frame.
+.markdown-reading-view .callout[data-callout="item"] {
+	--callout-color: var(--purple);
+	--callout-icon: lucide-shirt;
+	float: right;
+	width: clamp(14rem, 32vw, 18rem);
+	margin: 0 0 1rem 1.4rem;
+	@include framed(14px);
+	background: var(--background-secondary);
+	@include untitled;
+
+	> .callout-content > p:first-child {
+		margin: 0;
+	}
+
+	.internal-embed.image-embed img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		object-position: center 25%;
+		max-height: none;
+		border-radius: 0;
+	}
+
+	> .callout-content > ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	> .callout-content > ul > li {
+		margin: 0;
+		padding: 0.55rem 0.9rem;
+		border-top: 1px solid tint(var(--callout-color), 18%);
+		font-size: 0.85rem;
+		list-style: none;
+	}
+
+	> .callout-content > ul > li::marker {
+		content: "";
+	}
+
+	> .callout-content > ul > li > strong {
+		display: block;
+		margin-bottom: 0.1rem;
+		font-size: 0.68rem;
+		font-weight: normal;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--callout-color);
+	}
+}
+
+@media (max-width: 40rem) {
+	.markdown-reading-view .callout[data-callout="item"] {
+		float: none;
+		width: 100%;
+		margin: 0 0 1rem;
+	}
+}
+
+.markdown-reading-view {
+	.el-div:has(> .callout[data-callout="item"]) ~ .el-p:has(.bases-embed) {
+		width: calc(100% - 19.4rem);
+	}
+}
+
+@media (max-width: 40rem) {
+	.markdown-reading-view .el-div:has(> .callout[data-callout="item"]) ~ .el-p:has(.bases-embed) {
+		width: 100%;
+	}
+}
