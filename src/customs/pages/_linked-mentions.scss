@@ -1,0 +1,28 @@
+// Linked mentions on a product note is a cards view named Posts, with the name and nothing else.
+// A cards view fills as many columns as fit and refills them as the page changes width, which a
+// list view cannot do, because its rows are placed by script. The cards lose their frame and read
+// as a plain list. A row has one fixed height, so a long name ends in an ellipsis and does not wrap.
+.markdown-rendered:is(.item, .wardrobe) .bases-view[data-view-name="Posts"] {
+	scrollbar-width: none;
+
+	.bases-cards-item {
+		border: none;
+		background: none;
+		box-shadow: none;
+	}
+
+	.bases-cards-property.mod-title {
+		padding-inline: 0.25rem;
+	}
+
+	// The whole row is the link, so the name is drawn as one. The box does not show a scrollbar.
+	.bases-cards-line {
+		font-weight: normal;
+		color: var(--link-color);
+		text-decoration: underline;
+	}
+
+	.bases-cards-container {
+		scrollbar-width: none;
+	}
+}

@@ -2121,6 +2121,26 @@ body.is-phone .home .callout[data-callout=hero] {
   margin-inline: auto;
 }
 
+.markdown-rendered:is(.item, .wardrobe) .bases-view[data-view-name=Posts] {
+  scrollbar-width: none;
+}
+.markdown-rendered:is(.item, .wardrobe) .bases-view[data-view-name=Posts] .bases-cards-item {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+.markdown-rendered:is(.item, .wardrobe) .bases-view[data-view-name=Posts] .bases-cards-property.mod-title {
+  padding-inline: 0.25rem;
+}
+.markdown-rendered:is(.item, .wardrobe) .bases-view[data-view-name=Posts] .bases-cards-line {
+  font-weight: normal;
+  color: var(--link-color);
+  text-decoration: underline;
+}
+.markdown-rendered:is(.item, .wardrobe) .bases-view[data-view-name=Posts] .bases-cards-container {
+  scrollbar-width: none;
+}
+
 .vocab {
   --vocab-hue: var(--amber);
   --vocab-label: "Term";
