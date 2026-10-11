@@ -2063,6 +2063,12 @@ body.is-phone .home .callout[data-callout=hero] {
   border-image: linear-gradient(90deg, var(--purple), transparent 80%) 1;
 }
 
+.markdown-rendered .internal-embed[src^=item-cover] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+}
 .markdown-rendered .internal-embed[src^=outfit-cover] img {
   box-sizing: border-box;
   padding: 0.75rem;
@@ -2302,18 +2308,19 @@ body.is-phone .home .callout[data-callout=hero] {
     width: 100%;
   }
 }
-.markdown-reading-view .callout[data-callout=outfit] .internal-embed.image-embed img {
+.markdown-reading-view .callout[data-callout=outfit] .internal-embed.image-embed img,
+.markdown-reading-view .callout[data-callout=item] .internal-embed[src$=".svg"] img {
   aspect-ratio: auto;
   object-fit: contain;
 }
 
-.markdown-reading-view .callout[data-callout=outfit] > .callout-content > p:not(:first-child) {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > p:not(:first-child) {
   margin: 0;
   padding: 0.55rem 0.9rem;
   border-top: 1px solid color-mix(in oklch, var(--callout-color) 18%, transparent);
   font-size: 0.85rem;
 }
-.markdown-reading-view .callout[data-callout=outfit] > .callout-content > p:not(:first-child) > strong {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > p:not(:first-child) > strong {
   display: block;
   margin-bottom: 0.1rem;
   font-size: 0.72rem;
@@ -2322,7 +2329,7 @@ body.is-phone .home .callout[data-callout=hero] {
   text-transform: uppercase;
   color: color-mix(in oklch, var(--callout-color) 70%, white);
 }
-.markdown-reading-view .callout[data-callout=outfit] > .callout-content > p:not(:first-child) a.internal-link.is-unresolved {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > p:not(:first-child) a.internal-link.is-unresolved {
   color: color-mix(in oklch, var(--purple) 65%, white);
   opacity: 1;
 }

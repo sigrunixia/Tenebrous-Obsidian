@@ -77,16 +77,17 @@
 	}
 }
 
-.markdown-reading-view .callout[data-callout="outfit"] .internal-embed.image-embed img {
+.markdown-reading-view .callout[data-callout="outfit"] .internal-embed.image-embed img,
+.markdown-reading-view .callout[data-callout="item"] .internal-embed[src$=".svg"] img {
 	aspect-ratio: auto;
 	object-fit: contain;
 }
 
-// The outfit callout holds its facts as plain lines and not as a list, so there is no bullet to
-// hide. The label is lighter than the item label and unresolved links are lifted off the dark fill,
+// The outfit callout, and an item callout written the same way, hold their facts as plain lines and
+// not as a list, so there is no bullet to hide. The label is lighter than the item label and unresolved links are lifted off the dark fill,
 // to keep the small text readable. The outfit bases keep the full width, since the callout ends
 // well above them.
-.markdown-reading-view .callout[data-callout="outfit"] > .callout-content > p:not(:first-child) {
+.markdown-reading-view .callout:is([data-callout="item"], [data-callout="outfit"]) > .callout-content > p:not(:first-child) {
 	margin: 0;
 	padding: 0.55rem 0.9rem;
 	border-top: 1px solid tint(var(--callout-color), 18%);
