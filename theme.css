@@ -2210,11 +2210,11 @@ body.is-phone .home .callout[data-callout=hero] {
 .markdown-reading-view .callout[data-callout=place] > .callout-content > ul > li > strong {
   display: block;
   margin-bottom: 0.1rem;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: normal;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--callout-color);
+  color: color-mix(in oklch, var(--callout-color) 70%, white);
 }
 
 @media (max-width: 40rem) {
