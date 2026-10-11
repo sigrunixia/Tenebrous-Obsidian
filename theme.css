@@ -1164,6 +1164,11 @@ body.is-phone .home .callout[data-callout=hero] {
   --hub-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z'/><path d='M8 10h8'/><path d='M8 18h8'/><path d='M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6'/><path d='M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2'/></svg>");
 }
 
+.hub-wardrobe {
+  --hub-hue: var(--pink);
+  --hub-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z'/></svg>");
+}
+
 .idea .inline-title {
   position: relative;
   padding: 0.15em 0 0.15em 1.1em;
@@ -2034,74 +2039,6 @@ body.is-phone .home .callout[data-callout=hero] {
   }
 }
 
-.outfit .inline-title {
-  padding-bottom: 0.2em;
-  border-bottom: 2px solid transparent;
-  border-image: linear-gradient(90deg, var(--purple), transparent 80%) 1;
-}
-
-.markdown-preview-view.outfit .metadata-container {
-  float: right;
-  width: clamp(14rem, 32vw, 20rem);
-  max-width: 45%;
-  margin: 0.25rem 0 0.6rem 1.4rem;
-  overflow: hidden;
-  border: 1px solid var(--background-modifier-border);
-  border-top: 3px solid var(--purple);
-  border-radius: 4px;
-  background: var(--background-secondary);
-  font-size: 0.85rem;
-}
-.markdown-preview-view.outfit .metadata-container .metadata-properties-heading {
-  display: none;
-}
-.markdown-preview-view.outfit .metadata-container .metadata-properties {
-  padding: 0.3rem 0;
-}
-.markdown-preview-view.outfit .metadata-container .metadata-property {
-  display: block;
-  min-height: 0;
-  padding: 0.45rem 0.9rem;
-  border: none;
-}
-.markdown-preview-view.outfit .metadata-container .metadata-property:is([data-property-key=aliases],
-[data-property-key=categories],
-[data-property-key=cssclasses],
-[data-property-key=created],
-[data-property-key=modified],
-[data-property-key=publish],
-[data-property-key=permalink],
-[data-property-key=description],
-[data-property-key=cover],
-[data-property-key=sources],
-[data-property-key=tags]), .markdown-preview-view.outfit .metadata-container .metadata-property:has(.is-empty), .markdown-preview-view.outfit .metadata-container .metadata-property:has(.metadata-input-longtext:empty), .markdown-preview-view.outfit .metadata-container .metadata-property:has(.multi-select-container > .multi-select-input:only-child) {
-  display: none;
-}
-.markdown-preview-view.outfit .metadata-container .metadata-property-key {
-  width: auto;
-  margin-bottom: 0.1rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-.markdown-preview-view.outfit .metadata-container .metadata-property-key .metadata-property-icon,
-.markdown-preview-view.outfit .metadata-container .metadata-property-key .metadata-property-key-input {
-  display: none;
-}
-.markdown-preview-view.outfit .metadata-container .metadata-property-value {
-  width: auto;
-  margin: 0;
-  padding: 0;
-}
-@media (max-width: 40rem) {
-  .markdown-preview-view.outfit .metadata-container {
-    float: none;
-    width: 100%;
-    margin: 0 0 1rem;
-  }
-}
-
 .person .inline-title {
   padding-bottom: 0.2em;
   border-bottom: 2px solid transparent;
@@ -2118,6 +2055,55 @@ body.is-phone .home .callout[data-callout=hero] {
   padding-bottom: 0.2em;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(90deg, var(--purple), transparent 80%) 1;
+}
+
+.outfit .inline-title {
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--purple), transparent 80%) 1;
+}
+
+.markdown-rendered .internal-embed[src^=outfit-cover] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+}
+.markdown-rendered .internal-embed[src^=outfit-illustration] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+}
+.markdown-rendered .internal-embed[src^=makeup-card] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+}
+.markdown-rendered .internal-embed[src^=makeup-two-looks] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+}
+.markdown-rendered .internal-embed[src^=greece-makeup-palette] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+}
+.markdown-rendered .internal-embed[src^=greece-wardrobe-palette] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+}
+.markdown-rendered .internal-embed[src^=wardrobe-status] img {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
 }
 
 .vocab {
@@ -2245,7 +2231,7 @@ body.is-phone .home .callout[data-callout=hero] {
     width: 100%;
   }
 }
-.markdown-reading-view .callout[data-callout=item] {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) {
   --callout-color: var(--purple);
   --callout-icon: lucide-shirt;
   float: right;
@@ -2257,16 +2243,16 @@ body.is-phone .home .callout[data-callout=hero] {
   border-radius: 14px;
   background: var(--background-secondary);
 }
-.markdown-reading-view .callout[data-callout=item] > .callout-title {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-title {
   display: none;
 }
-.markdown-reading-view .callout[data-callout=item] > .callout-content {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content {
   padding: 0;
 }
-.markdown-reading-view .callout[data-callout=item] > .callout-content > p:first-child {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > p:first-child {
   margin: 0;
 }
-.markdown-reading-view .callout[data-callout=item] .internal-embed.image-embed img {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) .internal-embed.image-embed img {
   display: block;
   width: 100%;
   aspect-ratio: 4/3;
@@ -2275,33 +2261,33 @@ body.is-phone .home .callout[data-callout=hero] {
   max-height: none;
   border-radius: 0;
 }
-.markdown-reading-view .callout[data-callout=item] > .callout-content > ul {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.markdown-reading-view .callout[data-callout=item] > .callout-content > ul > li {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > ul > li {
   margin: 0;
   padding: 0.55rem 0.9rem;
   border-top: 1px solid color-mix(in oklch, var(--callout-color) 18%, transparent);
   font-size: 0.85rem;
   list-style: none;
 }
-.markdown-reading-view .callout[data-callout=item] > .callout-content > ul > li::marker {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > ul > li::marker {
   content: "";
 }
-.markdown-reading-view .callout[data-callout=item] > .callout-content > ul > li > strong {
+.markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) > .callout-content > ul > li > strong {
   display: block;
   margin-bottom: 0.1rem;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: normal;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--callout-color);
+  color: color-mix(in oklch, var(--callout-color) 70%, white);
 }
 
 @media (max-width: 40rem) {
-  .markdown-reading-view .callout[data-callout=item] {
+  .markdown-reading-view .callout:is([data-callout=item], [data-callout=outfit]) {
     float: none;
     width: 100%;
     margin: 0 0 1rem;
@@ -2316,6 +2302,67 @@ body.is-phone .home .callout[data-callout=hero] {
     width: 100%;
   }
 }
+.markdown-reading-view .callout[data-callout=outfit] .internal-embed.image-embed img {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.markdown-reading-view .callout[data-callout=outfit] > .callout-content > p:not(:first-child) {
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border-top: 1px solid color-mix(in oklch, var(--callout-color) 18%, transparent);
+  font-size: 0.85rem;
+}
+.markdown-reading-view .callout[data-callout=outfit] > .callout-content > p:not(:first-child) > strong {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-size: 0.72rem;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--callout-color) 70%, white);
+}
+.markdown-reading-view .callout[data-callout=outfit] > .callout-content > p:not(:first-child) a.internal-link.is-unresolved {
+  color: color-mix(in oklch, var(--purple) 65%, white);
+  opacity: 1;
+}
+
+.callout[data-callout=pair] {
+  clear: both;
+  margin: 1rem 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.callout[data-callout=pair] > .callout-title {
+  display: none;
+}
+.callout[data-callout=pair] > .callout-content {
+  padding: 0;
+}
+.callout[data-callout=pair] > .callout-content > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+}
+.callout[data-callout=pair] > .callout-content > p > br {
+  display: none;
+}
+.callout[data-callout=pair] .internal-embed {
+  flex: 0 1 19rem;
+  min-width: 0;
+  max-width: 19rem;
+  display: flex;
+}
+.callout[data-callout=pair] .internal-embed img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top;
+}
+
 .callout[data-callout=grid] {
   padding: 0;
   border: none;

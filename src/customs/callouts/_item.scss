@@ -1,10 +1,10 @@
 @use '../../lib/functions' as *;
 @use '../../lib/callout-mixins' as *;
 
-// The infobox for wardrobe notes. The cover goes at the top and the facts below it. The
+// The infobox for wardrobe notes and outfits (the outfit callout, with the full cover in portrait). The cover goes at the top and the facts below it. The
 // width, the 4:3 crop and the rows match the place infobox, in the purple of the item hub. The crop
 // starts a quarter of the way down so the top of a garment stays in the frame.
-.markdown-reading-view .callout[data-callout="item"] {
+.markdown-reading-view .callout:is([data-callout="item"], [data-callout="outfit"]) {
 	--callout-color: var(--purple);
 	--callout-icon: lucide-shirt;
 	float: right;
@@ -49,16 +49,16 @@
 	> .callout-content > ul > li > strong {
 		display: block;
 		margin-bottom: 0.1rem;
-		font-size: 0.68rem;
+		font-size: 0.72rem;
 		font-weight: normal;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: var(--callout-color);
+		color: color-mix(in oklch, var(--callout-color) 70%, white);
 	}
 }
 
 @media (max-width: 40rem) {
-	.markdown-reading-view .callout[data-callout="item"] {
+	.markdown-reading-view .callout:is([data-callout="item"], [data-callout="outfit"]) {
 		float: none;
 		width: 100%;
 		margin: 0 0 1rem;
@@ -74,5 +74,36 @@
 @media (max-width: 40rem) {
 	.markdown-reading-view .el-div:has(> .callout[data-callout="item"]) ~ .el-p:has(.bases-embed) {
 		width: 100%;
+	}
+}
+
+.markdown-reading-view .callout[data-callout="outfit"] .internal-embed.image-embed img {
+	aspect-ratio: auto;
+	object-fit: contain;
+}
+
+// The outfit callout holds its facts as plain lines and not as a list, so there is no bullet to
+// hide. The label is lighter than the item label and unresolved links are lifted off the dark fill,
+// to keep the small text readable. The outfit bases keep the full width, since the callout ends
+// well above them.
+.markdown-reading-view .callout[data-callout="outfit"] > .callout-content > p:not(:first-child) {
+	margin: 0;
+	padding: 0.55rem 0.9rem;
+	border-top: 1px solid tint(var(--callout-color), 18%);
+	font-size: 0.85rem;
+
+	> strong {
+		display: block;
+		margin-bottom: 0.1rem;
+		font-size: 0.72rem;
+		font-weight: normal;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: color-mix(in oklch, var(--callout-color) 70%, white);
+	}
+
+	a.internal-link.is-unresolved {
+		color: color-mix(in oklch, var(--purple) 65%, white);
+		opacity: 1;
 	}
 }

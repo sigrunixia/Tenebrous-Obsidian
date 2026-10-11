@@ -1,0 +1,42 @@
+@use '../../lib/callout-mixins' as *;
+
+// Two images side by side, for the outfit card and the makeup card on an outfit note. The two
+// embeds share one paragraph, which becomes a row, and the callout has no frame, title or fill.
+// Each card stops at 19 rem, close to the size it is drawn at, so the text keeps its drawn size.
+// In a narrow pane the cards shrink and then wrap. The callout clears the infobox float above it,
+// because a callout shrinks to fit beside a float, and the cards would wrap under each other.
+.callout[data-callout="pair"] {
+	clear: both;
+	margin: 1rem 0;
+	padding: 0;
+	border: none;
+	background: none;
+	@include untitled;
+
+	> .callout-content > p {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin: 0;
+	}
+
+	> .callout-content > p > br {
+		display: none;
+	}
+
+	.internal-embed {
+		flex: 0 1 19rem;
+		min-width: 0;
+		max-width: 19rem;
+		display: flex;
+	}
+
+	// The cards stretch to the same height, and each drawing stays at the top of its card.
+	.internal-embed img {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+		object-position: top;
+	}
+}

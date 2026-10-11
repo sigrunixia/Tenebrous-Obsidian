@@ -35,7 +35,8 @@ $hubs: (
 	("projects", "cyan", "wrench"),
 	("tattoos", "red", "flame"),
 	("essays", "purple", "scroll-text"),
-	("gear", "orange", "backpack")
+	("gear", "orange", "backpack"),
+	("wardrobe", "pink", "shirt")
 );
 
 @each $name, $hue, $icon in $hubs {

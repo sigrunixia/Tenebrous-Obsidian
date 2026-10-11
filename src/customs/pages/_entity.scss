@@ -7,7 +7,7 @@
 // so they only get the title rule. Everything else also gets its properties as a card beside
 // the opening text, like the trip and project cards. The card is reading view only, and
 // Live Preview keeps Obsidian's plain properties. The outfit class goes on outfit notes, which
-// show their properties as a card. The wardrobe class goes on clothing, accessory and beauty
+// keep a title rule and get their facts and cover from the outfit callout (callouts/item). The wardrobe class goes on clothing, accessory and beauty
 // product notes and the wardrobe plans, which keep a title rule and get their facts and cover
 // from the item callout (callouts/item).
 $entities: (
@@ -22,14 +22,14 @@ $entities: (
 	"podcast-episode": "yellow",
 	"recipe": "teal",
 	"event": "teal",
-	"program": "red",
-	"outfit": "purple"
+	"program": "red"
 );
 
 $title-only: (
 	"person": "purple",
 	"item": "purple",
-	"wardrobe": "purple"
+	"wardrobe": "purple",
+	"outfit": "purple"
 );
 
 @mixin title-rule($hue) {

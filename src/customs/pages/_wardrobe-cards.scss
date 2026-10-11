@@ -1,0 +1,18 @@
+@use '../../lib/radius';
+
+// The wardrobe illustrations (outfit covers, outfit cards, makeup cards and the palettes) are
+// drawn on a transparent background in dark ink, so they sit on a cream card. The cream is
+// the theme's yellow mixed into its silver, in oklab so the mix stays warm in every browser. 
+$wardrobe-art: "outfit-cover", "outfit-illustration", "makeup-card", "makeup-two-looks",
+	"greece-makeup-palette", "greece-wardrobe-palette", "wardrobe-status";
+
+.markdown-rendered {
+	@each $name in $wardrobe-art {
+		.internal-embed[src^="#{$name}"] img {
+			box-sizing: border-box;
+			padding: 0.75rem;
+			border-radius: radius.$radius;
+			background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+		}
+	}
+}
