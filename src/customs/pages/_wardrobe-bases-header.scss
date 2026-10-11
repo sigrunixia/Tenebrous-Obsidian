@@ -1,0 +1,6 @@
+// Every base on a wardrobe note or an outfit has one view, so the toolbar over it (the view name,
+// the result count, sort, group, filter and properties) only gets in the way. Obsidian puts no class on
+// a base that has a single view, so this is scoped to the two page classes.
+.markdown-rendered:is(.wardrobe, .outfit) .bases-header {
+	display: none;
+}

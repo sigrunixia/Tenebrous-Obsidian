@@ -2112,6 +2112,10 @@ body.is-phone .home .callout[data-callout=hero] {
   background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
 }
 
+.markdown-rendered:is(.wardrobe, .outfit) .bases-header {
+  display: none;
+}
+
 .vocab {
   --vocab-hue: var(--amber);
   --vocab-label: "Term";
