@@ -1,0 +1,7 @@
+// The width of a wardrobe page. Reading view has no line limit here, so on a wide window the text
+// runs the full width and the infobox sits far from it. The body stops at 75 rem and is centred,
+// and the infobox goes with it.
+.markdown-preview-view:is(.outfit, .wardrobe) .markdown-preview-sizer {
+	max-width: 75rem;
+	margin-inline: auto;
+}

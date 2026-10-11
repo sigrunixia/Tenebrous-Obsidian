@@ -2116,6 +2116,11 @@ body.is-phone .home .callout[data-callout=hero] {
   display: none;
 }
 
+.markdown-preview-view:is(.outfit, .wardrobe) .markdown-preview-sizer {
+  max-width: 75rem;
+  margin-inline: auto;
+}
+
 .vocab {
   --vocab-hue: var(--amber);
   --vocab-label: "Term";
