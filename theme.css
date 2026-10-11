@@ -2299,12 +2299,12 @@ body.is-phone .home .callout[data-callout=hero] {
     margin: 0 0 1rem;
   }
 }
-.markdown-reading-view .el-div:has(> .callout[data-callout=item]) ~ .el-p:has(.bases-embed) {
+.markdown-reading-view .el-div:has(> .callout[data-callout=item]) ~ :is(.el-p, .el-pre):has(.bases-embed) {
   width: calc(100% - 19.4rem);
 }
 
 @media (max-width: 40rem) {
-  .markdown-reading-view .el-div:has(> .callout[data-callout=item]) ~ .el-p:has(.bases-embed) {
+  .markdown-reading-view .el-div:has(> .callout[data-callout=item]) ~ :is(.el-p, .el-pre):has(.bases-embed) {
     width: 100%;
   }
 }
