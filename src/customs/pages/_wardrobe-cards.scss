@@ -16,3 +16,20 @@ $wardrobe-art: "item-cover", "outfit-cover", "outfit-illustration", "makeup-card
 		}
 	}
 }
+
+// The cover of a card in a base is a background image, cropped to fill the card. The wardrobe
+// illustrations are drawn on a transparent background and are meant to be seen whole, so they
+// sit inside the card on the same cream as the other wardrobe art.
+.markdown-rendered {
+	@each $name in $wardrobe-art {
+		.bases-cards-cover[style*="/#{$name}"] {
+			box-sizing: border-box;
+			padding: 0.75rem;
+			background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+			background-origin: content-box;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain !important;
+		}
+	}
+}

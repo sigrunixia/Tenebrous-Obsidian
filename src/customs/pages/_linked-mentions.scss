@@ -26,3 +26,19 @@
 		scrollbar-width: none;
 	}
 }
+
+// A note nothing links to has an empty Posts view, which leaves a bare heading above a blank gap.
+// An empty cards container has no children, so the heading and the view collapse to nothing when it
+// is empty. They are not set to display none, because Obsidian does not fill a view it cannot lay
+// out, and the view would stay empty for a note that does have links.
+.markdown-rendered:is(.item, .wardrobe, .outfit) {
+	.el-h2:has(+ .el-pre .bases-view[data-view-name="Posts"] .bases-cards-container:empty),
+	.el-pre:has(.bases-view[data-view-name="Posts"] .bases-cards-container:empty) {
+		height: 0;
+		min-height: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+}

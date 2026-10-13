@@ -2,9 +2,9 @@
 
 // Two images side by side, for the outfit card and the makeup card on an outfit note. The two
 // embeds share one paragraph, which becomes a row, and the callout has no frame, title or fill.
-// Each card is 300 px, the size it is drawn at, so the text keeps its drawn size. A callout shrinks
-// to fit beside the infobox float, so the cards sit next to it and shrink a little if they must,
-// and wrap under each other when there is no room. The callout does not clear the float. Clearing
+// Each card is at most 300 px, the size it is drawn at, and at least 250 px. A callout shrinks to fit
+// beside the infobox float, so two cards sit side by side at a slightly smaller size where there is
+// room for two, and wrap under each other when there is not. The callout does not clear the float. Clearing
 // added a gap that was part of the section's height, and when Obsidian dropped the infobox from
 // the page as it scrolled away the gap went and the page jumped by about 300 px.
 .callout[data-callout="pair"] {
@@ -26,7 +26,7 @@
 	}
 
 	.internal-embed {
-		flex: 0 1 300px;
+		flex: 1 1 250px;
 		min-width: 0;
 		max-width: 300px;
 		display: flex;

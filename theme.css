@@ -2112,6 +2112,79 @@ body.is-phone .home .callout[data-callout=hero] {
   background: color-mix(in oklab, var(--yellow) 65%, var(--silver));
 }
 
+.markdown-rendered .bases-cards-cover[style*="/item-cover"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+.markdown-rendered .bases-cards-cover[style*="/outfit-cover"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+.markdown-rendered .bases-cards-cover[style*="/outfit-illustration"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+.markdown-rendered .bases-cards-cover[style*="/makeup-card"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+.markdown-rendered .bases-cards-cover[style*="/makeup-two-looks"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+.markdown-rendered .bases-cards-cover[style*="/greece-makeup-palette"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+.markdown-rendered .bases-cards-cover[style*="/greece-wardrobe-palette"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+.markdown-rendered .bases-cards-cover[style*="/wardrobe-status"] {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  background-color: color-mix(in oklab, var(--yellow) 65%, var(--silver));
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain !important;
+}
+
 .markdown-rendered:is(.wardrobe, .outfit) .bases-header {
   display: none;
 }
@@ -2139,6 +2212,16 @@ body.is-phone .home .callout[data-callout=hero] {
 }
 .markdown-rendered:is(.item, .wardrobe, .outfit) .bases-view[data-view-name=Posts] .bases-cards-container {
   scrollbar-width: none;
+}
+
+.markdown-rendered:is(.item, .wardrobe, .outfit) .el-h2:has(+ .el-pre .bases-view[data-view-name=Posts] .bases-cards-container:empty),
+.markdown-rendered:is(.item, .wardrobe, .outfit) .el-pre:has(.bases-view[data-view-name=Posts] .bases-cards-container:empty) {
+  height: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 .vocab {
@@ -2385,7 +2468,7 @@ body.is-phone .home .callout[data-callout=hero] {
   display: none;
 }
 .callout[data-callout=pair] .internal-embed {
-  flex: 0 1 300px;
+  flex: 1 1 250px;
   min-width: 0;
   max-width: 300px;
   display: flex;

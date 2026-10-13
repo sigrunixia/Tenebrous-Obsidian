@@ -136,6 +136,10 @@
   --callout-icon: lucide-backpack;
   --hub-hue: var(--orange);
 }
+.landing .callout[data-callout=hub-wardrobe] {
+  --callout-icon: lucide-shirt;
+  --hub-hue: var(--green);
+}
 .landing .callout[data-callout=hub-about] {
   --callout-icon: lucide-user;
   --hub-hue: var(--yellow);

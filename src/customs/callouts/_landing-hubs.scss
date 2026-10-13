@@ -39,6 +39,11 @@
 		--hub-hue: var(--orange);
 	}
 
+	.callout[data-callout="hub-wardrobe"] {
+		--callout-icon: lucide-shirt;
+		--hub-hue: var(--green);
+	}
+
 	.callout[data-callout="hub-about"] {
 		--callout-icon: lucide-user;
 		--hub-hue: var(--yellow);
