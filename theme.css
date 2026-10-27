@@ -453,91 +453,6 @@ svg * {
   color: var(--text-muted);
 }
 
-.home .inline-title {
-  display: none;
-}
-
-.markdown-rendered.home .metadata-container {
-  display: none;
-}
-
-.home h2 {
-  display: flex;
-  align-items: center;
-  gap: 0.45em;
-  margin-top: 1.7em;
-  padding-bottom: 0.35em;
-  border-bottom: 0;
-  background: linear-gradient(90deg, var(--h2-color), transparent 75%) bottom/100% 2px no-repeat;
-}
-.home h3 {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  margin-top: 1.1em;
-  font-size: 0.8em;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-.home :is(h2, h3)[data-heading]::before {
-  content: "";
-  flex: none;
-  width: 1.1em;
-  height: 1.1em;
-  background-color: var(--h2-color);
-  -webkit-mask: var(--heading-icon) center/contain no-repeat;
-  mask: var(--heading-icon) center/contain no-repeat;
-}
-.home .internal-embed[src^="Tenebrous ledger report"] :is(h1, h2, h3, h4) {
-  display: none;
-}
-.home .internal-embed[src^="Tenebrous ledger report"] .markdown-preview-view {
-  padding: 0.4em 1em;
-}
-.home .internal-embed[src^="Tenebrous ledger report"] .markdown-embed-title,
-.home .internal-embed[src^="Tenebrous ledger report"] .markdown-preview-pusher {
-  display: none;
-}
-.home .internal-embed[src^="Tenebrous ledger report"] .markdown-preview-section > div:empty {
-  display: none;
-}
-.home .internal-embed[src^="Tenebrous ledger report"] :is(ul, ol, p) {
-  margin-block: 0.3em;
-}
-
-.home :is(h2, h3)[data-heading=Επερχόμενα] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 14v2.2l1.6 1'/><path d='M16 2v3'/><path d='M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338'/><path d='M3 9h5.859'/><path d='M8 2v3'/><circle cx='16' cy='16' r='6'/></svg>");
-}
-.home :is(h2, h3)[data-heading="Σαν σήμερα"] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8'/><path d='M3 3v5h5'/><path d='M12 7v5l4 2'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Ζώπυρα] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Πρόσφατα] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z'/><path d='M20 2v4'/><path d='M22 4h-4'/><circle cx='4' cy='20' r='2'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Προϋπολογισμός] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1'/><path d='M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Περιήγηση] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='7' height='7' x='3' y='3' rx='1'/><rect width='7' height='7' x='14' y='3' rx='1'/><rect width='7' height='7' x='14' y='14' rx='1'/><rect width='7' height='7' x='3' y='14' rx='1'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Συντήρηση] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Σημειώσεις] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4'/><path d='M2 6h4'/><path d='M2 10h4'/><path d='M2 14h4'/><path d='M2 18h4'/><path d='M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Ιδέες] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5'/><path d='M9 18h6'/><path d='M10 22h4'/></svg>");
-}
-.home :is(h2, h3)[data-heading=Ταξίδια] {
-  --heading-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z'/></svg>");
-}
-
 :is(.home, .hub, .gallery) .bases-view {
   font-size: 0.85em;
 }
@@ -608,37 +523,6 @@ svg * {
   border: 1px solid color-mix(in oklch, var(--orange) 40%, transparent);
 }
 
-.home a.tag {
-  --ember: var(--text-muted);
-  color: var(--ember);
-  background: color-mix(in oklch, var(--ember) 14%, transparent);
-  border-color: color-mix(in oklch, var(--ember) 40%, transparent);
-}
-
-.home a.tag[href="#movement"] {
-  --ember: var(--orange);
-}
-
-.home a.tag[href="#nature"] {
-  --ember: var(--green);
-}
-
-.home a.tag[href="#art"] {
-  --ember: var(--purple);
-}
-
-.home a.tag[href="#offering"] {
-  --ember: var(--yellow);
-}
-
-.home a.tag[href="#belonging"] {
-  --ember: var(--teal);
-}
-
-.home a.tag[href="#learning"] {
-  --ember: var(--periwinkle);
-}
-
 @media (hover: hover) {
   :is(.home, .hub, .gallery) .bases-cards-item:hover {
     box-shadow: 0 6px 18px color-mix(in oklch, var(--background-primary) 60%, #000);
@@ -653,10 +537,6 @@ svg * {
   :is(.home, .hub, .gallery) .bases-cards-item:hover {
     transform: translateY(-2px);
   }
-}
-
-body.is-phone .home h2 {
-  margin-top: 1.3em;
 }
 
 .callout .callout {
@@ -2853,29 +2733,6 @@ body.is-phone .home .callout[data-callout=hero] {
   font-family: Georgia, "Times New Roman", "Noto Serif", serif;
 }
 
-.home h2 {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-.home h2 {
-  position: relative;
-  padding-bottom: 0.9em;
-  background: none;
-}
-.home h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 12px;
-  pointer-events: none;
-  background-color: var(--h2-color);
-  opacity: 0.55;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0 19h1V1h18v12H7V7h6v12h7' fill='none' stroke='black' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E") repeat-x left center/12px 12px;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0 19h1V1h18v12H7V7h6v12h7' fill='none' stroke='black' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E") repeat-x left center/12px 12px;
-  bottom: 0;
-}
-
 .hub .inline-title {
   padding-bottom: calc(clamp(1rem, 4vw, 1.6rem) + 12px);
 }
@@ -2903,10 +2760,6 @@ body.is-phone .home .callout[data-callout=hero] {
   background-color: color-mix(in oklch, var(--periwinkle) 55%, #fff);
   background-origin: content-box;
   padding: 0.6rem;
-}
-
-.home .bases-header {
-  display: none;
 }
 
 a.tag[href="#todo"],

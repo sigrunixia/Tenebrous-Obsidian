@@ -10,15 +10,10 @@
 @use 'theme/canvas-minimap';
 @use 'theme/highlight-text';
 @use 'theme/footnote-backref';
-@use 'customs/home/hidden-title-metadata';
-@use 'customs/home/section-headings';
-@use 'customs/home/heading-icons';
 @use 'customs/home/cards-layout';
 @use 'customs/home/card-covers';
 @use 'customs/home/days-badge';
-@use 'customs/home/ember-tags';
 @use 'customs/home/card-lift';
-@use 'customs/home/phone-headings';
 @use 'customs/callouts/nested';
 @use 'customs/callouts/title-color';
 @use 'customs/callouts/hero';
@@ -52,9 +47,7 @@
 @use 'customs/pages/trip-infobox';
 @use 'customs/greek/square-corners';
 @use 'customs/greek/fonts';
-@use 'customs/greek/home-headings';
 @use 'customs/greek/hub-title-band';
 @use 'customs/greek/idea-title-rules';
 @use 'customs/greek/cover-backdrop';
-@use 'customs/home/hide-bases-header';
 @use 'customs/tag-lines';
