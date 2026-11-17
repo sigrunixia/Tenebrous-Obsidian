@@ -1,0 +1,15 @@
+// A base with one view has nothing to switch, so the toolbar over its embed (the view name, the result
+// count, sort, group, filter and properties) only gets in the way. Obsidian puts no class on a base with a
+// single view, so each one is named here by the start of the embed's `src`. Add a base to this list when
+// it is made with one view, and take it out when a second view is added.
+.bases-embed:is(
+	[src^="Backlinks.base"],
+	[src^="Hub backlinks.base"],
+	[src^="Χρονικά.base"],
+	[src^="Person card.base"],
+	[src^="Apps.base"],
+	[src^="Communities.base"],
+	[src^="Programs.base"]
+) .bases-header {
+	display: none;
+}
