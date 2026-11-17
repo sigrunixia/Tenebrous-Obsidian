@@ -1,0 +1,65 @@
+// The seven embers from `Manifesting embers` are tags, and they get a pill of their own so they never read
+// as one of the status tags (`todo`, `doing` and so on), which paint the whole line. Each has a colour and
+// an icon. Reading view has one `a.tag` and carries the icon. Live Preview splits a tag into a `#` span
+// and a name span, so the pill is built from the two halves there, without the icon.
+@use '../../lib/icons' as *;
+
+// tag, colour, icon
+$embers: (
+	("movement",  "red",    "footprints"),
+	("nature",    "green",  "leaf"),
+	("art",       "purple", "palette"),
+	("offering",  "amber",  "hand-heart"),
+	("belonging", "pink",   "heart-handshake"),
+	("learning",  "cyan",   "graduation-cap"),
+	("shadow",    "blue",   "eclipse")
+);
+
+@mixin ember-icon($glyph) {
+	content: "";
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.12em;
+	background: currentColor;
+	-webkit-mask: #{icon($glyph)} center / contain no-repeat;
+	mask: #{icon($glyph)} center / contain no-repeat;
+}
+
+@each $tag, $colour, $glyph in $embers {
+
+	a.tag[href="##{$tag}"],
+	.cm-hashtag.cm-tag-#{$tag} {
+		--ember-colour: var(--#{$colour});
+		--tag-color: var(--ember-colour);
+		padding-block: 0.05em;
+		border: 1px solid var(--ember-colour);
+		background: color-mix(in oklch, var(--ember-colour) 28%, transparent);
+		color: var(--ember-colour);
+		text-transform: uppercase;
+		text-decoration: none;
+		box-shadow: 0 0 0.6em color-mix(in oklch, var(--ember-colour) 40%, transparent);
+	}
+
+	a.tag[href="##{$tag}"] {
+		padding-inline: 0.55em 0.7em;
+		border-radius: var(--radius-s);
+
+		&::before {
+			@include ember-icon($glyph);
+			margin-right: 0.35em;
+		}
+	}
+
+	.cm-hashtag-begin.cm-tag-#{$tag} {
+		padding-inline-start: 0.55em;
+		border-right: 0;
+		border-radius: var(--radius-s) 0 0 var(--radius-s);
+	}
+
+	.cm-hashtag-end.cm-tag-#{$tag} {
+		padding-inline-end: 0.7em;
+		border-left: 0;
+		border-radius: 0 var(--radius-s) var(--radius-s) 0;
+	}
+}
