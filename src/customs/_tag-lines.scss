@@ -1,6 +1,20 @@
 @use 'sass:list';
+@use 'sass:map';
 @use '../lib/functions' as *;
 @use '../lib/tag-lines' as *;
+@use '../lib/icons' as *;
+
+// Each status has its own icon, in front of its tag.
+$status-icons: (
+	todo:      "circle",
+	doing:     "loader",
+	waiting:   "hourglass",
+	blocked:   "octagon-x",
+	completed: "circle-check",
+	canceled:  "ban",
+	important: "star",
+	question:  "circle-help"
+);
 
 @mixin tag-line($tag, $color, $tint: 12%, $rule: true, $strike: false) {
 
@@ -22,7 +36,36 @@
 		}
 	}
 
+	a.tag[href="##{$tag}"]::before,
+	.cm-hashtag-begin.cm-tag-#{$tag}::before {
+		content: "";
+		display: inline-block;
+		width: 0.9em;
+		height: 0.9em;
+		margin-right: 0.3em;
+		vertical-align: -0.1em;
+		background: currentColor;
+		-webkit-mask: #{icon(map.get($status-icons, $tag))} center / contain no-repeat;
+		mask: #{icon(map.get($status-icons, $tag))} center / contain no-repeat;
+	}
+
+	// The bar and the tag mark the item, so it drops its bullet. The bar reaches back to where the bullet or
+	// checkbox hung, and a tag with no checkbox moves into that space.
+	li:has(> a.tag[href="##{$tag}"]):not(:has(> br)) {
+		margin-inline-start: calc(var(--list-indent, 2.25em) - 1.9em);
+		padding-inline-start: 1.9em;
+
+		> .list-bullet { display: none; }
+	}
+
+	li:not(.task-list-item) > a.tag[href="##{$tag}"]:first-of-type {
+		margin-inline-start: -1.5em;
+	}
+
 	.cm-line:has(.cm-tag-#{$tag}) {
+		.list-bullet { display: none; }
+
+		&:not(:has(.task-list-label)) .cm-formatting-list-ul { display: none; }
 		@include tag-line-paint($color, $tint, $rule, $strike);
 	}
 }
