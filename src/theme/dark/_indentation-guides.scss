@@ -2,3 +2,11 @@
 	--indentation-guide-color:        var(--text-faint);
 	--indentation-guide-color-active: var(--text-faint);
 }
+
+// No guide line beside nested lists, in reading view or the editor. The file explorer keeps its own.
+.markdown-rendered.show-indentation-guide li > ul::before,
+.markdown-rendered.show-indentation-guide li > ol::before,
+.markdown-source-view.mod-cm6 .cm-indent::before,
+.markdown-source-view.mod-cm6 .cm-active-indent::before {
+	display: none;
+}
